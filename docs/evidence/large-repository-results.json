@@ -1,0 +1,728 @@
+{
+  "date": "2026-10-20",
+  "formula": "cpath.complexity-ranking.v1",
+  "binary_sha256": "db0d96ca04bfcd647bb03f7847a2d8b87318b058a6f936db24824e595a5304e1",
+  "method": "Default scans first; scoped evaluation excludes only reported parse-failure files. Three sequential interleaved new-process repetitions each at 1 and 8 workers. WSL2 /mnt/c storage, OS caches uncontrolled. Source review is an assistant assessment, not upstream maintainer validation.",
+  "repositories": [
+    {
+      "name": "jellyfin",
+      "github": "https://github.com/jellyfin/jellyfin",
+      "commit": "08c2ba6e0b6499122822f1c5b18bc426104538b4",
+      "tracked_cs_files": 2251,
+      "tracked_cs_bytes": 13751366,
+      "default_exit": 1,
+      "default_elapsed_seconds": 2.576030490017729,
+      "default_timing": "Command exited with non-zero status 1\n2.56 2.05 1.56 134928\n",
+      "default_stderr": "cpath: MediaBrowser.MediaEncoding/Subtitles/SubtitleEditParser.cs: unsupported or malformed C# syntax at line 105, column 63\n",
+      "target_worktree_clean": true,
+      "excludes": [
+        "MediaBrowser.MediaEncoding/Subtitles/SubtitleEditParser.cs"
+      ],
+      "selected_files": 2193,
+      "selected_lines": 285144,
+      "selected_bytes": 10895523,
+      "selected_tokens": 1242431,
+      "selection": "SelectionStats { candidates: 2658, selected: 2194, skipped: {Metadata: 1, Excluded: 1, UnsupportedLanguage: 407, GeneratedName: 56} }",
+      "content_skips": "{GeneratedHeader: 1}",
+      "benchmark": {
+        "1": {
+          "median_seconds": 8.178153749002377,
+          "min_seconds": 7.652436082018539,
+          "max_seconds": 8.865354345005471,
+          "max_rss_kib": 166652
+        },
+        "8": {
+          "median_seconds": 2.6132071370084304,
+          "min_seconds": 2.550944710994372,
+          "max_seconds": 3.354602564009838,
+          "max_rss_kib": 177528
+        }
+      },
+      "runs": [
+        {
+          "workers": 1,
+          "repeat": 0,
+          "wall_seconds": 7.652436082018539,
+          "max_rss_kib": 164752
+        },
+        {
+          "workers": 8,
+          "repeat": 0,
+          "wall_seconds": 2.6132071370084304,
+          "max_rss_kib": 176880
+        },
+        {
+          "workers": 1,
+          "repeat": 1,
+          "wall_seconds": 8.178153749002377,
+          "max_rss_kib": 166652
+        },
+        {
+          "workers": 8,
+          "repeat": 1,
+          "wall_seconds": 2.550944710994372,
+          "max_rss_kib": 177368
+        },
+        {
+          "workers": 1,
+          "repeat": 2,
+          "wall_seconds": 8.865354345005471,
+          "max_rss_kib": 164928
+        },
+        {
+          "workers": 8,
+          "repeat": 2,
+          "wall_seconds": 3.354602564009838,
+          "max_rss_kib": 177528
+        }
+      ],
+      "stdout_sha256": "b0a3e1489b8b3c038023505964f9dc05d87cff284034bd411b77f67d9c4c1524",
+      "stage_seconds": {
+        "clones": 0.099406214,
+        "file_pipeline": 3.104985809,
+        "ranking": 0.000512927,
+        "total": 3.204905813
+      },
+      "top10": [
+        {
+          "path": "MediaBrowser.Model/Dlna/StreamBuilder.cs",
+          "score": 255,
+          "burden": 403,
+          "method": {
+            "complexity": 255,
+            "end": 2289,
+            "name": "ApplyTranscodingConditions",
+            "start": 1755
+          }
+        },
+        {
+          "path": "Jellyfin.Server.Implementations/Item/BaseItemRepository.TranslateQuery.cs",
+          "score": 250,
+          "burden": 235,
+          "method": {
+            "complexity": 250,
+            "end": 1294,
+            "name": "TranslateQuery",
+            "start": 82
+          }
+        },
+        {
+          "path": "MediaBrowser.Providers/MediaInfo/AudioFileProber.cs",
+          "score": 207,
+          "burden": 192,
+          "method": {
+            "complexity": 207,
+            "end": 574,
+            "name": "FetchDataFromTags",
+            "start": 174
+          }
+        },
+        {
+          "path": "Jellyfin.Server.Implementations/Item/ItemPersistenceService.cs",
+          "score": 157,
+          "burden": 142,
+          "method": {
+            "complexity": 157,
+            "end": 790,
+            "name": "UpdateOrInsertItems",
+            "start": 313
+          }
+        },
+        {
+          "path": "Emby.Server.Implementations/Dto/DtoService.cs",
+          "score": 147,
+          "burden": 256,
+          "method": {
+            "complexity": 147,
+            "end": 1683,
+            "name": "AttachBasicFields",
+            "start": 1111
+          }
+        },
+        {
+          "path": "MediaBrowser.Controller/MediaEncoding/EncodingHelper.cs",
+          "score": 135,
+          "burden": 1235,
+          "method": {
+            "complexity": 135,
+            "end": 4804,
+            "name": "GetIntelQsvDx11VidFiltersPrefered",
+            "start": 4514
+          }
+        },
+        {
+          "path": "MediaBrowser.Controller/Entities/Folder.cs",
+          "score": 134,
+          "burden": 149,
+          "method": {
+            "complexity": 134,
+            "end": 812,
+            "name": "ValidateChildrenInternal2",
+            "start": 417
+          }
+        },
+        {
+          "path": "MediaBrowser.MediaEncoding/Probing/ProbeResultNormalizer.cs",
+          "score": 126,
+          "burden": 214,
+          "method": {
+            "complexity": 126,
+            "end": 1063,
+            "name": "GetMediaStream",
+            "start": 700
+          }
+        },
+        {
+          "path": "MediaBrowser.XbmcMetadata/Parsers/BaseNfoParser.cs",
+          "score": 118,
+          "burden": 117,
+          "method": {
+            "complexity": 118,
+            "end": 665,
+            "name": "FetchDataFromXmlNode",
+            "start": 263
+          }
+        },
+        {
+          "path": "MediaBrowser.Providers/Manager/MetadataService.cs",
+          "score": 105,
+          "burden": 184,
+          "method": {
+            "complexity": 105,
+            "end": 1401,
+            "name": "MergeBaseItemData",
+            "start": 1141
+          }
+        }
+      ],
+      "reviews": [
+        {
+          "path": "MediaBrowser.Model/Dlna/StreamBuilder.cs",
+          "method": "ApplyTranscodingConditions",
+          "line": 1755,
+          "score": 255,
+          "grade": "A",
+          "correctness": "Exact manual sum: 255.",
+          "reason": "The 535-line transcoding-condition method combines qualifier gates, condition operators, parsing, and mutable stream limits/options. Similar cases invite inconsistent edits; review the supported-condition matrix and parameterized tests. Repeated independent switch arms inflate the perceived magnitude, so 255 is not a review-time estimate.",
+          "url": "https://github.com/jellyfin/jellyfin/blob/08c2ba6e0b6499122822f1c5b18bc426104538b4/MediaBrowser.Model/Dlna/StreamBuilder.cs#L1755"
+        },
+        {
+          "path": "Jellyfin.Server.Implementations/Item/BaseItemRepository.TranslateQuery.cs",
+          "method": "TranslateQuery",
+          "line": 82,
+          "score": 250,
+          "grade": "A",
+          "correctness": "Source structure consistent; exact 250 not independently recounted.",
+          "reason": "TranslateQuery spans 1,213 lines and combines media dimensions, tags, parental restrictions, ownership, alternate versions, playback state, and descendants. Most clauses are individually simple, but their composition and cross-filter interactions merit attention. Extract coherent filter groups and preserve combination tests; do not split solely to reduce the number.",
+          "url": "https://github.com/jellyfin/jellyfin/blob/08c2ba6e0b6499122822f1c5b18bc426104538b4/Jellyfin.Server.Implementations/Item/BaseItemRepository.TranslateQuery.cs#L82"
+        },
+        {
+          "path": "MediaBrowser.Providers/MediaInfo/AudioFileProber.cs",
+          "method": "FetchDataFromTags",
+          "line": 174,
+          "score": 207,
+          "grade": "A",
+          "correctness": "Source structure consistent; exact 207 not independently recounted.",
+          "reason": "FetchDataFromTags mixes tag fallback, field locks, metadata replacement, audiobook/music people roles, delimiters, dates, gain, provider IDs, and lyric persistence. Deeply nested state updates and policy combinations make this a strong human-review target.",
+          "url": "https://github.com/jellyfin/jellyfin/blob/08c2ba6e0b6499122822f1c5b18bc426104538b4/MediaBrowser.Providers/MediaInfo/AudioFileProber.cs#L174"
+        }
+      ]
+    },
+    {
+      "name": "powershell",
+      "github": "https://github.com/PowerShell/PowerShell",
+      "commit": "43d85c7a16d37a1e8f5a7519b170f0562ec4dbc4",
+      "tracked_cs_files": 1277,
+      "tracked_cs_bytes": 29406916,
+      "default_exit": 1,
+      "default_elapsed_seconds": 3.6096871460031252,
+      "default_timing": "Command exited with non-zero status 1\n3.60 4.51 0.53 242532\n",
+      "default_stderr": "cpath: src/Microsoft.PowerShell.Commands.Utility/commands/utility/Join-String.cs: unsupported or malformed C# syntax at line 170, column 13\nsrc/Microsoft.PowerShell.Commands.Utility/commands/utility/New-Object.cs: unsupported or malformed C# syntax at line 305, column 13\nsrc/Microsoft.PowerShell.ConsoleHost/host/msh/CommandLineParameterParser.cs: unsupported or malformed C# syntax at line 23, column 1\nsrc/Microsoft.PowerShell.ConsoleHost/host/msh/ConsoleHost.cs: unsupported or malformed C# syntax at line 46, column 1\nsrc/Microsoft.PowerShell.ConsoleHost/host/msh/ConsoleHostUserInterface.cs: unsupported or malformed C# syntax at line 1, column 1\nsrc/Microsoft.WSMan.Management/Interop.cs: unsupported or malformed C# syntax at line 203, column 52\nsrc/System.Management.Automation/FormatAndOutput/common/FormattingObjectsDeserializer.cs: unsupported or malformed C# syntax at line 155, column 9\nsrc/System.Management.Automation/engine/ComInterop/ComRuntimeHelpers.cs: unsupported or malformed C# syntax at line 1, column 1\nsrc/System.Management.Automation/engine/ComInterop/InteropServices/Variant.cs: unsupported or malformed C# syntax at line 130, column 21\nsrc/System.Management.Automation/engine/DataStoreAdapterProvider.cs: unsupported or malformed C# syntax at line 569, column 14\nsrc/System.Management.Automation/engine/DefaultCommandRuntime.cs: unsupported or malformed C# syntax at line 219, column 1\nsrc/System.Management.Automation/engine/InformationRecord.cs: unsupported or malformed C# syntax at line 102, column 41\nsrc/System.Management.Automation/engine/InitialSessionState.cs: unsupported or malformed C# syntax at line 2854, column 1\nsrc/System.Management.Automation/engine/Interop/Windows/QueryDosDevice.cs: unsupported or malformed C# syntax at line 25, column 18\nsrc/System.Management.Automation/engine/Modules/AnalysisCache.cs: unsupported or malformed C# syntax at line 725, column 48\nsrc/System.Management.Automation/engine/Modules/ModuleCmdletBase.cs: unsupported or malformed C# syntax at line 380, column 1\nsrc/System.Management.Automation/engine/MshCommandRuntime.cs: unsupported or malformed C# syntax at line 2044, column 1\nsrc/System.Management.Automation/engine/SessionStateLocationAPIs.cs: unsupported or malformed C# syntax at line 38, column 1\nsrc/System.Management.Automation/engine/cmdlet.cs: unsupported or malformed C# syntax at line 1675, column 1\nsrc/System.Management.Automation/engine/hostifaces/PowerShellProcessInstance.cs: unsupported or malformed C# syntax at line 98, column 39\nsrc/System.Management.Automation/engine/parser/Parser.cs: unsupported or malformed C# syntax at line 509, column 43\nsrc/System.Management.Automation/engine/parser/TypeResolver.cs: unsupported or malformed C# syntax at line 809, column 94\nsrc/System.Management.Automation/engine/remoting/common/RemoteSessionNamedPipe.cs: unsupported or malformed C# syntax at line 111, column 1\nsrc/System.Management.Automation/engine/remoting/fanin/WSManNativeAPI.cs: unsupported or malformed C# syntax at line 1778, column 24\nsrc/System.Management.Automation/engine/remoting/fanin/WSManTransportManager.cs: unsupported or malformed C# syntax at line 2748, column 1\nsrc/System.Management.Automation/engine/serialization.cs: unsupported or malformed C# syntax at line 3317, column 17\nsrc/System.Management.Automation/help/HelpCommands.cs: unsupported or malformed C# syntax at line 595, column 39\nsrc/System.Management.Automation/help/UpdatableHelpCommandBase.cs: unsupported or malformed C# syntax at line 554, column 39\nsrc/System.Management.Automation/help/UpdatableHelpSystem.cs: unsupported or malformed C# syntax at line 357, column 33\nsrc/System.Management.Automation/namespaces/FileSystemContentStream.cs: unsupported or malformed C# syntax at line 850, column 17\nsrc/System.Management.Automation/namespaces/FileSystemProvider.cs: unsupported or malformed C# syntax at line 790, column 9\nsrc/System.Management.Automation/namespaces/ProviderBase.cs: unsupported or malformed C# syntax at line 1355, column 17\n2 additional errors omitted\n",
+      "target_worktree_clean": true,
+      "excludes": [
+        "src/Microsoft.PowerShell.Commands.Utility/commands/utility/Join-String.cs",
+        "src/Microsoft.PowerShell.Commands.Utility/commands/utility/New-Object.cs",
+        "src/Microsoft.PowerShell.ConsoleHost/host/msh/CommandLineParameterParser.cs",
+        "src/Microsoft.PowerShell.ConsoleHost/host/msh/ConsoleHost.cs",
+        "src/Microsoft.PowerShell.ConsoleHost/host/msh/ConsoleHostUserInterface.cs",
+        "src/Microsoft.WSMan.Management/Interop.cs",
+        "src/System.Management.Automation/FormatAndOutput/common/FormattingObjectsDeserializer.cs",
+        "src/System.Management.Automation/engine/ComInterop/ComRuntimeHelpers.cs",
+        "src/System.Management.Automation/engine/ComInterop/InteropServices/Variant.cs",
+        "src/System.Management.Automation/engine/DataStoreAdapterProvider.cs",
+        "src/System.Management.Automation/engine/DefaultCommandRuntime.cs",
+        "src/System.Management.Automation/engine/InformationRecord.cs",
+        "src/System.Management.Automation/engine/InitialSessionState.cs",
+        "src/System.Management.Automation/engine/Interop/Windows/QueryDosDevice.cs",
+        "src/System.Management.Automation/engine/Modules/AnalysisCache.cs",
+        "src/System.Management.Automation/engine/Modules/ModuleCmdletBase.cs",
+        "src/System.Management.Automation/engine/MshCommandRuntime.cs",
+        "src/System.Management.Automation/engine/SessionStateLocationAPIs.cs",
+        "src/System.Management.Automation/engine/cmdlet.cs",
+        "src/System.Management.Automation/engine/hostifaces/PowerShellProcessInstance.cs",
+        "src/System.Management.Automation/engine/parser/Parser.cs",
+        "src/System.Management.Automation/engine/parser/TypeResolver.cs",
+        "src/System.Management.Automation/engine/remoting/common/RemoteSessionNamedPipe.cs",
+        "src/System.Management.Automation/engine/remoting/fanin/WSManNativeAPI.cs",
+        "src/System.Management.Automation/engine/remoting/fanin/WSManTransportManager.cs",
+        "src/System.Management.Automation/engine/serialization.cs",
+        "src/System.Management.Automation/help/HelpCommands.cs",
+        "src/System.Management.Automation/help/UpdatableHelpCommandBase.cs",
+        "src/System.Management.Automation/help/UpdatableHelpSystem.cs",
+        "src/System.Management.Automation/namespaces/FileSystemContentStream.cs",
+        "src/System.Management.Automation/namespaces/FileSystemProvider.cs",
+        "src/System.Management.Automation/namespaces/ProviderBase.cs",
+        "src/System.Management.Automation/singleshell/config/MshSnapinInfo.cs",
+        "src/System.Management.Automation/utils/StructuredTraceSource.cs"
+      ],
+      "selected_files": 1217,
+      "selected_lines": 659056,
+      "selected_bytes": 25841378,
+      "selected_tokens": 2145228,
+      "selection": "SelectionStats { candidates: 4557, selected: 1218, skipped: {Metadata: 1, Excluded: 34, Ignored: 17, UnsupportedLanguage: 3264, GeneratedName: 25} }",
+      "content_skips": "{GeneratedHeader: 1}",
+      "benchmark": {
+        "1": {
+          "median_seconds": 9.63065248701605,
+          "min_seconds": 8.20954304598854,
+          "max_seconds": 10.230723276006756,
+          "max_rss_kib": 274932
+        },
+        "8": {
+          "median_seconds": 3.506608787982259,
+          "min_seconds": 3.2482486780209,
+          "max_seconds": 4.598096533998614,
+          "max_rss_kib": 304748
+        }
+      },
+      "runs": [
+        {
+          "workers": 1,
+          "repeat": 0,
+          "wall_seconds": 10.230723276006756,
+          "max_rss_kib": 273684
+        },
+        {
+          "workers": 8,
+          "repeat": 0,
+          "wall_seconds": 4.598096533998614,
+          "max_rss_kib": 304748
+        },
+        {
+          "workers": 1,
+          "repeat": 1,
+          "wall_seconds": 9.63065248701605,
+          "max_rss_kib": 274932
+        },
+        {
+          "workers": 8,
+          "repeat": 1,
+          "wall_seconds": 3.2482486780209,
+          "max_rss_kib": 300632
+        },
+        {
+          "workers": 1,
+          "repeat": 2,
+          "wall_seconds": 8.20954304598854,
+          "max_rss_kib": 273800
+        },
+        {
+          "workers": 8,
+          "repeat": 2,
+          "wall_seconds": 3.506608787982259,
+          "max_rss_kib": 302264
+        }
+      ],
+      "stdout_sha256": "ceebeb16904ba0148ffeae97fed8f0c00fd459a7fd317f1d0ca6cca94d5d2a7b",
+      "stage_seconds": {
+        "clones": 0.159612669,
+        "file_pipeline": 3.224411351,
+        "ranking": 0.000337121,
+        "total": 3.38436199
+      },
+      "top10": [
+        {
+          "path": "src/System.Management.Automation/cimSupport/cmdletization/xml/CoreCLR/cmdlets-over-objects.xmlSerializer.autogen.cs",
+          "score": 384,
+          "burden": 1528,
+          "method": {
+            "complexity": 384,
+            "end": 2830,
+            "name": "Read1_Object",
+            "start": 2260
+          }
+        },
+        {
+          "path": "src/System.Management.Automation/engine/CmdletParameterBinderController.cs",
+          "score": 351,
+          "burden": 580,
+          "method": {
+            "complexity": 351,
+            "end": 2393,
+            "name": "GetMissingMandatoryParameters",
+            "start": 1755
+          }
+        },
+        {
+          "path": "src/System.Management.Automation/engine/CommandCompletion/CompletionAnalysis.cs",
+          "score": 335,
+          "burden": 748,
+          "method": {
+            "complexity": 335,
+            "end": 1425,
+            "name": "GetResultHelper",
+            "start": 618
+          }
+        },
+        {
+          "path": "src/System.Management.Automation/engine/CommandCompletion/CompletionCompleters.cs",
+          "score": 261,
+          "burden": 1452,
+          "method": {
+            "complexity": 261,
+            "end": 1510,
+            "name": "CompleteCommandArgument",
+            "start": 1001
+          }
+        },
+        {
+          "path": "src/System.Management.Automation/engine/remoting/fanin/InitialSessionStateProvider.cs",
+          "score": 231,
+          "burden": 265,
+          "method": {
+            "complexity": 231,
+            "end": 2451,
+            "name": "GetInitialSessionState",
+            "start": 1979
+          }
+        },
+        {
+          "path": "src/Microsoft.WSMan.Management/ConfigProvider.cs",
+          "score": 215,
+          "burden": 1205,
+          "method": {
+            "complexity": 215,
+            "end": 4503,
+            "name": "GetChildItemsOrNames",
+            "start": 4142
+          }
+        },
+        {
+          "path": "src/Microsoft.PowerShell.Commands.Management/commands/management/Computer.cs",
+          "score": 209,
+          "burden": 210,
+          "method": {
+            "complexity": 209,
+            "end": 1091,
+            "name": "ProcessRecord",
+            "start": 783
+          }
+        },
+        {
+          "path": "src/System.Management.Automation/engine/ParameterBinderBase.cs",
+          "score": 169,
+          "burden": 328,
+          "method": {
+            "complexity": 169,
+            "end": 1899,
+            "name": "EncodeCollection",
+            "start": 1453
+          }
+        },
+        {
+          "path": "src/System.Management.Automation/engine/runtime/Operations/MiscOps.cs",
+          "score": 143,
+          "burden": 383,
+          "method": {
+            "complexity": 143,
+            "end": 3154,
+            "name": "ForEach",
+            "start": 2872
+          }
+        },
+        {
+          "path": "src/System.Management.Automation/engine/remoting/commands/NewPSSessionConfigurationFile.cs",
+          "score": 143,
+          "burden": 201,
+          "method": {
+            "complexity": 143,
+            "end": 1115,
+            "name": "ProcessRecord",
+            "start": 640
+          }
+        }
+      ],
+      "reviews": [
+        {
+          "path": "src/System.Management.Automation/cimSupport/cmdletization/xml/CoreCLR/cmdlets-over-objects.xmlSerializer.autogen.cs",
+          "method": "Read1_Object",
+          "line": 2260,
+          "score": 384,
+          "grade": "C",
+          "correctness": "Branching is real; exact 384 not independently recounted.",
+          "reason": "Likely priority false positive: .autogen.cs schema-style XML dispatch outranks handwritten engine logic. The file includes copied and manually adapted XmlSerializationReader support, so it is not proven disposable or safe to ignore. Review provenance/generation policy and manual adaptations before proposing refactoring. The selector does not recognize the .autogen.cs suffix.",
+          "url": "https://github.com/PowerShell/PowerShell/blob/43d85c7a16d37a1e8f5a7519b170f0562ec4dbc4/src/System.Management.Automation/cimSupport/cmdletization/xml/CoreCLR/cmdlets-over-objects.xmlSerializer.autogen.cs#L2260"
+        },
+        {
+          "path": "src/System.Management.Automation/engine/CmdletParameterBinderController.cs",
+          "method": "GetMissingMandatoryParameters",
+          "line": 1755,
+          "score": 351,
+          "grade": "A",
+          "correctness": "Source structure consistent; exact 351 not independently recounted.",
+          "reason": "GetMissingMandatoryParameters combines nested parameter-set loops, bitmask mutation, defaults, pipeline-by-value/property binding, prompting, and ambiguity handling. Its existing CA1505 suppression says \"Consider Simplifying it.\" This independently supports maintainability concern; changing the logic still needs a parameter-binding behavior matrix.",
+          "url": "https://github.com/PowerShell/PowerShell/blob/43d85c7a16d37a1e8f5a7519b170f0562ec4dbc4/src/System.Management.Automation/engine/CmdletParameterBinderController.cs#L1755"
+        },
+        {
+          "path": "src/System.Management.Automation/engine/CommandCompletion/CompletionAnalysis.cs",
+          "method": "GetResultHelper",
+          "line": 618,
+          "score": 335,
+          "grade": "A",
+          "correctness": "Source structure consistent; exact 335 not independently recounted.",
+          "reason": "GetResultHelper handles token/AST categories, cursor and replacement offsets, mutable completion context, and fallback ordering across 808 lines. Shared state and multiple early-return/fallback paths create real review load. Organize by completion context with offset and incomplete-input regression coverage.",
+          "url": "https://github.com/PowerShell/PowerShell/blob/43d85c7a16d37a1e8f5a7519b170f0562ec4dbc4/src/System.Management.Automation/engine/CommandCompletion/CompletionAnalysis.cs#L618"
+        }
+      ]
+    },
+    {
+      "name": "openra",
+      "github": "https://github.com/OpenRA/OpenRA",
+      "commit": "e180e3225f3930272dd451917467631618f8976f",
+      "tracked_cs_files": 1517,
+      "tracked_cs_bytes": 7517467,
+      "default_exit": 1,
+      "default_elapsed_seconds": 2.0180991200031713,
+      "default_timing": "Command exited with non-zero status 1\n2.01 1.95 0.43 133088\n",
+      "default_stderr": "cpath: OpenRA.Mods.Cnc/FileFormats/BlowfishKeyProvider.cs: unsupported or malformed C# syntax at line 1, column 1\nOpenRA.Mods.Cnc/FileFormats/LZOCompression.cs: unsupported or malformed C# syntax at line 1, column 1\nOpenRA.Mods.Common/Widgets/ColorMixerWidget.cs: unsupported or malformed C# syntax at line 76, column 27\nOpenRA.Mods.Common/Widgets/HueSliderWidget.cs: unsupported or malformed C# syntax at line 43, column 26\n",
+      "target_worktree_clean": true,
+      "excludes": [
+        "OpenRA.Mods.Cnc/FileFormats/BlowfishKeyProvider.cs",
+        "OpenRA.Mods.Cnc/FileFormats/LZOCompression.cs",
+        "OpenRA.Mods.Common/Widgets/ColorMixerWidget.cs",
+        "OpenRA.Mods.Common/Widgets/HueSliderWidget.cs"
+      ],
+      "selected_files": 1512,
+      "selected_lines": 236369,
+      "selected_bytes": 7486490,
+      "selected_tokens": 1234690,
+      "selection": "SelectionStats { candidates: 4162, selected: 1513, skipped: {Metadata: 1, Excluded: 4, UnsupportedLanguage: 2645} }",
+      "content_skips": "{InvalidUtf8: 1}",
+      "benchmark": {
+        "1": {
+          "median_seconds": 6.142284161003772,
+          "min_seconds": 5.8362072089803405,
+          "max_seconds": 6.348530674993526,
+          "max_rss_kib": 163868
+        },
+        "8": {
+          "median_seconds": 2.1120411070005503,
+          "min_seconds": 1.8254324969893787,
+          "max_seconds": 2.1949832840182353,
+          "max_rss_kib": 172004
+        }
+      },
+      "runs": [
+        {
+          "workers": 1,
+          "repeat": 0,
+          "wall_seconds": 6.142284161003772,
+          "max_rss_kib": 163868
+        },
+        {
+          "workers": 8,
+          "repeat": 0,
+          "wall_seconds": 2.1120411070005503,
+          "max_rss_kib": 171924
+        },
+        {
+          "workers": 1,
+          "repeat": 1,
+          "wall_seconds": 6.348530674993526,
+          "max_rss_kib": 162652
+        },
+        {
+          "workers": 8,
+          "repeat": 1,
+          "wall_seconds": 1.8254324969893787,
+          "max_rss_kib": 171876
+        },
+        {
+          "workers": 1,
+          "repeat": 2,
+          "wall_seconds": 5.8362072089803405,
+          "max_rss_kib": 163264
+        },
+        {
+          "workers": 8,
+          "repeat": 2,
+          "wall_seconds": 2.1949832840182353,
+          "max_rss_kib": 172004
+        }
+      ],
+      "stdout_sha256": "64916492500e046e0f77d193dd062a72db277f9c08d2e20d7d9d253a77cb9b2d",
+      "stage_seconds": {
+        "clones": 0.107543118,
+        "file_pipeline": 2.720973914,
+        "ranking": 0.000321117,
+        "total": 2.828838642
+      },
+      "top10": [
+        {
+          "path": "OpenRA.Game/Network/UnitOrders.cs",
+          "score": 136,
+          "burden": 121,
+          "method": {
+            "complexity": 136,
+            "end": 415,
+            "name": "ProcessOrder",
+            "start": 48
+          }
+        },
+        {
+          "path": "OpenRA.Mods.Common/UpdateRules/Rules/20230225/ExplicitSequenceFilenames.cs",
+          "score": 132,
+          "burden": 165,
+          "method": {
+            "complexity": 132,
+            "end": 396,
+            "name": "UpdateSequenceNode",
+            "start": 181
+          }
+        },
+        {
+          "path": "OpenRA.Mods.Common/Widgets/TextFieldWidget.cs",
+          "score": 127,
+          "burden": 112,
+          "method": {
+            "complexity": 127,
+            "end": 470,
+            "name": "HandleKeyPress",
+            "start": 211
+          }
+        },
+        {
+          "path": "OpenRA.Mods.Common/UtilityCommands/ExtractChromeStrings.cs",
+          "score": 108,
+          "burden": 119,
+          "method": {
+            "complexity": 108,
+            "end": 201,
+            "name": "Run",
+            "start": 33
+          }
+        },
+        {
+          "path": "OpenRA.Mods.Common/Projectiles/Missile.cs",
+          "score": 107,
+          "burden": 104,
+          "method": {
+            "complexity": 107,
+            "end": 777,
+            "name": "HomingInnerTick",
+            "start": 606
+          }
+        },
+        {
+          "path": "OpenRA.Mods.Common/MapGenerator/Terraformer.cs",
+          "score": 104,
+          "burden": 142,
+          "method": {
+            "complexity": 104,
+            "end": 1637,
+            "name": "PartitionPath",
+            "start": 1238
+          }
+        },
+        {
+          "path": "OpenRA.Mods.Common/Traits/BotModules/McvExpansionManagerBotModule.cs",
+          "score": 104,
+          "burden": 104,
+          "method": {
+            "complexity": 104,
+            "end": 501,
+            "name": "GetExpansionCenter",
+            "start": 268
+          }
+        },
+        {
+          "path": "OpenRA.Game/MiniYaml.cs",
+          "score": 99,
+          "burden": 88,
+          "method": {
+            "complexity": 99,
+            "end": 391,
+            "name": "FromLines",
+            "start": 203
+          }
+        },
+        {
+          "path": "OpenRA.Mods.Common/Lint/CheckSequences.cs",
+          "score": 92,
+          "burden": 77,
+          "method": {
+            "complexity": 92,
+            "end": 162,
+            "name": "Run",
+            "start": 37
+          }
+        },
+        {
+          "path": "OpenRA.Mods.Common/Traits/Player/PlaceBuilding.cs",
+          "score": 87,
+          "burden": 72,
+          "method": {
+            "complexity": 87,
+            "end": 236,
+            "name": "<lambda_expression@68>",
+            "start": 68
+          }
+        }
+      ],
+      "reviews": [
+        {
+          "path": "OpenRA.Game/Network/UnitOrders.cs",
+          "method": "ProcessOrder",
+          "line": 48,
+          "score": 136,
+          "grade": "A",
+          "correctness": "Source structure consistent; exact 136 not independently recounted.",
+          "reason": "ProcessOrder dispatches network orders while mixing chat/team/spectator rules, handshake data, game start/pause, lobby synchronization, and mutable world state. Several branches are simple, but the behavioral breadth and state transitions justify human review. This is a maintainability finding, not a security vulnerability claim.",
+          "url": "https://github.com/OpenRA/OpenRA/blob/e180e3225f3930272dd451917467631618f8976f/OpenRA.Game/Network/UnitOrders.cs#L48"
+        },
+        {
+          "path": "OpenRA.Mods.Common/UpdateRules/Rules/20230225/ExplicitSequenceFilenames.cs",
+          "method": "UpdateSequenceNode",
+          "line": 181,
+          "score": 132,
+          "grade": "B",
+          "correctness": "Source structure consistent; exact 132 not independently recounted.",
+          "reason": "UpdateSequenceNode has substantial multi-pass YAML mutation, inherited defaults, filename deduplication, and cleanup. It is still registered for the release-20230225 to release-20231010 upgrade path. Correct complexity finding, but urgency is conditional on migration work; ranking it above active runtime code can mislead. Its date alone is not proof it is unused.",
+          "url": "https://github.com/OpenRA/OpenRA/blob/e180e3225f3930272dd451917467631618f8976f/OpenRA.Mods.Common/UpdateRules/Rules/20230225/ExplicitSequenceFilenames.cs#L181"
+        },
+        {
+          "path": "OpenRA.Mods.Common/Widgets/TextFieldWidget.cs",
+          "method": "HandleKeyPress",
+          "line": 211,
+          "score": 127,
+          "grade": "A",
+          "correctness": "Exact manual sum: 127.",
+          "reason": "HandleKeyPress combines platform-specific modifier behavior, cursor/selection state, clipboard operations, and deletion/navigation across many keys. Similar branches with meaningful differences warrant a cross-platform behavior matrix. Broad dispatch contributes to the score, but the stateful per-key behavior makes this actionable.",
+          "url": "https://github.com/OpenRA/OpenRA/blob/e180e3225f3930272dd451917467631618f8976f/OpenRA.Mods.Common/Widgets/TextFieldWidget.cs#L211"
+        }
+      ]
+    },
+    {
+      "name": "roslyn",
+      "github": "https://github.com/dotnet/roslyn",
+      "commit": "2fa05ec1dfc27d3ae585ab990a5a3429406ded1d",
+      "tracked_cs_files": 18272,
+      "tracked_cs_bytes": 257605524,
+      "default_exit": 1,
+      "default_elapsed_seconds": 23.77992638098658,
+      "default_timing": "Command exited with non-zero status 1\n23.77 38.98 4.75 674460\n",
+      "default_stderr": "cpath: eng/generate-compiler-code.cs: unsupported or malformed C# syntax at line 6, column 1\neng/isolated/get-roslyn-commit-hash-in-vs.cs: unsupported or malformed C# syntax at line 5, column 1\nscan exceeds an in-memory limit (5000000 tokens, 268435456 source bytes, 100000 files); narrow the scan with --include or --exclude\nsrc/Analyzers/CSharp/Analyzers/NewLines/ArrowExpressionClausePlacement/ArrowExpressionClausePlacementDiagnosticAnalyzer.cs: unsupported or malformed C# syntax at line 101, column 91\nsrc/Analyzers/CSharp/Analyzers/NewLines/ConditionalExpressionPlacement/ConditionalExpressionPlacementDiagnosticAnalyzer.cs: unsupported or malformed C# syntax at line 77, column 91\nsrc/Analyzers/CSharp/Analyzers/SimplifyPropertyAccessor/CSharpSimplifyPropertyAccessorDiagnosticAnalyzer.cs: unsupported or malformed C# syntax at line 50, column 82\nsrc/Analyzers/CSharp/Analyzers/UseCollectionExpression/UseCollectionExpressionHelpers.cs: unsupported or malformed C# syntax at line 1, column 4\nsrc/Analyzers/CSharp/Analyzers/UseExpressionBody/Helpers/UseExpressionBodyHelper`1.cs: unsupported or malformed C# syntax at line 174, column 57\nsrc/Analyzers/CSharp/Analyzers/UseLabeledJumpStatements/CSharpUseLabeledJumpStatementsHelpers.cs: unsupported or malformed C# syntax at line 95, column 113\nsrc/Analyzers/CSharp/CodeFixes/AddInheritdoc/AddInheritdocCodeFixProvider.cs: unsupported or malformed C# syntax at line 107, column 13\nsrc/Analyzers/CSharp/CodeFixes/ConvertNamespace/ConvertNamespaceTransform.cs: unsupported or malformed C# syntax at line 1, column 4\nsrc/Analyzers/CSharp/CodeFixes/ConvertToRecord/ConvertToRecordEngine.cs: unsupported or malformed C# syntax at line 1, column 4\nsrc/Analyzers/CSharp/CodeFixes/UseAutoProperty/CSharpUseAutoPropertyCodeFixProvider.cs: unsupported or malformed C# syntax at line 154, column 53\nsrc/Analyzers/CSharp/CodeFixes/UseCollectionExpression/CSharpCollectionExpressionRewriter.cs: unsupported or malformed C# syntax at line 1, column 1\nsrc/Analyzers/CSharp/CodeFixes/UseCollectionInitializer/CSharpUseCollectionInitializerCodeFixProvider_CollectionInitializer.cs: unsupported or malformed C# syntax at line 1, column 4\nsrc/Analyzers/CSharp/CodeFixes/UseExplicitArrayInExpressionTree/CSharpUseExplicitArrayInExpressionTreeCodeFixProvider.cs: unsupported or malformed C# syntax at line 37, column 61\nsrc/Analyzers/CSharp/CodeFixes/UsePrimaryConstructor/CSharpUsePrimaryConstructorCodeFixProvider.cs: unsupported or malformed C# syntax at line 49, column 55\nsrc/Analyzers/CSharp/CodeFixes/UsePrimaryConstructor/CSharpUsePrimaryConstructorCodeFixProvider_DocComments.cs: unsupported or malformed C# syntax at line 132, column 56\nsrc/Analyzers/CSharp/CodeFixes/UseSystemThreadingLock/CSharpUseSystemThreadingLockCodeFixProvider.cs: unsupported or malformed C# syntax at line 32, column 55\nsrc/Analyzers/Core/CodeFixes/ImplementInterface/ImplementInterfaceGenerator_Property.cs: unsupported or malformed C# syntax at line 69, column 51\nsrc/Analyzers/Core/CodeFixes/NamingStyle/NamingStyleCodeFixProvider.cs: unsupported or malformed C# syntax at line 92, column 46\nsrc/Compilers/CSharp/Portable/Binder/Binder.ValueChecks.cs: unsupported or malformed C# syntax at line 773, column 25\nsrc/Compilers/CSharp/Portable/Binder/Binder_Conversions.cs: unsupported or malformed C# syntax at line 1568, column 64\nsrc/Compilers/CSharp/Portable/Binder/Binder_Crefs.cs: unsupported or malformed C# syntax at line 1098, column 101\nsrc/Compilers/CSharp/Portable/Binder/Binder_Query.cs: unsupported or malformed C# syntax at line 58, column 1\nsrc/Compilers/CSharp/Portable/Binder/DecisionDagBuilder_CheckOrReachability.cs: unsupported or malformed C# syntax at line 1231, column 83\nsrc/Compilers/CSharp/Portable/Binder/RefSafetyAnalysis.cs: unsupported or malformed C# syntax at line 193, column 1\nsrc/Compilers/CSharp/Portable/Binder/Semantics/Conversions/Conversions.cs: unsupported or malformed C# syntax at line 63, column 62\nsrc/Compilers/CSharp/Portable/Binder/Semantics/OverloadResolution/MemberAnalysisResult.cs: unsupported or malformed C# syntax at line 19, column 5\nsrc/Compilers/CSharp/Portable/Binder/UnionMatchingRewriter.cs: unsupported or malformed C# syntax at line 245, column 1\nsrc/Compilers/CSharp/Portable/BoundTree/BoundExpression.cs: unsupported or malformed C# syntax at line 96, column 1\nsrc/Compilers/CSharp/Portable/BoundTree/BoundNode_Source.cs: unsupported or malformed C# syntax at line 1, column 4\n414 additional errors omitted\n",
+      "target_worktree_clean": true
+    }
+  ]
+}

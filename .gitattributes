@@ -1,0 +1,4 @@
+vendor/tree-sitter-c-sharp/** text eol=lf
+vendor/tree-sitter-cpp/** text eol=lf
+# Preserve the upstream fixture's intentional CRLF bytes and provenance hash.
+vendor/tree-sitter-cpp/test/corpus/c/crlf.txt -text -eol whitespace=cr-at-eol

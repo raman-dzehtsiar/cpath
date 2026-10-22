@@ -1,0 +1,963 @@
+{
+  "repository": "https://github.com/llvm/llvm-project",
+  "commit": "e426a42b1547a8732e6adf64e1bda338aa96acdb",
+  "inventory": {
+    "commit": "e426a42b1547a8732e6adf64e1bda338aa96acdb",
+    "tracked_entries": 187966,
+    "supported_extension_files_before_selection": 73531,
+    "supported_extension_bytes_before_selection": 786881384,
+    "by_component": {
+      "clang": {
+        "files": 25715,
+        "bytes": 370721634
+      },
+      "libcxx": {
+        "files": 11851,
+        "bytes": 50479274
+      },
+      "llvm": {
+        "files": 8227,
+        "bytes": 156163090
+      },
+      "libc": {
+        "files": 8074,
+        "bytes": 27267649
+      },
+      "lldb": {
+        "files": 4519,
+        "bytes": 31618015
+      },
+      "compiler-rt": {
+        "files": 3951,
+        "bytes": 38179683
+      },
+      "clang-tools-extra": {
+        "files": 2972,
+        "bytes": 16173622
+      },
+      "mlir": {
+        "files": 2673,
+        "bytes": 34486084
+      },
+      "polly": {
+        "files": 897,
+        "bytes": 12552880
+      },
+      "flang": {
+        "files": 803,
+        "bytes": 14902722
+      },
+      "openmp": {
+        "files": 705,
+        "bytes": 6096279
+      },
+      "offload": {
+        "files": 692,
+        "bytes": 2843232
+      },
+      "third-party": {
+        "files": 669,
+        "bytes": 11468177
+      },
+      "bolt": {
+        "files": 326,
+        "bytes": 4020247
+      },
+      "flang-rt": {
+        "files": 249,
+        "bytes": 1978599
+      },
+      "orc-rt": {
+        "files": 244,
+        "bytes": 1055303
+      },
+      "libclc": {
+        "files": 240,
+        "bytes": 199613
+      },
+      "lld": {
+        "files": 231,
+        "bytes": 4023091
+      },
+      "cross-project-tests": {
+        "files": 193,
+        "bytes": 448835
+      },
+      "libsycl": {
+        "files": 134,
+        "bytes": 561154
+      },
+      "libcxxabi": {
+        "files": 107,
+        "bytes": 878414
+      },
+      "libunwind": {
+        "files": 55,
+        "bytes": 744136
+      },
+      "utils": {
+        "files": 4,
+        "bytes": 19651
+      }
+    }
+  },
+  "default_scan": {
+    "files": 50150,
+    "bytes": 449190504,
+    "lines": 9391201,
+    "unavailable_files": 22680,
+    "path_selection": "SelectionStats { candidates: 186840, selected: 72830, skipped: {Metadata: 1, Ignored: 2, BuildDirectory: 114, VendorDirectory: 11, UnsupportedLanguage: 114008} }",
+    "content_skips": "{}",
+    "seconds": {
+      "file_pipeline": 91.934232524,
+      "ranking": 0.004826732,
+      "total": 91.93906068
+    }
+  },
+  "production_coverage": {
+    "llvm/lib": {
+      "selected_files": 4161,
+      "selected_bytes": 110678587,
+      "analyzed_files": 2690,
+      "analyzed_bytes": 42290910,
+      "unavailable_files": 1471,
+      "file_coverage_percent": 64.647921172795,
+      "byte_coverage_percent": 38.21056190390288
+    },
+    "clang/lib": {
+      "selected_files": 1731,
+      "selected_bytes": 61234357,
+      "analyzed_files": 1130,
+      "analyzed_bytes": 24409612,
+      "unavailable_files": 601,
+      "file_coverage_percent": 65.28018486424033,
+      "byte_coverage_percent": 39.862608502609085
+    },
+    "llvm/include": {
+      "selected_files": 2238,
+      "selected_bytes": 20803405,
+      "analyzed_files": 386,
+      "analyzed_bytes": 2322617,
+      "unavailable_files": 1852,
+      "file_coverage_percent": 17.247542448614833,
+      "byte_coverage_percent": 11.164600218089298
+    },
+    "clang/include": {
+      "selected_files": 824,
+      "selected_bytes": 11609678,
+      "analyzed_files": 604,
+      "analyzed_bytes": 3582250,
+      "unavailable_files": 220,
+      "file_coverage_percent": 73.30097087378641,
+      "byte_coverage_percent": 30.85572226895526
+    }
+  },
+  "top10": [
+    {
+      "bytes": 3463694,
+      "complexity": 1584,
+      "complexity_burden": 2639,
+      "complexity_total": 2864,
+      "lines": 62112,
+      "methods": [
+        {
+          "complexity": 1584,
+          "end": 11502,
+          "name": "bar",
+          "start": 2201
+        },
+        {
+          "complexity": 816,
+          "end": 2199,
+          "name": "foo",
+          "start": 14
+        },
+        {
+          "complexity": 36,
+          "end": 11695,
+          "name": "cxevd",
+          "start": 11505
+        },
+        {
+          "complexity": 36,
+          "end": 11887,
+          "name": "ucxevd",
+          "start": 11697
+        },
+        {
+          "complexity": 36,
+          "end": 12079,
+          "name": "sxevd",
+          "start": 11889
+        }
+      ],
+      "path": "clang/test/OpenMP/atomic_compare_codegen.cpp",
+      "score": 1584
+    },
+    {
+      "bytes": 409114,
+      "complexity": 1162,
+      "complexity_burden": 2398,
+      "complexity_total": 3131,
+      "lines": 10132,
+      "methods": [
+        {
+          "complexity": 1162,
+          "end": 8715,
+          "name": "Clang::ConstructJob",
+          "start": 5249
+        },
+        {
+          "complexity": 166,
+          "end": 3559,
+          "name": "RenderFloatingPointOptions",
+          "start": 2961
+        },
+        {
+          "complexity": 163,
+          "end": 2959,
+          "name": "CollectArgsForIntegratedAssembler",
+          "start": 2596
+        },
+        {
+          "complexity": 144,
+          "end": 1203,
+          "name": "Clang::AddPreprocessingOptions",
+          "start": 798
+        },
+        {
+          "complexity": 140,
+          "end": 5147,
+          "name": "renderDebugOptions",
+          "start": 4715
+        }
+      ],
+      "path": "clang/lib/Driver/ToolChains/Clang.cpp",
+      "score": 1162
+    },
+    {
+      "bytes": 222197,
+      "complexity": 1102,
+      "complexity_burden": 1415,
+      "complexity_total": 2001,
+      "lines": 5740,
+      "methods": [
+        {
+          "complexity": 1102,
+          "end": 4627,
+          "name": "InstCombinerImpl::visitCallInst",
+          "start": 2035
+        },
+        {
+          "complexity": 114,
+          "end": 5343,
+          "name": "InstCombinerImpl::visitCallBase",
+          "start": 5060
+        },
+        {
+          "complexity": 89,
+          "end": 5597,
+          "name": "InstCombinerImpl::transformConstExprCastCall",
+          "start": 5348
+        },
+        {
+          "complexity": 58,
+          "end": 649,
+          "name": "foldCttzCtlz",
+          "start": 470
+        },
+        {
+          "complexity": 41,
+          "end": 5740,
+          "name": "InstCombinerImpl::transformCallThroughTrampoline",
+          "start": 5601
+        }
+      ],
+      "path": "llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp",
+      "score": 1102
+    },
+    {
+      "bytes": 603072,
+      "complexity": 1058,
+      "complexity_burden": 3125,
+      "complexity_total": 4593,
+      "lines": 14790,
+      "methods": [
+        {
+          "complexity": 1058,
+          "end": 3357,
+          "name": "TargetLowering::SimplifyDemandedBits",
+          "start": 1300
+        },
+        {
+          "complexity": 786,
+          "end": 6072,
+          "name": "TargetLowering::SimplifySetCC",
+          "start": 4994
+        },
+        {
+          "complexity": 373,
+          "end": 4178,
+          "name": "TargetLowering::SimplifyDemandedVectorElts",
+          "start": 3425
+        },
+        {
+          "complexity": 130,
+          "end": 11070,
+          "name": "TargetLowering::expandIS_FPCLASS",
+          "start": 10715
+        },
+        {
+          "complexity": 126,
+          "end": 1127,
+          "name": "TargetLowering::SimplifyMultipleUseDemandedBits",
+          "start": 835
+        }
+      ],
+      "path": "llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp",
+      "score": 1058
+    },
+    {
+      "bytes": 405106,
+      "complexity": 716,
+      "complexity_burden": 1816,
+      "complexity_total": 3047,
+      "lines": 10524,
+      "methods": [
+        {
+          "complexity": 716,
+          "end": 5800,
+          "name": "GetFullTypeForDeclarator",
+          "start": 4366
+        },
+        {
+          "complexity": 248,
+          "end": 1612,
+          "name": "ConvertDeclSpecToType",
+          "start": 906
+        },
+        {
+          "complexity": 135,
+          "end": 3566,
+          "name": "GetDeclSpecTypeForDeclarator",
+          "start": 3214
+        },
+        {
+          "complexity": 129,
+          "end": 2379,
+          "name": "Sema::BuildArrayType",
+          "start": 2109
+        },
+        {
+          "complexity": 122,
+          "end": 9453,
+          "name": "processTypeAttrs",
+          "start": 9075
+        }
+      ],
+      "path": "clang/lib/Sema/SemaType.cpp",
+      "score": 716
+    },
+    {
+      "bytes": 148560,
+      "complexity": 620,
+      "complexity_burden": 1329,
+      "complexity_total": 1569,
+      "lines": 3902,
+      "methods": [
+        {
+          "complexity": 620,
+          "end": 3694,
+          "name": "InstCombinerImpl::SimplifyDemandedUseFPClass",
+          "start": 2406
+        },
+        {
+          "complexity": 407,
+          "end": 1212,
+          "name": "InstCombinerImpl::SimplifyDemandedUseBits",
+          "start": 224
+        },
+        {
+          "complexity": 282,
+          "end": 2100,
+          "name": "InstCombinerImpl::SimplifyDemandedVectorElts",
+          "start": 1520
+        },
+        {
+          "complexity": 32,
+          "end": 1374,
+          "name": "InstCombinerImpl::SimplifyMultipleUseDemandedBits",
+          "start": 1217
+        },
+        {
+          "complexity": 31,
+          "end": 3832,
+          "name": "InstCombinerImpl::SimplifyMultipleUseDemandedFPClass",
+          "start": 3699
+        }
+      ],
+      "path": "llvm/lib/Transforms/InstCombine/InstCombineSimplifyDemanded.cpp",
+      "score": 620
+    },
+    {
+      "bytes": 130219,
+      "complexity": 605,
+      "complexity_burden": 1242,
+      "complexity_total": 1650,
+      "lines": 2792,
+      "methods": [
+        {
+          "complexity": 605,
+          "end": 1346,
+          "name": "CheckExplicitDataArg",
+          "start": 384
+        },
+        {
+          "complexity": 174,
+          "end": 2064,
+          "name": "CheckAssociated",
+          "start": 1907
+        },
+        {
+          "complexity": 123,
+          "end": 1513,
+          "name": "CheckProcedureArg",
+          "start": 1348
+        },
+        {
+          "complexity": 116,
+          "end": 305,
+          "name": "CheckCharacterActual",
+          "start": 173
+        },
+        {
+          "complexity": 102,
+          "end": 2477,
+          "name": "CheckReduce",
+          "start": 2340
+        }
+      ],
+      "path": "flang/lib/Semantics/check-call.cpp",
+      "score": 605
+    },
+    {
+      "bytes": 419310,
+      "complexity": 499,
+      "complexity_burden": 2203,
+      "complexity_total": 3766,
+      "lines": 11135,
+      "methods": [
+        {
+          "complexity": 499,
+          "end": 6601,
+          "name": "computeKnownFPClass",
+          "start": 5291
+        },
+        {
+          "complexity": 339,
+          "end": 2546,
+          "name": "computeKnownBitsFromOperator",
+          "start": 1485
+        },
+        {
+          "complexity": 182,
+          "end": 4864,
+          "name": "ComputeNumSignBitsImpl",
+          "start": 4492
+        },
+        {
+          "complexity": 163,
+          "end": 3894,
+          "name": "isKnownNonZeroFromOperator",
+          "start": 3413
+        },
+        {
+          "complexity": 107,
+          "end": 8417,
+          "name": "isGuaranteedNotToBeUndefOrPoison",
+          "start": 8261
+        }
+      ],
+      "path": "llvm/lib/Analysis/ValueTracking.cpp",
+      "score": 499
+    },
+    {
+      "bytes": 111395,
+      "complexity": 487,
+      "complexity_burden": 792,
+      "complexity_total": 1024,
+      "lines": 3438,
+      "methods": [
+        {
+          "complexity": 487,
+          "end": 1715,
+          "name": "simplifyTernarylogic",
+          "start": 649
+        },
+        {
+          "complexity": 249,
+          "end": 3115,
+          "name": "X86TTIImpl::instCombineIntrinsic",
+          "start": 2181
+        },
+        {
+          "complexity": 42,
+          "end": 3438,
+          "name": "X86TTIImpl::simplifyDemandedVectorEltsIntrinsic",
+          "start": 3157
+        },
+        {
+          "complexity": 41,
+          "end": 292,
+          "name": "simplifyX86immShift",
+          "start": 115
+        },
+        {
+          "complexity": 35,
+          "end": 431,
+          "name": "simplifyX86varShift",
+          "start": 297
+        }
+      ],
+      "path": "llvm/lib/Target/X86/X86InstCombineIntrinsic.cpp",
+      "score": 487
+    },
+    {
+      "bytes": 172837,
+      "complexity": 469,
+      "complexity_burden": 1133,
+      "complexity_total": 1998,
+      "lines": 5349,
+      "methods": [
+        {
+          "complexity": 469,
+          "end": 2278,
+          "name": "UnwrappedLineParser::parseStructuralElement",
+          "start": 1485
+        },
+        {
+          "complexity": 101,
+          "end": 4361,
+          "name": "UnwrappedLineParser::parseRecord",
+          "start": 4180
+        },
+        {
+          "complexity": 88,
+          "end": 671,
+          "name": "UnwrappedLineParser::calculateBraceTypes",
+          "start": 496
+        },
+        {
+          "complexity": 74,
+          "end": 5259,
+          "name": "UnwrappedLineParser::readToken",
+          "start": 5064
+        },
+        {
+          "complexity": 73,
+          "end": 3196,
+          "name": "UnwrappedLineParser::parseIfThenElse",
+          "start": 3025
+        }
+      ],
+      "path": "clang/lib/Format/UnwrappedLineParser.cpp",
+      "score": 469
+    }
+  ],
+  "review": {
+    "validation_kind": "Source inspection by the coding agent; not blinded or a human-subject study.",
+    "preliminary_findings": [
+      {
+        "path": "clang/test/OpenMP/atomic_compare_codegen.cpp",
+        "function": "bar",
+        "lines": [
+          2201,
+          11502
+        ],
+        "score": 1584,
+        "verdict": "Over-prioritized for maintenance attention",
+        "reason": "Large repetitive matrix of atomic compare/capture forms, numeric types and memory orders. Flat, repetitive test cases yield a very high count; useful test coverage is not evidence this deserves review ahead of compiler production logic. Leading autogenerated marker refers to FileCheck assertions, not necessarily the entire source. Do not infer all tests should be skipped."
+      },
+      {
+        "path": "clang/lib/Driver/ToolChains/Clang.cpp",
+        "function": "Clang::ConstructJob",
+        "lines": [
+          5249,
+          8715
+        ],
+        "score": 1162,
+        "verdict": "Relevant high attention",
+        "reason": "Thousands of lines assembling compiler invocations; interacting target, host/device, language, optimization, sanitizer and diagnostic options. Nested conditions and accumulated command-line state make local edits require cross-case review. Large dispatch responsibility is real, but score is not evidence of a bug or proof it should all be split."
+      },
+      {
+        "path": "clang/lib/Sema/SemaType.cpp",
+        "function": "GetFullTypeForDeclarator",
+        "lines": [
+          4366,
+          5800
+        ],
+        "score": 716,
+        "verdict": "Relevant high attention",
+        "reason": "Declarator/type construction with nested declarator-chunk handling, deduction restrictions, language modes, qualifier repair and diagnostics. Requires semantic invariants across branches; parser complexity reflects real review difficulty."
+      },
+      {
+        "path": "clang/lib/Format/UnwrappedLineParser.cpp",
+        "function": "UnwrappedLineParser::parseStructuralElement",
+        "lines": [
+          1485,
+          2278
+        ],
+        "score": 469,
+        "verdict": "Relevant high attention",
+        "reason": "Stateful token consumption, nested switch/loop paths, brace handling and many language-specific exceptions. Multiple early returns and mutation of formatting/token state support prioritization."
+      },
+      {
+        "path": "clang/lib/Lex/PPCallbacks.cpp",
+        "score": 0,
+        "verdict": "Reasonable low control-flow score",
+        "reason": "Default destructors, empty callback and straight-through delegation to First/Second callbacks. Does not imply lifecycle/order behavior is risk-free."
+      },
+      {
+        "path": "llvm/lib/Transforms/InstCombine/InstCombineCalls.cpp",
+        "function": "InstCombinerImpl::visitCallInst",
+        "lines": [
+          2035,
+          4627
+        ],
+        "score": 1102,
+        "verdict": "Relevant high attention",
+        "reason": "IR call/intrinsic rewrites depend on volatile/atomic behavior, aliasing, undefined-pointer rules, floating-point modes and operand type. Sampled branches show nested legality guards and mutation of IR, beyond a simple dispatch table."
+      },
+      {
+        "path": "llvm/lib/CodeGen/SelectionDAG/TargetLowering.cpp",
+        "function": "TargetLowering::SimplifyDemandedBits",
+        "lines": [
+          1300,
+          3357
+        ],
+        "score": 1058,
+        "verdict": "Relevant high attention",
+        "reason": "Demanded-bit simplification recursively updates known masks and rewrites DAG nodes. Type legality, multiple users, vector lanes and shift-width rules create interacting invariants; nested shift/truncate logic supports priority."
+      },
+      {
+        "path": "llvm/lib/Transforms/InstCombine/InstCombineSimplifyDemanded.cpp",
+        "function": "InstCombinerImpl::SimplifyDemandedUseFPClass",
+        "lines": [
+          2406,
+          3694
+        ],
+        "score": 620,
+        "verdict": "Relevant high attention",
+        "reason": "Floating-point simplification depends on NaNs, signed zero, denormal modes, demanded classes and fast-math flags. Nested case-specific updates make review require careful semantic checks."
+      },
+      {
+        "path": "flang/lib/Semantics/check-call.cpp",
+        "function": "CheckExplicitDataArg",
+        "lines": [
+          384,
+          1346
+        ],
+        "score": 605,
+        "verdict": "Relevant high attention",
+        "reason": "Fortran call-argument validation in C++ combines type/kind/rank, pointer/allocation, intent, polymorphism, language extensions and diagnostic decisions. Several state flags and conditional conversions interact."
+      },
+      {
+        "path": "llvm/lib/Analysis/ValueTracking.cpp",
+        "function": "computeKnownFPClass",
+        "lines": [
+          5291,
+          6601
+        ],
+        "score": 499,
+        "verdict": "Relevant high attention",
+        "reason": "Recursive floating-point class inference across constants, vectors and operations. Correct handling of poison, NaNs, sign bits and demanded elements matters to optimization correctness."
+      },
+      {
+        "path": "llvm/lib/Target/X86/X86InstCombineIntrinsic.cpp",
+        "function": "simplifyTernarylogic",
+        "lines": [
+          649,
+          1715
+        ],
+        "score": 487,
+        "verdict": "Mixed relevance; score inflated by repetitive cases",
+        "reason": "A 256-entry truth-table dispatch with repeated constant-operand guards dominates simplifyTernarylogic. Review is meaningful because rewrites can alter machine semantics, but the source includes explicit truth-table verification and the cases are largely independent. Score 487 should not imply the same entanglement as a deeply nested algorithm."
+      }
+    ],
+    "independent_count": {
+      "path": "clang/lib/Driver/SanitizerArgs.cpp",
+      "function": "parseArgValues",
+      "lines": [
+        1765,
+        1800
+      ],
+      "expected": 10,
+      "reported": 10,
+      "costs": {
+        "assert_boolean_OR_group": 1,
+        "assert_boolean_AND_group": 1,
+        "for_1783": 1,
+        "if_1787_nested_in_for": 2,
+        "AND_1787": 1,
+        "else_1790": 1,
+        "if_1793_nested_in_for": 2,
+        "else_if_1795": 1
+      }
+    },
+    "coverage_examples": [
+      {
+        "path": "clang/lib/APINotes/APINotesTypes.cpp",
+        "line": 15,
+        "cause": "LLVM_DUMP_METHOD annotation prefix. Definition in llvm/include/llvm/Support/Compiler.h:685-690 expands to attributes."
+      },
+      {
+        "path": "clang/lib/APINotes/APINotesYAMLCompiler.cpp",
+        "line": 126,
+        "cause": "LLVM_YAML_IS_SEQUENCE_VECTOR(Param) is a declaration-producing macro with no source semicolon."
+      },
+      {
+        "path": "clang/lib/AST/ASTContext.cpp",
+        "line": 1014,
+        "cause": "Preprocessor directives within an array initializer, generated TypeNodes.inc include."
+      },
+      {
+        "path": "clang/lib/AST/ASTImporter.cpp",
+        "line": 4165,
+        "cause": "new (context) CXXCtorInitializer *[NumInitializers]. Reduced probe shows new int *[n] also rejected, while new (p) int[n] parses. Ordinary C++ grammar gap, independent of missing macro definitions."
+      },
+      {
+        "path": "clang/lib/AST/ByteCode/Compiler.cpp",
+        "line": 2030,
+        "cause": "EMIT_ARITH_OP(Add) expands to statements/break without a semicolon at the callsite."
+      },
+      {
+        "path": "llvm/include/llvm/ADT/APInt.h",
+        "line": 309,
+        "cause": "LLVM_ABI static APInt getSplat(...); export annotation prefix. Entire header is unavailable."
+      }
+    ],
+    "review_scope": "Spot review of selected source ranges and callable responsibilities in all ten highest-ranked files, plus one low-score file; not an exhaustive line-by-line correctness proof or exact recount of every reported maximum.",
+    "test_matrix_count": {
+      "function": "bar",
+      "lines": [
+        2201,
+        11502
+      ],
+      "if_count": 1296,
+      "else_count": 288,
+      "ternary_count": 0,
+      "loops": 0,
+      "reported_score": 1584,
+      "note": "Independent text tally on this simple repetitive source matches 1296 + 288; comments excluded. Not a general C++ counting algorithm."
+    },
+    "top10_qualitative_counts": {
+      "clearly_relevant": 8,
+      "mixed": 1,
+      "overprioritized": 1,
+      "caution": "Non-blind agent judgment on selected source ranges; no formal precision estimate."
+    }
+  },
+  "checks": {
+    "llvm/lib": {
+      "same_files_and_all_retained_metrics": true,
+      "files": 2690
+    },
+    "clang/lib": {
+      "same_files_and_all_retained_metrics": true,
+      "files": 1130
+    },
+    "llvm/include": {
+      "same_files_and_all_retained_metrics": true,
+      "files": 386
+    },
+    "clang/include": {
+      "same_files_and_all_retained_metrics": true,
+      "files": 604
+    },
+    "CLI_top10_matches_inspector": true,
+    "all_five_full_CLI_outputs_diagnostics_exit_status_identical": true,
+    "scanner_source_and_binary_hashes_unchanged": true,
+    "native_Git_final_status": "",
+    "native_Git_final_status_clean": true
+  },
+  "initial_CLI_run": {
+    "label": "full-initial-8",
+    "command": [
+      "<repo root>/target/release/cpath",
+      "<repo root>/.test_projects/llvm-project",
+      "--top",
+      "10",
+      "--threads",
+      "8"
+    ],
+    "exit_status": 3,
+    "elapsed_seconds": 90.63024807500187,
+    "gnu_time": "90.61 135.16 19.16 405384"
+  },
+  "syntax_probes": {
+    "bytes": 51,
+    "content_skips": "{}",
+    "diagnostics": [
+      {
+        "message": "unsupported or malformed C++ syntax at line 1, column 46",
+        "path": "placement-pointer.cpp"
+      },
+      {
+        "message": "unsupported or malformed C++ syntax at line 1, column 33",
+        "path": "pointer-array.cpp"
+      }
+    ],
+    "excludes": [],
+    "files": 1,
+    "formula": "cpath.complexity-ranking.v1",
+    "includes": [],
+    "lines": 1,
+    "path_selection": "SelectionStats { candidates: 3, selected: 3, skipped: {} }",
+    "ranking": [
+      {
+        "bytes": 51,
+        "complexity": 0,
+        "complexity_burden": 0,
+        "complexity_total": 0,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 0,
+            "end": 1,
+            "name": "f",
+            "start": 1
+          }
+        ],
+        "path": "placement-scalar.cpp",
+        "score": 0
+      }
+    ],
+    "seconds": {
+      "file_pipeline": 0.146511934,
+      "ranking": 6.71e-07,
+      "total": 0.146513111
+    },
+    "unavailable_files": 2,
+    "workers": 1
+  },
+  "environment": {
+    "cpu": "Intel Core i7-13700",
+    "logical_cpus": 24,
+    "os": "WSL2 Ubuntu / Linux 5.15.133.1-microsoft-standard-WSL2",
+    "memory_mib": 15867,
+    "filesystem": "Windows-mounted /mnt/c",
+    "cache": "Uncontrolled OS filesystem cache; each invocation is a new complete scan with no cpath analysis cache",
+    "checkout": "Native Windows Git, core.autocrlf=false, core.symlinks=false; no target build or source rewriting"
+  },
+  "test_checks": {
+    "rust_tests_passed": 73,
+    "fmt": "passed",
+    "clippy_all_targets_all_features_D_warnings": "passed",
+    "release_build": "passed",
+    "note": "Known existing vendored C# C-compiler unused-value warning remains; Rust Clippy succeeded."
+  },
+  "scanner_hashes": {
+    "Cargo.toml": "ef9c623e06713ffa58298db1ab7793cb3610f86424ee2bb38748ff069ec683c0",
+    "Cargo.lock": "541556816b0bcf313caa92d239bba7f6393dd6069196bfc5e6fd766bed32427a",
+    "src/cli.rs": "31804e7de55359774adb85243d6aed575803321beb49ea8e8a4dadea0369a8f5",
+    "src/complexity.rs": "caa76936bab07db2e663173e5644e3f52ecf24000d9ad035c60e268f3316904c",
+    "src/language/c_family.rs": "cd646108d80fa9f04f0e4394fcbce307c0e2d4a44b55997b38ae115ce971a6a8",
+    "src/language.rs": "fbf3bcc6643819c9be11c0a0e41d005474f7ecf7a52586b684cdb69aa087beef",
+    "src/lib.rs": "ceca7f71afbc925d29df0c389b5b80253e92d3643eac11349b6d86fb14c5ac33",
+    "src/main.rs": "661d9bb3bc41075c9fb62333ad829153693e8a751f7ec6d4335f7162628eaa80",
+    "src/model.rs": "bed39c32868517f1cf072de3db57f593398a321004bba2cf389f48ecdb140921",
+    "src/pipeline.rs": "977f342b16f24bc50c51511da778509506a8d95e4d9547aa17bbe160ce8bf369",
+    "src/report.rs": "f5322048c5409b25f15f570b86c3ee252c0789acaf2ea7bc5b343b0e4d07aa26",
+    "src/scoring.rs": "a27cdb0ca803ceb83dff8c4dd2271d9857d75f1970cf7f1c3b1751fa91662773",
+    "src/selection.rs": "9b73526a9f8a3833fd3a7582b68af63501ac1fb368d66fa6b4ff42b18bdfd2b6",
+    "src/source.rs": "87fe17185f886bdf6b105ce4b52285201bbf8005cafdd44018b3ebc32ddf749d",
+    "target/release/cpath": "875a078a61383cd2270a083faa031faf27aef3eeb5733e33af1e7120296b4769"
+  },
+  "benchmark": {
+    "repository": "<repo root>/.test_projects/llvm-project",
+    "binary": "<repo root>/target/release/cpath",
+    "binary_sha256": "875a078a61383cd2270a083faa031faf27aef3eeb5733e33af1e7120296b4769",
+    "platform": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "logical_cpus": 24,
+    "python_version": "3.12.3",
+    "rounds": 2,
+    "worker_counts": [
+      1,
+      8
+    ],
+    "scan_exit_status": 3,
+    "scan_stderr": "cpath: warning: incomplete scan: analyzed 50150 files; 22680 selected files could not be analyzed. Rankings cover analyzed files only.\n  bolt/include/bolt/Core/BinaryContext.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 157, column 44\n  bolt/include/bolt/Core/DIEBuilder.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 295, column 56\n  bolt/include/bolt/Core/DynoStats.h: header rejected by both grammars: unsupported or malformed C syntax at line 60, column 8; unsupported or malformed C++ syntax at line 96, column 15\n  bolt/include/bolt/Passes/DataflowAnalysis.h: header rejected by both grammars: unsupported or malformed C syntax at line 47, column 29; unsupported or malformed C++ syntax at line 569, column 13\n  bolt/include/bolt/Profile/DataReader.h: header rejected by both grammars: unsupported or malformed C syntax at line 35, column 1; unsupported or malformed C++ syntax at line 504, column 13\n  bolt/include/bolt/Profile/Heatmap.h: header rejected by both grammars: unsupported or malformed C syntax at line 40, column 29; unsupported or malformed C++ syntax at line 51, column 67\n  bolt/include/bolt/Profile/ProfileYAMLMapping.h: header rejected by both grammars: unsupported or malformed C syntax at line 13, column 1; unsupported or malformed C++ syntax at line 126, column 66\n  bolt/lib/Core/BinaryContext.cpp: unsupported or malformed C++ syntax at line 2473, column 28\n  bolt/lib/Core/BinaryFunction.cpp: unsupported or malformed C++ syntax at line 3221, column 18\n  bolt/lib/Core/BinaryFunctionCallGraph.cpp: unsupported or malformed C++ syntax at line 152, column 20\n  bolt/lib/Core/BinaryFunctionProfile.cpp: unsupported or malformed C++ syntax at line 329, column 9\n  bolt/lib/Core/BinarySection.cpp: unsupported or malformed C++ syntax at line 228, column 77\n  bolt/lib/Core/DynoStats.cpp: unsupported or malformed C++ syntax at line 258, column 7\n  bolt/lib/Core/Exceptions.cpp: unsupported or malformed C++ syntax at line 855, column 60\n  bolt/lib/Core/JumpTable.cpp: unsupported or malformed C++ syntax at line 120, column 28\n  bolt/lib/Passes/Aligner.cpp: unsupported or malformed C++ syntax at line 106, column 5\n  bolt/lib/Passes/BinaryPasses.cpp: unsupported or malformed C++ syntax at line 130, column 1\n  bolt/lib/Passes/HFSort.cpp: unsupported or malformed C++ syntax at line 96, column 5\n  bolt/lib/Passes/IndirectCallPromotion.cpp: unsupported or malformed C++ syntax at line 302, column 16\n  bolt/lib/Passes/LongJmp.cpp: unsupported or malformed C++ syntax at line 1732, column 58\n  bolt/lib/Passes/RegAnalysis.cpp: unsupported or malformed C++ syntax at line 90, column 77\n  bolt/lib/Passes/ReorderAlgorithm.cpp: unsupported or malformed C++ syntax at line 170, column 40\n  bolt/lib/Passes/ReorderFunctions.cpp: unsupported or malformed C++ syntax at line 471, column 20\n  bolt/lib/Passes/TailDuplication.cpp: unsupported or malformed C++ syntax at line 315, column 71\n  bolt/lib/Profile/DataAggregator.cpp: unsupported or malformed C++ syntax at line 728, column 52\n  bolt/lib/Profile/DataReader.cpp: unsupported or malformed C++ syntax at line 565, column 68\n  bolt/lib/Profile/Heatmap.cpp: unsupported or malformed C++ syntax at line 89, column 29\n  bolt/lib/Rewrite/DWARFRewriter.cpp: unsupported or malformed C++ syntax at line 1359, column 20\n  bolt/lib/Rewrite/LinuxKernelRewriter.cpp: unsupported or malformed C++ syntax at line 538, column 69\n  bolt/lib/Rewrite/RewriteInstance.cpp: unsupported or malformed C++ syntax at line 1235, column 18\n  bolt/lib/RuntimeLibs/RuntimeLibrary.cpp: unsupported or malformed C++ syntax at line 34, column 36\n  bolt/lib/Utils/CommandLineOpts.cpp: unsupported or malformed C++ syntax at line 21, column 1\n  22648 additional file diagnostics omitted\n",
+    "filesystem_cache": "uncontrolled; repeated warm OS-cache scans, no cpath cache",
+    "runs": [
+      {
+        "repetition": 0,
+        "workers": 1,
+        "elapsed_seconds": 250.14619916200172,
+        "time_wall_seconds": 250.14,
+        "user_seconds": 108.75,
+        "system_seconds": 7.95,
+        "max_rss_kib": 155812,
+        "stdout_sha256": "9241e3f9b2c4269e0a7b09821e15ed8c2e066307d3a2fc1034533f5ca12202f5",
+        "stderr_sha256": "9fe8ae60c580376022b0e813feac405f1e2ca26a5fc03c438cdab5757a5317c1",
+        "exit_status": 3,
+        "stderr": "cpath: warning: incomplete scan: analyzed 50150 files; 22680 selected files could not be analyzed. Rankings cover analyzed files only.\n  bolt/include/bolt/Core/BinaryContext.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 157, column 44\n  bolt/include/bolt/Core/DIEBuilder.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 295, column 56\n  bolt/include/bolt/Core/DynoStats.h: header rejected by both grammars: unsupported or malformed C syntax at line 60, column 8; unsupported or malformed C++ syntax at line 96, column 15\n  bolt/include/bolt/Passes/DataflowAnalysis.h: header rejected by both grammars: unsupported or malformed C syntax at line 47, column 29; unsupported or malformed C++ syntax at line 569, column 13\n  bolt/include/bolt/Profile/DataReader.h: header rejected by both grammars: unsupported or malformed C syntax at line 35, column 1; unsupported or malformed C++ syntax at line 504, column 13\n  bolt/include/bolt/Profile/Heatmap.h: header rejected by both grammars: unsupported or malformed C syntax at line 40, column 29; unsupported or malformed C++ syntax at line 51, column 67\n  bolt/include/bolt/Profile/ProfileYAMLMapping.h: header rejected by both grammars: unsupported or malformed C syntax at line 13, column 1; unsupported or malformed C++ syntax at line 126, column 66\n  bolt/lib/Core/BinaryContext.cpp: unsupported or malformed C++ syntax at line 2473, column 28\n  bolt/lib/Core/BinaryFunction.cpp: unsupported or malformed C++ syntax at line 3221, column 18\n  bolt/lib/Core/BinaryFunctionCallGraph.cpp: unsupported or malformed C++ syntax at line 152, column 20\n  bolt/lib/Core/BinaryFunctionProfile.cpp: unsupported or malformed C++ syntax at line 329, column 9\n  bolt/lib/Core/BinarySection.cpp: unsupported or malformed C++ syntax at line 228, column 77\n  bolt/lib/Core/DynoStats.cpp: unsupported or malformed C++ syntax at line 258, column 7\n  bolt/lib/Core/Exceptions.cpp: unsupported or malformed C++ syntax at line 855, column 60\n  bolt/lib/Core/JumpTable.cpp: unsupported or malformed C++ syntax at line 120, column 28\n  bolt/lib/Passes/Aligner.cpp: unsupported or malformed C++ syntax at line 106, column 5\n  bolt/lib/Passes/BinaryPasses.cpp: unsupported or malformed C++ syntax at line 130, column 1\n  bolt/lib/Passes/HFSort.cpp: unsupported or malformed C++ syntax at line 96, column 5\n  bolt/lib/Passes/IndirectCallPromotion.cpp: unsupported or malformed C++ syntax at line 302, column 16\n  bolt/lib/Passes/LongJmp.cpp: unsupported or malformed C++ syntax at line 1732, column 58\n  bolt/lib/Passes/RegAnalysis.cpp: unsupported or malformed C++ syntax at line 90, column 77\n  bolt/lib/Passes/ReorderAlgorithm.cpp: unsupported or malformed C++ syntax at line 170, column 40\n  bolt/lib/Passes/ReorderFunctions.cpp: unsupported or malformed C++ syntax at line 471, column 20\n  bolt/lib/Passes/TailDuplication.cpp: unsupported or malformed C++ syntax at line 315, column 71\n  bolt/lib/Profile/DataAggregator.cpp: unsupported or malformed C++ syntax at line 728, column 52\n  bolt/lib/Profile/DataReader.cpp: unsupported or malformed C++ syntax at line 565, column 68\n  bolt/lib/Profile/Heatmap.cpp: unsupported or malformed C++ syntax at line 89, column 29\n  bolt/lib/Rewrite/DWARFRewriter.cpp: unsupported or malformed C++ syntax at line 1359, column 20\n  bolt/lib/Rewrite/LinuxKernelRewriter.cpp: unsupported or malformed C++ syntax at line 538, column 69\n  bolt/lib/Rewrite/RewriteInstance.cpp: unsupported or malformed C++ syntax at line 1235, column 18\n  bolt/lib/RuntimeLibs/RuntimeLibrary.cpp: unsupported or malformed C++ syntax at line 34, column 36\n  bolt/lib/Utils/CommandLineOpts.cpp: unsupported or malformed C++ syntax at line 21, column 1\n  22648 additional file diagnostics omitted\n"
+      },
+      {
+        "repetition": 0,
+        "workers": 8,
+        "elapsed_seconds": 75.24442995901336,
+        "time_wall_seconds": 75.23,
+        "user_seconds": 123.64,
+        "system_seconds": 12.05,
+        "max_rss_kib": 381872,
+        "stdout_sha256": "9241e3f9b2c4269e0a7b09821e15ed8c2e066307d3a2fc1034533f5ca12202f5",
+        "stderr_sha256": "9fe8ae60c580376022b0e813feac405f1e2ca26a5fc03c438cdab5757a5317c1",
+        "exit_status": 3,
+        "stderr": "cpath: warning: incomplete scan: analyzed 50150 files; 22680 selected files could not be analyzed. Rankings cover analyzed files only.\n  bolt/include/bolt/Core/BinaryContext.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 157, column 44\n  bolt/include/bolt/Core/DIEBuilder.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 295, column 56\n  bolt/include/bolt/Core/DynoStats.h: header rejected by both grammars: unsupported or malformed C syntax at line 60, column 8; unsupported or malformed C++ syntax at line 96, column 15\n  bolt/include/bolt/Passes/DataflowAnalysis.h: header rejected by both grammars: unsupported or malformed C syntax at line 47, column 29; unsupported or malformed C++ syntax at line 569, column 13\n  bolt/include/bolt/Profile/DataReader.h: header rejected by both grammars: unsupported or malformed C syntax at line 35, column 1; unsupported or malformed C++ syntax at line 504, column 13\n  bolt/include/bolt/Profile/Heatmap.h: header rejected by both grammars: unsupported or malformed C syntax at line 40, column 29; unsupported or malformed C++ syntax at line 51, column 67\n  bolt/include/bolt/Profile/ProfileYAMLMapping.h: header rejected by both grammars: unsupported or malformed C syntax at line 13, column 1; unsupported or malformed C++ syntax at line 126, column 66\n  bolt/lib/Core/BinaryContext.cpp: unsupported or malformed C++ syntax at line 2473, column 28\n  bolt/lib/Core/BinaryFunction.cpp: unsupported or malformed C++ syntax at line 3221, column 18\n  bolt/lib/Core/BinaryFunctionCallGraph.cpp: unsupported or malformed C++ syntax at line 152, column 20\n  bolt/lib/Core/BinaryFunctionProfile.cpp: unsupported or malformed C++ syntax at line 329, column 9\n  bolt/lib/Core/BinarySection.cpp: unsupported or malformed C++ syntax at line 228, column 77\n  bolt/lib/Core/DynoStats.cpp: unsupported or malformed C++ syntax at line 258, column 7\n  bolt/lib/Core/Exceptions.cpp: unsupported or malformed C++ syntax at line 855, column 60\n  bolt/lib/Core/JumpTable.cpp: unsupported or malformed C++ syntax at line 120, column 28\n  bolt/lib/Passes/Aligner.cpp: unsupported or malformed C++ syntax at line 106, column 5\n  bolt/lib/Passes/BinaryPasses.cpp: unsupported or malformed C++ syntax at line 130, column 1\n  bolt/lib/Passes/HFSort.cpp: unsupported or malformed C++ syntax at line 96, column 5\n  bolt/lib/Passes/IndirectCallPromotion.cpp: unsupported or malformed C++ syntax at line 302, column 16\n  bolt/lib/Passes/LongJmp.cpp: unsupported or malformed C++ syntax at line 1732, column 58\n  bolt/lib/Passes/RegAnalysis.cpp: unsupported or malformed C++ syntax at line 90, column 77\n  bolt/lib/Passes/ReorderAlgorithm.cpp: unsupported or malformed C++ syntax at line 170, column 40\n  bolt/lib/Passes/ReorderFunctions.cpp: unsupported or malformed C++ syntax at line 471, column 20\n  bolt/lib/Passes/TailDuplication.cpp: unsupported or malformed C++ syntax at line 315, column 71\n  bolt/lib/Profile/DataAggregator.cpp: unsupported or malformed C++ syntax at line 728, column 52\n  bolt/lib/Profile/DataReader.cpp: unsupported or malformed C++ syntax at line 565, column 68\n  bolt/lib/Profile/Heatmap.cpp: unsupported or malformed C++ syntax at line 89, column 29\n  bolt/lib/Rewrite/DWARFRewriter.cpp: unsupported or malformed C++ syntax at line 1359, column 20\n  bolt/lib/Rewrite/LinuxKernelRewriter.cpp: unsupported or malformed C++ syntax at line 538, column 69\n  bolt/lib/Rewrite/RewriteInstance.cpp: unsupported or malformed C++ syntax at line 1235, column 18\n  bolt/lib/RuntimeLibs/RuntimeLibrary.cpp: unsupported or malformed C++ syntax at line 34, column 36\n  bolt/lib/Utils/CommandLineOpts.cpp: unsupported or malformed C++ syntax at line 21, column 1\n  22648 additional file diagnostics omitted\n"
+      },
+      {
+        "repetition": 1,
+        "workers": 1,
+        "elapsed_seconds": 248.56313397499616,
+        "time_wall_seconds": 248.55,
+        "user_seconds": 107.59,
+        "system_seconds": 7.07,
+        "max_rss_kib": 153904,
+        "stdout_sha256": "9241e3f9b2c4269e0a7b09821e15ed8c2e066307d3a2fc1034533f5ca12202f5",
+        "stderr_sha256": "9fe8ae60c580376022b0e813feac405f1e2ca26a5fc03c438cdab5757a5317c1",
+        "exit_status": 3,
+        "stderr": "cpath: warning: incomplete scan: analyzed 50150 files; 22680 selected files could not be analyzed. Rankings cover analyzed files only.\n  bolt/include/bolt/Core/BinaryContext.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 157, column 44\n  bolt/include/bolt/Core/DIEBuilder.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 295, column 56\n  bolt/include/bolt/Core/DynoStats.h: header rejected by both grammars: unsupported or malformed C syntax at line 60, column 8; unsupported or malformed C++ syntax at line 96, column 15\n  bolt/include/bolt/Passes/DataflowAnalysis.h: header rejected by both grammars: unsupported or malformed C syntax at line 47, column 29; unsupported or malformed C++ syntax at line 569, column 13\n  bolt/include/bolt/Profile/DataReader.h: header rejected by both grammars: unsupported or malformed C syntax at line 35, column 1; unsupported or malformed C++ syntax at line 504, column 13\n  bolt/include/bolt/Profile/Heatmap.h: header rejected by both grammars: unsupported or malformed C syntax at line 40, column 29; unsupported or malformed C++ syntax at line 51, column 67\n  bolt/include/bolt/Profile/ProfileYAMLMapping.h: header rejected by both grammars: unsupported or malformed C syntax at line 13, column 1; unsupported or malformed C++ syntax at line 126, column 66\n  bolt/lib/Core/BinaryContext.cpp: unsupported or malformed C++ syntax at line 2473, column 28\n  bolt/lib/Core/BinaryFunction.cpp: unsupported or malformed C++ syntax at line 3221, column 18\n  bolt/lib/Core/BinaryFunctionCallGraph.cpp: unsupported or malformed C++ syntax at line 152, column 20\n  bolt/lib/Core/BinaryFunctionProfile.cpp: unsupported or malformed C++ syntax at line 329, column 9\n  bolt/lib/Core/BinarySection.cpp: unsupported or malformed C++ syntax at line 228, column 77\n  bolt/lib/Core/DynoStats.cpp: unsupported or malformed C++ syntax at line 258, column 7\n  bolt/lib/Core/Exceptions.cpp: unsupported or malformed C++ syntax at line 855, column 60\n  bolt/lib/Core/JumpTable.cpp: unsupported or malformed C++ syntax at line 120, column 28\n  bolt/lib/Passes/Aligner.cpp: unsupported or malformed C++ syntax at line 106, column 5\n  bolt/lib/Passes/BinaryPasses.cpp: unsupported or malformed C++ syntax at line 130, column 1\n  bolt/lib/Passes/HFSort.cpp: unsupported or malformed C++ syntax at line 96, column 5\n  bolt/lib/Passes/IndirectCallPromotion.cpp: unsupported or malformed C++ syntax at line 302, column 16\n  bolt/lib/Passes/LongJmp.cpp: unsupported or malformed C++ syntax at line 1732, column 58\n  bolt/lib/Passes/RegAnalysis.cpp: unsupported or malformed C++ syntax at line 90, column 77\n  bolt/lib/Passes/ReorderAlgorithm.cpp: unsupported or malformed C++ syntax at line 170, column 40\n  bolt/lib/Passes/ReorderFunctions.cpp: unsupported or malformed C++ syntax at line 471, column 20\n  bolt/lib/Passes/TailDuplication.cpp: unsupported or malformed C++ syntax at line 315, column 71\n  bolt/lib/Profile/DataAggregator.cpp: unsupported or malformed C++ syntax at line 728, column 52\n  bolt/lib/Profile/DataReader.cpp: unsupported or malformed C++ syntax at line 565, column 68\n  bolt/lib/Profile/Heatmap.cpp: unsupported or malformed C++ syntax at line 89, column 29\n  bolt/lib/Rewrite/DWARFRewriter.cpp: unsupported or malformed C++ syntax at line 1359, column 20\n  bolt/lib/Rewrite/LinuxKernelRewriter.cpp: unsupported or malformed C++ syntax at line 538, column 69\n  bolt/lib/Rewrite/RewriteInstance.cpp: unsupported or malformed C++ syntax at line 1235, column 18\n  bolt/lib/RuntimeLibs/RuntimeLibrary.cpp: unsupported or malformed C++ syntax at line 34, column 36\n  bolt/lib/Utils/CommandLineOpts.cpp: unsupported or malformed C++ syntax at line 21, column 1\n  22648 additional file diagnostics omitted\n"
+      },
+      {
+        "repetition": 1,
+        "workers": 8,
+        "elapsed_seconds": 73.19988323398866,
+        "time_wall_seconds": 73.18,
+        "user_seconds": 123.54,
+        "system_seconds": 11.41,
+        "max_rss_kib": 418976,
+        "stdout_sha256": "9241e3f9b2c4269e0a7b09821e15ed8c2e066307d3a2fc1034533f5ca12202f5",
+        "stderr_sha256": "9fe8ae60c580376022b0e813feac405f1e2ca26a5fc03c438cdab5757a5317c1",
+        "exit_status": 3,
+        "stderr": "cpath: warning: incomplete scan: analyzed 50150 files; 22680 selected files could not be analyzed. Rankings cover analyzed files only.\n  bolt/include/bolt/Core/BinaryContext.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 157, column 44\n  bolt/include/bolt/Core/DIEBuilder.h: header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 295, column 56\n  bolt/include/bolt/Core/DynoStats.h: header rejected by both grammars: unsupported or malformed C syntax at line 60, column 8; unsupported or malformed C++ syntax at line 96, column 15\n  bolt/include/bolt/Passes/DataflowAnalysis.h: header rejected by both grammars: unsupported or malformed C syntax at line 47, column 29; unsupported or malformed C++ syntax at line 569, column 13\n  bolt/include/bolt/Profile/DataReader.h: header rejected by both grammars: unsupported or malformed C syntax at line 35, column 1; unsupported or malformed C++ syntax at line 504, column 13\n  bolt/include/bolt/Profile/Heatmap.h: header rejected by both grammars: unsupported or malformed C syntax at line 40, column 29; unsupported or malformed C++ syntax at line 51, column 67\n  bolt/include/bolt/Profile/ProfileYAMLMapping.h: header rejected by both grammars: unsupported or malformed C syntax at line 13, column 1; unsupported or malformed C++ syntax at line 126, column 66\n  bolt/lib/Core/BinaryContext.cpp: unsupported or malformed C++ syntax at line 2473, column 28\n  bolt/lib/Core/BinaryFunction.cpp: unsupported or malformed C++ syntax at line 3221, column 18\n  bolt/lib/Core/BinaryFunctionCallGraph.cpp: unsupported or malformed C++ syntax at line 152, column 20\n  bolt/lib/Core/BinaryFunctionProfile.cpp: unsupported or malformed C++ syntax at line 329, column 9\n  bolt/lib/Core/BinarySection.cpp: unsupported or malformed C++ syntax at line 228, column 77\n  bolt/lib/Core/DynoStats.cpp: unsupported or malformed C++ syntax at line 258, column 7\n  bolt/lib/Core/Exceptions.cpp: unsupported or malformed C++ syntax at line 855, column 60\n  bolt/lib/Core/JumpTable.cpp: unsupported or malformed C++ syntax at line 120, column 28\n  bolt/lib/Passes/Aligner.cpp: unsupported or malformed C++ syntax at line 106, column 5\n  bolt/lib/Passes/BinaryPasses.cpp: unsupported or malformed C++ syntax at line 130, column 1\n  bolt/lib/Passes/HFSort.cpp: unsupported or malformed C++ syntax at line 96, column 5\n  bolt/lib/Passes/IndirectCallPromotion.cpp: unsupported or malformed C++ syntax at line 302, column 16\n  bolt/lib/Passes/LongJmp.cpp: unsupported or malformed C++ syntax at line 1732, column 58\n  bolt/lib/Passes/RegAnalysis.cpp: unsupported or malformed C++ syntax at line 90, column 77\n  bolt/lib/Passes/ReorderAlgorithm.cpp: unsupported or malformed C++ syntax at line 170, column 40\n  bolt/lib/Passes/ReorderFunctions.cpp: unsupported or malformed C++ syntax at line 471, column 20\n  bolt/lib/Passes/TailDuplication.cpp: unsupported or malformed C++ syntax at line 315, column 71\n  bolt/lib/Profile/DataAggregator.cpp: unsupported or malformed C++ syntax at line 728, column 52\n  bolt/lib/Profile/DataReader.cpp: unsupported or malformed C++ syntax at line 565, column 68\n  bolt/lib/Profile/Heatmap.cpp: unsupported or malformed C++ syntax at line 89, column 29\n  bolt/lib/Rewrite/DWARFRewriter.cpp: unsupported or malformed C++ syntax at line 1359, column 20\n  bolt/lib/Rewrite/LinuxKernelRewriter.cpp: unsupported or malformed C++ syntax at line 538, column 69\n  bolt/lib/Rewrite/RewriteInstance.cpp: unsupported or malformed C++ syntax at line 1235, column 18\n  bolt/lib/RuntimeLibs/RuntimeLibrary.cpp: unsupported or malformed C++ syntax at line 34, column 36\n  bolt/lib/Utils/CommandLineOpts.cpp: unsupported or malformed C++ syntax at line 21, column 1\n  22648 additional file diagnostics omitted\n"
+      }
+    ],
+    "summary": {
+      "1": {
+        "median_seconds": 249.35466656849894,
+        "min_seconds": 248.56313397499616,
+        "max_seconds": 250.14619916200172,
+        "max_rss_kib": 155812
+      },
+      "8": {
+        "median_seconds": 74.22215659650101,
+        "min_seconds": 73.19988323398866,
+        "max_seconds": 75.24442995901336,
+        "max_rss_kib": 418976
+      }
+    },
+    "commit": "e426a42b1547a8732e6adf64e1bda338aa96acdb",
+    "target_worktree_status": null,
+    "target_verification_error": "git status --porcelain timed out after 30 seconds; target verification incomplete"
+  }
+}

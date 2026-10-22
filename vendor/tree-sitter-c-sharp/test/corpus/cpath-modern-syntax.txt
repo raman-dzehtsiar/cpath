@@ -1,0 +1,136 @@
+================================================================================
+cpath bare slices preserve patterns and expression ranges
+================================================================================
+class C {
+  bool M(int[] a) => a is [.., var last];
+  bool N(int[] a) => a is [1, ..];
+  bool P(int[] a) => a is [.. var rest, 1];
+  int[] R(int[] a) => a[1..];
+  int[] S(int[] a) => [.. a, 1];
+}
+
+--------------------------------------------------------------------------------
+
+(compilation_unit
+  (class_declaration
+    (identifier)
+    (declaration_list
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (parameter_list
+          (parameter
+            (array_type
+              (predefined_type)
+              (array_rank_specifier))
+            (identifier)))
+        (arrow_expression_clause
+          (is_pattern_expression
+            (identifier)
+            (list_pattern
+              (slice_pattern)
+              (declaration_pattern
+                (implicit_type)
+                (identifier))))))
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (parameter_list
+          (parameter
+            (array_type
+              (predefined_type)
+              (array_rank_specifier))
+            (identifier)))
+        (arrow_expression_clause
+          (is_pattern_expression
+            (identifier)
+            (list_pattern
+              (constant_pattern
+                (integer_literal))
+              (slice_pattern)))))
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (parameter_list
+          (parameter
+            (array_type
+              (predefined_type)
+              (array_rank_specifier))
+            (identifier)))
+        (arrow_expression_clause
+          (is_pattern_expression
+            (identifier)
+            (list_pattern
+              (slice_pattern
+                (declaration_pattern
+                  (implicit_type)
+                  (identifier)))
+              (constant_pattern
+                (integer_literal))))))
+      (method_declaration
+        (array_type
+          (predefined_type)
+          (array_rank_specifier))
+        (identifier)
+        (parameter_list
+          (parameter
+            (array_type
+              (predefined_type)
+              (array_rank_specifier))
+            (identifier)))
+        (arrow_expression_clause
+          (element_access_expression
+            (identifier)
+            (bracketed_argument_list
+              (argument
+                (range_expression
+                  (integer_literal)))))))
+      (method_declaration
+        (array_type
+          (predefined_type)
+          (array_rank_specifier))
+        (identifier)
+        (parameter_list
+          (parameter
+            (array_type
+              (predefined_type)
+              (array_rank_specifier))
+            (identifier)))
+        (arrow_expression_clause
+          (collection_expression
+            (collection_element
+              (spread_element
+                (identifier)))
+            (collection_element
+              (expression_element
+                (integer_literal)))))))))
+
+================================================================================
+cpath file-based app directives retain following code
+================================================================================
+#!/usr/bin/env dotnet
+#:project ../Shared/Shared.csproj
+#:property TargetFramework=net10.0
+int F(bool b) { if (b) return 1; return 0; }
+
+--------------------------------------------------------------------------------
+
+(compilation_unit
+  (shebang_directive)
+  (file_based_directive)
+  (file_based_directive)
+  (global_statement
+    (local_function_statement
+      (predefined_type)
+      (identifier)
+      (parameter_list
+        (parameter
+          (predefined_type)
+          (identifier)))
+      (block
+        (if_statement
+          (identifier)
+          (return_statement
+            (integer_literal)))
+        (return_statement
+          (integer_literal))))))

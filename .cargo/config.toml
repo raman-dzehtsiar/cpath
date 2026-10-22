@@ -1,0 +1,7 @@
+# Copyright (c) 2026 Raman Dzehtsiar
+# SPDX-License-Identifier: MIT
+
+[build]
+# Keep fingerprints and intermediate artifacts off Windows mounts when using WSL.
+# Each checkout gets its own cache; final binaries still go in target/.
+build-dir = "{cargo-cache-home}/build/hotpath-{workspace-path-hash}"

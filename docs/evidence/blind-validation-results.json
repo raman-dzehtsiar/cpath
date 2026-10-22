@@ -1,0 +1,1966 @@
+{
+  "protocol": "blind-validation-protocol.md",
+  "seed": "cpath-blind-v1-20261020",
+  "reviewer_artifact_sha256": {
+    "a": "6fda22eaa4d7779d6e0bdbaec4147d7aaaf8abe0585d728f8035a897807bfd69",
+    "b": "20d9f395cdcddb4efdd4ae514d98e7b11dbff918cf1b0b71b754695b52dcf587",
+    "c": "ce71c94f143cafada47a8002c28e8c728a2c42f3578864e8b61558f96bbb41ee"
+  },
+  "populations": {
+    "openra": {
+      "analyzed": 1516,
+      "unavailable": 1,
+      "bands_zero_based_half_open": {
+        "top": [
+          0,
+          20
+        ],
+        "middle": [
+          606,
+          909
+        ],
+        "low": [
+          1212,
+          1516
+        ]
+      }
+    },
+    "powershell": {
+      "analyzed": 1218,
+      "unavailable": 31,
+      "bands_zero_based_half_open": {
+        "top": [
+          0,
+          20
+        ],
+        "middle": [
+          487,
+          730
+        ],
+        "low": [
+          974,
+          1218
+        ]
+      }
+    },
+    "jellyfin": {
+      "analyzed": 2194,
+      "unavailable": 0,
+      "bands_zero_based_half_open": {
+        "top": [
+          0,
+          20
+        ],
+        "middle": [
+          877,
+          1316
+        ],
+        "low": [
+          1755,
+          2194
+        ]
+      }
+    },
+    "fluentvalidation": {
+      "analyzed": 218,
+      "unavailable": 0,
+      "bands_zero_based_half_open": {
+        "top": [
+          0,
+          20
+        ],
+        "middle": [
+          87,
+          130
+        ],
+        "low": [
+          174,
+          218
+        ]
+      }
+    },
+    "roslyn": {
+      "analyzed": 16576,
+      "unavailable": 367,
+      "bands_zero_based_half_open": {
+        "top": [
+          0,
+          20
+        ],
+        "middle": [
+          6630,
+          9945
+        ],
+        "low": [
+          13260,
+          16576
+        ]
+      }
+    }
+  },
+  "summary": {
+    "attention_priority": {
+      "strata": {
+        "top": {
+          "count": 10,
+          "positive": 10,
+          "mean": 2.8,
+          "ratings": [
+            3,
+            3,
+            3,
+            2,
+            3,
+            3,
+            3,
+            2,
+            3,
+            3
+          ]
+        },
+        "middle": {
+          "count": 10,
+          "positive": 3,
+          "mean": 1,
+          "ratings": [
+            1,
+            1,
+            1,
+            0,
+            2,
+            2,
+            0,
+            1,
+            2,
+            0
+          ]
+        },
+        "low": {
+          "count": 10,
+          "positive": 0,
+          "mean": 0.5,
+          "ratings": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ]
+        }
+      },
+      "spearman_printed_score": 0.8753822158590098,
+      "top_low_pairs": [
+        {
+          "top": "F11105ecd",
+          "low": "F776f0ad4",
+          "delta": 2
+        },
+        {
+          "top": "F11105ecd",
+          "low": "F115f7f52",
+          "delta": 3
+        },
+        {
+          "top": "Fe9b791f9",
+          "low": "F776f0ad4",
+          "delta": 2
+        },
+        {
+          "top": "Fe9b791f9",
+          "low": "F115f7f52",
+          "delta": 3
+        },
+        {
+          "top": "F1acac028",
+          "low": "F3635a7c5",
+          "delta": 3
+        },
+        {
+          "top": "F1acac028",
+          "low": "F8aa97c5c",
+          "delta": 2
+        },
+        {
+          "top": "F497f9114",
+          "low": "F3635a7c5",
+          "delta": 3
+        },
+        {
+          "top": "F497f9114",
+          "low": "F8aa97c5c",
+          "delta": 2
+        },
+        {
+          "top": "F6710ab20",
+          "low": "F119db2cd",
+          "delta": 2
+        },
+        {
+          "top": "F6710ab20",
+          "low": "F6e588646",
+          "delta": 3
+        },
+        {
+          "top": "F12a9a1f7",
+          "low": "F119db2cd",
+          "delta": 1
+        },
+        {
+          "top": "F12a9a1f7",
+          "low": "F6e588646",
+          "delta": 2
+        },
+        {
+          "top": "F084efd76",
+          "low": "Fdd9e8972",
+          "delta": 2
+        },
+        {
+          "top": "F084efd76",
+          "low": "F1f4a1ecb",
+          "delta": 1
+        },
+        {
+          "top": "F456f754e",
+          "low": "Fdd9e8972",
+          "delta": 3
+        },
+        {
+          "top": "F456f754e",
+          "low": "F1f4a1ecb",
+          "delta": 2
+        },
+        {
+          "top": "Fcb978019",
+          "low": "Ff8758dba",
+          "delta": 3
+        },
+        {
+          "top": "Fcb978019",
+          "low": "F2161dce5",
+          "delta": 2
+        },
+        {
+          "top": "F26c4aefc",
+          "low": "Ff8758dba",
+          "delta": 3
+        },
+        {
+          "top": "F26c4aefc",
+          "low": "F2161dce5",
+          "delta": 2
+        }
+      ],
+      "top_low_concordance": 1,
+      "repeat_agreement": {
+        "count": 6,
+        "exact": 6,
+        "within_one": 6,
+        "pairs": [
+          {
+            "id": "F290e5957",
+            "primary": 1,
+            "secondary": 1
+          },
+          {
+            "id": "F197aa22f",
+            "primary": 0,
+            "secondary": 0
+          },
+          {
+            "id": "F6710ab20",
+            "primary": 3,
+            "secondary": 3
+          },
+          {
+            "id": "F497f9114",
+            "primary": 3,
+            "secondary": 3
+          },
+          {
+            "id": "F3635a7c5",
+            "primary": 0,
+            "secondary": 0
+          },
+          {
+            "id": "Fe9b791f9",
+            "primary": 3,
+            "secondary": 3
+          }
+        ]
+      }
+    },
+    "review_difficulty": {
+      "strata": {
+        "top": {
+          "count": 10,
+          "positive": 10,
+          "mean": 2.8,
+          "ratings": [
+            3,
+            3,
+            3,
+            2,
+            3,
+            3,
+            3,
+            2,
+            3,
+            3
+          ]
+        },
+        "middle": {
+          "count": 10,
+          "positive": 3,
+          "mean": 1,
+          "ratings": [
+            1,
+            1,
+            1,
+            0,
+            2,
+            2,
+            0,
+            1,
+            2,
+            0
+          ]
+        },
+        "low": {
+          "count": 10,
+          "positive": 0,
+          "mean": 0.5,
+          "ratings": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ]
+        }
+      },
+      "spearman_printed_score": 0.8753822158590098,
+      "top_low_pairs": [
+        {
+          "top": "F11105ecd",
+          "low": "F776f0ad4",
+          "delta": 2
+        },
+        {
+          "top": "F11105ecd",
+          "low": "F115f7f52",
+          "delta": 3
+        },
+        {
+          "top": "Fe9b791f9",
+          "low": "F776f0ad4",
+          "delta": 2
+        },
+        {
+          "top": "Fe9b791f9",
+          "low": "F115f7f52",
+          "delta": 3
+        },
+        {
+          "top": "F1acac028",
+          "low": "F3635a7c5",
+          "delta": 3
+        },
+        {
+          "top": "F1acac028",
+          "low": "F8aa97c5c",
+          "delta": 2
+        },
+        {
+          "top": "F497f9114",
+          "low": "F3635a7c5",
+          "delta": 3
+        },
+        {
+          "top": "F497f9114",
+          "low": "F8aa97c5c",
+          "delta": 2
+        },
+        {
+          "top": "F6710ab20",
+          "low": "F119db2cd",
+          "delta": 2
+        },
+        {
+          "top": "F6710ab20",
+          "low": "F6e588646",
+          "delta": 3
+        },
+        {
+          "top": "F12a9a1f7",
+          "low": "F119db2cd",
+          "delta": 1
+        },
+        {
+          "top": "F12a9a1f7",
+          "low": "F6e588646",
+          "delta": 2
+        },
+        {
+          "top": "F084efd76",
+          "low": "Fdd9e8972",
+          "delta": 2
+        },
+        {
+          "top": "F084efd76",
+          "low": "F1f4a1ecb",
+          "delta": 1
+        },
+        {
+          "top": "F456f754e",
+          "low": "Fdd9e8972",
+          "delta": 3
+        },
+        {
+          "top": "F456f754e",
+          "low": "F1f4a1ecb",
+          "delta": 2
+        },
+        {
+          "top": "Fcb978019",
+          "low": "Ff8758dba",
+          "delta": 3
+        },
+        {
+          "top": "Fcb978019",
+          "low": "F2161dce5",
+          "delta": 2
+        },
+        {
+          "top": "F26c4aefc",
+          "low": "Ff8758dba",
+          "delta": 3
+        },
+        {
+          "top": "F26c4aefc",
+          "low": "F2161dce5",
+          "delta": 2
+        }
+      ],
+      "top_low_concordance": 1,
+      "repeat_agreement": {
+        "count": 6,
+        "exact": 6,
+        "within_one": 6,
+        "pairs": [
+          {
+            "id": "F290e5957",
+            "primary": 1,
+            "secondary": 1
+          },
+          {
+            "id": "F197aa22f",
+            "primary": 0,
+            "secondary": 0
+          },
+          {
+            "id": "F6710ab20",
+            "primary": 3,
+            "secondary": 3
+          },
+          {
+            "id": "F497f9114",
+            "primary": 3,
+            "secondary": 3
+          },
+          {
+            "id": "F3635a7c5",
+            "primary": 0,
+            "secondary": 0
+          },
+          {
+            "id": "Fe9b791f9",
+            "primary": 3,
+            "secondary": 3
+          }
+        ]
+      }
+    }
+  },
+  "files": [
+    {
+      "id": "F456f754e",
+      "repository": "fluentvalidation",
+      "path": "src/FluentValidation/Internal/CollectionPropertyRule.cs",
+      "stratum": "top",
+      "rank": 1,
+      "score": 48,
+      "burden": 33,
+      "source_sha256": "9abca1b805afbd65a6e6bb10cf1a3039fb23a078f6aad5edd38ea1d87419bb69",
+      "primary_reviewer": "a",
+      "source_lines": 248,
+      "primary": {
+        "id": "F456f754e",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "high",
+        "role": "Collection-property validation rule execution with conditions, filters, indexed failure paths, cascading, and dependent rules.",
+        "hardest_behavior": "Preserving evaluation order and context state across filtered elements, async validator calls, cascade-stop exits, and dependent rules. Conditions must run against the root before collection access, while element validation temporarily changes paths and failure formatting.",
+        "evidence": [
+          {
+            "start_line": 86,
+            "end_line": 124,
+            "reason": "Selector and rule conditions execute before component filtering and collection retrieval. Moving collection access earlier changes whether conditions can guard a null-sensitive accessor."
+          },
+          {
+            "start_line": 135,
+            "end_line": 167,
+            "reason": "The original collection index advances before sync/async filtering. Custom index construction then precedes saving context state and installing the child collection property path, so filtering must not accidentally renumber reported failures."
+          },
+          {
+            "start_line": 169,
+            "end_line": 199,
+            "reason": "Each component resets the shared formatter, validates asynchronously, and may append failures. Cascade-stop must restore state before leaving the element loop; dependent rules depend on the whole collection's failure-count baseline rather than only the current element."
+          },
+          {
+            "start_line": 208,
+            "end_line": 236,
+            "reason": "Component conditions are evaluated against root context before the collection is fetched, using a copied validator list. Sync-generated execution also has explicit guards against asynchronous conditions, creating a second execution contract to preserve."
+          }
+        ],
+        "counterevidence": "The code documents why conditions precede property access, and explicit saved baselines and RestoreState calls expose key invariants. Construction and dependent-rule registration are simple. This is not a claim that current exception handling or generated sync behavior is defective.",
+        "inspection_scope": "Read all 248 lines and the packet's full IValidationContext.cs to trace the save/restore stack and shared failures/formatter. Did not inspect the generated synchronous implementation, all rule-component internals, or run validation tests."
+      }
+    },
+    {
+      "id": "F084efd76",
+      "repository": "fluentvalidation",
+      "path": "src/FluentValidation/IValidationContext.cs",
+      "stratum": "top",
+      "rank": 14,
+      "score": 7,
+      "burden": 0,
+      "source_sha256": "382b5a3be1b763652af8d9e0c85f27ac114cceddc89aa667b32814d8b82835ca",
+      "primary_reviewer": "a",
+      "source_lines": 331,
+      "primary": {
+        "id": "F084efd76",
+        "review_difficulty": 2,
+        "attention_priority": 2,
+        "confidence": "high",
+        "role": "Validation context interfaces and concrete generic context holding failures, property paths, shared data, and nested-validation state.",
+        "hardest_behavior": "Preserving which objects are shared versus copied when adapting or cloning contexts, and restoring parent state after nested collection validation. Failure accumulation and message/property state must continue to refer to the intended validation scope.",
+        "evidence": [
+          {
+            "start_line": 111,
+            "end_line": 117,
+            "reason": "Construction copies the property chain but takes the failure list and message formatter by reference. This ownership distinction carries through child validation."
+          },
+          {
+            "start_line": 204,
+            "end_line": 237,
+            "reason": "Generic adaptation returns an existing matching context unchanged or creates a context that conditionally reuses failures and preserves root data, parent, async, and throw flags. Null instances follow a separate conversion path."
+          },
+          {
+            "start_line": 247,
+            "end_line": 274,
+            "reason": "Child clones share failures, formatter, and root data, optionally retain their parent, and collection preparation pushes a tuple of flags, parent, chain, and condition cache before replacing the chain. RestoreState must match this saved-state contract."
+          },
+          {
+            "start_line": 291,
+            "end_line": 305,
+            "reason": "The two AddFailure forms resolve locations differently: one builds from the current chain and supplied property, while the other uses the initialized PropertyPath. Nested-state changes can therefore alter reported locations."
+          }
+        ],
+        "counterevidence": "The ownership and stack operations are explicit and compact, and many members are simple accessors. Context conversion has clear type/null cases. The observed interactions are tractable without treating every property as independently complicated.",
+        "inspection_scope": "Read all 331 lines. Also read the packet's CollectionPropertyRule.cs in full, which exercises collection preparation/restoration and failure accumulation. Did not inspect every context consumer or run validation tests."
+      }
+    },
+    {
+      "id": "Fe7b17afe",
+      "repository": "fluentvalidation",
+      "path": "src/FluentValidation/Resources/Languages/SlovakLanguage.cs",
+      "stratum": "middle",
+      "rank": 108,
+      "score": 1,
+      "burden": 0,
+      "source_sha256": "d6415d9dbba3469822f3b086b225566d2716a0694ac973739e6eee5d285eb864",
+      "primary_reviewer": "a",
+      "source_lines": 60,
+      "primary": {
+        "id": "Fe7b17afe",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "Slovak validation-message resource mapping.",
+        "hardest_behavior": "Selecting a translation by validator key while preserving named substitution placeholders and the null result for unknown keys.",
+        "evidence": [
+          {
+            "start_line": 26,
+            "end_line": 34,
+            "reason": "The culture identifier and direct key-to-string mappings are declarative; length-message placeholders are visible in the string values."
+          },
+          {
+            "start_line": 52,
+            "end_line": 58,
+            "reason": "Client-side fallback keys also map directly to strings, and the default returns null. No values are computed from another entry or shared mutable state."
+          }
+        ],
+        "counterevidence": "Changing translations still calls for checking Slovak wording and preserving the formatter's placeholder names; this review does not certify linguistic accuracy. Those checks are localized to the edited resource rather than interacting execution invariants.",
+        "inspection_scope": "Read all 60 lines. Reviewed mapping structure and placeholders, not external locale fallback behavior or native-speaker translation quality."
+      }
+    },
+    {
+      "id": "F1700416c",
+      "repository": "fluentvalidation",
+      "path": "src/FluentValidation/ValidationException.cs",
+      "stratum": "middle",
+      "rank": 122,
+      "score": 1,
+      "burden": 0,
+      "source_sha256": "f42b80a44e0532ad66c4d3e8e8b6e37468f49bf407444866ae52d411668f3236",
+      "primary_reviewer": "c",
+      "source_lines": 94,
+      "primary": {
+        "id": "F1700416c",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "Validation exception carrying failures, formatting messages, and supporting serialization.",
+        "hardest_behavior": "Keeping constructor message generation and the exposed Errors enumerable consistent, with matching serialization read/write keys.",
+        "evidence": [
+          {
+            "start_line": 60,
+            "end_line": 75,
+            "reason": "The optional default-message constructor and failures-only constructor enumerate errors to create a message, then retain the original enumerable. Behavior changes should consider enumeration timing and the snapshot message versus retained sequence."
+          },
+          {
+            "start_line": 81,
+            "end_line": 92,
+            "reason": "Serialization reads and writes the same errors key and delegates base exception state, with a null check on the write path."
+          }
+        ],
+        "counterevidence": "The message layout is a direct projection and join, constructor delegation is explicit, and no validation execution or mutable processing state is implemented here. The enumerable and serialization contracts warrant focused local review.",
+        "inspection_scope": "Read all 94 lines. Did not inspect ValidationFailure, callers, or serialization tests."
+      }
+    },
+    {
+      "id": "F1f4a1ecb",
+      "repository": "fluentvalidation",
+      "path": "src/FluentValidation.Tests/UserStateTester.cs",
+      "stratum": "low",
+      "rank": 186,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "2ea02cee12fe29a4ed5e1f32c39b734c8a1bb6b8dd0c3d28ab59a91a4f897ff1",
+      "primary_reviewer": "b",
+      "source_lines": 83,
+      "primary": {
+        "id": "F1f4a1ecb",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "FluentValidation custom user-state tests",
+        "hardest_behavior": "Changing the custom-state tests requires retaining which object, property value and validation-context data are supplied to each WithState overload, including collection-item validation.",
+        "evidence": [
+          {
+            "start_line": 48,
+            "end_line": 59,
+            "reason": "The state callback captures the validated instance and the test verifies object identity rather than merely an equal value."
+          },
+          {
+            "start_line": 63,
+            "end_line": 66,
+            "reason": "The collection overload is exercised with a null child that triggers NotNull and attaches state to the resulting failure."
+          },
+          {
+            "start_line": 70,
+            "end_line": 81,
+            "reason": "The three-argument callback captures the model, null surname and RootContextData value into a tuple, and each component is asserted independently."
+          }
+        ],
+        "counterevidence": "Tests use isolated validators, simple data and explicit assertions. The context and overload distinctions require focused attention, but there is no asynchronous interaction, complex fixture machinery or hidden progression in these tests.",
+        "inspection_scope": "Read all 83 source lines. Did not inspect WithState implementation, Person or TestValidator definitions; evaluated the test contracts visible here."
+      }
+    },
+    {
+      "id": "Fdd9e8972",
+      "repository": "fluentvalidation",
+      "path": "src/FluentValidation/IValidatorDescriptor.cs",
+      "stratum": "low",
+      "rank": 197,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "298bfbad17ac9eb07acffadfebd99641f9d8d111f7c590ebba7f1c44df9451a5",
+      "primary_reviewer": "a",
+      "source_lines": 55,
+      "primary": {
+        "id": "Fdd9e8972",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "Public interface exposing validator metadata and property-associated rules/components.",
+        "hardest_behavior": "Preserving the declarative contract that exposes validators together with their rule options and groups them by property.",
+        "evidence": [
+          {
+            "start_line": 29,
+            "end_line": 54,
+            "reason": "All members are interface declarations with summaries. The tuple return types explicitly associate each validator with its options; no local implementation, state mutation, or ordering logic exists in this file."
+          }
+        ],
+        "counterevidence": "An interface signature change would require checking implementers and consumers for compatibility. That is a consequence of a proposed API change, while the existing file itself has no observed interacting behavioral invariant warranting an elevated rating.",
+        "inspection_scope": "Read all 55 lines. Did not inspect implementers or callers; rating applies to the existing declarative contract rather than hypothesized implementation behavior."
+      }
+    },
+    {
+      "id": "F6710ab20",
+      "repository": "jellyfin",
+      "path": "MediaBrowser.Controller/MediaEncoding/EncodingHelper.cs",
+      "stratum": "top",
+      "rank": 6,
+      "score": 135,
+      "burden": 1235,
+      "source_sha256": "d2fa5f50afd302ff776ed9d7ac4a8500a7fd740d44a8c7f17cae58ccaa152980",
+      "primary_reviewer": "c",
+      "secondary_reviewer": "a",
+      "source_lines": 8093,
+      "primary": {
+        "id": "F6710ab20",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "medium",
+        "role": "Media transcoding policy, hardware/software filter-graph selection, and FFmpeg command construction.",
+        "hardest_behavior": "Keeping decoder and encoder surface types, tone-mapping passes, scaling/rotation, subtitle overlays, and hardware transfers compatible and ordered, while stream-copy eligibility and command generation agree about required HDR metadata changes.",
+        "evidence": [
+          {
+            "start_line": 1424,
+            "end_line": 1481,
+            "reason": "The requested HDR formats and source range jointly choose which dynamic metadata to remove; backend capability then determines whether that plan is executable."
+          },
+          {
+            "start_line": 1522,
+            "end_line": 1559,
+            "reason": "Bitstream construction relies on copy eligibility having rejected unsupported metadata-removal plans, an explicit invariant spanning methods."
+          },
+          {
+            "start_line": 2498,
+            "end_line": 2545,
+            "reason": "Stream-copy acceptance distinguishes static fallback formats from dynamic metadata-removal cases and consults the same removal plan and capability checks."
+          },
+          {
+            "start_line": 4593,
+            "end_line": 4697,
+            "reason": "Intel hardware filtering coordinates p010/nv12 formats, a possible two-pass tone map, procamp controls, rotation, version-sensitive output options, and a relay to avoid exhausting the decoder surface pool."
+          },
+          {
+            "start_line": 4700,
+            "end_line": 4803,
+            "reason": "OpenCL interop, download versus reverse mapping, text versus graphical subtitles, and fixed-size upload pools determine distinct memory and GPU overlay paths."
+          },
+          {
+            "start_line": 6338,
+            "end_line": 6412,
+            "reason": "Final graph assembly places fps before or after processing depending on deinterlacing and builds different stream references for text versus graphical subtitles."
+          },
+          {
+            "start_line": 7282,
+            "end_line": 7325,
+            "reason": "Stream-copy state is also affected by user transcoding permission and HLS seek policy, with failure-reason reporting conditioned on the actual resulting audio encoding choice."
+          }
+        ],
+        "counterevidence": "Hardware families have named entry points and comments describe intended surface transitions; many codec mappings and elementary string helpers are straightforward. The reviewed difficult behavior is specific to interacting graph and copy-policy paths, not inferred from the file's size.",
+        "inspection_scope": "Partial review of 8093 lines. Inventoried member declarations throughout. Read lines 1-245, 1017-1090, 1424-1565, 2426-2714, 2961-3075, 3912-4033, 4468-4805, 6304-6418, 7282-7329, 7495-7610, 7682-7910, and 8006-8093. This covers configuration, copy policy, audio constraints, software and Intel Windows filter chains, graph assembly, media attachment, progressive video/audio arguments, and stream indexing. Did not read all other hardware implementations, quality/bitrate helpers, or execute FFmpeg."
+      },
+      "secondary": {
+        "id": "F6710ab20",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "medium",
+        "role": "Media encoding policy and FFmpeg command/filter construction for software and hardware transcoding, stream copy, subtitles, and HDR handling.",
+        "hardest_behavior": "Maintaining a valid filter graph across hardware surface types, pixel formats, tone mapping, rotation, and subtitle composition, while keeping stream-copy compatibility decisions consistent with emitted metadata filters and user permissions. A local option change can alter later frame transfers and graph assembly.",
+        "evidence": [
+          {
+            "start_line": 1119,
+            "end_line": 1145,
+            "reason": "QSV input initialization chooses a hardware child device and may derive OpenCL from VAAPI or D3D11, changing the filter device when decoding is software. These aliases must match later surface mappings."
+          },
+          {
+            "start_line": 4537,
+            "end_line": 4556,
+            "reason": "QSV processing derives mutually selected tone-map paths and rotation-dependent dimension swaps alongside subtitle type. These choices become inputs to scaling and overlay construction."
+          },
+          {
+            "start_line": 4593,
+            "end_line": 4696,
+            "reason": "HEVC range extensions and brightness/contrast processing can require two tone-map passes with p010 between them; output format, scaling, transpose, decoder-pool behavior, and color metadata are adjusted together."
+          },
+          {
+            "start_line": 4700,
+            "end_line": 4799,
+            "reason": "The graph maps QSV frames into OpenCL, downloads or maps to memory for some encoder combinations, reverse-maps for hardware output, and creates text or graphical subtitle surfaces with a fixed hardware frame pool. Correct ordering and surface compatibility require tracing the combined path."
+          },
+          {
+            "start_line": 6338,
+            "end_line": 6412,
+            "reason": "Final graph construction changes fps-filter placement around deinterlacing, switches between simple and complex filtering, and uses different subtitle graph inputs for generated text versus graphical streams."
+          },
+          {
+            "start_line": 2525,
+            "end_line": 2544,
+            "reason": "A stream-copy compatibility exception depends on the dynamic-HDR removal plan and encoder capabilities; GetBitStreamArgs later emits the corresponding removal filter under the assumption that copy eligibility was already established."
+          },
+          {
+            "start_line": 7282,
+            "end_line": 7325,
+            "reason": "TryStreamCopy mutates output codecs, permits permission policy to force copying despite incompatibility, and makes HLS audio-copy behavior depend on the chosen video codec. It also records only selected audio failure reasons."
+          }
+        ],
+        "counterevidence": "Helper methods and named predicates make individual transformations inspectable, and software filtering follows a clearer linear sequence. Some routines are straightforward mappings or string formatting. The rating rests on specific surface/format and policy interactions, not on file size or assumed playback defects.",
+        "inspection_scope": "Partial inspection of 8093 lines: reviewed method declarations across the file; read 1017-1250, 1424-1565, 2426-2640, 3912-4033, 4514-4805, 6304-6418, 7282-7329, 7495-7610, and 7719-7753. Inspected software and QSV/D3D11 filter paths, hardware-device setup, stream-copy/HDR policy, media-source state attachment, and final command/graph assembly. Did not exhaust other hardware backends, inspect all called predicates, or validate generated commands with FFmpeg."
+      }
+    },
+    {
+      "id": "F12a9a1f7",
+      "repository": "jellyfin",
+      "path": "Emby.Server.Implementations/Playlists/PlaylistManager.cs",
+      "stratum": "top",
+      "rank": 17,
+      "score": 72,
+      "burden": 65,
+      "source_sha256": "57aff7f96b21b284658229ee1eaad423810b18d7163892fcc9ed5d792077a3ce",
+      "primary_reviewer": "c",
+      "source_lines": 675,
+      "primary": {
+        "id": "F12a9a1f7",
+        "review_difficulty": 2,
+        "attention_priority": 2,
+        "confidence": "high",
+        "role": "Playlist creation, membership/order updates, sharing changes, and file serialization.",
+        "hardest_behavior": "Translating a user's visible-list move into the complete playlist ordering, then preserving the ordering through repository and optional playlist-file updates; other edits also coordinate asynchronous persistence and metadata refresh.",
+        "evidence": [
+          {
+            "start_line": 304,
+            "end_line": 360,
+            "reason": "MoveItemAsync derives positions from manageable items and a visibility-filtered subset, maps a prior item back to the full set, removes the moved child, then inserts using the adjusted index. Verifying moves requires tracing both index spaces and removal effects."
+          },
+          {
+            "start_line": 133,
+            "end_line": 168,
+            "reason": "Creation brackets filesystem changes with monitor notifications while adding a library child, refreshing metadata, and optionally adding content; finally restores the monitor state across asynchronous failures."
+          },
+          {
+            "start_line": 604,
+            "end_line": 637,
+            "reason": "Replacing item IDs first persists an empty list, then adds the replacement items and reloads the playlist before updating its remaining properties, making operation ordering observable."
+          },
+          {
+            "start_line": 665,
+            "end_line": 672,
+            "reason": "Every update persists repository metadata before conditionally serializing a playlist file, so a behavioral edit must account for both representations."
+          }
+        ],
+        "counterevidence": "The many format-specific save sections are repetitive field mappings rather than independent complicated algorithms. Shared persistence helpers and small index tests help; the inspected tests exercise only DetermineAdjustedIndex, not the complete filtered-list move or persistence flow.",
+        "inspection_scope": "Read all 675 lines and the complete 40-line PlaylistManagerTests.cs. Did not inspect Playlist.GetManageableItems/GetLinkedChildren implementations or execute filesystem/database operations."
+      }
+    },
+    {
+      "id": "F197aa22f",
+      "repository": "jellyfin",
+      "path": "MediaBrowser.Controller/Authentication/IAuthenticationProvider.cs",
+      "stratum": "middle",
+      "rank": 1061,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "22066fe39e689a8bee17a1e989e2b5e8c98d316156a591567f39a684ba114e43",
+      "primary_reviewer": "b",
+      "secondary_reviewer": "c",
+      "source_lines": 36,
+      "primary": {
+        "id": "F197aa22f",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "Authentication provider interfaces and result data contract",
+        "hardest_behavior": "There is no implemented authentication behavior here. A contract edit changes asynchronous method signatures, the optional resolved-user extension or result field requirements.",
+        "evidence": [
+          {
+            "start_line": 9,
+            "end_line": 27,
+            "reason": "The interfaces contain property and method declarations only, including the separate resolved-user overload and new-user-policy contract."
+          },
+          {
+            "start_line": 30,
+            "end_line": 34,
+            "reason": "The result is two auto-properties, one required username and one nullable display name; no validation or transformation occurs."
+          }
+        ],
+        "counterevidence": "Consumers would need compatibility checks for signature changes, but this source supplies no interacting implementation invariant. Its authentication role alone does not justify a higher behavior-review rating.",
+        "inspection_scope": "Read all 36 source lines. Did not inspect implementations or callers and do not infer their complexity from these declarations."
+      },
+      "secondary": {
+        "id": "F197aa22f",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "Authentication-provider interfaces and result data object.",
+        "hardest_behavior": "Declaring provider methods and the nullable/resolved-user and result shape; no authentication behavior is implemented in this file.",
+        "evidence": [
+          {
+            "start_line": 9,
+            "end_line": 27,
+            "reason": "The interfaces contain property and asynchronous method signatures only, including the optional resolved-user overload and new-user policy accessor."
+          },
+          {
+            "start_line": 30,
+            "end_line": 34,
+            "reason": "The result object contains an explicitly required username and optional display name, with automatic properties and no state transformation."
+          }
+        ],
+        "counterevidence": "A signature or nullability change would require checking implementations and callers, but the observed file contains no interacting implementation invariant; the authentication domain alone does not justify a higher rating.",
+        "inspection_scope": "Read all 36 lines. No provider implementations or call sites inspected."
+      }
+    },
+    {
+      "id": "F51eefe48",
+      "repository": "jellyfin",
+      "path": "MediaBrowser.Controller/Net/WebSocketMessages/Inbound/ScheduledTasksInfoStartMessage.cs",
+      "stratum": "middle",
+      "rank": 1223,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "55dc09bd119a907a4a5d54bce054450f280415603affac2f55005c49e26e3bbb",
+      "primary_reviewer": "b",
+      "source_lines": 24,
+      "primary": {
+        "id": "F51eefe48",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "Inbound scheduled-task subscription message declaration",
+        "hardest_behavior": "The file forwards a timing string to its base constructor and identifies a fixed message type; it does not parse or schedule anything.",
+        "evidence": [
+          {
+            "start_line": 6,
+            "end_line": 18,
+            "reason": "The timing format is documented, but the constructor forwards data unchanged to InboundWebSocketMessage<string>."
+          },
+          {
+            "start_line": 21,
+            "end_line": 23,
+            "reason": "DefaultValue and the overridden getter both identify ScheduledTasksInfoStart with no conditional behavior."
+          }
+        ],
+        "counterevidence": "The message participates in a larger protocol, but no protocol state or timing invariant is implemented in this file. Reviewing the constant and forwarding is routine locally.",
+        "inspection_scope": "Read all 24 source lines. Did not inspect the base message class or message consumers."
+      }
+    },
+    {
+      "id": "F6e588646",
+      "repository": "jellyfin",
+      "path": "src/Jellyfin.LiveTv/Listings/SchedulesDirectDtos/ImageDataDto.cs",
+      "stratum": "low",
+      "rank": 1953,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "f2d7a62435cbce08fb6f90c827b237008741f91a9389435148297f04c38d146e",
+      "primary_reviewer": "a",
+      "source_lines": 70,
+      "primary": {
+        "id": "F6e588646",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "Schedules Direct image metadata DTO with JSON field-name annotations.",
+        "hardest_behavior": "Maintaining the external JSON names and nullable data types, including the nested caption value.",
+        "evidence": [
+          {
+            "start_line": 10,
+            "end_line": 26,
+            "reason": "Width, height, and URI have explicit JSON names and plain nullable string auto-properties, without conversions or validation."
+          },
+          {
+            "start_line": 58,
+            "end_line": 68,
+            "reason": "Tier and Caption follow the same direct serialization contract; the caption is a nullable DTO reference rather than locally computed data."
+          }
+        ],
+        "counterevidence": "Renaming a JSON field or changing a type requires a wire-format compatibility check, but no interactions among fields or lifecycle effects are implemented here.",
+        "inspection_scope": "Read all 70 lines. Did not inspect serializer configuration, external payloads, CaptionDto, or consumers."
+      }
+    },
+    {
+      "id": "F119db2cd",
+      "repository": "jellyfin",
+      "path": "tests/Jellyfin.XbmcMetadata.Tests/Parsers/MusicVideoNfoParserTests.cs",
+      "stratum": "low",
+      "rank": 2192,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "28fb02b7d9baabf0117474fc6dacd752b404858b7bfcffc01450e4eaa6e524ed",
+      "primary_reviewer": "b",
+      "source_lines": 80,
+      "primary": {
+        "id": "F119db2cd",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "Music-video NFO parser fixture tests",
+        "hardest_behavior": "Changing the successful fixture scenario requires keeping the generic Video result, its MusicVideo instance, parser setup and expected artist/album fields aligned. The negative cases distinguish missing item from an empty input path.",
+        "evidence": [
+          {
+            "start_line": 24,
+            "end_line": 41,
+            "reason": "The fixture supplies empty external-ID metadata and default XBMC options through mocks before constructing the parser."
+          },
+          {
+            "start_line": 45,
+            "end_line": 58,
+            "reason": "Fetch receives MetadataResult<Video> containing MusicVideo, then the test checks title, single artist and album after a concrete NFO-file load."
+          },
+          {
+            "start_line": 62,
+            "end_line": 77,
+            "reason": "Separate assertions exercise a result lacking an item and an empty filename; the latter test name alone is insufficient to tell what input is tested."
+          }
+        ],
+        "counterevidence": "The setup and assertions are linear, each test owns its result, and there is no shared evolving state or asynchronous coordination. This is a focused fixture-contract review, not an intricate test harness.",
+        "inspection_scope": "Read all 80 source lines. Did not inspect the external NFO fixture or parser implementation; no claim about full parser behavior."
+      }
+    },
+    {
+      "id": "Fe9b791f9",
+      "repository": "openra",
+      "path": "OpenRA.Mods.Common/Traits/BotModules/McvExpansionManagerBotModule.cs",
+      "stratum": "top",
+      "rank": 8,
+      "score": 104,
+      "burden": 104,
+      "source_sha256": "85bc6ed484d55c72aaf2002eaf53d3824f2a7710714bfd8d000e54d152da8006",
+      "primary_reviewer": "c",
+      "secondary_reviewer": "a",
+      "source_lines": 825,
+      "primary": {
+        "id": "Fe9b791f9",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "high",
+        "role": "Production bot expansion, construction-yard relocation, and MCV deployment controller.",
+        "hardest_behavior": "Choosing and deploying an expansion while accumulated success/failure changes the search mode and radius, active MCV destinations discourage competing assignments, and queued moves/transforms notify refinery and defense modules before deployment is confirmed.",
+        "evidence": [
+          {
+            "start_line": 200,
+            "end_line": 265,
+            "reason": "Failure and success mutate a signed attempt accumulator, its threshold, remembered failed location, and expansion mode; switching mode also changes deployment geometry through SwitchExpansionMode."
+          },
+          {
+            "start_line": 408,
+            "end_line": 493,
+            "reason": "Candidate selection combines failed-location suppression, path reachability, resource preferences, allied structures, active destinations, and fallback policy; the checked grid center differs from the actual resource center returned."
+          },
+          {
+            "start_line": 663,
+            "end_line": 698,
+            "reason": "A chosen destination is stored in activeMCVs, communicated to refinery production, and then used for ordered Move/DeployTransform commands and speculative base/defense notifications."
+          },
+          {
+            "start_line": 757,
+            "end_line": 792,
+            "reason": "Reachability and distance can trigger a second deployment-cell search; success/failure updates can switch the mode before the return decides whether to expose a resource location."
+          }
+        ],
+        "counterevidence": "Mode-specific configuration and threat calculation are separated, and substantial comments explain the weighting. Production requests have explicit existing-queue guards. These aid review but do not remove the temporal coupling between searches and queued actions.",
+        "inspection_scope": "Read all 825 lines, including configuration, lifecycle, candidate selection, periodic production/relocation, deployment, attack response, and disposal. Did not inspect pathfinder or other bot-module implementations or execute the game."
+      },
+      "secondary": {
+        "id": "Fe9b791f9",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "high",
+        "role": "AI construction-vehicle production, expansion-site selection, deployment, and construction-yard relocation manager.",
+        "hardest_behavior": "Preserving the feedback loop between expansion-mode success/failure history, spatial attraction and reachability, active vehicle destinations, queued deployment orders, and other bot modules' production/defense state. A meaningful policy change needs reasoning over successive ticks, not just one chosen location.",
+        "evidence": [
+          {
+            "start_line": 200,
+            "end_line": 265,
+            "reason": "Failure and success update a signed attempt history, remember a failed spot, change mode thresholds, and can switch the active expansion mode. This history changes subsequent site selection."
+          },
+          {
+            "start_line": 393,
+            "end_line": 438,
+            "reason": "Resource candidates are filtered using a map-wide threshold and prior attempts, then evaluated with either geometric or pathfinding distance and resource density. Reachability and attraction share inputs but have distinct rejection behavior."
+          },
+          {
+            "start_line": 469,
+            "end_line": 493,
+            "reason": "Active vehicles' destinations and fallback policy change candidate attraction; the selected resource position and the map check spot are deliberately returned separately."
+          },
+          {
+            "start_line": 640,
+            "end_line": 649,
+            "reason": "Relocation avoids construction yards currently producing refineries because undeployment would interrupt production and create a deploy/undeploy loop. The decision also consumes the one-shot no-base override."
+          },
+          {
+            "start_line": 665,
+            "end_line": 697,
+            "reason": "Deployment records the active destination, notifies refinery production, queues movement before transformation, and may notify base/defense centers before successful deployment is known."
+          },
+          {
+            "start_line": 734,
+            "end_line": 792,
+            "reason": "Deployment-cell ordering combines distance preferences, placement constraints, path reachability, and fallback. The result updates the success/failure state before deciding whether to return a resource location based on the potentially changed mode."
+          }
+        ],
+        "counterevidence": "Configuration fields and long explanatory comments account for a meaningful part of the file. Mode transitions, threat calculation, and deployment are separated into helpers, and several simple guards are easy to review individually. The intensive rating follows their observed feedback and cross-module interactions rather than volume.",
+        "inspection_scope": "Read all 825 lines, including configuration, mode transitions, both spatial candidate paths, tick scheduling, production, deployment, relocation, attack response, and disposal. Did not inspect pathfinder/resource-map internals or run a game simulation."
+      }
+    },
+    {
+      "id": "F11105ecd",
+      "repository": "openra",
+      "path": "OpenRA.Mods.Common/Traits/World/ClassicMapGenerator.cs",
+      "stratum": "top",
+      "rank": 15,
+      "score": 81,
+      "burden": 117,
+      "source_sha256": "1bac4ba8a740d08e11f8ed373b7abf1b27d399692022d8870ae9dfde78d7d369",
+      "primary_reviewer": "c",
+      "source_lines": 918,
+      "primary": {
+        "id": "F11105ecd",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "high",
+        "role": "Procedural map-generation configuration and staged terrain/entity construction.",
+        "hardest_behavior": "Maintaining a reproducible and playable generated map as successive terrain, symmetry, zoning, spawn, and resource phases mutate the same map and consume separately assigned random generators.",
+        "evidence": [
+          {
+            "start_line": 465,
+            "end_line": 491,
+            "reason": "Random generators are derived in an explicitly stable unconditional order; additions or removals can change unrelated phases unless the documented seed-consumption rule is preserved."
+          },
+          {
+            "start_line": 640,
+            "end_line": 705,
+            "reason": "Forests preserve planned passages, symmetry repair changes actor placement, and the playable-region selection excludes the outer mountain ring before filling unplayable areas. Phase order affects later space classification."
+          },
+          {
+            "start_line": 745,
+            "end_line": 810,
+            "reason": "Symmetry changes player counts and entity budgets; spawn/resource placement repeatedly mutates shared zoneable space, and expansion generation must stop when no cluster can be added."
+          },
+          {
+            "start_line": 830,
+            "end_line": 894,
+            "reason": "Resource growth combines a target value, spawn exclusion radii, distance-dependent biases, resource types, and playable/free-space masks; resource zoning then constrains civilian decoration."
+          }
+        ],
+        "counterevidence": "Much of the first half consists of independent parameter declarations and simple validation. Core geometry is delegated to named Terraformer operations, and phase labels aid navigation. The substantive difficulty is the dependency between those operations and shared spatial masks, not the repetitive validation.",
+        "inspection_scope": "Read all 918 lines, including parameter construction/validation and the entire generation sequence. Did not inspect Terraformer or run map generation, so geometry-helper semantics were taken from their use and surrounding comments."
+      }
+    },
+    {
+      "id": "Fe7f5713e",
+      "repository": "openra",
+      "path": "OpenRA.Mods.Common/Widgets/MouseAttachmentWidget.cs",
+      "stratum": "middle",
+      "rank": 682,
+      "score": 6,
+      "burden": 0,
+      "source_sha256": "f06710dd79e649487233b395a330e5de68872fbb5926642dc10c347644a43d77",
+      "primary_reviewer": "b",
+      "source_lines": 62,
+      "primary": {
+        "id": "Fe7f5713e",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "Mouse-attached sprite widget",
+        "hardest_behavior": "Changing attachment rendering requires maintaining the conversion between native-window cursor scaling and widget window coordinates, while preserving the sprite/palette visibility condition and attachment origin.",
+        "evidence": [
+          {
+            "start_line": 34,
+            "end_line": 43,
+            "reason": "Drawing requires both sprite and palette, multiplies cursor doubling by a native-scale threshold, then divides by WindowScale when drawing at ChildOrigin."
+          },
+          {
+            "start_line": 47,
+            "end_line": 60,
+            "reason": "SetAttachment stores sprite, palette and location together; Reset clears visual fields while ChildOrigin continues to expose the stored location."
+          }
+        ],
+        "counterevidence": "State changes are simple assignments, and the coordinate formula is concentrated in Draw with explanatory comments. There is no local event-ordering or resource-lifetime machinery.",
+        "inspection_scope": "Read all 62 source lines. Did not inspect renderer or base-widget coordinate implementations; the rating concerns the visible scaling adapter."
+      }
+    },
+    {
+      "id": "F290e5957",
+      "repository": "openra",
+      "path": "OpenRA.Mods.Common/Scripting/Global/CoordinateGlobals.cs",
+      "stratum": "middle",
+      "rank": 814,
+      "score": 4,
+      "burden": 0,
+      "source_sha256": "290a94ae746a61660890911c40ed1572b8f368f1751f50c84db2bba085d6eb48",
+      "primary_reviewer": "a",
+      "secondary_reviewer": "b",
+      "source_lines": 107,
+      "primary": {
+        "id": "F290e5957",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "Lua-facing constructors and constants for cell/world positions, vectors, and distances.",
+        "hardest_behavior": "Creating a coordinate on a non-ground movement layer validates the map's registered layers and constructs a useful error from layer IDs and names. The remaining operations delegate directly to coordinate value types.",
+        "evidence": [
+          {
+            "start_line": 29,
+            "end_line": 49,
+            "reason": "Ground bypasses the custom-layer lookup; a non-ground layer must fit the registry and be non-null. Error reporting joins populated map layers to constant names using Single, so that ID/name correspondence is the local assumption to verify."
+          },
+          {
+            "start_line": 98,
+            "end_line": 105,
+            "reason": "The distance factory and cell conversion simply delegate to WDist; no independent conversion state or ordering is added here."
+          }
+        ],
+        "counterevidence": "The layer validation has no persistent state or side effects beyond throwing a Lua exception. Most of the file consists of thin value-type wrappers, and the related CustomMovementLayerType declaration contains straightforward byte constants.",
+        "inspection_scope": "Read all 107 lines and the CustomMovementLayerType constants in Locomotor.cs. Did not inspect the coordinate value-type implementations or execute Lua calls."
+      },
+      "secondary": {
+        "id": "F290e5957",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "Lua scripting globals for coordinate and distance construction",
+        "hardest_behavior": "Changing custom movement-layer support requires preserving the unconditional ground-layer case, checking actual map layer availability, and keeping the invalid-layer diagnostic's numeric-to-name mapping consistent.",
+        "evidence": [
+          {
+            "start_line": 29,
+            "end_line": 49,
+            "reason": "NewWithLayer validates nonzero layers against the world's layer array, derives names from CustomMovementLayerType, constructs the list of valid layers, and only then returns the coordinate."
+          },
+          {
+            "start_line": 101,
+            "end_line": 105,
+            "reason": "Distance constructors delegate directly to WDist, contrasting with the one localized layer-validation path."
+          }
+        ],
+        "counterevidence": "Most methods are direct constructors or zero constants. The world-layer and reflection assumptions are visible within one small method; there is no mutation or multi-stage lifecycle to trace.",
+        "inspection_scope": "Read all 107 source lines. Reviewed the world-layer access and reflected mapping as expressed here; did not inspect movement-layer implementations."
+      }
+    },
+    {
+      "id": "F776f0ad4",
+      "repository": "openra",
+      "path": "OpenRA.Mods.Common/Traits/CreatesShroud.cs",
+      "stratum": "low",
+      "rank": 1230,
+      "score": 1,
+      "burden": 0,
+      "source_sha256": "c65b9b53d948b192e4c130f8b2b7ce79e854a97df23589906aaf66ee0e5d9227",
+      "primary_reviewer": "c",
+      "source_lines": 66,
+      "primary": {
+        "id": "F776f0ad4",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "OpenRA trait providing relationship-filtered shroud generation and modified range.",
+        "hardest_behavior": "Keeping range modifiers live across evaluations while using the base class's cached disabled state, and registering/removing the same source identity for eligible players.",
+        "evidence": [
+          {
+            "start_line": 37,
+            "end_line": 41,
+            "reason": "The modifier trait set is materialized, but Select remains deferred so modifier values are reevaluated when range is computed. Replacing that with a value snapshot would change behavior."
+          },
+          {
+            "start_line": 44,
+            "end_line": 62,
+            "reason": "Addition filters by owner relationship, removal uses this as the same source key without that filter, and Range returns zero when cached disabled before applying percentage modifiers."
+          }
+        ],
+        "counterevidence": "Cell calculation, change detection, and lifecycle updates are delegated to AffectsShroud. The concrete file has a small, explicit set of responsibilities; checking the deferred enumeration and base callback contract is focused work.",
+        "inspection_scope": "Read all 66 lines and all 174 lines of AffectsShroud.cs for range caching, refresh order, and source cleanup context. Did not inspect Shroud storage or modifier implementations."
+      }
+    },
+    {
+      "id": "F115f7f52",
+      "repository": "openra",
+      "path": "OpenRA.Mods.Common/UtilityCommands/Documentation/Objects/ExtractedClassInfo.cs",
+      "stratum": "low",
+      "rank": 1473,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "2d75433da45cbcfe8dca91c98414e9a8a10dd0590f86534a39ccd156aa465b06",
+      "primary_reviewer": "a",
+      "source_lines": 30,
+      "primary": {
+        "id": "F115f7f52",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "Data container for class information extracted by the documentation utility.",
+        "hardest_behavior": "Retaining the shape of a documentation record, including inherited type names and extracted property information.",
+        "evidence": [
+          {
+            "start_line": 16,
+            "end_line": 28,
+            "reason": "The class contains only string and enumerable auto-properties. It performs no extraction, enumeration, normalization, or synchronization itself."
+          }
+        ],
+        "counterevidence": "Consumers depend on this data shape, so a schema change may require coordinated edits. No consistency enforcement or interacting behavior is present in this implementation.",
+        "inspection_scope": "Read all 30 lines. Did not inspect producers, consumers, or ExtractedClassFieldInfo."
+      }
+    },
+    {
+      "id": "F497f9114",
+      "repository": "powershell",
+      "path": "src/System.Management.Automation/engine/remoting/commands/CustomShellCommands.cs",
+      "stratum": "top",
+      "rank": 15,
+      "score": 112,
+      "burden": 267,
+      "source_sha256": "2942d8b3a9252a3655812cd648319fcef73831be6b88f7be955136dea5dda714",
+      "primary_reviewer": "a",
+      "secondary_reviewer": "b",
+      "source_lines": 5359,
+      "primary": {
+        "id": "F497f9114",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "medium",
+        "role": "PowerShell cmdlets and embedded PowerShell scripts for registering, modifying, enabling, and disabling remoting session configuration.",
+        "hardest_behavior": "Changing endpoint registration or access policy requires reasoning across C# configuration preparation, embedded script execution, ACL reconstruction, credential setup, partially completed mutations, and error/confirmation semantics. The behavior is distributed between two languages and several mutation stages.",
+        "evidence": [
+          {
+            "start_line": 103,
+            "end_line": 144,
+            "reason": "Forced registration removes an existing endpoint, creates the replacement with a quota retry, then assigns credentials. Credential failure removes the new endpoint before Write-Error because stopping error behavior can prevent later cleanup; configuration-derived SDDL is applied only afterward."
+          },
+          {
+            "start_line": 386,
+            "end_line": 437,
+            "reason": "Explicit SDDL is adjusted for local versus remote access, including removal of a network-deny ACE and replacement grants when that empties the DACL. These changes must agree with the later script-side ACL operations."
+          },
+          {
+            "start_line": 550,
+            "end_line": 620,
+            "reason": "WhatIf, Confirm, ErrorAction, credential data, access mode, and derived SDDL cross into the script call. C# detects errors through changes to the shared error list, deletes its temporary file in finally, and may need to recopy the session configuration after script execution."
+          },
+          {
+            "start_line": 1525,
+            "end_line": 1568,
+            "reason": "Role definitions purge existing grants, resolve accounts to SIDs, accumulate an error for failed resolution, and attach required-group conditions. The resulting authorization expression depends on both principal resolution and conditional-ACE construction."
+          },
+          {
+            "start_line": 3466,
+            "end_line": 3546,
+            "reason": "Modification invokes a script and then changes configuration-type data, quotas, credentials, virtual-account settings, service isolation, and options in sequence, returning after observed errors. A behavior change must account for earlier mutations already having occurred."
+          },
+          {
+            "start_line": 3676,
+            "end_line": 3738,
+            "reason": "Session-data updates distinguish omitted module paths, an explicit unset, and whitespace/empty serialized values before preserving or replacing previous data and escaping the new XML."
+          }
+        ],
+        "counterevidence": "Many sections are parameter declarations, repeated invocation plumbing, or localized guards. Comments explain several ordering constraints, and helper methods separate some transformations. The rating concerns the observed registration/update behavior, not the length of the file or an asserted current security defect.",
+        "inspection_scope": "Partial inspection of 5359 lines: reviewed method declarations across the file; read lines 1-245, 371-643, most of 795-930 (a small tool-output truncation near its opening), 1502-1734, 1747-1887, 3392-3774, 4325-4385, and 5166-5205. This covers registration, SDDL transformations, recursive required-group serialization, update stages, and samples of enable/disable orchestration. Did not read every embedded script, parameter setter, or helper and did not execute remoting operations."
+      },
+      "secondary": {
+        "id": "F497f9114",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "medium",
+        "role": "PowerShell remoting endpoint registration, configuration and lifecycle commands",
+        "hardest_behavior": "Changing endpoint registration or access configuration requires reasoning across C# command state and embedded PowerShell scripts: access-mode ACL rewriting, explicit/config-file/default precedence, role/group conditions, credential provisioning, service changes, error-stream decisions and cleanup all interact. Endpoint creation is not a single atomic mutation.",
+        "evidence": [
+          {
+            "start_line": 123,
+            "end_line": 155,
+            "reason": "The registration script installs RunAs credentials, removes the plugin before reporting a credential failure, conditionally applies configuration-file SDDL only when not explicitly overridden, and may invoke the security UI. ErrorAction Stop affects cleanup ordering."
+          },
+          {
+            "start_line": 386,
+            "end_line": 456,
+            "reason": "C# pre-processing adds/removes network-deny ACL entries according to access mode and rebuilds default allowed principals if removing the deny empties the ACL; absent explicit SDDL follows a separate default path."
+          },
+          {
+            "start_line": 523,
+            "end_line": 605,
+            "reason": "Plugin construction and temporary-file creation precede service-host isolation and script invocation. Command flags and credentials cross a positional argument array; error-count observation and finally-based temporary-file deletion determine post-call handling."
+          },
+          {
+            "start_line": 910,
+            "end_line": 928,
+            "reason": "Configuration-derived role SDDL and default-SDDL group conditions have distinct precedence, with explicit SDDL preventing one fallback transformation."
+          },
+          {
+            "start_line": 1525,
+            "end_line": 1568,
+            "reason": "Role configuration purges existing principals, resolves role accounts, retains resolution errors separately and conditionally adds required-group expressions to the remaining ACL. A change must preserve both access selection and partial-resolution behavior."
+          },
+          {
+            "start_line": 3469,
+            "end_line": 3546,
+            "reason": "Set configuration executes a script and successive type/quota/credential/virtual-account/service/options mutations, checking the shared error collection between stages. Reordering can change which partial updates occur."
+          }
+        ],
+        "counterevidence": "Named helpers and detailed ACL-format examples aid review, and much of the uninspected surface is parameter declarations or script plumbing. The intensive rating is supported by the actual multi-stage registration and update paths inspected, not by the file's length or security-related names.",
+        "inspection_scope": "Partial inspection of a 5,359-line file: surveyed class/method declarations throughout; read lines 39-277 (registration script), 371-644 (registration lifecycle), 795-955 (configuration loading and precedence), 1502-1730 (role SDDL and ACL transformation), 1747-1885 (recursive group conditions), 3392-3553 (configuration update sequence), 4325-4410 (enable lifecycle) and 5243-5344 (capability query). Did not read every other script, parameter accessor or helper; no full-file verification claim and no system-changing execution."
+      }
+    },
+    {
+      "id": "F1acac028",
+      "repository": "powershell",
+      "path": "src/System.Management.Automation/engine/Modules/TestModuleManifestCommand.cs",
+      "stratum": "top",
+      "rank": 17,
+      "score": 104,
+      "burden": 89,
+      "source_sha256": "011faa2a1547367a0f2652d57458b5d06ce692db26143e1cfe044f2af571415f",
+      "primary_reviewer": "b",
+      "source_lines": 437,
+      "primary": {
+        "id": "F1acac028",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "medium",
+        "role": "Test-ModuleManifest command and manifest-reference validation",
+        "hardest_behavior": "Changing manifest validity requires preserving distinctions among provider paths, module-relative files, root-module extensions, GAC assemblies and discoverable modules, while keeping validation-only loading, nonterminating diagnostics and restoration of engine module state aligned. Several reference categories deliberately use different resolution paths.",
+        "evidence": [
+          {
+            "start_line": 119,
+            "end_line": 130,
+            "reason": "Manifest loading deliberately omits loading elements and saves Context.ModuleBeingProcessed because it affects later importability."
+          },
+          {
+            "start_line": 157,
+            "end_line": 198,
+            "reason": "Nested modules try several file extensions and GAC resolution before GetModuleIfAvailable, whereas RequiredModules follows GetModule lookup. Consolidating the repeated validation shapes could change those distinct semantics."
+          },
+          {
+            "start_line": 251,
+            "end_line": 282,
+            "reason": "Engine state is restored in finally, then directory-version consistency can raise a terminating error before module output. The success/error flow spans both validation and post-validation steps."
+          },
+          {
+            "start_line": 309,
+            "end_line": 346,
+            "reason": "RootModule permits empty values and GAC assemblies but otherwise enforces a non-psd1 extension set or probes each permitted extension."
+          },
+          {
+            "start_line": 356,
+            "end_line": 401,
+            "reason": "Path validation combines module-relative normalization, PowerShell provider resolution, single-result enforcement, file/directory existence, scope checks and exception classification; the boolean result depends on all of these boundaries."
+          }
+        ],
+        "counterevidence": "Much of ProcessRecord repeats a clear validate-and-report pattern, and root-module/path checks are named helpers. However, the helpers bridge engine state and environment-dependent resolution, and similar-looking manifest fields do not share identical rules.",
+        "inspection_scope": "Read all 437 source lines, including Unix/Windows GAC behavior. Did not inspect ModuleCmdletBase loading and discovery internals or execute manifest tests, which limits confidence about nonlocal contracts."
+      }
+    },
+    {
+      "id": "F4e0f7566",
+      "repository": "powershell",
+      "path": "test/perf/dotnet-tools/ResultsComparer/Program.cs",
+      "stratum": "middle",
+      "rank": 640,
+      "score": 5,
+      "burden": 0,
+      "source_sha256": "f35e375f27f824ddd37cc383e97ccc412012ef5d3d9779380e0a050538b9bb16",
+      "primary_reviewer": "b",
+      "source_lines": 290,
+      "primary": {
+        "id": "F4e0f7566",
+        "review_difficulty": 2,
+        "attention_priority": 2,
+        "confidence": "high",
+        "role": "Benchmark result comparison and report-export command",
+        "hardest_behavior": "Changing what counts as a benchmark regression requires tracing paired-result selection, absent-statistics exclusion, two statistical thresholds, directional ratios, summary population and export categorization. A result's inclusion and its displayed ratio are determined at different stages.",
+        "evidence": [
+          {
+            "start_line": 65,
+            "end_line": 81,
+            "reason": "Only pairs with statistics are tested; both the user threshold and the noise threshold can exclude a pair, while the user-threshold conclusion is retained for downstream reporting."
+          },
+          {
+            "start_line": 87,
+            "end_line": 108,
+            "reason": "Counts are captured before infinite-ratio filtering, whereas geometric means are calculated from the filtered sequences; a summary change must account for the differing populations."
+          },
+          {
+            "start_line": 154,
+            "end_line": 168,
+            "reason": "Diff filtering is applied before dictionary construction, identifiers must be unique, and only baseline identifiers also present in the diff survive the join."
+          },
+          {
+            "start_line": 205,
+            "end_line": 228,
+            "reason": "XML output encodes slower results as failed tests and faster ones as skipped tests, linking statistical classification to an external report convention."
+          },
+          {
+            "start_line": 268,
+            "end_line": 271,
+            "reason": "Ratio orientation reverses with the conclusion, so sort/display changes must retain the baseline/diff meaning."
+          }
+        ],
+        "counterevidence": "The stages are short named methods with tuple fields identifying baseline and diff. Statistical calculation is delegated, and the command has no concurrent mutable state. Careful pipeline reasoning is needed, but the orchestration is bounded and visible.",
+        "inspection_scope": "Read all 290 source lines. Did not inspect Perfolizer internals, benchmark contracts or command-line option declarations; evaluated the observed orchestration rather than statistical-method correctness."
+      }
+    },
+    {
+      "id": "Fb9aaa0bd",
+      "repository": "powershell",
+      "path": "src/Microsoft.Management.UI.Internal/ManagementList/FilterCore/FilterExpressionNodes/FilterExpressionAndOperatorNode.cs",
+      "stratum": "middle",
+      "rank": 650,
+      "score": 4,
+      "burden": 0,
+      "source_sha256": "ca400284e4913e11e05ab369c8de9546f485e8885188b0954716c96b4d3f1641",
+      "primary_reviewer": "a",
+      "source_lines": 95,
+      "primary": {
+        "id": "Fb9aaa0bd",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "AND composition node for management-list filter expressions.",
+        "hardest_behavior": "Preserving the deliberate false result for an empty child list and ordered short-circuit evaluation for populated lists.",
+        "evidence": [
+          {
+            "start_line": 75,
+            "end_line": 90,
+            "reason": "Evaluate explicitly returns false for zero children, then stops on the first false child. An edit to the aggregation must preserve both the empty-case choice and which child evaluations occur."
+          },
+          {
+            "start_line": 19,
+            "end_line": 29,
+            "reason": "Children exposes the stored collection itself, so Evaluate uses the current mutable list rather than a fixed constructor snapshot."
+          }
+        ],
+        "counterevidence": "The implementation is a small direct loop with no caching, asynchronous work, or additional state transitions. Child implementations may be complex, but that is not established by this file.",
+        "inspection_scope": "Read all 95 lines. Did not inspect concrete child-node implementations or execute expression evaluation."
+      }
+    },
+    {
+      "id": "F8aa97c5c",
+      "repository": "powershell",
+      "path": "src/Microsoft.PowerShell.Commands.Management/commands/management/PassThroughContentCommandBase.cs",
+      "stratum": "low",
+      "rank": 1010,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "e28398a23cb027d5668571cb016ea8e0c3096e6d84b817d0ecea6b2ba503450c",
+      "primary_reviewer": "b",
+      "source_lines": 76,
+      "primary": {
+        "id": "F8aa97c5c",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "Content-command base adapter for PassThru and provider capability",
+        "hardest_behavior": "Changing context construction requires preserving the command's PassThru value in the provider context and the path-dependent ShouldProcess capability delegation.",
+        "evidence": [
+          {
+            "start_line": 19,
+            "end_line": 30,
+            "reason": "The command parameter is exposed as SwitchParameter but stored in a boolean field through a simple property."
+          },
+          {
+            "start_line": 37,
+            "end_line": 42,
+            "reason": "ShouldProcess support is delegated to the base implementation for the current Path rather than declared unconditionally."
+          },
+          {
+            "start_line": 67,
+            "end_line": 71,
+            "reason": "GetCurrentContext obtains CmdletProviderContext, mutates its PassThru setting, and returns it; that forwarding is the implemented behavior to preserve."
+          }
+        ],
+        "counterevidence": "This is a thin adapter with one explicit context mutation and no local path processing, iteration, error recovery or lifecycle coordination. The complexity of provider operations is not established by this file.",
+        "inspection_scope": "Read all 76 source lines. Did not inspect ContentCommandBase or CmdletProviderContext creation and do not assume their ownership behavior beyond what is visible here."
+      }
+    },
+    {
+      "id": "F3635a7c5",
+      "repository": "powershell",
+      "path": "src/System.Management.Automation/engine/ComInterop/ComHresults.cs",
+      "stratum": "low",
+      "rank": 1066,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "9e54dbf6ed1e5527ecd8788290cebfddb3cd597b87fb05df9eade14844b03c48",
+      "primary_reviewer": "b",
+      "secondary_reviewer": "c",
+      "source_lines": 36,
+      "primary": {
+        "id": "F3635a7c5",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "COM HRESULT constants and success predicate",
+        "hardest_behavior": "The only executable behavior tests whether a signed HRESULT is nonnegative; other members declare fixed bit-pattern constants.",
+        "evidence": [
+          {
+            "start_line": 8,
+            "end_line": 29,
+            "reason": "HRESULT values are constants, with unchecked integer casts explicitly retaining hexadecimal bit patterns."
+          },
+          {
+            "start_line": 31,
+            "end_line": 34,
+            "reason": "IsSuccess is the single expression hresult >= 0, without state, conversion chains or interacting cases."
+          }
+        ],
+        "counterevidence": "An edit still needs the intended COM value or sign convention checked, but this is a direct constant/predicate review. Caller complexity cannot be inferred from the list of error codes.",
+        "inspection_scope": "Read all 36 source lines. Did not inspect HRESULT callers or external COM specifications."
+      },
+      "secondary": {
+        "id": "F3635a7c5",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "COM HRESULT constants and success classifier.",
+        "hardest_behavior": "Interpreting HRESULT values as signed integers, with success defined by a nonnegative value.",
+        "evidence": [
+          {
+            "start_line": 8,
+            "end_line": 29,
+            "reason": "The error constants explicitly preserve their hexadecimal bit patterns via unchecked casts to int."
+          },
+          {
+            "start_line": 31,
+            "end_line": 34,
+            "reason": "The only executable operation is the direct hresult >= 0 predicate; no mutable state or dependent decisions are present."
+          }
+        ],
+        "counterevidence": "An altered value or sign convention would change callers' classification, so constants should be checked against their intended definitions. This is a localized declarative check, not evidence of interacting behavior.",
+        "inspection_scope": "Read all 36 lines. Did not inspect COM callers or externally verify constant values."
+      }
+    },
+    {
+      "id": "Fcb978019",
+      "repository": "roslyn",
+      "path": "src/Features/Core/Portable/CodeFixes/Configuration/ConfigurationUpdater.cs",
+      "stratum": "top",
+      "rank": 9,
+      "score": 143,
+      "burden": 145,
+      "source_sha256": "4b09712f2585053628a001677c099f170df24f6a7c0ab13739737faa68bb79ab",
+      "primary_reviewer": "b",
+      "source_lines": 774,
+      "primary": {
+        "id": "Fcb978019",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "high",
+        "role": "Roslyn editorconfig option and diagnostic-severity updater",
+        "hardest_behavior": "Changing rule placement or replacement requires simultaneously preserving configuration-kind semantics, matching the diagnostic path and language to sections, last-entry precedence, comment/whitespace retention, and sequential immutable-solution updates. Existing option severity suffixes and build-visible diagnostic severity entries intentionally follow different insertion rules.",
+        "evidence": [
+          {
+            "start_line": 219,
+            "end_line": 255,
+            "reason": "Code-style updates thread a current Project through multiple solution snapshots; severity changes update existing option entries and then independently ensure a diagnostic severity entry exists, with language scope aggregated across options."
+          },
+          {
+            "start_line": 469,
+            "end_line": 500,
+            "reason": "Global configuration detection changes header state; replacement is allowed only under the current valid header and preserves option value or severity suffix depending on configuration kind."
+          },
+          {
+            "start_line": 595,
+            "end_line": 659,
+            "reason": "Relative-path matching, filename protection, compiler/per-language distinction and the no-source-location case drive separate valid-section and preferred-section spans used later for insertion."
+          },
+          {
+            "start_line": 664,
+            "end_line": 671,
+            "reason": "Only the last candidate text change is applied for duplicate entries, so traversal order is semantic rather than incidental."
+          },
+          {
+            "start_line": 706,
+            "end_line": 768,
+            "reason": "Missing entries prefer a language-specific valid section, fall back to another valid section, or synthesize a language header; newline placement and section scope must remain consistent with the earlier search."
+          }
+        ],
+        "counterevidence": "The implementation documents its precedence choices, uses immutable SourceText changes, and separates entry creation from searching. Those aids make the behavior inspectable, but do not remove the interactions among stateful section tracking, entry forms and solution evolution.",
+        "inspection_scope": "Read all 774 source lines, including public configuration entry points, project/document creation, option mapping, full section search and insertion. Did not inspect other partial-class files or dependent path/configuration services."
+      }
+    },
+    {
+      "id": "F26c4aefc",
+      "repository": "roslyn",
+      "path": "src/Workspaces/CSharp/Portable/Simplification/Simplifiers/NameSimplifier.cs",
+      "stratum": "top",
+      "rank": 13,
+      "score": 131,
+      "burden": 117,
+      "source_sha256": "d8890114fc66232d8da280b33939cbbe53c50f8783d65fd8466c32710e4f8d10",
+      "primary_reviewer": "c",
+      "source_lines": 737,
+      "primary": {
+        "id": "F26c4aefc",
+        "review_difficulty": 3,
+        "attention_priority": 3,
+        "confidence": "high",
+        "role": "C# syntax-name simplification with semantic and syntax-context preservation.",
+        "hardest_behavior": "Selecting an alias, predefined type, nullable form, shortened qualified name, or attribute name while preserving binding, legal parsing, annotations, trivia, and the diagnostic span; applicability depends on enclosing syntax and semantic resolution.",
+        "evidence": [
+          {
+            "start_line": 114,
+            "end_line": 201,
+            "reason": "Alias replacement preserves source escaping and copies token/node annotations, adjusts the unnecessary span, and may then remove Attribute only after additional context and semantic checks."
+          },
+          {
+            "start_line": 270,
+            "end_line": 305,
+            "reason": "Nullable rewriting must replace the whole qualified type and can fall back to qualification reduction if that replacement is invalid."
+          },
+          {
+            "start_line": 356,
+            "end_line": 395,
+            "reason": "For cref names, correctness of reducing a child can depend on binding the enclosing qualified reference, so verification is deliberately lifted to the parent."
+          },
+          {
+            "start_line": 401,
+            "end_line": 455,
+            "reason": "Nullable applicability distinguishes nameof, unbound generics, cref member form, metadata types, and type arguments declared inside the reference itself."
+          },
+          {
+            "start_line": 578,
+            "end_line": 622,
+            "reason": "Speculative semantic equivalence and syntax-context checks are separate gates; several earlier replacement paths call only the context gate, making the choice of validation path substantive."
+          },
+          {
+            "start_line": 657,
+            "end_line": 674,
+            "reason": "A replacement is reparsed to catch a cast becoming an arithmetic expression, showing why symbol agreement alone is insufficient."
+          }
+        ],
+        "counterevidence": "Immutable syntax construction, named validation helpers, and worked examples make individual rules readable. The semantic speculation helper centralizes a major check. The challenge is preserving the combined applicability and ordering of these rules, not understanding each small helper alone.",
+        "inspection_scope": "Read all 737 lines. Traced replacement construction and local validation paths; did not inspect SpeculationAnalyzer, inherited simplification helpers, or execute compiler tests."
+      }
+    },
+    {
+      "id": "Ff37b4acb",
+      "repository": "roslyn",
+      "path": "src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/DocumentIntermediateNode.cs",
+      "stratum": "middle",
+      "rank": 7862,
+      "score": 1,
+      "burden": 0,
+      "source_sha256": "13f25f73cde51532bed46a03df682f77e8d86b2b6035aab3fdd5676d8a2e73c3",
+      "primary_reviewer": "c",
+      "source_lines": 88,
+      "primary": {
+        "id": "Ff37b4acb",
+        "review_difficulty": 2,
+        "attention_priority": 2,
+        "confidence": "medium",
+        "role": "Razor document intermediate-representation node, including replay/cloning state.",
+        "hardest_behavior": "Cloning a document while sharing already-lowered declaration subtrees and preserving the distinction between a pre-compilation shell, a fallback discovery declaration, and the fallback component name.",
+        "evidence": [
+          {
+            "start_line": 17,
+            "end_line": 50,
+            "reason": "The two declaration properties have different roles for fully split versus fallback components; a fallback name routes discovery independently of the presence of a declaration shell."
+          },
+          {
+            "start_line": 73,
+            "end_line": 84,
+            "reason": "CloneNode intentionally aliases both declaration subtrees on the assertion that they are already lowered and inert during replay, while preserving discovery metadata, options, and target. Changing ownership or lifecycle requires checking that assumption."
+          }
+        ],
+        "counterevidence": "Most members are passive properties and visitor/formatter forwarding. The ownership exception is explicitly documented, and the base class handles common state and child cloning. No phase orchestration is implemented here.",
+        "inspection_scope": "Read all 88 lines and IntermediateNode.cs lines 85-115, confirming the base deep-clones Children separately. Did not trace the splitting/lowering phases or generator consumers; confidence in the cross-phase lifetime assumption is limited to the source contract."
+      }
+    },
+    {
+      "id": "Ff504bc35",
+      "repository": "roslyn",
+      "path": "src/Workspaces/Remote/ServiceHub/Services/ProcessTelemetry/RemoteProcessTelemetryService.cs",
+      "stratum": "middle",
+      "rank": 8660,
+      "score": 1,
+      "burden": 0,
+      "source_sha256": "5b8415cba82122d61430e66b5e0dddcdbcf7e7751edaf94c6b9eb385e5160886",
+      "primary_reviewer": "a",
+      "source_lines": 71,
+      "primary": {
+        "id": "Ff504bc35",
+        "review_difficulty": 2,
+        "attention_priority": 2,
+        "confidence": "high",
+        "role": "Remote process telemetry initialization and service-owned performance reporter lifecycle.",
+        "hardest_behavior": "Changing initialization or disposal requires preserving the different lifetimes of the started telemetry session, process-global fault sink, and service-owned reporter. Reporter creation also subscribes to another service's events and starts deferred work, so its lifetime is more than a field assignment.",
+        "evidence": [
+          {
+            "start_line": 39,
+            "end_line": 53,
+            "reason": "The RPC starts the telemetry session, initializes the workspace telemetry service, and installs a fault sink explicitly retained for the remote process lifetime. Ordering and ownership span multiple services."
+          },
+          {
+            "start_line": 62,
+            "end_line": 69,
+            "reason": "An optional performance tracker controls reporter construction with the same telemetry session. The reporter dependency subscribes to SnapshotAdded and owns an asynchronous batching queue."
+          },
+          {
+            "start_line": 28,
+            "end_line": 34,
+            "reason": "Service disposal tears down the reporter before base disposal, while the process fault sink intentionally follows a different lifetime."
+          }
+        ],
+        "counterevidence": "The local sequence is short and explicit, the optional dependency has a simple guard, and reporting details are encapsulated in the reporter. There is no evidence here of an existing lifecycle defect or urgent problem.",
+        "inspection_scope": "Read all 71 lines. Also read RemoteProcessTelemetryService.PerformanceReporter.cs and RemoteWorkspaceTelemetryService.cs for event subscription, queue ownership, and telemetry service context. Did not inspect the base RPC implementation or exercise initialization/disposal."
+      }
+    },
+    {
+      "id": "Ff8758dba",
+      "repository": "roslyn",
+      "path": "src/VisualStudio/EditorConfig/Wizard/Logging/Messages/ILogMessageData.cs",
+      "stratum": "low",
+      "rank": 15380,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "aa8decba12d3b00a5b1529ce5df522ee2b0f46842ee4c7c828216a138591da54",
+      "primary_reviewer": "c",
+      "source_lines": 12,
+      "primary": {
+        "id": "Ff8758dba",
+        "review_difficulty": 0,
+        "attention_priority": 0,
+        "confidence": "high",
+        "role": "Logging-message data interface.",
+        "hardest_behavior": "Expressing a required Name getter and a nullable message-returning method.",
+        "evidence": [
+          {
+            "start_line": 7,
+            "end_line": 11,
+            "reason": "Both members are declarations without implementations, mutable state, or local ordering constraints."
+          }
+        ],
+        "counterevidence": "Interface changes require compatibility review of implementations, but no concrete behavior interaction is visible here.",
+        "inspection_scope": "Read the full 12-line file. No implementations inspected."
+      }
+    },
+    {
+      "id": "F2161dce5",
+      "repository": "roslyn",
+      "path": "src/Workspaces/SharedUtilitiesAndExtensions/Workspace/Core/Workspace/Mef/OrderableLanguageMetadata.cs",
+      "stratum": "low",
+      "rank": 16573,
+      "score": 0,
+      "burden": 0,
+      "source_sha256": "90f75655a278c818bbf914e2ce45fd5ab8826d7ad2c5a658abd0bc442f8b4498",
+      "primary_reviewer": "c",
+      "source_lines": 27,
+      "primary": {
+        "id": "F2161dce5",
+        "review_difficulty": 1,
+        "attention_priority": 1,
+        "confidence": "high",
+        "role": "MEF ordering metadata adapter with language metadata.",
+        "hardest_behavior": "Keeping the dictionary-based and explicit constructors equivalent for Language while forwarding ordering metadata to the base class.",
+        "evidence": [
+          {
+            "start_line": 16,
+            "end_line": 25,
+            "reason": "One constructor reads and casts the Language key from a dictionary; the other assigns a string directly. Both delegate ordering data to the base constructor. A change needs a focused check of missing/wrongly typed metadata and constructor consistency."
+          }
+        ],
+        "counterevidence": "There is no ordering algorithm or mutable lifecycle in this file. The field mapping and base forwarding are short and visible, so broader intensive review is not warranted by the class's role alone.",
+        "inspection_scope": "Read all 27 lines. Did not inspect the base metadata class or GetValueOrDefault implementation."
+      }
+    }
+  ],
+  "exploratory_post_review": {
+    "source_line_count_spearman_attention": 0.8928520138000415,
+    "zero_score_files": 11,
+    "nonzero_subset_count": 19,
+    "nonzero_subset_score_spearman_attention": 0.8360070662709651
+  },
+  "study_metadata": {
+    "date": "2026-10-20",
+    "reviewers": "Three fresh-context coding agents; shared configured model, no human participants. Coordinator had scores but did not assign or change ratings.",
+    "protocol_sha256": "eb631b4f79245222ded81b1044261a92667c1967f625a90be1e54b73cebcd841",
+    "binary_sha256": "d1a873a295c3f28740e44a620cd3489a174b14ff0cdecb949b1a3f9894dcefa2",
+    "repositories": {
+      "openra": {
+        "name": "openra",
+        "revision": "e180e3225f3930272dd451917467631618f8976f",
+        "remote": "https://github.com/OpenRA/OpenRA.git",
+        "clean": true
+      },
+      "powershell": {
+        "name": "powershell",
+        "revision": "43d85c7a16d37a1e8f5a7519b170f0562ec4dbc4",
+        "remote": "https://github.com/PowerShell/PowerShell.git",
+        "clean": true
+      },
+      "jellyfin": {
+        "name": "jellyfin",
+        "revision": "08c2ba6e0b6499122822f1c5b18bc426104538b4",
+        "remote": "https://github.com/jellyfin/jellyfin.git",
+        "clean": true
+      },
+      "fluentvalidation": {
+        "name": "fluentvalidation",
+        "revision": "299ef377bde844af7d28b7aa21786a6853f930e3",
+        "remote": "https://github.com/FluentValidation/FluentValidation.git",
+        "clean": true
+      },
+      "roslyn": {
+        "name": "roslyn",
+        "revision": "2fa05ec1dfc27d3ae585ab990a5a3429406ded1d",
+        "remote": "https://github.com/dotnet/roslyn.git",
+        "clean": true
+      }
+    },
+    "fresh_scan_reports": {
+      "openra": {
+        "commit": "e180e3225f3930272dd451917467631618f8976f",
+        "analyzed": 1516,
+        "unavailable": 1,
+        "ranking_sha256": "e239d438333fd8c49de33f70b74d26867cb4c75538a369e3a73f0486315fe64f"
+      },
+      "powershell": {
+        "commit": "43d85c7a16d37a1e8f5a7519b170f0562ec4dbc4",
+        "analyzed": 1218,
+        "unavailable": 31,
+        "ranking_sha256": "a1ea1c8115dccdddc9ba310f9602cb4cf41f8495a325812807f501624d1cc71e"
+      },
+      "jellyfin": {
+        "commit": "08c2ba6e0b6499122822f1c5b18bc426104538b4",
+        "analyzed": 2194,
+        "unavailable": 0,
+        "ranking_sha256": "43c2c677809150b8a62ebb000f63430262fe2826fecd58cc1dfc68864099ed92"
+      },
+      "fluentvalidation": {
+        "commit": "299ef377bde844af7d28b7aa21786a6853f930e3",
+        "analyzed": 218,
+        "unavailable": 0,
+        "ranking_sha256": "1438c049ee60f496160e388e564d345f5884cfcfc7c0fa9ad65566323cc31ca6"
+      },
+      "roslyn": {
+        "commit": "2fa05ec1dfc27d3ae585ab990a5a3429406ded1d",
+        "analyzed": 16576,
+        "unavailable": 367,
+        "ranking_sha256": "2f79e82cd8253843eb0ccfe1e0bb6a5de4a7cbdb8962b825c660b3ee8f749322"
+      }
+    },
+    "checks": {
+      "rust_tests": 60,
+      "python_statistics_tests": 4,
+      "fmt": true,
+      "clippy": true,
+      "sampling_reproduced": true,
+      "synthetic_summary_smoke": true,
+      "all_sample_source_hashes_verified": true
+    },
+    "unchanged_metric": "cpath.complexity-ranking.v1"
+  }
+}

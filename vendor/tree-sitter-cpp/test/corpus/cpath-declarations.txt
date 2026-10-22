@@ -1,0 +1,53 @@
+================================================================================
+cpath braced defaults anonymous enum bases and class instantiation
+================================================================================
+void f(Item value = {}) {}
+enum : unsigned { Value = 4 };
+template class Box<int>;
+extern template struct Box<long>;
+template int identity<int>(int);
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    (primitive_type)
+    (function_declarator
+      (identifier)
+      (parameter_list
+        (optional_parameter_declaration
+          (type_identifier)
+          (identifier)
+          (initializer_list))))
+    (compound_statement))
+  (enum_specifier
+    (sized_type_specifier)
+    (enumerator_list
+      (enumerator
+        (identifier)
+        (number_literal))))
+  (template_instantiation
+    (class_specifier
+      (template_type
+        (type_identifier)
+        (template_argument_list
+          (type_descriptor
+            (primitive_type))))))
+  (template_instantiation
+    (struct_specifier
+      (template_type
+        (type_identifier)
+        (template_argument_list
+          (type_descriptor
+            (sized_type_specifier))))))
+  (template_instantiation
+    (primitive_type)
+    (function_declarator
+      (template_function
+        (identifier)
+        (template_argument_list
+          (type_descriptor
+            (primitive_type))))
+      (parameter_list
+        (parameter_declaration
+          (primitive_type))))))

@@ -1,0 +1,142 @@
+--- a/grammar.js
++++ b/grammar.js
+@@ -9,7 +9,7 @@
+ /// <reference types="tree-sitter-cli/dsl" />
+ // @ts-check
+ 
+-const C = require('tree-sitter-c/grammar');
++const C = require('./c-base/grammar');
+ 
+ const PREC = Object.assign(C.PREC, {
+   LAMBDA: 18,
+@@ -69,6 +69,8 @@
+     [$.type_qualifier, $.extension_expression],
+ 
+     // C++
++    [$.expression, $.lambda_capture_initializer],
++    [$.storage_class_specifier, $.template_instantiation],
+     [$.template_function, $.template_type],
+     [$.template_function, $.template_type, $.expression],
+     [$.template_function, $.template_type, $.qualified_identifier],
+@@ -258,6 +260,33 @@
+       'virtual',
+     ),
+ 
++    // Microsoft declaration modifiers can carry arguments and form a
++    // whitespace-separated sequence. Retain their expression subtrees instead
++    // of treating their contents (or unknown macro identifiers) as opaque text.
++    ms_declspec_modifier: $ => seq(
++      choice('__declspec', '_declspec'),
++      '(',
++      repeat(seq($.identifier, optional($.argument_list))),
++      ')',
++    ),
++
++    // Feature-test operators such as __has_cpp_attribute accept scoped
++    // attribute tokens. Keep this confined to preprocessor argument lists.
++    preproc_argument_list: $ => seq(
++      '(',
++      commaSep(choice(
++        $._preproc_expression,
++        alias($._preproc_scoped_attribute, $.qualified_identifier),
++      )),
++      ')',
++    ),
++
++    _preproc_scoped_attribute: $ => seq(
++      field('scope', $.identifier),
++      '::',
++      field('name', $.identifier),
++    ),
++
+     explicit_function_specifier: $ => choice(
+       'explicit',
+       prec(PREC.CALL, seq(
+@@ -291,7 +320,7 @@
+           optional($._enum_base_clause),
+           optional(field('body', $.enumerator_list)),
+         ),
+-        field('body', $.enumerator_list),
++        seq(optional($._enum_base_clause), field('body', $.enumerator_list)),
+       ),
+       optional($.attribute_specifier),
+     )),
+@@ -339,9 +368,15 @@
+     ),
+ 
+     template_instantiation: $ => seq(
++      optional('extern'),
+       'template',
+-      optional($._declaration_specifiers),
+-      field('declarator', $._declarator),
++      choice(
++        seq(
++          optional($._declaration_specifiers),
++          field('declarator', $._declarator),
++        ),
++        field('type', choice($.class_specifier, $.struct_specifier, $.union_specifier)),
++      ),
+       ';',
+     ),
+ 
+@@ -402,7 +437,7 @@
+       $._declaration_specifiers,
+       field('declarator', optional(choice($._declarator, $.abstract_reference_declarator))),
+       '=',
+-      field('default_value', $.expression),
++      field('default_value', choice($.expression, $.initializer_list)),
+     ),
+ 
+     variadic_parameter_declaration: $ => seq(
+@@ -983,10 +1018,25 @@
+       'new',
+       field('placement', optional($.argument_list)),
+       field('type', $.type_specifier),
+-      field('declarator', optional($.new_declarator)),
++      field('declarator', optional(choice(
++        $.new_declarator,
++        alias($._new_pointer_declarator, $.abstract_pointer_declarator),
++      ))),
+       field('arguments', optional(choice(
+         $.argument_list,
+         $.initializer_list,
++      ))),
++    )),
++
++    // A new-type-id permits pointer operators before (not after) array bounds.
++    // Keep this separate from general abstract declarators: new does not permit
++    // reference types or function declarators in this unparenthesized position.
++    _new_pointer_declarator: $ => prec.right(seq(
++      '*',
++      repeat($.type_qualifier),
++      optional(field('declarator', choice(
++        alias($._new_pointer_declarator, $.abstract_pointer_declarator),
++        $.new_declarator,
+       ))),
+     )),
+ 
+@@ -1123,8 +1173,11 @@
+       optional('&'),
+       optional('...'),
+       field('left', $.identifier),
+-      '=',
+-      field('right', $.expression),
++      choice(
++        seq('=', field('right', $.expression)),
++        field('right', $.initializer_list),
++        field('right', $.argument_list),
++      ),
+     ),
+ 
+     _lambda_capture: $ => choice(
+--- a/tree-sitter.json
++++ b/tree-sitter.json
+@@ -14,7 +14,7 @@
+         "h"
+       ],
+       "highlights": [
+-        "node_modules/tree-sitter-c/queries/highlights.scm",
++        "c-base/queries/highlights.scm",
+         "queries/highlights.scm"
+       ],
+       "injections": "queries/injections.scm",

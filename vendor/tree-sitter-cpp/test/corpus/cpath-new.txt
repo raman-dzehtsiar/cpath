@@ -1,0 +1,62 @@
+================================================================================
+cpath pointer array new retains placement and bounds
+================================================================================
+void allocate(bool b, void *p) {
+  auto a = new (p) int **[b ? 1 : 2][3];
+  auto c = new int * const[2];
+  auto d = new int *;
+}
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    (primitive_type)
+    (function_declarator
+      (identifier)
+      (parameter_list
+        (parameter_declaration
+          (primitive_type)
+          (identifier))
+        (parameter_declaration
+          (primitive_type)
+          (pointer_declarator
+            (identifier)))))
+    (compound_statement
+      (declaration
+        (placeholder_type_specifier
+          (auto))
+        (init_declarator
+          (identifier)
+          (new_expression
+            (argument_list
+              (identifier))
+            (primitive_type)
+            (abstract_pointer_declarator
+              (abstract_pointer_declarator
+                (new_declarator
+                  (conditional_expression
+                    (identifier)
+                    (number_literal)
+                    (number_literal))
+                  (new_declarator
+                    (number_literal))))))))
+      (declaration
+        (placeholder_type_specifier
+          (auto))
+        (init_declarator
+          (identifier)
+          (new_expression
+            (primitive_type)
+            (abstract_pointer_declarator
+              (type_qualifier)
+              (new_declarator
+                (number_literal))))))
+      (declaration
+        (placeholder_type_specifier
+          (auto))
+        (init_declarator
+          (identifier)
+          (new_expression
+            (primitive_type)
+            (abstract_pointer_declarator)))))))

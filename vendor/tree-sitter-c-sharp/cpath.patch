@@ -1,0 +1,575 @@
+--- a/grammar.js
++++ b/grammar.js
+@@ -44,6 +44,8 @@
+   name: 'c_sharp',
+ 
+   conflicts: $ => [
++    // Dereference can be an assignment target or contain a parenthesized assignment.
++    [$.expression, $.assignment_expression],
+     [$._simple_name, $.generic_name],
+     [$._simple_name, $.type_parameter],
+     [$._simple_name, $.subpattern],
+@@ -104,8 +106,29 @@
+ 
+     [$.event_declaration, $.variable_declarator],
+ 
+-    [$.base_list],
++    [$.preproc_if_in_top_level, $.preproc_if_in_attribute_list, $.preproc_if_in_initializer_prefix],
++    [$.preproc_if_in_top_level, $.preproc_if_in_expression, $.preproc_if_in_attribute_list, $.preproc_if_in_initializer_prefix],
++    [$.preproc_if_in_top_level, $.preproc_if_in_initializer_prefix],
++    [$.preproc_if_in_top_level, $.preproc_if_in_expression, $.preproc_if_in_initializer_prefix, $.preproc_if_in_initializer_final],
++    [$.preproc_if_in_top_level, $.preproc_if_in_expression, $.preproc_if_in_initializer_prefix],
++    [$.preproc_else_in_top_level, $.preproc_else_in_expression, $.preproc_else_in_attribute_list, $.preproc_else_in_initializer_prefix, $.preproc_else_in_initializer_final],
++    [$.preproc_if_in_expression, $.preproc_if_in_initializer_prefix, $.preproc_if_in_initializer_final],
++    [$.preproc_else_in_expression, $.preproc_else_in_attribute_list, $.preproc_else_in_initializer_prefix, $.preproc_else_in_initializer_final],
++    [$.preproc_else_in_initializer_prefix, $.preproc_else_in_initializer_final],
++    [$.preproc_if_in_initializer_prefix, $.preproc_if_in_initializer_final],
++    [$.preproc_elif_in_top_level, $.preproc_elif_in_expression, $.preproc_elif_in_attribute_list, $.preproc_elif_in_initializer_prefix, $.preproc_elif_in_initializer_final],
++    [$.preproc_elif_in_expression, $.preproc_elif_in_attribute_list, $.preproc_elif_in_initializer_prefix, $.preproc_elif_in_initializer_final],
++    [$.preproc_else_in_top_level, $.preproc_else_in_expression, $.preproc_else_in_attribute_list, $.preproc_else_in_initializer_prefix],
++    [$.preproc_elif_in_initializer_prefix, $.preproc_elif_in_initializer_final],
++    [$.preproc_elif_in_top_level, $.preproc_elif_in_expression, $.preproc_elif_in_attribute_list, $.preproc_elif_in_initializer_prefix],
++    [$._base_list_item],
+     [$.using_directive, $.modifier],
++    [$.preproc_if_in_else_if_tail, $.preproc_if_in_else_tail],
++    [$.preproc_else_in_else_if_tail, $.preproc_else_in_else_tail],
++    [$.preproc_elif_in_else_if_tail, $.preproc_elif_in_else_tail],
++    [$.if_statement, $._conditional_if_statement],
++    [$.try_statement],
++    [$._terminated_variable_declaration, $.variable_declaration],
+     [$.using_directive],
+ 
+     [$._constructor_declaration_initializer, $._simple_name],
+@@ -134,6 +157,7 @@
+     // simple-lambda parameter list (at least one element has a parameter
+     // modifier) closed by ')=>'.
+     $._lambda_paren_open,
++    $._conditional_else_start,
+   ],
+ 
+   extras: $ => [
+@@ -180,6 +204,7 @@
+   rules: {
+     compilation_unit: $ => seq(
+       optional($.shebang_directive),
++      repeat($.file_based_directive),
+       repeat($._top_level_item),
+     ),
+ 
+@@ -448,7 +473,16 @@
+       field('name', $.identifier),
+     ),
+ 
+-    base_list: $ => seq(':', commaSep1(seq($.type, optional($.argument_list)))),
++    base_list: $ => seq(
++      ':',
++      repeat(choice(
++        seq($._base_list_item, ','),
++        alias($.preproc_if_in_base_prefix, $.preproc_if),
++      )),
++      $._base_list_item,
++    ),
++
++    _base_list_item: $ => seq($.type, optional($.argument_list)),
+ 
+     type_parameter_constraints_clause: $ => seq(
+       'where',
+@@ -597,8 +631,10 @@
+     field_declaration: $ => seq(
+       repeat($._attribute_list),
+       repeat($.modifier),
+-      $.variable_declaration,
+-      ';',
++      choice(
++        seq($.variable_declaration, ';'),
++        alias($._terminated_variable_declaration, $.variable_declaration),
++      ),
+     ),
+ 
+     constructor_declaration: $ => seq(
+@@ -652,8 +688,10 @@
+       repeat($._attribute_list),
+       repeat($.modifier),
+       'event',
+-      $.variable_declaration,
+-      ';',
++      choice(
++        seq($.variable_declaration, ';'),
++        alias($._terminated_variable_declaration, $.variable_declaration),
++      ),
+     )),
+ 
+     accessor_list: $ => seq(
+@@ -679,6 +717,7 @@
+       choice(
+         field('accessors', $.accessor_list),
+         seq(field('value', $.arrow_expression_clause), ';'),
++        field('value', alias($._terminated_arrow_expression_clause, $.arrow_expression_clause)),
+       ),
+     ),
+ 
+@@ -703,6 +742,7 @@
+           field('value', $.arrow_expression_clause),
+           ';',
+         ),
++        field('value', alias($._terminated_arrow_expression_clause, $.arrow_expression_clause)),
+       ),
+     ),
+ 
+@@ -713,7 +753,13 @@
+ 
+     parameter_list: $ => seq(
+       '(',
+-      sep(choice($.parameter, $._parameter_array), ','),
++      optional(seq(
++        choice($.parameter, $._parameter_array),
++        repeat(choice(
++          seq(',', choice($.parameter, $._parameter_array)),
++          alias($.preproc_if_in_parameter_tail, $.preproc_if),
++        )),
++      )),
+       ')',
+     ),
+ 
+@@ -745,7 +791,17 @@
+       $.argument_list,
+     ),
+ 
+-    argument_list: $ => seq('(', commaSep($.argument), ')'),
++    argument_list: $ => seq(
++      '(',
++      optional(seq(
++        $.argument,
++        repeat(choice(
++          seq(',', $.argument),
++          alias($.preproc_if_in_argument_tail, $.preproc_if),
++        )),
++      )),
++      ')',
++    ),
+ 
+     tuple_pattern: $ => seq(
+       '(',
+@@ -769,11 +825,27 @@
+     block: $ => seq('{', repeat($.statement), '}'),
+ 
+     arrow_expression_clause: $ => seq('=>', $.expression),
++    _terminated_arrow_expression_clause: $ => seq(
++      '=>', alias($.preproc_if_in_terminated_expression, $.preproc_if),
++    ),
+ 
+     _function_body: $ => choice(
+       field('body', $.block),
+       seq(field('body', $.arrow_expression_clause), ';'),
++      field('body', alias($._terminated_arrow_expression_clause, $.arrow_expression_clause)),
+       ';',
++    ),
++
++    _terminated_variable_declaration: $ => seq(
++      field('type', $.type),
++      repeat(seq($.variable_declarator, ',')),
++      alias($._terminated_variable_declarator, $.variable_declarator),
++    ),
++    _terminated_variable_declarator: $ => seq(
++      choice(field('name', $.identifier), $.tuple_pattern),
++      optional($.bracketed_argument_list),
++      '=',
++      alias($.preproc_if_in_terminated_expression, $.preproc_if),
+     ),
+ 
+     variable_declaration: $ => seq(
+@@ -1034,7 +1106,10 @@
+ 
+     empty_statement: _ => ';',
+ 
+-    expression_statement: $ => seq($._expression_statement_expression, ';'),
++    expression_statement: $ => choice(
++      seq($._expression_statement_expression, ';'),
++      alias($._terminated_assignment_expression, $.assignment_expression),
++    ),
+ 
+     fixed_statement: $ => seq('fixed', '(', $.variable_declaration, ')', $.statement),
+ 
+@@ -1104,7 +1179,10 @@
+     try_statement: $ => seq(
+       'try',
+       field('body', $.block),
+-      repeat($.catch_clause),
++      repeat(choice(
++        $.catch_clause,
++        alias($.preproc_if_in_catch_list, $.preproc_if),
++      )),
+       optional($.finally_clause),
+     ),
+ 
+@@ -1179,11 +1257,24 @@
+       field('condition', $.expression),
+       ')',
+       field('consequence', $.statement),
+-      optional(seq(
+-        'else',
+-        field('alternative', $.statement),
++      repeat(seq($._conditional_else_start, field('alternative', $.preproc_if_in_else_if_tail))),
++      optional(choice(
++        seq('else', field('alternative', $.statement)),
++        seq($._conditional_else_start, field('alternative', $.preproc_if_in_else_tail)),
+       )),
+     )),
++
++    // The wrapper records a source-level else clause. Prefix clauses contain
++    // only else-if bodies, so a shared final else cannot attach after a branch
++    // that already ends in else. General conditional alternatives are terminal.
++    conditional_else_clause: $ => seq('else', field('alternative', $.statement)),
++    _conditional_else_if_clause: $ => seq(
++      'else', field('alternative', alias($._conditional_if_statement, $.if_statement)),
++    ),
++    _conditional_if_statement: $ => seq(
++      'if', '(', field('condition', $.expression), ')',
++      field('consequence', $.statement),
++    ),
+ 
+     while_statement: $ => seq(
+       'while',
+@@ -1197,8 +1288,10 @@
+       optional('await'),
+       optional('using'),
+       repeat($.modifier),
+-      $.variable_declaration,
+-      ';',
++      choice(
++        seq($.variable_declaration, ';'),
++        alias($._terminated_variable_declaration, $.variable_declaration),
++      ),
+     ),
+ 
+     local_function_statement: $ => seq(
+@@ -1286,7 +1379,8 @@
+ 
+     type_pattern: $ => prec.right(field('type', $.type)),
+ 
+-    list_pattern: $ => prec.right(seq(
++    // In pattern context prefer a list over a collection used as a constant.
++    list_pattern: $ => prec.dynamic(1, prec.right(seq(
+       '[',
+       optional(seq(
+         commaSep1(choice($.pattern, $.slice_pattern)),
+@@ -1294,12 +1388,14 @@
+       )),
+       ']',
+       optional($._variable_designation),
+-    )),
++    ))),
+ 
+     // C# 11 slice pattern: `..` optionally followed by a subpattern that
+     // binds the captured slice. `[a, .. var rest, z]`, `[..]` (bare),
+     // `[.. List<int> rest]` (declaration_pattern), etc.
+-    slice_pattern: $ => prec.right(seq(
++    // A leading bare slice must not reduce to a range in an element-binding
++    // recovery path. Ordinary expression contexts do not admit slice_pattern.
++    slice_pattern: $ => prec.right(PREC.RANGE + 1, seq(
+       '..',
+       optional($.pattern),
+     )),
+@@ -1484,10 +1580,7 @@
+       $.parenthesized_expression,
+     ),
+ 
+-    assignment_expression: $ => seq(
+-      field('left', $.lvalue_expression),
+-      field('operator',
+-        choice(
++    _assignment_operator: _ => choice(
+           '=',
+           '+=',
+           '-=',
+@@ -1502,7 +1595,14 @@
+           '>>>=',
+           '??=',
+         ),
+-      ),
++    _terminated_assignment_expression: $ => seq(
++      field('left', $.lvalue_expression),
++      field('operator', $._assignment_operator),
++      field('right', alias($.preproc_if_in_terminated_expression, $.preproc_if)),
++    ),
++    assignment_expression: $ => seq(
++      field('left', $.lvalue_expression),
++      field('operator', $._assignment_operator),
+       field('right', $.expression),
+     ),
+ 
+@@ -1551,17 +1651,19 @@
+       // `&` and `*` are intentionally NOT in this choice list:
+       //   * `&` → `_address_of_expression` (operand restricted to lvalue
+       //           — see comment on that rule for the #413 rationale)
+-      //   * `*` → `_pointer_indirection_expression` (same shape,
+-      //           restricted to lvalue, surfaced in `lvalue_expression`)
++      //   * `*` → `_pointer_indirection_expression` (expression operand,
++      //           surfaced in `lvalue_expression`)
+       // Both are aliased back to `prefix_unary_expression` so the
+       // public AST is unaffected.
+       choice('++', '--', '+', '-', '!', '~', '^'),
+       $.expression,
+     )),
+ 
++    // cpath patch: dereference accepts a pointer-valued expression, including
++    // arithmetic and casts. Address-of below still requires an lvalue.
+     _pointer_indirection_expression: $ => prec.right(PREC.UNARY, seq(
+       '*',
+-      $.lvalue_expression,
++      $.expression,
+     )),
+ 
+     // Address-of is split out from `prefix_unary_expression` so that
+@@ -1927,8 +2029,14 @@
+ 
+     initializer_expression: $ => seq(
+       '{',
+-      commaSep($.expression),
+-      optional(','),
++      repeat(choice(
++        seq($.expression, ','),
++        alias($.preproc_if_in_initializer_prefix, $.preproc_if),
++      )),
++      optional(choice(
++        $.expression,
++        alias($.preproc_if_in_initializer_final, $.preproc_if),
++      )),
+       '}',
+     ),
+ 
+@@ -2168,6 +2276,81 @@
+     ...preprocIf('_in_enum_member_declaration', $ => $.enum_member_declaration, 0, false),
+     ...preprocIf('_in_attribute_list', $ => $.attribute_list, -1, false),
+ 
++    // cpath patch: conditional list tails retain all branches without evaluating
++    // symbols. Every additional item owns its leading comma, including in nested
++    // conditionals. A normal first item is required by each enclosing list.
++    ...preprocIf('_in_argument_tail', $ => choice(
++      seq(',', $.argument),
++      alias($.preproc_if_in_argument_tail, $.preproc_if),
++    )),
++    ...preprocIf('_in_parameter_tail', $ => choice(
++      seq(',', choice($.parameter, $._parameter_array)),
++      alias($.preproc_if_in_parameter_tail, $.preproc_if),
++    )),
++
++    // Conditional list segments preserve every branch and require separators
++    // inside those branches. Prefixes always include commas; only a final
++    // initializer segment may end without one. Shared successors occur once.
++    ...preprocIf('_in_base_prefix', $ => choice(
++      seq($._base_list_item, ','),
++      alias($.preproc_if_in_base_prefix, $.preproc_if),
++    )),
++    ...preprocIf('_in_initializer_prefix', $ => choice(
++      seq($.expression, ','),
++      alias($.preproc_if_in_initializer_prefix, $.preproc_if),
++    )),
++    ...preprocIf('_in_initializer_final', $ => seq(
++      repeat(choice(
++        seq($.expression, ','),
++        alias($.preproc_if_in_initializer_prefix, $.preproc_if),
++      )),
++      optional($.expression),
++    ), 0, false),
++    ...preprocIf('_in_catch_list', $ => choice(
++      $.catch_clause,
++      alias($.preproc_if_in_catch_list, $.preproc_if),
++    )),
++
++    ...preprocIf('_in_else_if_tail', $ => choice(
++      alias($._conditional_else_if_clause, $.conditional_else_clause),
++      alias($.preproc_if_in_else_if_tail, $.preproc_if),
++    )),
++    ...preprocIf('_in_else_tail', $ => seq(
++      repeat(alias($.preproc_if_in_else_if_tail, $.preproc_if)),
++      choice(
++        $.conditional_else_clause,
++        alias($.preproc_if_in_else_tail, $.preproc_if),
++      ),
++    ), 0, false),
++
++    // This form owns a semicolon in every expression alternative. No branch
++    // may be empty and the final #else is required. It is only exposed by
++    // enclosing declarations, assignments and arrow bodies with no outer ';'.
++    _terminated_expression_alternative: $ => choice(
++      seq($.expression, ';'),
++      alias($.preproc_if_in_terminated_expression, $.preproc_if),
++    ),
++    preproc_if_in_terminated_expression: $ => seq(
++      preprocessor('if'), field('condition', $._preproc_expression), /\n/,
++      $._terminated_expression_alternative,
++      field('alternative', choice(
++        alias($.preproc_elif_in_terminated_expression, $.preproc_elif),
++        alias($.preproc_else_in_terminated_expression, $.preproc_else),
++      )),
++      preprocessor('endif'),
++    ),
++    preproc_elif_in_terminated_expression: $ => seq(
++      preprocessor('elif'), field('condition', $._preproc_expression), /\n/,
++      $._terminated_expression_alternative,
++      field('alternative', choice(
++        alias($.preproc_elif_in_terminated_expression, $.preproc_elif),
++        alias($.preproc_else_in_terminated_expression, $.preproc_else),
++      )),
++    ),
++    preproc_else_in_terminated_expression: $ => seq(
++      preprocessor('else'), $._terminated_expression_alternative,
++    ),
++
+     preproc_arg: _ => token(prec(-1, /\S([^/\n]|\/[^*]|\\\r?\n)*/)),
+     preproc_directive: _ => /#[ \t]*[a-zA-Z0-9]\w*/,
+ 
+@@ -2249,10 +2432,16 @@
+               $.identifier,
+               $.integer_literal,
+             ))),
++        seq('warning', $.identifier, optional($.preproc_pragma_arguments)),
+         seq('checksum', $.string_literal, $.string_literal, $.string_literal),
++        seq($.identifier, optional($.preproc_pragma_arguments)),
+       ),
+       /\n/,
+     ),
++
++    // Implementation-defined pragma arguments are line-bounded metadata.
++    // Lower lexical precedence preserves recognized warning/checksum shapes.
++    preproc_pragma_arguments: _ => token(prec(-1, /[^\s][^\r\n]*/)),
+ 
+     preproc_nullable: _ => seq(
+       preprocessor('nullable'),
+@@ -2286,6 +2475,10 @@
+     ),
+ 
+     shebang_directive: _ => token(seq('#!', /.*/)),
++
++    // File-based app metadata belongs before code. Keep its payload opaque:
++    // cpath never resolves projects, packages, includes, or build properties.
++    file_based_directive: _ => token(/#:(sdk|property|package|project|include)[ \t]+[^\s][^\r\n]*/),
+ 
+     comment: _ => token(choice(
+       seq('//', /[^\n\r]*/),
+--- a/src/scanner.c
++++ b/src/scanner.c
+@@ -19,6 +19,7 @@
+     RAW_STRING_END,
+     RAW_STRING_CONTENT,
+     LAMBDA_PAREN_OPEN,
++    CONDITIONAL_ELSE_START,
+ };
+ 
+ typedef enum {
+@@ -48,6 +49,97 @@
+ static inline void advance(TSLexer *lexer) { lexer->advance(lexer, false); }
+ 
+ static inline void skip(TSLexer *lexer) { lexer->advance(lexer, true); }
++
++// cpath: distinguish a conditional else suffix from an ordinary conditional
++// statement following a completed if. This is bounded lexical lookahead only:
++// the zero-width marker consumes no source, and the grammar still validates
++// every directive, expression and body. A consumed marker must be followed by
++// a nonempty #if...#endif production before it can occur again.
++#define CONDITIONAL_ELSE_LOOKAHEAD_LIMIT 65536u
++
++static bool conditional_advance(TSLexer *lexer, uint32_t *remaining) {
++    if (*remaining == 0 || lexer->eof(lexer)) return false;
++    --*remaining;
++    advance(lexer);
++    return true;
++}
++
++static bool scan_conditional_else_start(TSLexer *lexer, uint32_t remaining) {
++    uint32_t depth = 0;
++    bool first = true;
++    lexer->mark_end(lexer);
++    while (remaining > 0 && !lexer->eof(lexer)) {
++        if (iswspace(lexer->lookahead)) {
++            if (!conditional_advance(lexer, &remaining)) return false;
++            continue;
++        }
++        if (lexer->lookahead == '/') {
++            if (!conditional_advance(lexer, &remaining)) return false;
++            if (lexer->lookahead == '/') {
++                while (lexer->lookahead != '\n' && !lexer->eof(lexer)) {
++                    if (!conditional_advance(lexer, &remaining)) return false;
++                }
++                continue;
++            }
++            if (lexer->lookahead != '*') return false;
++            if (!conditional_advance(lexer, &remaining)) return false;
++            bool star = false;
++            bool closed = false;
++            while (!lexer->eof(lexer)) {
++                int32_t character = lexer->lookahead;
++                if (!conditional_advance(lexer, &remaining)) return false;
++                if (star && character == '/') { closed = true; break; }
++                star = character == '*';
++            }
++            if (!closed) return false;
++            continue;
++        }
++        if (lexer->lookahead == '#') {
++            if (!conditional_advance(lexer, &remaining)) return false;
++            while (lexer->lookahead == ' ' || lexer->lookahead == '\t') {
++                if (!conditional_advance(lexer, &remaining)) return false;
++            }
++            char directive[8] = {0};
++            size_t length = 0;
++            while ((lexer->lookahead >= 'a' && lexer->lookahead <= 'z') ||
++                   (lexer->lookahead >= 'A' && lexer->lookahead <= 'Z')) {
++                if (length < sizeof(directive)) directive[length] = (char)lexer->lookahead;
++                ++length;
++                if (!conditional_advance(lexer, &remaining)) return false;
++            }
++            bool is_if = length == 2 && memcmp(directive, "if", 2) == 0;
++            bool is_endif = length == 5 && memcmp(directive, "endif", 5) == 0;
++            if (first && !is_if) return false;
++            first = false;
++            if (is_if) ++depth;
++            if (is_endif) {
++                if (depth == 0) return false;
++                if (--depth == 0) {
++                    lexer->result_symbol = CONDITIONAL_ELSE_START;
++                    return true;
++                }
++            }
++            while (lexer->lookahead != '\n' && !lexer->eof(lexer)) {
++                if (!conditional_advance(lexer, &remaining)) return false;
++            }
++            continue;
++        }
++        if (first || depth == 0) return false;
++        const char *keyword = "else";
++        for (size_t index = 0; keyword[index] != 0; ++index) {
++            if (lexer->lookahead != keyword[index] ||
++                !conditional_advance(lexer, &remaining)) return false;
++        }
++        // Be conservative for all non-ASCII characters and Unicode escapes:
++        // locale-dependent iswalnum is not a complete C# identifier predicate.
++        int32_t next = lexer->lookahead;
++        if ((next >= 'a' && next <= 'z') || (next >= 'A' && next <= 'Z') ||
++            (next >= '0' && next <= '9') || next == '_' || next == '\\' || next >= 128) return false;
++        lexer->result_symbol = CONDITIONAL_ELSE_START;
++        return true;
++    }
++    return false;
++}
+ 
+ // ---- Helpers for LAMBDA_PAREN_OPEN scanning ---------------------------
+ 
+@@ -309,6 +401,16 @@
+ bool tree_sitter_c_sharp_external_scanner_scan(void *payload, TSLexer *lexer, const bool *valid_symbols) {
+     Scanner *scanner = (Scanner *)payload;
+ 
++    if (valid_symbols[CONDITIONAL_ELSE_START] &&
++        !(valid_symbols[OPT_SEMI] && valid_symbols[INTERPOLATION_REGULAR_START])) {
++        uint32_t whitespace = CONDITIONAL_ELSE_LOOKAHEAD_LIMIT;
++        while (iswspace(lexer->lookahead) && whitespace > 0) {
++            --whitespace;
++            skip(lexer);
++        }
++        if (lexer->lookahead == '#') return scan_conditional_else_start(lexer, whitespace);
++    }
++
+     uint8_t brace_advanced = 0;
+     uint8_t quote_count = 0;
+     bool did_advance = false;
