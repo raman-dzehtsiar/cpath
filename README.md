@@ -1,4 +1,6 @@
 # Find the code that needs human attention
+[![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=raman-dzehtsiar-cpath&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=raman-dzehtsiar-cpath)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=raman-dzehtsiar-cpath&metric=coverage)](https://sonarcloud.io/summary/new_code?id=raman-dzehtsiar-cpath)
 
 **cpath** is an experimental preview of a local codebase intelligence tool for
 identifying code that may need human attention. Its goal is to help prioritize
