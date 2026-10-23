@@ -927,6 +927,23 @@ mod tests {
 
     #[cfg(unix)]
     #[test]
+    fn non_utf8_path_normalization_rejects_lossy_identity_without_filesystem_access() {
+        use std::ffi::OsString;
+        use std::os::unix::ffi::OsStringExt;
+
+        assert_eq!(
+            normalized(Path::new("a\u{fffd}.cs")).unwrap(),
+            "a\u{fffd}.cs"
+        );
+        for suffix in [0xfe, 0xff] {
+            let path = PathBuf::from(OsString::from_vec(vec![b'a', suffix, b'.', b'c', b's']));
+            assert!(normalized(&path).unwrap_err().contains("UTF-8 paths"));
+        }
+    }
+
+    // APFS rejects invalid UTF-8 filenames before the scanner can read them.
+    #[cfg(all(unix, not(target_vendor = "apple")))]
+    #[test]
     fn non_utf8_paths_fail_before_json_instead_of_colliding() {
         use std::ffi::OsString;
         use std::os::unix::ffi::OsStringExt;

@@ -523,7 +523,8 @@ fn unrenderable_later_path_fails_before_printing_any_rows() {
         .contains("line break"));
 }
 
-#[cfg(unix)]
+// APFS rejects invalid UTF-8 filenames before the scanner can read them.
+#[cfg(all(unix, not(target_vendor = "apple")))]
 #[test]
 fn non_unicode_paths_have_deterministic_internal_order_and_fail_cleanly_at_output() {
     use std::ffi::OsString;
