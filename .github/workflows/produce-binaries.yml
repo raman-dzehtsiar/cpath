@@ -1,0 +1,126 @@
+# SPDX-License-Identifier: MIT
+
+name: Produce binaries
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  checks:
+    name: Check ${{ matrix.target }}
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            target: x86_64-unknown-linux-gnu
+          - os: windows-2022
+            target: x86_64-pc-windows-msvc
+          - os: macos-15-intel
+            target: x86_64-apple-darwin
+          - os: macos-15
+            target: aarch64-apple-darwin
+    steps:
+      - name: Check out source
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+
+      - name: Install repository Rust toolchain
+        env:
+          BUILD_TARGET: ${{ matrix.target }}
+        run: |
+          rustup show active-toolchain
+          rustup component add rustfmt clippy
+          rustup target add "$BUILD_TARGET"
+
+      - name: Check formatting
+        run: cargo fmt --check
+
+      - name: Lint
+        env:
+          BUILD_TARGET: ${{ matrix.target }}
+        run: cargo clippy --locked --target "$BUILD_TARGET" --all-targets --all-features -- -D warnings
+
+      - name: Run tests
+        env:
+          BUILD_TARGET: ${{ matrix.target }}
+        run: |
+          cargo test --locked --target "$BUILD_TARGET" --all-targets --all-features
+          cargo test --locked --target "$BUILD_TARGET" --all-features --doc
+
+      - name: Run Python tooling tests
+        if: runner.os == 'Linux'
+        run: python3 -m unittest discover -s tools -p 'test_*.py'
+
+  binaries:
+    name: Package ${{ matrix.target }}
+    needs: checks
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            target: x86_64-unknown-linux-gnu
+            binary: cpath
+          - os: windows-2022
+            target: x86_64-pc-windows-msvc
+            binary: cpath.exe
+          - os: macos-15-intel
+            target: x86_64-apple-darwin
+            binary: cpath
+          - os: macos-15
+            target: aarch64-apple-darwin
+            binary: cpath
+    steps:
+      - name: Check out source
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+
+      - name: Install repository Rust toolchain
+        env:
+          BUILD_TARGET: ${{ matrix.target }}
+        run: |
+          rustup show active-toolchain
+          rustup target add "$BUILD_TARGET"
+
+      - name: Build release binary
+        env:
+          BUILD_TARGET: ${{ matrix.target }}
+        run: cargo build --locked --release --all-features --bin cpath --target "$BUILD_TARGET"
+
+      # A tar archive preserves executable permissions when downloaded from Actions.
+      - name: Package binary
+        env:
+          BUILD_TARGET: ${{ matrix.target }}
+          BINARY_NAME: ${{ matrix.binary }}
+        run: |
+          mkdir -p dist/package
+          cp "target/$BUILD_TARGET/release/$BINARY_NAME" dist/package/
+          cp LICENSE.txt dist/package/
+          tar -czf "dist/cpath-$BUILD_TARGET.tar.gz" -C dist/package .
+
+      - name: Upload binary archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: cpath-${{ matrix.target }}-${{ github.sha }}-${{ github.run_attempt }}
+          path: dist/cpath-${{ matrix.target }}.tar.gz
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
