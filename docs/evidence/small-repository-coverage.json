@@ -1,0 +1,1038 @@
+{
+  "schema": "cpath.research-coverage.20261022.v1",
+  "date": "2026-10-22",
+  "baseline_binary_sha256": "c3bb4089f945e9e767077721cd07e8ebb5d4727878fd078efdd369523e384242",
+  "methodology": "Complete diagnostics census on four pinned repositories, one diagnostic per unscored file. Manually reviewed constructs are hypotheses based on nearby and related source, not all root causes. Reduced source confirms mechanisms, not the count of files a patch would recover. Purposive fixtures are not a population coverage sample. No source preprocessing, repository modification or target builds.",
+  "initial_probes": {
+    "bytes": 509,
+    "content_skips": "{}",
+    "diagnostics": [
+      {
+        "kind": "Parse",
+        "message": "unsupported or malformed C syntax at line 1, column 40",
+        "path": "conditional_else.c"
+      },
+      {
+        "kind": "Parse",
+        "message": "unsupported or malformed C++ syntax at line 1, column 40",
+        "path": "conditional_else.cpp"
+      },
+      {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 1",
+        "path": "malformed.cs"
+      },
+      {
+        "kind": "Parse",
+        "message": "unsupported or ambiguous C file-scope block at line 1, column 24: a callable declaration may have been parsed incompletely",
+        "path": "old_style_pointer.c"
+      },
+      {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 1",
+        "path": "split_brace.cs"
+      },
+      {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 33",
+        "path": "split_expression.cs"
+      },
+      {
+        "kind": "Parse",
+        "message": "unsupported or ambiguous C++ callable declaration at line 2, column 1: function parameter list is missing; an unresolved macro may alter the declaration",
+        "path": "unknown_annotation.cpp"
+      }
+    ],
+    "excludes": [],
+    "failure_counts": {
+      "Parse": 7
+    },
+    "files": 6,
+    "formula": "cpath.complexity-ranking.v1",
+    "includes": [],
+    "lines": 20,
+    "path_selection": "SelectionStats { candidates: 14, selected: 13, skipped: {UnsupportedLanguage: 1} }",
+    "ranking": [
+      {
+        "bytes": 124,
+        "complexity": 3,
+        "complexity_burden": 0,
+        "complexity_total": 3,
+        "lines": 7,
+        "methods": [
+          {
+            "complexity": 3,
+            "end": 7,
+            "name": "M",
+            "start": 1
+          }
+        ],
+        "path": "conditional_else.cs",
+        "score": 3
+      },
+      {
+        "bytes": 62,
+        "complexity": 3,
+        "complexity_burden": 0,
+        "complexity_total": 3,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 3,
+            "end": 1,
+            "name": "f",
+            "start": 1
+          }
+        ],
+        "path": "macro_expanded.c",
+        "score": 3
+      },
+      {
+        "bytes": 101,
+        "complexity": 2,
+        "complexity_burden": 0,
+        "complexity_total": 2,
+        "lines": 8,
+        "methods": [
+          {
+            "complexity": 2,
+            "end": 8,
+            "name": "M",
+            "start": 1
+          }
+        ],
+        "path": "complete_branches.cs",
+        "score": 2
+      },
+      {
+        "bytes": 65,
+        "complexity": 1,
+        "complexity_burden": 0,
+        "complexity_total": 1,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 1,
+            "end": 1,
+            "name": "f",
+            "start": 1
+          }
+        ],
+        "path": "explicit_annotation.cpp",
+        "score": 1
+      },
+      {
+        "bytes": 61,
+        "complexity": 1,
+        "complexity_burden": 0,
+        "complexity_total": 1,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 1,
+            "end": 1,
+            "name": "f",
+            "start": 1
+          }
+        ],
+        "path": "pointer_array.cpp",
+        "score": 1
+      },
+      {
+        "bytes": 96,
+        "complexity": 0,
+        "complexity_burden": 0,
+        "complexity_total": 0,
+        "lines": 2,
+        "methods": [
+          {
+            "complexity": 0,
+            "end": 2,
+            "name": "f",
+            "start": 2
+          }
+        ],
+        "path": "macro_hidden.c",
+        "score": 0
+      }
+    ],
+    "unscored_files": 7,
+    "workers": 1
+  },
+  "initial_cli": {
+    "exit": 3,
+    "stdout": "3 conditional_else.cs\n3 macro_expanded.c\n2 complete_branches.cs\n1 explicit_annotation.cpp\n1 pointer_array.cpp\n0 macro_hidden.c\n",
+    "stderr": "cpath: warning: incomplete scan: analyzed 6 files; 7 selected files unscored. Rankings cover analyzed files only.\n  conditional_else.c: unsupported or malformed C syntax at line 1, column 40\n  conditional_else.cpp: unsupported or malformed C++ syntax at line 1, column 40\n  malformed.cs: unsupported or malformed C# syntax at line 1, column 1\n  old_style_pointer.c: unsupported or ambiguous C file-scope block at line 1, column 24: a callable declaration may have been parsed incompletely\n  split_brace.cs: unsupported or malformed C# syntax at line 1, column 1\n  split_expression.cs: unsupported or malformed C# syntax at line 1, column 33\n  unknown_annotation.cpp: unsupported or ambiguous C++ callable declaration at line 2, column 1: function parameter list is missing; an unresolved macro may alter the declaration\n"
+  },
+  "repositories": {
+    "serilog": {
+      "commit": "81af75f3a5e28ec9f5be18ef74357a9914a51745",
+      "selected": 216,
+      "scored": 200,
+      "unscored": 16,
+      "scored_bytes": 706061,
+      "unscored_bytes": 214980,
+      "diagnostics_complete": true,
+      "construct_counts": {
+        "conditional_signature_shared_body": 2,
+        "conditional_interface_method_body": 2,
+        "conditional_first_parameter": 1,
+        "conditional_comma_leading_base_list_tail": 8,
+        "conditional_expression_or_pattern_fragment": 2,
+        "conditional_switch_arm": 1
+      },
+      "scope_counts": {
+        "library_source": {
+          "scored": 100,
+          "unscored": 13
+        },
+        "test": {
+          "scored": 100,
+          "unscored": 3
+        },
+        "other": {
+          "scored": 0,
+          "unscored": 0
+        }
+      },
+      "diagnostics": [
+        {
+          "path": "src/Serilog/Capturing/MessageTemplateProcessor.cs",
+          "bytes": 2045,
+          "source_sha256": "a0db31b15c5d901efd6307dd418e4ed38186a7746e85865af2699c5a1352622d",
+          "message": "unsupported or malformed C# syntax at line 30, column 165",
+          "reviewed_first_error_construct": "conditional_signature_shared_body",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Capturing/PropertyBinder.cs",
+          "bytes": 5469,
+          "source_sha256": "e16f512ad2a4fc1375e24a3f2b7830e3bbc4ba419c1e1e8fbaac9882433492d7",
+          "message": "unsupported or malformed C# syntax at line 1, column 1",
+          "reviewed_first_error_construct": "conditional_signature_shared_body",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Core/IBatchedLogEventSink.cs",
+          "bytes": 1868,
+          "source_sha256": "0fb47e7f3f4dc3b413023c8ba7be370c95307ba1d742b7c3d74e879244c1f9a9",
+          "message": "unsupported or malformed C# syntax at line 38, column 5",
+          "reviewed_first_error_construct": "conditional_interface_method_body",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Core/LevelOverrideMap.cs",
+          "bytes": 3141,
+          "source_sha256": "d2ed779903a2af4043438f906d466a9fb12258532ca3d76ebc71aa3e52b337a4",
+          "message": "unsupported or malformed C# syntax at line 62, column 1",
+          "reviewed_first_error_construct": "conditional_first_parameter",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Core/Logger.cs",
+          "bytes": 68926,
+          "source_sha256": "7db3778684ea1d53ef80737e7553ecd62861ea334404586f9c46fd2388056eff",
+          "message": "unsupported or malformed C# syntax at line 26, column 54",
+          "reviewed_first_error_construct": "conditional_comma_leading_base_list_tail",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Core/Sinks/Batching/BatchingSink.cs",
+          "bytes": 13821,
+          "source_sha256": "d1f0624379574ebb97bc7f35171845b0c624d1ef88193459274019eafafbd69f",
+          "message": "unsupported or malformed C# syntax at line 24, column 57",
+          "reviewed_first_error_construct": "conditional_comma_leading_base_list_tail",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Core/Sinks/ConditionalSink.cs",
+          "bytes": 1476,
+          "source_sha256": "d517c7ab9a900fb927e0d4e7b874b922c4f4c2c159daec9a85aaf18767618dc0",
+          "message": "unsupported or malformed C# syntax at line 17, column 47",
+          "reviewed_first_error_construct": "conditional_comma_leading_base_list_tail",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Core/Sinks/DisposingAggregateSink.cs",
+          "bytes": 2859,
+          "source_sha256": "dfe8fd5a19ffcbe132de31019125258d8425951e7984e137009345fb236e606c",
+          "message": "unsupported or malformed C# syntax at line 17, column 54",
+          "reviewed_first_error_construct": "conditional_comma_leading_base_list_tail",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Core/Sinks/OptionalInterfaceForwardingSink.cs",
+          "bytes": 2531,
+          "source_sha256": "260605a73bc98ffd6b14655f043384832d33294d360c627a6e1dccc453e77d94",
+          "message": "unsupported or malformed C# syntax at line 17, column 76",
+          "reviewed_first_error_construct": "conditional_comma_leading_base_list_tail",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Core/Sinks/SecondaryLoggerSink.cs",
+          "bytes": 1967,
+          "source_sha256": "d452ce699c94db91bff2467594730242374ec2de2ef7a845c8b5725c128ee4ad",
+          "message": "unsupported or malformed C# syntax at line 24, column 51",
+          "reviewed_first_error_construct": "conditional_comma_leading_base_list_tail",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/Filters/Matching.cs",
+          "bytes": 4377,
+          "source_sha256": "c5f272ad1232621d15735e41ab51ef8f8a423b050c1f1f6c1a8e89230e2d52a7",
+          "message": "unsupported or malformed C# syntax at line 47, column 17",
+          "reviewed_first_error_construct": "conditional_expression_or_pattern_fragment",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/ILogger.cs",
+          "bytes": 64537,
+          "source_sha256": "6ca13ef5b677f9db20b08ab195bc049f280082829062f914ef57b9dc7b209285",
+          "message": "unsupported or malformed C# syntax at line 51, column 23",
+          "reviewed_first_error_construct": "conditional_interface_method_body",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/Serilog/LoggerConfiguration.cs",
+          "bytes": 8010,
+          "source_sha256": "210e72e186605b616668f2203f18832a0b3906c73aaedc8279b4c4b3f8782662",
+          "message": "unsupported or malformed C# syntax at line 181, column 17",
+          "reviewed_first_error_construct": "conditional_expression_or_pattern_fragment",
+          "scope": "library_source"
+        },
+        {
+          "path": "test/Serilog.Tests/Core/LoggerTests.cs",
+          "bytes": 19289,
+          "source_sha256": "9bd71e308252d57e54c7c53a98bcbf020b6cb92d8a49ee95e1e6cf8fdcbe2bbd",
+          "message": "unsupported or malformed C# syntax at line 168, column 1",
+          "reviewed_first_error_construct": "conditional_switch_arm",
+          "scope": "test"
+        },
+        {
+          "path": "test/Serilog.Tests/Support/DisposableLogger.cs",
+          "bytes": 12469,
+          "source_sha256": "120c3a28eee79ac55f321be6e03006494c9d447db0ccd76acefc80b198086ef6",
+          "message": "unsupported or malformed C# syntax at line 3, column 42",
+          "reviewed_first_error_construct": "conditional_comma_leading_base_list_tail",
+          "scope": "test"
+        },
+        {
+          "path": "test/Serilog.Tests/Support/InMemoryBatchedSink.cs",
+          "bytes": 2195,
+          "source_sha256": "002a2ae22017e04798635f997a8ee4b053e02023b4870b0aebaaea0c4de9fb22",
+          "message": "unsupported or malformed C# syntax at line 3, column 83",
+          "reviewed_first_error_construct": "conditional_comma_leading_base_list_tail",
+          "scope": "test"
+        }
+      ]
+    },
+    "csvhelper": {
+      "commit": "33970e5183383bdac1fbce3b3fbcdf46b318ca52",
+      "selected": 461,
+      "scored": 459,
+      "unscored": 2,
+      "scored_bytes": 1479145,
+      "unscored_bytes": 14433,
+      "diagnostics_complete": true,
+      "construct_counts": {
+        "escaped_brace_interpolation_with_nonempty_string_argument": 2
+      },
+      "scope_counts": {
+        "library_source": {
+          "scored": 193,
+          "unscored": 0
+        },
+        "test": {
+          "scored": 244,
+          "unscored": 0
+        },
+        "other": {
+          "scored": 22,
+          "unscored": 2
+        }
+      },
+      "diagnostics": [
+        {
+          "path": "docs-src/CsvHelper.DocsGenerator/Extensions.cs",
+          "bytes": 11681,
+          "source_sha256": "08675b55e8de2f90c52f9e0901a7ea654ef0eec1748c05225bdce27b7d2dfd62",
+          "message": "unsupported or malformed C# syntax at line 448, column 28",
+          "reviewed_first_error_construct": "escaped_brace_interpolation_with_nonempty_string_argument",
+          "scope": "other"
+        },
+        {
+          "path": "docs-src/CsvHelper.DocsGenerator/Formatters/XmlDocFormatter.cs",
+          "bytes": 2752,
+          "source_sha256": "81bb64b996ccee51ad30f10f7373c44f3089882e3c200046ee7295b9f901a25b",
+          "message": "unsupported or malformed C# syntax at line 89, column 28",
+          "reviewed_first_error_construct": "escaped_brace_interpolation_with_nonempty_string_argument",
+          "scope": "other"
+        }
+      ]
+    },
+    "dapper": {
+      "commit": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+      "selected": 156,
+      "scored": 155,
+      "unscored": 1,
+      "scored_bytes": 937451,
+      "unscored_bytes": 221360,
+      "diagnostics_complete": true,
+      "construct_counts": {
+        "conditional_partial_expression_suffix": 1
+      },
+      "scope_counts": {
+        "library_source": {
+          "scored": 0,
+          "unscored": 0
+        },
+        "test": {
+          "scored": 54,
+          "unscored": 0
+        },
+        "other": {
+          "scored": 101,
+          "unscored": 1
+        }
+      },
+      "diagnostics": [
+        {
+          "path": "Dapper/SqlMapper.cs",
+          "bytes": 221360,
+          "source_sha256": "86b7b8e2fec90482eda1d87807c850d495131270175e11b188446c39fcc87cec",
+          "message": "unsupported or malformed C# syntax at line 206, column 17",
+          "reviewed_first_error_construct": "conditional_partial_expression_suffix",
+          "scope": "other"
+        }
+      ]
+    },
+    "fmt": {
+      "commit": "0fc31633e7d53ac895ae0a688b83b7d44f0b0c1f",
+      "selected": 74,
+      "scored": 35,
+      "unscored": 39,
+      "scored_bytes": 83611,
+      "unscored_bytes": 2497715,
+      "diagnostics_complete": true,
+      "construct_counts": {
+        "namespace_macro_near_first_error": 14,
+        "pragma_macro_invocation": 5,
+        "header_name_operand_in_condition": 7,
+        "conditional_linkage_brace_and_annotation_macros": 1,
+        "broad_header_guard_diagnostic_unresolved": 2,
+        "conditional_try_catch_macro": 1,
+        "macro_template_parameter": 1,
+        "method_generation_macro": 2,
+        "contemporary_reflection_annotation_syntax": 1,
+        "declaration_annotation_macro": 2,
+        "keyword_or_type_token_macro_argument": 3
+      },
+      "scope_counts": {
+        "library_source": {
+          "scored": 1,
+          "unscored": 19
+        },
+        "test": {
+          "scored": 34,
+          "unscored": 20
+        },
+        "other": {
+          "scored": 0,
+          "unscored": 0
+        }
+      },
+      "diagnostics": [
+        {
+          "path": "include/fmt/args.h",
+          "bytes": 7224,
+          "source_sha256": "b105f72e62d7eb403c12c4c0ba22a94d42344b20206664814bf9568c6785fc83",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 20, column 11; unsupported or malformed C++ syntax at line 20, column 11",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/chrono.h",
+          "bytes": 79845,
+          "source_sha256": "5a654781e89e06b4fe8c2e9f8e6860f6aabe38d9c50d6864a2c7ab2adeac93ad",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 27, column 61; unsupported or malformed C++ syntax at line 27, column 61",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/color.h",
+          "bytes": 25322,
+          "source_sha256": "80db3364b9f5b8247f4012d05d1353be1d0aed7c1b5bd65bdcd2817d50b64e7c",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 14, column 17; unsupported or malformed C++ syntax at line 13, column 1",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/compile.h",
+          "bytes": 21259,
+          "source_sha256": "c8d933b1cdf923d2d39295a402c17488dd1afc96456185465e15155ef4255dfd",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 20, column 70; unsupported or malformed C++ syntax at line 21, column 1",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/core.h",
+          "bytes": 103096,
+          "source_sha256": "897262b154a6c4233a6d134f3aca5796407fedbedbbcdaf644cd0b3c63cb635c",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 237, column 29; unsupported or malformed C++ syntax at line 237, column 29",
+          "reviewed_first_error_construct": "pragma_macro_invocation",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/enum.h",
+          "bytes": 9731,
+          "source_sha256": "56cc7e8b2bcc6b6d83b1001248e2c1fb1fc52caa3047d0aed798b4b65804445e",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 13, column 1; unsupported or malformed C++ syntax at line 13, column 1",
+          "reviewed_first_error_construct": "header_name_operand_in_condition",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/fmt-c.h",
+          "bytes": 7379,
+          "source_sha256": "3f2acf7887a3d68e261e3a2ece6777213016348b80520864176f2553e9cf60a2",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 8, column 1; unsupported or malformed C++ syntax at line 8, column 1",
+          "reviewed_first_error_construct": "conditional_linkage_brace_and_annotation_macros",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/format-inl.h",
+          "bytes": 83882,
+          "source_sha256": "d888aa021ee32fb04d843c17e5a6653c85b1b242246adb242ec20dce9204b461",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 46, column 20; unsupported or malformed C++ syntax at line 46, column 20",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/format.h",
+          "bytes": 172738,
+          "source_sha256": "0930b1f9f8bd6990c741e7b15435b10d8cf57d0de8271d0db5de19785682e39f",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 44, column 20; unsupported or malformed C++ syntax at line 33, column 1",
+          "reviewed_first_error_construct": "broad_header_guard_diagnostic_unresolved",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/os.h",
+          "bytes": 12648,
+          "source_sha256": "812c0d7e95991caef7e6ef1bd4e8508dc930f615600e78e1121b3eb5dbc8bf20",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 19, column 1; unsupported or malformed C++ syntax at line 19, column 1",
+          "reviewed_first_error_construct": "header_name_operand_in_condition",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/ostream.h",
+          "bytes": 5181,
+          "source_sha256": "f3d624f543e74a837910a635b8f7b1e04dc8fbaee3ef34b86d3e8ec077827385",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 34, column 11; unsupported or malformed C++ syntax at line 34, column 11",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/printf.h",
+          "bytes": 22071,
+          "source_sha256": "b5d5da335d04ef7832589259c800687ede57698ff91601150a0df7067be32b07",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 19, column 17; unsupported or malformed C++ syntax at line 21, column 1",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/ranges.h",
+          "bytes": 30050,
+          "source_sha256": "e81bb7b20aa884db81143fea8eac41e4da82f9c4f54694ce6a89905de9383928",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 1, column 1; unsupported or malformed C++ syntax at line 26, column 1",
+          "reviewed_first_error_construct": "pragma_macro_invocation",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/std.h",
+          "bytes": 27636,
+          "source_sha256": "2c439a27e697511c82b15b4dba452196d77b2a0f74e595041089068d0dbc6ba4",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 29, column 24; unsupported or malformed C++ syntax at line 29, column 24",
+          "reviewed_first_error_construct": "header_name_operand_in_condition",
+          "scope": "library_source"
+        },
+        {
+          "path": "include/fmt/xchar.h",
+          "bytes": 14320,
+          "source_sha256": "84d263074870c4fe3cb663df2102dddf12a34e8e2032c46757f3274502daacd9",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 24, column 11; unsupported or malformed C++ syntax at line 24, column 11",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/fmt-c.cc",
+          "bytes": 2322,
+          "source_sha256": "379195df3c22ebfa74e663c01e23e3564fa5cff062d54cd837414468a24057aa",
+          "message": "unsupported or malformed C++ syntax at line 45, column 5",
+          "reviewed_first_error_construct": "conditional_try_catch_macro",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/fmt.cc",
+          "bytes": 3633,
+          "source_sha256": "cfd30492a209b0d068a4f73f45e907e15421392ffdd2a4863bd75097007fd822",
+          "message": "unsupported or malformed C++ syntax at line 70, column 52",
+          "reviewed_first_error_construct": "header_name_operand_in_condition",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/format.cc",
+          "bytes": 1247,
+          "source_sha256": "5ccc4d8a363bd5c570782bc3dd92020664b1aa89de2d48b3b87d040c8c7bcc02",
+          "message": "unsupported or malformed C++ syntax at line 10, column 20",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "src/os.cc",
+          "bytes": 11407,
+          "source_sha256": "16906d8fa90bc17952a091d4d696232a431c79f3be8b707b1972e997853fae5b",
+          "message": "unsupported or malformed C++ syntax at line 132, column 20",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "library_source"
+        },
+        {
+          "path": "test/args-test.cc",
+          "bytes": 5801,
+          "source_sha256": "488129bd9c4083f3e1a641e57dca68a67266778818cd7a1e0d9f2d5d9bf5f245",
+          "message": "unsupported or malformed C++ syntax at line 39, column 1",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "test"
+        },
+        {
+          "path": "test/chrono-test.cc",
+          "bytes": 45003,
+          "source_sha256": "f92060d757d0cf1fe8051fa427a76c7f39518acbfb0f6a9d799920d4c86794d1",
+          "message": "unsupported or malformed C++ syntax at line 388, column 37",
+          "reviewed_first_error_construct": "macro_template_parameter",
+          "scope": "test"
+        },
+        {
+          "path": "test/compile-test.cc",
+          "bytes": 21134,
+          "source_sha256": "3fd596245dd56b3be53576c823c2d969fd212667f1fca5fb8defead056cfd2e2",
+          "message": "unsupported or malformed C++ syntax at line 33, column 1",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "test"
+        },
+        {
+          "path": "test/core-test.cc",
+          "bytes": 28482,
+          "source_sha256": "b2c7af75673cad9e064aa8f051df7231ae6317a3351d30c5c07a3726745978f0",
+          "message": "unsupported or malformed C++ syntax at line 136, column 31",
+          "reviewed_first_error_construct": "method_generation_macro",
+          "scope": "test"
+        },
+        {
+          "path": "test/enum-test.cc",
+          "bytes": 12052,
+          "source_sha256": "fca77d1240302e5c6e93059366a16b848f20d68785dc09e276ab61238b4f9d67",
+          "message": "unsupported or malformed C++ syntax at line 24, column 12",
+          "reviewed_first_error_construct": "contemporary_reflection_annotation_syntax",
+          "scope": "test"
+        },
+        {
+          "path": "test/format-impl-test.cc",
+          "bytes": 14802,
+          "source_sha256": "abfc05a73a90b937fcc43906e97ec4495cf2476bca41c848712c6ea8fc06f195",
+          "message": "unsupported or malformed C++ syntax at line 319, column 11",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "test"
+        },
+        {
+          "path": "test/format-test.cc",
+          "bytes": 111985,
+          "source_sha256": "ea5b5534954e368c5e8d21c8efcec2244481e104db7a09a08008be6cf36b991d",
+          "message": "unsupported or malformed C++ syntax at line 29, column 1",
+          "reviewed_first_error_construct": "header_name_operand_in_condition",
+          "scope": "test"
+        },
+        {
+          "path": "test/gtest-extra-test.cc",
+          "bytes": 13814,
+          "source_sha256": "0f143adc523f4c77652af2c50124fa391939e11e9f1402b8c850f50a26661865",
+          "message": "unsupported or malformed C++ syntax at line 43, column 14",
+          "reviewed_first_error_construct": "declaration_annotation_macro",
+          "scope": "test"
+        },
+        {
+          "path": "test/gtest/gmock-gtest-all.cc",
+          "bytes": 532839,
+          "source_sha256": "880ddcab57683f54c8b4263ba591f4fb20ce402ce80ac1a1907756287c39ff85",
+          "message": "unsupported or malformed C++ syntax at line 113, column 76",
+          "reviewed_first_error_construct": "pragma_macro_invocation",
+          "scope": "test"
+        },
+        {
+          "path": "test/gtest/gmock/gmock.h",
+          "bytes": 454768,
+          "source_sha256": "fe5c9ce9bca0725bcd6f6ceaa24b179b0ed322fc9c87efc4b67d862e56a17b32",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 377, column 1; unsupported or malformed C++ syntax at line 391, column 23",
+          "reviewed_first_error_construct": "declaration_annotation_macro",
+          "scope": "test"
+        },
+        {
+          "path": "test/gtest/gtest/gtest-spi.h",
+          "bytes": 10112,
+          "source_sha256": "bc7de52471740743412a62784af636375d05bf913302c74fc50483f20eff45f4",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 42, column 76; unsupported or malformed C++ syntax at line 42, column 76",
+          "reviewed_first_error_construct": "pragma_macro_invocation",
+          "scope": "test"
+        },
+        {
+          "path": "test/gtest/gtest/gtest.h",
+          "bytes": 474166,
+          "source_sha256": "a61461e558fa54e29fd5a7764d386b8861093ebd47665f347d3b54cdb9419038",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 52, column 1; unsupported or malformed C++ syntax at line 52, column 1",
+          "reviewed_first_error_construct": "broad_header_guard_diagnostic_unresolved",
+          "scope": "test"
+        },
+        {
+          "path": "test/mock-allocator.h",
+          "bytes": 2263,
+          "source_sha256": "d2bb12f4f7af883fcb7e760e358b5ce2794469113044bc842b15e0c139577264",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 18, column 1; unsupported or malformed C++ syntax at line 36, column 28",
+          "reviewed_first_error_construct": "method_generation_macro",
+          "scope": "test"
+        },
+        {
+          "path": "test/module-test.cc",
+          "bytes": 11813,
+          "source_sha256": "594c1a8689babada88e6c380bc6040a941723a04d4fbc10a7938ff407599c15d",
+          "message": "unsupported or malformed C++ syntax at line 19, column 1",
+          "reviewed_first_error_construct": "header_name_operand_in_condition",
+          "scope": "test"
+        },
+        {
+          "path": "test/ostream-test.cc",
+          "bytes": 8556,
+          "source_sha256": "53dd7b5d98aabbca348524e2d26715d4882057caaac7f2b6efdb705845715ad4",
+          "message": "unsupported or malformed C++ syntax at line 71, column 25",
+          "reviewed_first_error_construct": "keyword_or_type_token_macro_argument",
+          "scope": "test"
+        },
+        {
+          "path": "test/printf-test.cc",
+          "bytes": 22286,
+          "source_sha256": "45cb6c280147a418183e35737d7d6a8f376809888a3da65eb64582ae1295989d",
+          "message": "unsupported or malformed C++ syntax at line 397, column 1",
+          "reviewed_first_error_construct": "keyword_or_type_token_macro_argument",
+          "scope": "test"
+        },
+        {
+          "path": "test/ranges-test.cc",
+          "bytes": 28052,
+          "source_sha256": "b7b632d41060952ccba8c08966d189283daf48f8bec5fd92b1ac075cf64ebf49",
+          "message": "unsupported or malformed C++ syntax at line 20, column 1",
+          "reviewed_first_error_construct": "header_name_operand_in_condition",
+          "scope": "test"
+        },
+        {
+          "path": "test/scan.h",
+          "bytes": 20462,
+          "source_sha256": "f67c306f5397625198c91fc53430498813dfb8d10065cb08d94827adbaaa5f86",
+          "message": "header rejected by both grammars: unsupported or malformed C syntax at line 16, column 11; unsupported or malformed C++ syntax at line 16, column 11",
+          "reviewed_first_error_construct": "namespace_macro_near_first_error",
+          "scope": "test"
+        },
+        {
+          "path": "test/std-test.cc",
+          "bytes": 22024,
+          "source_sha256": "a2733fabf0d450b62fe0179cc081f2c8c6a1f3bd09a45a70340d2495a65e2dda",
+          "message": "unsupported or malformed C++ syntax at line 517, column 1",
+          "reviewed_first_error_construct": "pragma_macro_invocation",
+          "scope": "test"
+        },
+        {
+          "path": "test/xchar-test.cc",
+          "bytes": 16310,
+          "source_sha256": "8af888967e53db2ee299f84b85abcdc3f8dca18dcc9545578bbc331045937a69",
+          "message": "unsupported or malformed C++ syntax at line 226, column 23",
+          "reviewed_first_error_construct": "keyword_or_type_token_macro_argument",
+          "scope": "test"
+        }
+      ]
+    }
+  },
+  "reductions": [
+    {
+      "experiment": "coverage-reductions",
+      "path": "base_prefix.cs",
+      "source": "class C :\n#if FEATURE\nA,\n#endif\nB { int M(bool b) { if (b) return 1; return 0; } }\n",
+      "result": {
+        "bytes": 83,
+        "complexity": 1,
+        "complexity_burden": 0,
+        "complexity_total": 1,
+        "lines": 5,
+        "methods": [
+          {
+            "complexity": 1,
+            "end": 5,
+            "name": "M",
+            "start": 5
+          }
+        ],
+        "path": "base_prefix.cs",
+        "score": 1
+      }
+    },
+    {
+      "experiment": "coverage-reductions",
+      "path": "base_tail.cs",
+      "source": "class C : A\n#if FEATURE\n, B\n#endif\n{ int M(bool b) { if (b) return 1; return 0; } }\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 11",
+        "path": "base_tail.cs"
+      }
+    },
+    {
+      "experiment": "coverage-reductions",
+      "path": "escaped_braces.cs",
+      "source": "class C { string M(int n) => $\"{{{n}}}\"; }\n",
+      "result": {
+        "bytes": 43,
+        "complexity": 0,
+        "complexity_burden": 0,
+        "complexity_total": 0,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 0,
+            "end": 1,
+            "name": "M",
+            "start": 1
+          }
+        ],
+        "path": "escaped_braces.cs",
+        "score": 0
+      }
+    },
+    {
+      "experiment": "coverage-reductions",
+      "path": "has_include.cpp",
+      "source": "#if __has_include(<version>)\nint f(int n) { if (n) return 1; return 0; }\n#endif\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C++ syntax at line 1, column 1",
+        "path": "has_include.cpp"
+      }
+    },
+    {
+      "experiment": "coverage-reductions",
+      "path": "include_wrapper.cpp",
+      "source": "#if FMT_HAS_INCLUDE(<version>)\nint f(int n) { if (n) return 1; return 0; }\n#endif\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C++ syntax at line 1, column 1",
+        "path": "include_wrapper.cpp"
+      }
+    },
+    {
+      "experiment": "coverage-reductions",
+      "path": "interpolation_call.cs",
+      "source": "class C { string M(int n) => $\"{{{F(n)}}}\"; }\n",
+      "result": {
+        "bytes": 46,
+        "complexity": 0,
+        "complexity_burden": 0,
+        "complexity_total": 0,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 0,
+            "end": 1,
+            "name": "M",
+            "start": 1
+          }
+        ],
+        "path": "interpolation_call.cs",
+        "score": 0
+      }
+    },
+    {
+      "experiment": "coverage-reductions",
+      "path": "namespace_macro.cpp",
+      "source": "#define BEGIN namespace N {\n#define END }\nBEGIN\nint f(int n) { if (n) return 1; return 0; }\nEND\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C++ syntax at line 4, column 1",
+        "path": "namespace_macro.cpp"
+      }
+    },
+    {
+      "experiment": "coverage-reductions",
+      "path": "ordinary_interpolation.cs",
+      "source": "class C { string M(int n) => $\"{F(n)}\"; }\n",
+      "result": {
+        "bytes": 42,
+        "complexity": 0,
+        "complexity_burden": 0,
+        "complexity_total": 0,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 0,
+            "end": 1,
+            "name": "M",
+            "start": 1
+          }
+        ],
+        "path": "ordinary_interpolation.cs",
+        "score": 0
+      }
+    },
+    {
+      "experiment": "interpolation-reductions",
+      "path": "call_lambda.cs",
+      "source": "class C { string M() => $\"{{{F(a => G(a))}}}\"; }\n",
+      "result": {
+        "bytes": 49,
+        "complexity": 0,
+        "complexity_burden": 0,
+        "complexity_total": 0,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 0,
+            "end": 1,
+            "name": "M",
+            "start": 1
+          }
+        ],
+        "path": "call_lambda.cs",
+        "score": 0
+      }
+    },
+    {
+      "experiment": "interpolation-reductions",
+      "path": "call_nested.cs",
+      "source": "class C { string M() => $\"{{{string.Join(\",\", genericArguments.Select(a => XmlDocFormat(a, typeGenericParameters, methodGenericParameters)))}}}\"; }\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 25",
+        "path": "call_nested.cs"
+      }
+    },
+    {
+      "experiment": "interpolation-reductions",
+      "path": "call_string_argument.cs",
+      "source": "class C { string M() => $\"{{{F(\",\")}}}\"; }\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 25",
+        "path": "call_string_argument.cs"
+      }
+    },
+    {
+      "experiment": "interpolation-reductions",
+      "path": "csv_exact.cs",
+      "source": "class C { void M() { name = name.Substring(0, name.IndexOf('`')); genericArgumentsText = $\"{{{string.Join(\",\", genericArguments.Select(a => XmlDocFormat(a, typeGenericParameters, methodGenericParameters)))}}}\"; } }\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 90",
+        "path": "csv_exact.cs"
+      }
+    },
+    {
+      "experiment": "interpolation-reductions",
+      "path": "local_nested.cs",
+      "source": "class C { void M() { genericArgumentsText = $\"{{{string.Join(\",\", genericArguments.Select(a => XmlDocFormat(a, typeGenericParameters, methodGenericParameters)))}}}\"; } }\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 45",
+        "path": "local_nested.cs"
+      }
+    },
+    {
+      "experiment": "interpolation-controls",
+      "path": "escaped_char_arg.cs",
+      "source": "class C { string M() => $\"{{{F(',')}}}\"; }\n",
+      "result": {
+        "bytes": 43,
+        "complexity": 0,
+        "complexity_burden": 0,
+        "complexity_total": 0,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 0,
+            "end": 1,
+            "name": "M",
+            "start": 1
+          }
+        ],
+        "path": "escaped_char_arg.cs",
+        "score": 0
+      }
+    },
+    {
+      "experiment": "interpolation-controls",
+      "path": "escaped_empty_arg.cs",
+      "source": "class C { string M() => $\"{{{F(\"\")}}}\"; }\n",
+      "result": {
+        "bytes": 42,
+        "complexity": 0,
+        "complexity_burden": 0,
+        "complexity_total": 0,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 0,
+            "end": 1,
+            "name": "M",
+            "start": 1
+          }
+        ],
+        "path": "escaped_empty_arg.cs",
+        "score": 0
+      }
+    },
+    {
+      "experiment": "interpolation-controls",
+      "path": "escaped_nested_interp.cs",
+      "source": "class C { string M() => $\"{{{F($\"x\")}}}\"; }\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 25",
+        "path": "escaped_nested_interp.cs"
+      }
+    },
+    {
+      "experiment": "interpolation-controls",
+      "path": "escaped_text_arg.cs",
+      "source": "class C { string M() => $\"{{{F(\"x\")}}}\"; }\n",
+      "result": {
+        "kind": "Parse",
+        "message": "unsupported or malformed C# syntax at line 1, column 25",
+        "path": "escaped_text_arg.cs"
+      }
+    },
+    {
+      "experiment": "interpolation-controls",
+      "path": "ordinary_string_arg.cs",
+      "source": "class C { string M() => $\"{F(\",\")}\"; }\n",
+      "result": {
+        "bytes": 39,
+        "complexity": 0,
+        "complexity_burden": 0,
+        "complexity_total": 0,
+        "lines": 1,
+        "methods": [
+          {
+            "complexity": 0,
+            "end": 1,
+            "name": "M",
+            "start": 1
+          }
+        ],
+        "path": "ordinary_string_arg.cs",
+        "score": 0
+      }
+    }
+  ]
+}

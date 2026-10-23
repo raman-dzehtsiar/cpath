@@ -1,0 +1,1775 @@
+{
+  "schema": "cpath.research.phase3-lowc-sample.v1",
+  "seed": "cpath-phase3-lowc-v1-20261022",
+  "rule_order": [
+    "R",
+    "X",
+    "F",
+    "E",
+    "W",
+    "D"
+  ],
+  "populations": {
+    "roslyn": {
+      "counts": {
+        "retained_callables": 61263,
+        "lowc_complete_retained_callables": 59659,
+        "excluded_role_callables": 2002,
+        "eligible_retained_callables": 57579,
+        "excluded_main_sample_callables": 78,
+        "hard_budget_incomplete": 1
+      },
+      "retained_abstentions": {
+        "unsupported_using_declaration": 1613,
+        "unsupported_await_shape": 3998,
+        "unsupported_parameter_shadowing": 1
+      },
+      "all_callable_counts": {
+        "eligible_methods": 240846,
+        "eligible_with_findings": 215,
+        "eligible_incomplete": 3,
+        "incomplete_methods": 4
+      },
+      "all_eligible_rule_methods": {
+        "D": 7,
+        "E": 206,
+        "F": 1,
+        "R": 0,
+        "W": 0,
+        "X": 1
+      },
+      "all_callable_abstentions": {
+        "unsupported_await_shape": 16173,
+        "unsupported_using_declaration": 7357,
+        "unsupported_parameter_shadowing": 4
+      },
+      "analyzed_files": 16658,
+      "unscored_files": 287
+    },
+    "aspnetcore": {
+      "counts": {
+        "retained_callables": 38365,
+        "lowc_complete_retained_callables": 37695,
+        "excluded_role_callables": 3178,
+        "eligible_retained_callables": 34435,
+        "excluded_main_sample_callables": 82
+      },
+      "retained_abstentions": {
+        "unsupported_await_shape": 2461,
+        "unsupported_using_declaration": 584
+      },
+      "all_callable_counts": {
+        "eligible_methods": 136961,
+        "eligible_with_findings": 189,
+        "eligible_incomplete": 0,
+        "incomplete_methods": 0
+      },
+      "all_eligible_rule_methods": {
+        "D": 6,
+        "E": 181,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 3
+      },
+      "all_callable_abstentions": {
+        "unsupported_await_shape": 17113,
+        "unsupported_using_declaration": 3931
+      },
+      "analyzed_files": 10516,
+      "unscored_files": 136
+    }
+  },
+  "rule_populations": {
+    "R": {
+      "roslyn": {
+        "positive_regions": 0,
+        "selected_pairs": 0
+      },
+      "aspnetcore": {
+        "positive_regions": 0,
+        "selected_pairs": 0
+      }
+    },
+    "X": {
+      "roslyn": {
+        "positive_regions": 1,
+        "selected_pairs": 1
+      },
+      "aspnetcore": {
+        "positive_regions": 3,
+        "selected_pairs": 1
+      }
+    },
+    "F": {
+      "roslyn": {
+        "positive_regions": 1,
+        "selected_pairs": 0
+      },
+      "aspnetcore": {
+        "positive_regions": 0,
+        "selected_pairs": 0
+      }
+    },
+    "E": {
+      "roslyn": {
+        "positive_regions": 195,
+        "selected_pairs": 1
+      },
+      "aspnetcore": {
+        "positive_regions": 176,
+        "selected_pairs": 1
+      }
+    },
+    "W": {
+      "roslyn": {
+        "positive_regions": 0,
+        "selected_pairs": 0
+      },
+      "aspnetcore": {
+        "positive_regions": 0,
+        "selected_pairs": 0
+      }
+    },
+    "D": {
+      "roslyn": {
+        "positive_regions": 7,
+        "selected_pairs": 1
+      },
+      "aspnetcore": {
+        "positive_regions": 6,
+        "selected_pairs": 1
+      }
+    }
+  },
+  "repository_roots": {
+    "roslyn": "<research root>/repos/roslyn",
+    "aspnetcore": "<research root>/repos/aspnetcore"
+  },
+  "repository_pins": {
+    "roslyn": "e275404771b5908c7e9b53893969f1aaa721d45b",
+    "aspnetcore": "6e62760191a731f63d79b49fad7eda0aaf855cf3"
+  },
+  "pairs": [
+    {
+      "rule": "D",
+      "repository": "aspnetcore",
+      "role": "test",
+      "positive": "949be4d9f87945c0667a",
+      "negative": "7c4ba0fae266d1785a61",
+      "ids": [
+        "949be4d9f87945c0667a",
+        "7c4ba0fae266d1785a61"
+      ],
+      "primary_reviewer": "a"
+    },
+    {
+      "rule": "D",
+      "repository": "roslyn",
+      "role": "production",
+      "positive": "f4ead3a2c22b774dde77",
+      "negative": "24f0475770010d79bee2",
+      "ids": [
+        "f4ead3a2c22b774dde77",
+        "24f0475770010d79bee2"
+      ],
+      "primary_reviewer": "b"
+    },
+    {
+      "rule": "X",
+      "repository": "aspnetcore",
+      "role": "test",
+      "positive": "4c7bd09a6c02a5d83524",
+      "negative": "e4ef2d5badcc51f52940",
+      "ids": [
+        "4c7bd09a6c02a5d83524",
+        "e4ef2d5badcc51f52940"
+      ],
+      "primary_reviewer": "c",
+      "secondary_reviewer": "b"
+    },
+    {
+      "rule": "E",
+      "repository": "aspnetcore",
+      "role": "test",
+      "positive": "5af61340653a41f26e1f",
+      "negative": "f2793a912378ee8954f2",
+      "ids": [
+        "5af61340653a41f26e1f",
+        "f2793a912378ee8954f2"
+      ],
+      "primary_reviewer": "a"
+    },
+    {
+      "rule": "E",
+      "repository": "roslyn",
+      "role": "production",
+      "positive": "4436744a4bd2613e664d",
+      "negative": "38f3e33ed33c97057ad2",
+      "ids": [
+        "4436744a4bd2613e664d",
+        "38f3e33ed33c97057ad2"
+      ],
+      "primary_reviewer": "b",
+      "secondary_reviewer": "a"
+    },
+    {
+      "rule": "X",
+      "repository": "roslyn",
+      "role": "test",
+      "positive": "9cd26b16cb03390445c2",
+      "negative": "7e7ae6fd65afdff63489",
+      "ids": [
+        "9cd26b16cb03390445c2",
+        "7e7ae6fd65afdff63489"
+      ],
+      "primary_reviewer": "c"
+    }
+  ],
+  "samples": [
+    {
+      "id": "38f3e33ed33c97057ad2",
+      "repository": "roslyn",
+      "path": "src/Compilers/CSharp/Portable/Symbols/Synthesized/SynthesizedThrowSwitchExpressionExceptionMethod.cs",
+      "name": "GenerateMethodBody",
+      "start": 23,
+      "end": 45,
+      "C": 1,
+      "file_C": 1,
+      "file_lines": 54,
+      "role": "production",
+      "span_lines": 23,
+      "counts": {
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 0,
+        "catches": 1,
+        "finallys": 0,
+        "locks": 0,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {},
+      "source_sha256": "6d783dc195a6789ef5da3cb7ccd95223a5369a91349095dd461ed2bc2dd5b2c1",
+      "primary_reviewer": "b",
+      "secondary_reviewer": "a",
+      "primary": {
+        "id": "38f3e33ed33c97057ad2",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "actual_role": "Compiler synthesis of the switch-expression failure helper body",
+        "hardest_behavior": "Generating a lowered throw with the object-valued unmatched argument and closing the method even when a required framework member is missing.",
+        "change_obligation": "Preserve the factory current-function context, object parameter assumption, lowered-body requirement and diagnostic-plus-fallback method closure.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "Does each generation outcome close the method with a valid lowered body, while a missing predefined member produces its diagnostic and fallback throw?",
+        "counterevidence": "The normal path generates one throw; one specific exception is handled. Constructor assertions and the adjacent GenerateThrow helper make the parameter/type assumptions explicit.",
+        "inspection_scope": "Target lines 23-45; entire containing file lines 1-54 inspected.",
+        "confidence": "high",
+        "evidence": [
+          {
+            "start_line": 16,
+            "end_line": 20,
+            "observation": "Construction creates one object-typed unmatchedValue parameter."
+          },
+          {
+            "start_line": 25,
+            "end_line": 43,
+            "observation": "Generation sets CurrentFunction and closes the normal body or records a missing-member diagnostic and closes a throw-null body."
+          },
+          {
+            "start_line": 47,
+            "end_line": 51,
+            "observation": "GenerateThrow directly resolves the known object-argument exception constructor."
+          }
+        ]
+      },
+      "secondary": {
+        "id": "38f3e33ed33c97057ad2",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "actual_role": "Compiler-generated throw-helper body construction",
+        "hardest_behavior": "Build a fully lowered throw using the unmatched object parameter, and still close the synthesized method when a predefined runtime member is missing.",
+        "change_obligation": "Preserve the object parameter contract, exact exception constructor and diagnostic-plus-fallback behavior when changing emitted code.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "Does the new body remain valid at the already-lowered stage, and does missing runtime support still produce the diagnostic and a completed fallback body?",
+        "counterevidence": "The target expression is one throw, the helper constructor establishes one object parameter, and GenerateThrow is immediately below the callable. There is no complex branch selection or source traversal.",
+        "confidence": "high",
+        "inspection_scope": "Entire SynthesizedThrowSwitchExpressionExceptionMethod.cs, lines 1-54, including constructor and GenerateThrow; factory internals were not inspected.",
+        "evidence": [
+          {
+            "start_line": 16,
+            "end_line": 20,
+            "observation": "The constructor establishes the unmatched object parameter."
+          },
+          {
+            "start_line": 30,
+            "end_line": 43,
+            "observation": "The body uses parameter zero, closes already-lowered code and catches MissingPredefinedMember to emit a diagnostic and fallback."
+          },
+          {
+            "start_line": 47,
+            "end_line": 51,
+            "observation": "The nearby helper names the object-taking SwitchExpressionException constructor explicitly."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9cd26b16cb03390445c2",
+      "repository": "roslyn",
+      "path": "src/Compilers/Test/Resources/Core/PerfTests/CSPerfTest.cs",
+      "name": "method1",
+      "start": 2028,
+      "end": 2044,
+      "C": 2,
+      "file_C": 73,
+      "file_lines": 3106,
+      "role": "test",
+      "span_lines": 17,
+      "counts": {
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 1
+      },
+      "syntax": {
+        "awaits": 0,
+        "catches": 2,
+        "finallys": 0,
+        "locks": 0,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": [
+          {
+            "line": 2038,
+            "related_lines": [
+              2036
+            ]
+          }
+        ]
+      },
+      "abstentions": {},
+      "source_sha256": "f7dafdae977f6c8ff31662de6dac51a473dafc4f86dc5d9858eb8824d3a614e9",
+      "primary_reviewer": "c",
+      "primary": {
+        "id": "9cd26b16cb03390445c2",
+        "attention_priority": 0,
+        "review_difficulty": 0,
+        "actual_role": "Explicit interface implementation in a compiler performance source fixture.",
+        "hardest_behavior": "Retain the fixture syntax: throw a known exception, catch and rethrow that instance, and include a fallback catch/rethrow.",
+        "change_obligation": "Changes should preserve the intended performance-input shape; do not treat deliberately throwing fixture code as a production recovery routine.",
+        "obligation_assessment": "intentional",
+        "review_question": "Is the proposed change intended to alter the compiler performance fixture, including its explicit-interface method and catch syntax?",
+        "counterevidence": "The method has no meaningful evolving state: it prints a literal and always enters a deliberate throw/catch path. Nearby members similarly contain illustrative exceptions, and the file header explicitly warns of performance-test implications.",
+        "confidence": "high",
+        "inspection_scope": "Target lines 2028-2044; nearby source lines 1980-2075 and file header/context lines 1-65. No performance harness or other fixture regions inspected.",
+        "evidence": [
+          {
+            "start_line": 2028,
+            "end_line": 2044,
+            "observation": "The explicit-interface method contains a deterministic NotImplementedException throw with typed and fallback catches."
+          },
+          {
+            "start_line": 1991,
+            "end_line": 2005,
+            "observation": "Nearby explicit-interface members likewise intentionally throw illustrative exception types."
+          },
+          {
+            "start_line": 5,
+            "end_line": 7,
+            "observation": "The file header says changing this code affects performance tests."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7e7ae6fd65afdff63489",
+      "repository": "roslyn",
+      "path": "src/Features/Core/Portable/ExternalAccess/UnitTesting/SolutionCrawler/UnitTestingWorkCoordinator.UnitTestingLowPriorityProcessor.cs",
+      "name": "ExecuteAsync",
+      "start": 46,
+      "end": 64,
+      "C": 2,
+      "file_C": 7,
+      "file_lines": 218,
+      "role": "test",
+      "span_lines": 19,
+      "counts": {
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 2,
+        "catches": 1,
+        "finallys": 0,
+        "locks": 0,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {},
+      "source_sha256": "9a5031e625ccd167dc181970a4d3681304474c77166239f3a7e48af79d381544",
+      "primary_reviewer": "c",
+      "primary": {
+        "id": "7e7ae6fd65afdff63489",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "actual_role": "One dispatch iteration for the unit-testing solution crawler low-priority project queue.",
+        "hardest_behavior": "Preserve priority waiting before dequeue and transfer the selected work item with its project cancellation token into the processing path responsible for retry and completion.",
+        "change_obligation": "An edit to dispatch ordering, awaiting or token forwarding must account for concurrent higher-priority arrivals, pause/shutdown, and exactly one handoff to the project-processing cleanup path.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "After changing the await/dequeue boundary, can newly arrived higher-priority work or cancellation leave a taken project unprocessed or bypass its retry/completion handling?",
+        "counterevidence": "The method itself dispatches at most one item and awaits its processing. Priority polling/backoff lives in the base method, while project retry and completion are centralized in ProcessProjectAsync; this is not a bespoke scheduler inside the region.",
+        "confidence": "medium",
+        "inspection_scope": "Target lines 46-64; complete containing file 1-218; complete immediate priority-processor base file 1-122. Queue internals and idle-loop implementation not inspected.",
+        "evidence": [
+          {
+            "start_line": 50,
+            "end_line": 57,
+            "observation": "Higher-priority wait finishes before work is taken, and the queue-provided project token is forwarded to the awaited processor."
+          },
+          {
+            "start_line": 60,
+            "end_line": 62,
+            "observation": "Exception reporting/filtering is part of the dispatch contract."
+          },
+          {
+            "start_line": 156,
+            "end_line": 170,
+            "observation": "Nearby ProcessProjectAsync finally requeues incomplete work unless shutting down, then marks the project done."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4436744a4bd2613e664d",
+      "repository": "roslyn",
+      "path": "src/ProjectData/Microsoft.NET.ProjectData/CacheFileReader.cs",
+      "name": "ReadCacheFileAsync",
+      "start": 279,
+      "end": 307,
+      "C": 1,
+      "file_C": 31,
+      "file_lines": 1228,
+      "role": "production",
+      "span_lines": 29,
+      "counts": {
+        "D": 0,
+        "E": 1,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 1,
+        "catches": 1,
+        "finallys": 0,
+        "locks": 0,
+        "usings": 2
+      },
+      "evidence": {
+        "D": [],
+        "E": [
+          {
+            "line": 292,
+            "related_lines": []
+          }
+        ],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {
+        "unsupported_await_shape": 1,
+        "unsupported_using_declaration": 1
+      },
+      "source_sha256": "f0fe7c8cec3dada4ce8fbfb9d2331d3455614e859274e29cf6bb8eaa3106d78d",
+      "primary_reviewer": "b",
+      "secondary_reviewer": "a",
+      "primary": {
+        "id": "4436744a4bd2613e664d",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "actual_role": "Async file-opening adapter for reading project-data cache slices",
+        "hardest_behavior": "Separating best-effort size diagnostics from the actual read, while preserving disposal and cancellation propagation through the parser.",
+        "change_obligation": "Keep the diagnostic-only failure tolerance narrow; actual opening/parsing must still propagate failures, and the awaited parse must finish before the reader and stream leave scope.",
+        "obligation_assessment": "routine",
+        "review_question": "Will an I/O or parse failure still propagate while file-size probe failures remain nonfatal, with cancellation and stream disposal preserved?",
+        "counterevidence": "The catch only surrounds a FileInfo diagnostic; the real open and parse are outside it. Nested using scopes and direct delegation make ownership visible. This method does not contain the cache parser.",
+        "inspection_scope": "Target lines 279-307; inspected lines 234-342 and 367-415; searched this source file for ReadFromAsync, ReadLineAsync and cancellation-check locations.",
+        "confidence": "high",
+        "evidence": [
+          {
+            "start_line": 287,
+            "end_line": 298,
+            "observation": "Cancellation is checked first; a failed file-length probe leaves -1 only for tracing."
+          },
+          {
+            "start_line": 300,
+            "end_line": 316,
+            "observation": "The file is opened for asynchronous shared reading and awaited parsing occurs inside stream and reader disposal scopes."
+          },
+          {
+            "start_line": 376,
+            "end_line": 391,
+            "observation": "The called reader validates inputs and passes cancellation through asynchronous line reads."
+          }
+        ]
+      },
+      "secondary": {
+        "id": "4436744a4bd2613e664d",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "actual_role": "Async file-opening and resource-lifetime wrapper around project cache parsing",
+        "hardest_behavior": "Keep actual cache read failures distinct from best-effort size tracing, while forwarding identity validation and cancellation to the parser and disposing resources.",
+        "change_obligation": "Preserve read-only file-sharing semantics, exception propagation from open/read, cancellation forwarding and both reader/stream lifetimes. The preliminary size is diagnostic information rather than a consistency guarantee.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "After a change, are parse/read failures and cancellation still propagated to the intended caller handling, and is the file closed on every exit without treating the preliminary size as validation?",
+        "counterevidence": "The region delegates parsing in one awaited call. Only the optional size probe swallows exceptions, and nested using scopes make cleanup explicit. Nearby callers separately classify recoverable cache failures; cancellation is not in that classification.",
+        "confidence": "high",
+        "inspection_scope": "CacheFileReader.cs lines 150-347, covering callers, recoverable exception classification, target callable and OpenCacheFileForRead; full parser implementation and cache writers were not inspected.",
+        "evidence": [
+          {
+            "start_line": 260,
+            "end_line": 261,
+            "observation": "Recoverable caller failures are explicitly classified and do not list cancellation."
+          },
+          {
+            "start_line": 287,
+            "end_line": 305,
+            "observation": "Cancellation is checked before a best-effort size trace, then passed into the awaited parser within disposal scopes."
+          },
+          {
+            "start_line": 309,
+            "end_line": 316,
+            "observation": "The stream is read-only, asynchronous, and allows readers/deletion rather than writes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "f4ead3a2c22b774dde77",
+      "repository": "roslyn",
+      "path": "src/RoslynAnalyzers/Utilities/FlowAnalysis/SingleThreadedConcurrentDictionary.cs",
+      "name": "GetOrAdd",
+      "start": 40,
+      "end": 68,
+      "C": 3,
+      "file_C": 3,
+      "file_lines": 70,
+      "role": "production",
+      "span_lines": 29,
+      "counts": {
+        "D": 1,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 0,
+        "catches": 0,
+        "finallys": 0,
+        "locks": 1,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [
+          {
+            "line": 64,
+            "related_lines": [
+              40,
+              62
+            ]
+          }
+        ],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {},
+      "source_sha256": "44d2271f4062ea70716e455946504c2dde0c5da711ec21be2bda3237d6a88ac7",
+      "primary_reviewer": "b",
+      "primary": {
+        "id": "f4ead3a2c22b774dde77",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "actual_role": "Per-key synchronized value factory around ConcurrentDictionary",
+        "hardest_behavior": "Ensuring competing callers use the same entry lock and observe one cached nonnull value while retaining the existing retry behavior for null results or thrown factories.",
+        "change_obligation": "Preserve stable per-key entry identity, the inside-lock null recheck and publication semantics; changes to null caching, failure retry or factory reentrancy require deliberate contract decisions.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "After the edit, can concurrent calls for one key overlap factory execution or return an incompletely published value, and are null-result and exception retries still intentional?",
+        "counterevidence": "ConcurrentDictionary owns entry selection and each entry has its own lock, so unrelated keys need not share one global critical section. The method is small and validates inputs; this review does not establish a synchronization defect.",
+        "inspection_scope": "Target lines 40-68; entire containing file lines 1-70 inspected.",
+        "confidence": "high",
+        "evidence": [
+          {
+            "start_line": 10,
+            "end_line": 15,
+            "observation": "The documented purpose is to avoid duplicate concurrent expensive factory work for one key."
+          },
+          {
+            "start_line": 52,
+            "end_line": 64,
+            "observation": "A stable dictionary entry supplies the lock; a fast nonnull read is followed by an inside-lock null-coalescing factory invocation."
+          },
+          {
+            "start_line": 64,
+            "end_line": 67,
+            "observation": "Null remains the uninitialized sentinel, and factory exceptions leave value assignment incomplete for later attempts."
+          }
+        ]
+      }
+    },
+    {
+      "id": "24f0475770010d79bee2",
+      "repository": "roslyn",
+      "path": "src/Workspaces/Remote/Core/SolutionAssetStorage.cs",
+      "name": "StoreAssetsAsync",
+      "start": 63,
+      "end": 92,
+      "C": 3,
+      "file_C": 3,
+      "file_lines": 131,
+      "role": "production",
+      "span_lines": 30,
+      "counts": {
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 2,
+        "catches": 0,
+        "finallys": 0,
+        "locks": 1,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {
+        "unsupported_await_shape": 2
+      },
+      "source_sha256": "97477164babdbee4642be4de285f37a8d0c29e9fec86d19aa2e9210338dfb443",
+      "primary_reviewer": "b",
+      "primary": {
+        "id": "24f0475770010d79bee2",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "actual_role": "Reference-counted storage acquisition for solution or project asset snapshots",
+        "hardest_behavior": "Computing the correct solution/project checksum before atomically finding or creating its live scope, without racing release of the final reference.",
+        "change_obligation": "Preserve checksum/project-cone identity, do asynchronous checksum work outside the gate, and keep lookup, positive-reference check, increment or insertion atomic with release.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "Can every returned scope retain a positive owned reference under concurrent acquisition and disposal, with the checksum still describing the supplied project cone or complete solution?",
+        "counterevidence": "One gate protects both acquisition and release; checksum work completes before entering it and assertions reject nonpositive counts. The critical section is short and synchronous.",
+        "inspection_scope": "Target lines 63-92; inspected containing file lines 18-127 plus SolutionAssetStorage.Scope.cs lines 1-60, and searched nearby SolutionAssetStorage partial files for scope lifetime members.",
+        "confidence": "high",
+        "evidence": [
+          {
+            "start_line": 68,
+            "end_line": 77,
+            "observation": "Whole-solution and project-specific calls compute different checksum/cone pairs before locking."
+          },
+          {
+            "start_line": 79,
+            "end_line": 90,
+            "observation": "Existing scopes are checked and incremented or new scopes are inserted while holding the same gate."
+          },
+          {
+            "start_line": 94,
+            "end_line": 111,
+            "observation": "Release uses the same gate, checks scope identity and count, then removes the entry when its last reference is released."
+          }
+        ]
+      }
+    },
+    {
+      "id": "7c4ba0fae266d1785a61",
+      "repository": "aspnetcore",
+      "path": "src/Middleware/HttpLogging/test/TestW3CLoggerProcessor.cs",
+      "name": "WaitForWrites",
+      "start": 43,
+      "end": 55,
+      "C": 1,
+      "file_C": 2,
+      "file_lines": 65,
+      "role": "test",
+      "span_lines": 13,
+      "counts": {
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 0,
+        "catches": 0,
+        "finallys": 0,
+        "locks": 1,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {},
+      "source_sha256": "5c93b83ab3cf8d6be0f6e24c573d80ca55d6d69a033b42897cc297b8a8e2a286",
+      "primary_reviewer": "a",
+      "primary": {
+        "id": "7c4ba0fae266d1785a61",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "actual_role": "Test helper that waits for a logger write-count threshold",
+        "hardest_behavior": "Coordinate the write-count check and waiter registration with OnWrite completion, including ownership of the single replaceable TaskCompletionSource and subsequent writes.",
+        "change_obligation": "Preserve atomic threshold registration under the same lock as OnWrite and decide what overlapping waits or additional writes after completion are supported before changing waiter behavior.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "Can every supported caller retain the task for its own threshold and complete once, including writes arriving before registration, after completion, or around a second wait?",
+        "counterevidence": "Both methods use the same lock, and continuations run asynchronously. The two inspected tests each enqueue one log event and wait once for four lines; they do not establish a multi-waiter requirement. OnWrite is a test hook, so general-purpose concurrent-wait semantics should not be presumed.",
+        "confidence": "high",
+        "inspection_scope": "Entire TestW3CLoggerProcessor.cs, lines 1-65; W3CLoggerTests.cs lines 1-95; W3CLoggerProcessor.cs lines 85-128. Targeted search for WaitForWrites/OnWrite in the latter two files only; no exhaustive call-site audit.",
+        "evidence": [
+          {
+            "start_line": 30,
+            "end_line": 39,
+            "observation": "OnWrite increments the shared count and uses SetResult whenever an existing waiter threshold is met."
+          },
+          {
+            "start_line": 43,
+            "end_line": 54,
+            "observation": "WaitForWrites checks the count and replaces the single waiter under a lock, then returns the field task after releasing the lock."
+          }
+        ]
+      }
+    },
+    {
+      "id": "949be4d9f87945c0667a",
+      "repository": "aspnetcore",
+      "path": "src/Middleware/Spa/SpaServices.Extensions/test/ListLoggerFactory.cs",
+      "name": "Log",
+      "start": 79,
+      "end": 92,
+      "C": 1,
+      "file_C": 1,
+      "file_lines": 100,
+      "role": "test",
+      "span_lines": 14,
+      "counts": {
+        "D": 1,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 0,
+        "catches": 0,
+        "finallys": 0,
+        "locks": 1,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [
+          {
+            "line": 84,
+            "related_lines": [
+              80,
+              82
+            ]
+          }
+        ],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {},
+      "source_sha256": "7e2727922fa45775f535223bc30183542517700f6a8417b07e42f6590e3c9723",
+      "primary_reviewer": "a",
+      "primary": {
+        "id": "949be4d9f87945c0667a",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "actual_role": "In-memory test logger with optional test-output forwarding",
+        "hardest_behavior": "Keep formatting, optional visible output and captured-event insertion ordered under the same synchronization used by Clear.",
+        "change_obligation": "Preserve the distinction between a null formatted message, which still records an event, and absent test-output forwarding; retain intended serialization with concurrent Clear/log operations.",
+        "obligation_assessment": "intentional",
+        "review_question": "If formatting or output forwarding changes, is the event still captured under the intended null and exception semantics, and is coordination with Clear preserved?",
+        "counterevidence": "The shared lock is explicit and documented as serving tests with concurrency. Clear uses that same lock, and the captured tuple is assembled directly. No queue, background worker or retry protocol needs to be reasoned about.",
+        "confidence": "high",
+        "inspection_scope": "Entire ListLoggerFactory.cs, lines 1-100, including category selection, Clear and logger members; test consumers and output-helper implementation were not inspected.",
+        "evidence": [
+          {
+            "start_line": 71,
+            "end_line": 76,
+            "observation": "Clear serializes list mutation under the same _sync lock."
+          },
+          {
+            "start_line": 82,
+            "end_line": 90,
+            "observation": "Formatting and optional output precede event insertion under the lock; a null formatted message skips output but still reaches insertion."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5af61340653a41f26e1f",
+      "repository": "aspnetcore",
+      "path": "src/Servers/IIS/IIS/test/Common.LongTests/ShutdownTests.cs",
+      "name": "ClosesConnectionOnServerAbortInProcess",
+      "start": 651,
+      "end": 667,
+      "C": 1,
+      "file_C": 4,
+      "file_lines": 668,
+      "role": "test",
+      "span_lines": 17,
+      "counts": {
+        "D": 0,
+        "E": 1,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 2,
+        "catches": 1,
+        "finallys": 0,
+        "locks": 0,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [],
+        "E": [
+          {
+            "line": 663,
+            "related_lines": []
+          }
+        ],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {
+        "unsupported_await_shape": 2
+      },
+      "source_sha256": "72b5fb82b0a25fe3695fe3b11869ce4e9442409cf163ecce9e2314b22fe8f65a",
+      "primary_reviewer": "a",
+      "primary": {
+        "id": "5af61340653a41f26e1f",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "actual_role": "IIS in-process abort behavior functional test",
+        "hardest_behavior": "Use the expected HttpRequestException as the test oracle while ensuring it represents the abort request rather than a different operation inside the try block.",
+        "change_obligation": "Retain failure when a response succeeds and timeout protection, and check the scope of accepted exceptions when modifying setup or request steps.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "Could an HttpRequestException from deployment/setup satisfy the catch before the Abort request runs, and should the expected exception be scoped more narrowly for the changed scenario?",
+        "counterevidence": "The intended reset is documented and accepting it is deliberate. A successful request unconditionally fails the test, and other exception types are not swallowed. The method is short and uses standard deployment helpers; no defect in those helpers was established.",
+        "confidence": "medium",
+        "inspection_scope": "ShutdownTests.cs lines 1-75 and 616-668, including class role and adjacent out-of-process abort test; DeployAsync implementation and server Abort endpoint were not inspected.",
+        "evidence": [
+          {
+            "start_line": 654,
+            "end_line": 661,
+            "observation": "Deployment and the timeout-bounded Abort request share a try block; reaching a successful response causes Assert.Fail."
+          },
+          {
+            "start_line": 663,
+            "end_line": 666,
+            "observation": "The catch accepts HttpRequestException as the expected connection-reset outcome."
+          }
+        ]
+      }
+    },
+    {
+      "id": "e4ef2d5badcc51f52940",
+      "repository": "aspnetcore",
+      "path": "src/Servers/IIS/IIS/test/IIS.Tests/ClientDisconnectTests.cs",
+      "name": "<lambda_expression@66>",
+      "start": 66,
+      "end": 83,
+      "C": 2,
+      "file_C": 2,
+      "file_lines": 358,
+      "role": "test",
+      "span_lines": 18,
+      "counts": {
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 2,
+        "catches": 1,
+        "finallys": 0,
+        "locks": 0,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {},
+      "source_sha256": "0f3f45e9d8131c426b9f6420968a70b208cc638521c3845ba01f65cf56e448c6",
+      "primary_reviewer": "c",
+      "secondary_reviewer": "b",
+      "primary": {
+        "id": "e4ef2d5badcc51f52940",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "actual_role": "IIS functional-test handler exercising response-write cancellation after a client disconnect.",
+        "hardest_behavior": "Coordinate handler start, client connection disposal, request-abort cancellation and completion signaling so the captured exception proves cancellation of writes.",
+        "change_obligation": "Preserve the start-before-disconnect handshake, pass RequestAborted to each write, and make completion observable after exception capture without accidentally accepting another failure type.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "Does a changed ordering still ensure the client disconnects after the handler starts, and can the outer test observe completion and verify OperationCanceledException rather than just any handler failure?",
+        "counterevidence": "The surrounding test waits with explicit timeouts and asserts the exact exception type. The loop intentionally waits for disconnect; the short delay avoids a busy sequence of writes.",
+        "confidence": "high",
+        "inspection_scope": "Target lines 66-83; containing and adjacent test context lines 1-125; request-sending helper lines 345-358. Task-completion-source factory, TestServer and native server implementation not inspected.",
+        "evidence": [
+          {
+            "start_line": 68,
+            "end_line": 79,
+            "observation": "The handler announces start, repeatedly writes with RequestAborted, and captures the terminal exception."
+          },
+          {
+            "start_line": 82,
+            "end_line": 94,
+            "observation": "Completion signaling precedes the outer wait and exact cancellation-exception assertion; the connection is disposed after the start handshake."
+          },
+          {
+            "start_line": 73,
+            "end_line": 74,
+            "observation": "A ten-millisecond delay is explicitly intended to reduce constant write calls."
+          }
+        ]
+      },
+      "secondary": {
+        "id": "e4ef2d5badcc51f52940",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "actual_role": "Server-side delegate exercising write cancellation after client disconnect",
+        "hardest_behavior": "Coordinating server start, repeated token-bearing writes, external connection disposal and completion notification so the assertion observes the actual cancellation outcome.",
+        "change_obligation": "Keep startup notification before the client-disconnect trigger, pass RequestAborted to writes, and publish the captured exception before completion; changes must preserve bounded test waiting and the exact cancellation assertion.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "Can the client still disconnect only after the delegate has started, and does completion still imply the captured exception is ready for the OperationCanceledException assertion?",
+        "counterevidence": "The enclosing test uses explicit completion sources and bounded waits, and the broad catch is followed by an exact exception-type assertion. The loop and short delay intentionally provoke a disconnect outcome.",
+        "inspection_scope": "Target lines 66-83; inspected surrounding file lines 21-118.",
+        "confidence": "high",
+        "evidence": [
+          {
+            "start_line": 68,
+            "end_line": 82,
+            "observation": "Startup is signaled before repeated writes; any thrown exception is captured before completion is signaled."
+          },
+          {
+            "start_line": 85,
+            "end_line": 94,
+            "observation": "The client waits for startup, disposes its connection, then waits with a timeout and asserts the captured exception type."
+          },
+          {
+            "start_line": 29,
+            "end_line": 40,
+            "observation": "Nearby sibling test deliberately contrasts writes after abort without passing the aborted token."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4c7bd09a6c02a5d83524",
+      "repository": "aspnetcore",
+      "path": "src/Servers/IIS/IIS/test/IIS.Tests/MaxRequestBodySizeTests.cs",
+      "name": "<lambda_expression@277>",
+      "start": 277,
+      "end": 291,
+      "C": 2,
+      "file_C": 2,
+      "file_lines": 364,
+      "role": "test",
+      "span_lines": 15,
+      "counts": {
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 1
+      },
+      "syntax": {
+        "awaits": 1,
+        "catches": 1,
+        "finallys": 0,
+        "locks": 0,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": [
+          {
+            "line": 289,
+            "related_lines": [
+              286
+            ]
+          }
+        ]
+      },
+      "abstentions": {
+        "unsupported_await_shape": 1
+      },
+      "source_sha256": "adcbf39d23d362563c20581d74e6b03f88080dc89c9c8e2e90319f34fb7dbb66",
+      "primary_reviewer": "c",
+      "secondary_reviewer": "b",
+      "primary": {
+        "id": "4c7bd09a6c02a5d83524",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "actual_role": "IIS functional-test request handler that forces a chunked request past the configured size limit.",
+        "hardest_behavior": "Continue reading until the expected size exception, capture it for the test and propagate it so the response is rejected.",
+        "change_obligation": "Preserve the relationship between the over-limit payload, exception observation and HTTP 413 assertion; if the handler is generalized, account explicitly for an ordinary zero-byte read.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "Does the modified payload or server setup still guarantee a size rejection, or could ReadAsync return zero and leave the unconditional loop running?",
+        "counterevidence": "The containing test deliberately sends 4097 bytes against a 4096-byte limit and asserts both the rejection response and the captured exception. An infinite read-until-error loop is serving a specific negative test, not a normal request-body reader.",
+        "confidence": "high",
+        "inspection_scope": "Target lines 277-291 and containing/adjacent test context lines 230-330. TestServer implementation and native IIS behavior not inspected.",
+        "evidence": [
+          {
+            "start_line": 279,
+            "end_line": 289,
+            "observation": "The handler ignores read counts and captures/rethrows only BadHttpRequestException."
+          },
+          {
+            "start_line": 270,
+            "end_line": 291,
+            "observation": "The configured maximum is 0x1000 for this test."
+          },
+          {
+            "start_line": 295,
+            "end_line": 310,
+            "observation": "A 0x1001 chunk is sent, then HTTP 413 and the expected exception message/log are asserted."
+          }
+        ]
+      },
+      "secondary": {
+        "id": "4c7bd09a6c02a5d83524",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "actual_role": "Request delegate in an IIS oversized chunked-body regression test",
+        "hardest_behavior": "Repeated reads deliberately continue until the server rejects an over-limit body, capturing and rethrowing that rejection for later assertions.",
+        "change_obligation": "Preserve the exception-driven termination and its propagation to the HTTP 413 response; if payload or reading logic changes, ensure the test cannot succeed without observing the intended body-limit rejection.",
+        "obligation_assessment": "intentional",
+        "review_question": "Does the revised delegate still force reads across the configured limit, expose the captured BadHttpRequestException, and produce the expected 413 response?",
+        "counterevidence": "The enclosing test supplies 4097 bytes against a 4096-byte limit and asserts both response and exception. The unbounded loop is a narrow test mechanism, not a general request-processing algorithm.",
+        "inspection_scope": "Target lines 277-291; inspected surrounding file lines 232-326.",
+        "confidence": "high",
+        "evidence": [
+          {
+            "start_line": 277,
+            "end_line": 291,
+            "observation": "The loop ignores byte counts and exits through the caught BadHttpRequestException, which is saved and rethrown."
+          },
+          {
+            "start_line": 295,
+            "end_line": 310,
+            "observation": "The test sends a chunk exceeding the configured limit, requires HTTP 413 and checks the captured exception message."
+          }
+        ]
+      }
+    },
+    {
+      "id": "f2793a912378ee8954f2",
+      "repository": "aspnetcore",
+      "path": "src/Servers/Kestrel/test/InMemory.FunctionalTests/Http3/WebTransport/WebTransportHandshakeTests.cs",
+      "name": "<lambda_expression@26>",
+      "start": 26,
+      "end": 49,
+      "C": 1,
+      "file_C": 2,
+      "file_lines": 178,
+      "role": "test",
+      "span_lines": 24,
+      "counts": {
+        "D": 0,
+        "E": 0,
+        "F": 0,
+        "R": 0,
+        "W": 0,
+        "X": 0
+      },
+      "syntax": {
+        "awaits": 1,
+        "catches": 1,
+        "finallys": 0,
+        "locks": 0,
+        "usings": 0
+      },
+      "evidence": {
+        "D": [],
+        "E": [],
+        "F": [],
+        "R": [],
+        "W": [],
+        "X": []
+      },
+      "abstentions": {
+        "unsupported_await_shape": 1
+      },
+      "source_sha256": "13ea746800d39c329f84794ac13e87ef8115bdcadcedba63e03e15b84ec88d4b",
+      "primary_reviewer": "a",
+      "primary": {
+        "id": "f2793a912378ee8954f2",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "actual_role": "Server-side handshake assertion callback within an HTTP/3 WebTransport functional test",
+        "hardest_behavior": "Report whether the request is recognized and AcceptAsync succeeds while the test drives protocol settings, headers and stream disposal on the client side.",
+        "change_obligation": "Keep the callback completion signal and timeout/failure behavior consistent with the outer test; preserve settings synchronization before initiating the CONNECT request.",
+        "obligation_assessment": "useful_review_question",
+        "review_question": "Does a changed acceptance or error path always leave the test with an observable failure or completion, and does success still require both a WebTransport request and a non-null accepted session?",
+        "counterevidence": "The callback is linear apart from a specific timeout catch. It retains the request flag when checking the session, uses asynchronous continuations, and the surrounding test explicitly drains settings and verifies the HTTP response. This is a test oracle, not a production handshake implementation.",
+        "confidence": "medium",
+        "inspection_scope": "Entire WebTransportHandshakeTests.cs, lines 1-178; focus on callback lines 26-49 and enclosing test lines 20-89. Http3Api internals and exception propagation were not inspected.",
+        "evidence": [
+          {
+            "start_line": 24,
+            "end_line": 45,
+            "observation": "The completion source has asynchronous continuations; success combines request recognition and a non-null accepted session, with timeout mapped to false."
+          },
+          {
+            "start_line": 63,
+            "end_line": 68,
+            "observation": "The outer test waits until all advertised settings have reached the server before sending CONNECT."
+          },
+          {
+            "start_line": 83,
+            "end_line": 88,
+            "observation": "The test verifies response status, awaits stream disposal, and then asserts callback success."
+          }
+        ]
+      }
+    }
+  ],
+  "raw_report_sha256": {
+    "roslyn": "e541bd79c6ef1f379a875e0eeecfb6156c9d75899641c9c0e8a7af10d51e8cc1",
+    "aspnetcore": "ecfaad4d2a8011392a9cba3522f1c19482408c335196faa29ec2b97c0c26d70b"
+  },
+  "main_holdout_sha256": "40207f9ad64b86328d161669035cadb83e9733209feba037ecaefc8698c09e4f",
+  "packet_sha256": {
+    "a": "134816f5651a8aabd16b984daffffff0f94530d11287b537333cb3f3a3bcf7d6",
+    "b": "b7890e2c918e1d18c892020ec21c4dccfac155ab7a4c0d6069e8dec29631c64c",
+    "c": "dda1f17b8c9486033bca6018e12255362b94cef02a730bf12ac74f59ced82637"
+  },
+  "assignments": {
+    "a": 6,
+    "b": 6,
+    "c": 4
+  },
+  "limitation": "Signal-enriched matched sample from at most five retained callable records per file; not a population-recall, precision or defect-accuracy estimate. Agent judgments, not measured maintainer outcomes. Controls match existing syntax-family presence.",
+  "summary": {
+    "all": {
+      "attention_priority": {
+        "pairs": 6,
+        "wins": 0,
+        "losses": 4,
+        "ties": 2,
+        "concordance": 0.16666666666666666
+      },
+      "review_difficulty": {
+        "pairs": 6,
+        "wins": 0,
+        "losses": 4,
+        "ties": 2,
+        "concordance": 0.16666666666666666
+      },
+      "baseline_C": {
+        "pairs": 6,
+        "wins": 0,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.5
+      },
+      "span_control": {
+        "attention_priority": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 1,
+          "ties": 2,
+          "concordance": 0.6666666666666666
+        },
+        "review_difficulty": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 1,
+          "ties": 2,
+          "concordance": 0.6666666666666666
+        }
+      },
+      "positive": {
+        "count": 6,
+        "assessments": {
+          "intentional": 2,
+          "useful_review_question": 3,
+          "routine": 1
+        },
+        "attention_at_least_two": 1,
+        "file_baseline_at_most_five": 4
+      },
+      "negative": {
+        "count": 6,
+        "assessments": {
+          "useful_review_question": 6
+        },
+        "attention_at_least_two": 5,
+        "file_baseline_at_most_five": 5
+      }
+    },
+    "R": {
+      "attention_priority": {
+        "pairs": 0,
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "concordance": null
+      },
+      "review_difficulty": {
+        "pairs": 0,
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "concordance": null
+      },
+      "baseline_C": {
+        "pairs": 0,
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "concordance": null
+      },
+      "span_control": {
+        "attention_priority": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "review_difficulty": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        }
+      },
+      "positive": {
+        "count": 0,
+        "assessments": {},
+        "attention_at_least_two": 0,
+        "file_baseline_at_most_five": 0
+      },
+      "negative": {
+        "count": 0,
+        "assessments": {},
+        "attention_at_least_two": 0,
+        "file_baseline_at_most_five": 0
+      }
+    },
+    "X": {
+      "attention_priority": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 2,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "review_difficulty": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 2,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "baseline_C": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 0,
+        "ties": 2,
+        "concordance": 0.5
+      },
+      "span_control": {
+        "attention_priority": {
+          "pairs": 2,
+          "wins": 2,
+          "losses": 0,
+          "ties": 0,
+          "concordance": 1.0
+        },
+        "review_difficulty": {
+          "pairs": 2,
+          "wins": 2,
+          "losses": 0,
+          "ties": 0,
+          "concordance": 1.0
+        }
+      },
+      "positive": {
+        "count": 2,
+        "assessments": {
+          "useful_review_question": 1,
+          "intentional": 1
+        },
+        "attention_at_least_two": 0,
+        "file_baseline_at_most_five": 1
+      },
+      "negative": {
+        "count": 2,
+        "assessments": {
+          "useful_review_question": 2
+        },
+        "attention_at_least_two": 2,
+        "file_baseline_at_most_five": 1
+      }
+    },
+    "F": {
+      "attention_priority": {
+        "pairs": 0,
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "concordance": null
+      },
+      "review_difficulty": {
+        "pairs": 0,
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "concordance": null
+      },
+      "baseline_C": {
+        "pairs": 0,
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "concordance": null
+      },
+      "span_control": {
+        "attention_priority": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "review_difficulty": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        }
+      },
+      "positive": {
+        "count": 0,
+        "assessments": {},
+        "attention_at_least_two": 0,
+        "file_baseline_at_most_five": 0
+      },
+      "negative": {
+        "count": 0,
+        "assessments": {},
+        "attention_at_least_two": 0,
+        "file_baseline_at_most_five": 0
+      }
+    },
+    "E": {
+      "attention_priority": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.25
+      },
+      "review_difficulty": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.25
+      },
+      "baseline_C": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 0,
+        "ties": 2,
+        "concordance": 0.5
+      },
+      "span_control": {
+        "attention_priority": {
+          "pairs": 2,
+          "wins": 1,
+          "losses": 0,
+          "ties": 1,
+          "concordance": 0.75
+        },
+        "review_difficulty": {
+          "pairs": 2,
+          "wins": 1,
+          "losses": 0,
+          "ties": 1,
+          "concordance": 0.75
+        }
+      },
+      "positive": {
+        "count": 2,
+        "assessments": {
+          "useful_review_question": 1,
+          "routine": 1
+        },
+        "attention_at_least_two": 0,
+        "file_baseline_at_most_five": 1
+      },
+      "negative": {
+        "count": 2,
+        "assessments": {
+          "useful_review_question": 2
+        },
+        "attention_at_least_two": 1,
+        "file_baseline_at_most_five": 2
+      }
+    },
+    "W": {
+      "attention_priority": {
+        "pairs": 0,
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "concordance": null
+      },
+      "review_difficulty": {
+        "pairs": 0,
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "concordance": null
+      },
+      "baseline_C": {
+        "pairs": 0,
+        "wins": 0,
+        "losses": 0,
+        "ties": 0,
+        "concordance": null
+      },
+      "span_control": {
+        "attention_priority": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "review_difficulty": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        }
+      },
+      "positive": {
+        "count": 0,
+        "assessments": {},
+        "attention_at_least_two": 0,
+        "file_baseline_at_most_five": 0
+      },
+      "negative": {
+        "count": 0,
+        "assessments": {},
+        "attention_at_least_two": 0,
+        "file_baseline_at_most_five": 0
+      }
+    },
+    "D": {
+      "attention_priority": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.25
+      },
+      "review_difficulty": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.25
+      },
+      "baseline_C": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 0,
+        "ties": 2,
+        "concordance": 0.5
+      },
+      "span_control": {
+        "attention_priority": {
+          "pairs": 2,
+          "wins": 0,
+          "losses": 1,
+          "ties": 1,
+          "concordance": 0.25
+        },
+        "review_difficulty": {
+          "pairs": 2,
+          "wins": 0,
+          "losses": 1,
+          "ties": 1,
+          "concordance": 0.25
+        }
+      },
+      "positive": {
+        "count": 2,
+        "assessments": {
+          "intentional": 1,
+          "useful_review_question": 1
+        },
+        "attention_at_least_two": 1,
+        "file_baseline_at_most_five": 2
+      },
+      "negative": {
+        "count": 2,
+        "assessments": {
+          "useful_review_question": 2
+        },
+        "attention_at_least_two": 2,
+        "file_baseline_at_most_five": 2
+      }
+    },
+    "roslyn": {
+      "attention_priority": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 1,
+        "ties": 2,
+        "concordance": 0.3333333333333333
+      },
+      "review_difficulty": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 1,
+        "ties": 2,
+        "concordance": 0.3333333333333333
+      },
+      "baseline_C": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 0,
+        "ties": 3,
+        "concordance": 0.5
+      },
+      "span_control": {
+        "attention_priority": {
+          "pairs": 3,
+          "wins": 1,
+          "losses": 0,
+          "ties": 2,
+          "concordance": 0.6666666666666666
+        },
+        "review_difficulty": {
+          "pairs": 3,
+          "wins": 1,
+          "losses": 0,
+          "ties": 2,
+          "concordance": 0.6666666666666666
+        }
+      },
+      "positive": {
+        "count": 3,
+        "assessments": {
+          "useful_review_question": 1,
+          "routine": 1,
+          "intentional": 1
+        },
+        "attention_at_least_two": 1,
+        "file_baseline_at_most_five": 1
+      },
+      "negative": {
+        "count": 3,
+        "assessments": {
+          "useful_review_question": 3
+        },
+        "attention_at_least_two": 2,
+        "file_baseline_at_most_five": 2
+      }
+    },
+    "aspnetcore": {
+      "attention_priority": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "review_difficulty": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "baseline_C": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 0,
+        "ties": 3,
+        "concordance": 0.5
+      },
+      "span_control": {
+        "attention_priority": {
+          "pairs": 3,
+          "wins": 2,
+          "losses": 1,
+          "ties": 0,
+          "concordance": 0.6666666666666666
+        },
+        "review_difficulty": {
+          "pairs": 3,
+          "wins": 2,
+          "losses": 1,
+          "ties": 0,
+          "concordance": 0.6666666666666666
+        }
+      },
+      "positive": {
+        "count": 3,
+        "assessments": {
+          "intentional": 1,
+          "useful_review_question": 2
+        },
+        "attention_at_least_two": 0,
+        "file_baseline_at_most_five": 3
+      },
+      "negative": {
+        "count": 3,
+        "assessments": {
+          "useful_review_question": 3
+        },
+        "attention_at_least_two": 3,
+        "file_baseline_at_most_five": 3
+      }
+    }
+  },
+  "agreement": {
+    "attention_priority": {
+      "count": 4,
+      "exact": 4,
+      "within_one": 4
+    },
+    "review_difficulty": {
+      "count": 4,
+      "exact": 4,
+      "within_one": 4
+    }
+  },
+  "overlap": {
+    "primary": {
+      "attention_priority": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.25
+      },
+      "review_difficulty": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.25
+      }
+    },
+    "secondary": {
+      "attention_priority": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.25
+      },
+      "review_difficulty": {
+        "pairs": 2,
+        "wins": 0,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.25
+      }
+    }
+  },
+  "reviewer_sha256": {
+    "a": "41258375a976f6a95c15d08c0b6799991d8ad6139bccfac455f0ab022c3f5d97",
+    "b": "29928a1b77d6062f1457330d76ea768bf537de0e3a1c40934236e860f9adb1ef",
+    "c": "100867add733f2c98fcb102ea5ff3608874d007ba15a7b5fa019ddbf0a5a425d"
+  },
+  "lowc_key_sha256": "664fa9aee63726d88615d750495bdc691e19e145cc1f79c878de62daf774edd2"
+}

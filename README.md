@@ -1,10 +1,10 @@
-# Find the code that needs human attention
+# Where does your codebase need attention?
 [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=raman-dzehtsiar-cpath&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=raman-dzehtsiar-cpath)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=raman-dzehtsiar-cpath&metric=coverage)](https://sonarcloud.io/summary/new_code?id=raman-dzehtsiar-cpath)
 
 **cpath** is an experimental preview of a local codebase intelligence tool for
-identifying code that may need human attention. Its goal is to help prioritize
-human review as coding agents and autonomous workflows produce more code.
+helping developers and AI agents prioritize review and improvement efforts to
+keep your codebase maintainable.
 It is an early implementation, not a production-ready release.
 
 The project is built around four commitments:
@@ -22,9 +22,8 @@ target-project build.
 ## Project goal
 
 We are researching and defining an **attention score**: a combined metric intended
-to help teams decide where human review is critical in the era of coding agents
-and autonomous workflows. The aim is to make the best use of human time by helping
-people prioritize the code that needs their judgment most.
+to help developers and AI agents decide where a codebase needs attention. The aim
+is to prioritize review and improvement efforts to keep code maintainable.
 
 For now, scoring focuses on **cognitive complexity**. As our research progresses, we plan to 
 combine more signals and account for different codebase conditions. Our ultimate goal is to help 

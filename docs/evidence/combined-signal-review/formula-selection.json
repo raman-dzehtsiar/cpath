@@ -1,0 +1,2833 @@
+{
+  "seed": "cpath-phase2-holdout-v1-20261022",
+  "winner": "B",
+  "winner_selected_before_holdout": true,
+  "exclusions": {
+    "KQH": "fails scope-local alpha-renaming invariance",
+    "KTHA": "changes on a behavior-preserving user-defined API rename"
+  },
+  "table": {
+    "C": {
+      "macro_concordance": 0.6834334334334334,
+      "exact_macro": "2731/3996",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 20,
+          "losses": 6,
+          "ties": 11,
+          "concordance": 0.6891891891891891
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 21,
+          "losses": 11,
+          "ties": 13,
+          "concordance": 0.6111111111111112
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 51,
+        "losses": 19,
+        "ties": 28,
+        "concordance": 0.6632653061224489
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 49,
+        "losses": 20,
+        "ties": 29,
+        "concordance": 0.6479591836734694
+      }
+    },
+    "B": {
+      "macro_concordance": 0.7258821321321322,
+      "exact_macro": "7735/10656",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 1,
+          "ties": 5,
+          "concordance": 0.78125
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 22,
+          "losses": 5,
+          "ties": 10,
+          "concordance": 0.7297297297297297
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 21,
+          "losses": 6,
+          "ties": 18,
+          "concordance": 0.6666666666666666
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 53,
+        "losses": 12,
+        "ties": 33,
+        "concordance": 0.7091836734693877
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 51,
+        "losses": 12,
+        "ties": 35,
+        "concordance": 0.6989795918367347
+      }
+    },
+    "K": {
+      "macro_concordance": 0.6969469469469469,
+      "exact_macro": "2785/3996",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 22,
+          "losses": 5,
+          "ties": 10,
+          "concordance": 0.7297297297297297
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 20,
+          "losses": 10,
+          "ties": 15,
+          "concordance": 0.6111111111111112
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 52,
+        "losses": 17,
+        "ties": 29,
+        "concordance": 0.6785714285714286
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 50,
+        "losses": 18,
+        "ties": 30,
+        "concordance": 0.6632653061224489
+      }
+    },
+    "CT": {
+      "macro_concordance": 0.6834334334334334,
+      "exact_macro": "2731/3996",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 20,
+          "losses": 6,
+          "ties": 11,
+          "concordance": 0.6891891891891891
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 21,
+          "losses": 11,
+          "ties": 13,
+          "concordance": 0.6111111111111112
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 51,
+        "losses": 19,
+        "ties": 28,
+        "concordance": 0.6632653061224489
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 49,
+        "losses": 20,
+        "ties": 29,
+        "concordance": 0.6479591836734694
+      }
+    },
+    "KT": {
+      "macro_concordance": 0.6969469469469469,
+      "exact_macro": "2785/3996",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 22,
+          "losses": 5,
+          "ties": 10,
+          "concordance": 0.7297297297297297
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 20,
+          "losses": 10,
+          "ties": 15,
+          "concordance": 0.6111111111111112
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 52,
+        "losses": 17,
+        "ties": 29,
+        "concordance": 0.6785714285714286
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 50,
+        "losses": 18,
+        "ties": 30,
+        "concordance": 0.6632653061224489
+      }
+    },
+    "CH": {
+      "macro_concordance": 0.6834334334334334,
+      "exact_macro": "2731/3996",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 20,
+          "losses": 6,
+          "ties": 11,
+          "concordance": 0.6891891891891891
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 21,
+          "losses": 11,
+          "ties": 13,
+          "concordance": 0.6111111111111112
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 51,
+        "losses": 19,
+        "ties": 28,
+        "concordance": 0.6632653061224489
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 49,
+        "losses": 20,
+        "ties": 29,
+        "concordance": 0.6479591836734694
+      }
+    },
+    "KH": {
+      "macro_concordance": 0.6977477477477477,
+      "exact_macro": "1549/2220",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 22,
+          "losses": 4,
+          "ties": 11,
+          "concordance": 0.7432432432432432
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 20,
+          "losses": 11,
+          "ties": 14,
+          "concordance": 0.6
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 52,
+        "losses": 17,
+        "ties": 29,
+        "concordance": 0.6785714285714286
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 50,
+        "losses": 18,
+        "ties": 30,
+        "concordance": 0.6632653061224489
+      }
+    },
+    "CTH": {
+      "macro_concordance": 0.6834334334334334,
+      "exact_macro": "2731/3996",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 20,
+          "losses": 6,
+          "ties": 11,
+          "concordance": 0.6891891891891891
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 21,
+          "losses": 11,
+          "ties": 13,
+          "concordance": 0.6111111111111112
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 51,
+        "losses": 19,
+        "ties": 28,
+        "concordance": 0.6632653061224489
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 49,
+        "losses": 20,
+        "ties": 29,
+        "concordance": 0.6479591836734694
+      }
+    },
+    "KTH": {
+      "macro_concordance": 0.6977477477477477,
+      "exact_macro": "1549/2220",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 22,
+          "losses": 4,
+          "ties": 11,
+          "concordance": 0.7432432432432432
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 20,
+          "losses": 11,
+          "ties": 14,
+          "concordance": 0.6
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 52,
+        "losses": 17,
+        "ties": 29,
+        "concordance": 0.6785714285714286
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 50,
+        "losses": 18,
+        "ties": 30,
+        "concordance": 0.6632653061224489
+      }
+    },
+    "KQH": {
+      "macro_concordance": 0.6940440440440441,
+      "exact_macro": "13867/19980",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 22,
+          "losses": 4,
+          "ties": 11,
+          "concordance": 0.7432432432432432
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 19,
+          "losses": 11,
+          "ties": 15,
+          "concordance": 0.5888888888888889
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 51,
+        "losses": 17,
+        "ties": 30,
+        "concordance": 0.673469387755102
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 49,
+        "losses": 18,
+        "ties": 31,
+        "concordance": 0.6581632653061225
+      }
+    },
+    "KTHA": {
+      "macro_concordance": 0.7051551551551551,
+      "exact_macro": "14089/19980",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 22,
+          "losses": 4,
+          "ties": 11,
+          "concordance": 0.7432432432432432
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 20,
+          "losses": 9,
+          "ties": 16,
+          "concordance": 0.6222222222222222
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 52,
+        "losses": 15,
+        "ties": 31,
+        "concordance": 0.6887755102040817
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 50,
+        "losses": 16,
+        "ties": 32,
+        "concordance": 0.673469387755102
+      }
+    },
+    "CS": {
+      "macro_concordance": 0.6752252252252252,
+      "exact_macro": "1499/2220",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 20,
+          "losses": 7,
+          "ties": 10,
+          "concordance": 0.6756756756756757
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 21,
+          "losses": 12,
+          "ties": 12,
+          "concordance": 0.6
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 51,
+        "losses": 21,
+        "ties": 26,
+        "concordance": 0.6530612244897959
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 49,
+        "losses": 22,
+        "ties": 27,
+        "concordance": 0.6377551020408163
+      }
+    },
+    "lines": {
+      "macro_concordance": 0.5941066066066066,
+      "exact_macro": "15827/26640",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 7,
+          "losses": 5,
+          "ties": 4,
+          "concordance": 0.5625
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 13,
+          "losses": 14,
+          "ties": 10,
+          "concordance": 0.4864864864864865
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 27,
+          "losses": 6,
+          "ties": 12,
+          "concordance": 0.7333333333333333
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 47,
+        "losses": 25,
+        "ties": 26,
+        "concordance": 0.6122448979591837
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 45,
+        "losses": 26,
+        "ties": 27,
+        "concordance": 0.5969387755102041
+      }
+    },
+    "E": {
+      "macro_concordance": 0.6557995495495496,
+      "exact_macro": "11647/17760",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 9,
+          "losses": 2,
+          "ties": 5,
+          "concordance": 0.71875
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 19,
+          "losses": 8,
+          "ties": 10,
+          "concordance": 0.6486486486486487
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 20,
+          "losses": 11,
+          "ties": 14,
+          "concordance": 0.6
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 48,
+        "losses": 21,
+        "ties": 29,
+        "concordance": 0.6377551020408163
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 46,
+        "losses": 22,
+        "ties": 30,
+        "concordance": 0.6224489795918368
+      }
+    },
+    "arity": {
+      "macro_concordance": 0.5625938438438438,
+      "exact_macro": "5995/10656",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 7,
+          "losses": 2,
+          "ties": 7,
+          "concordance": 0.65625
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 4,
+          "losses": 14,
+          "ties": 19,
+          "concordance": 0.36486486486486486
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 21,
+          "losses": 6,
+          "ties": 18,
+          "concordance": 0.6666666666666666
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 32,
+        "losses": 22,
+        "ties": 44,
+        "concordance": 0.5510204081632653
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 31,
+        "losses": 22,
+        "ties": 45,
+        "concordance": 0.5459183673469388
+      }
+    },
+    "S": {
+      "macro_concordance": 0.7011511511511511,
+      "exact_macro": "14009/19980",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 10,
+          "losses": 2,
+          "ties": 4,
+          "concordance": 0.75
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 20,
+          "losses": 7,
+          "ties": 10,
+          "concordance": 0.6756756756756757
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 24,
+          "losses": 8,
+          "ties": 13,
+          "concordance": 0.6777777777777778
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 54,
+        "losses": 17,
+        "ties": 27,
+        "concordance": 0.6887755102040817
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 51,
+        "losses": 19,
+        "ties": 28,
+        "concordance": 0.6632653061224489
+      }
+    },
+    "T": {
+      "macro_concordance": 0.5,
+      "exact_macro": "1/2",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 0,
+          "losses": 0,
+          "ties": 16,
+          "concordance": 0.5
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 0,
+          "losses": 0,
+          "ties": 37,
+          "concordance": 0.5
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 0,
+          "losses": 0,
+          "ties": 45,
+          "concordance": 0.5
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 0,
+        "losses": 0,
+        "ties": 98,
+        "concordance": 0.5
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 0,
+        "losses": 0,
+        "ties": 98,
+        "concordance": 0.5
+      }
+    },
+    "Q": {
+      "macro_concordance": 0.5798048048048048,
+      "exact_macro": "7723/13320",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 6,
+          "losses": 2,
+          "ties": 8,
+          "concordance": 0.625
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 12,
+          "losses": 6,
+          "ties": 19,
+          "concordance": 0.581081081081081
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 12,
+          "losses": 9,
+          "ties": 24,
+          "concordance": 0.5333333333333333
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 30,
+        "losses": 17,
+        "ties": 51,
+        "concordance": 0.5663265306122449
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 29,
+        "losses": 18,
+        "ties": 51,
+        "concordance": 0.5561224489795918
+      }
+    },
+    "H": {
+      "macro_concordance": 0.6043043043043043,
+      "exact_macro": "6037/9990",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 4,
+          "losses": 4,
+          "ties": 8,
+          "concordance": 0.5
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 12,
+          "losses": 2,
+          "ties": 23,
+          "concordance": 0.6351351351351351
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 20,
+          "losses": 4,
+          "ties": 21,
+          "concordance": 0.6777777777777778
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 36,
+        "losses": 10,
+        "ties": 52,
+        "concordance": 0.6326530612244898
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 33,
+        "losses": 11,
+        "ties": 54,
+        "concordance": 0.6122448979591837
+      }
+    },
+    "A": {
+      "macro_concordance": 0.5222222222222223,
+      "exact_macro": "47/90",
+      "per_repository": {
+        "serilog": {
+          "pairs": 16,
+          "wins": 0,
+          "losses": 0,
+          "ties": 16,
+          "concordance": 0.5
+        },
+        "csvhelper": {
+          "pairs": 37,
+          "wins": 0,
+          "losses": 0,
+          "ties": 37,
+          "concordance": 0.5
+        },
+        "dapper": {
+          "pairs": 45,
+          "wins": 6,
+          "losses": 0,
+          "ties": 39,
+          "concordance": 0.5666666666666667
+        }
+      },
+      "pooled": {
+        "pairs": 98,
+        "wins": 6,
+        "losses": 0,
+        "ties": 92,
+        "concordance": 0.5306122448979592
+      },
+      "difficulty": {
+        "pairs": 98,
+        "wins": 6,
+        "losses": 0,
+        "ties": 92,
+        "concordance": 0.5306122448979592
+      }
+    }
+  },
+  "samples": [
+    {
+      "id": "b03970e90af181ad",
+      "repository": "csvhelper",
+      "path": "docs-src/CsvHelper.DocsGenerator/Generators/TypeGenerator.cs",
+      "role": "other",
+      "source_sha256": "cc62ef7e50369621f0b34e70b500977fc07a885e0814a880928679352c8692f4",
+      "predictors": {
+        "C": 24,
+        "B": 11,
+        "K": 12,
+        "CT": 24,
+        "KT": 12,
+        "CH": 24,
+        "KH": 12,
+        "CTH": 24,
+        "KTH": 12,
+        "KQH": 13,
+        "KTHA": 12,
+        "CS": 32,
+        "lines": 118,
+        "E": 18,
+        "arity": 1,
+        "S": 53,
+        "T": 0,
+        "Q": 1,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "b03970e90af181ad",
+        "actual_role": "Documentation generator rendering a reflected type into Markdown with declaration, inheritance, constructors, fields, properties, and methods.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "A declaration-rendering change needs a focused check of reflected type categories: suppress enum inheritance text, distinguish static from abstract classes without treating interfaces the same way, and preserve indexer parameter formatting. These are localized presentation assumptions rather than a stateful algorithm.",
+        "counterevidence": "Most of the body independently emits a section if its prepared member collection is nonempty. Metadata gathering and ordering are performed by TypeInfo, and naming/summary formatting is delegated to helpers. There is no backtracking, transactional state, or interaction among the member sections beyond appending output.",
+        "inspection_scope": "Read TypeGenerator.cs completely (1-118) and its TypeInfo.cs metadata builder completely (1-93). Did not execute the generator or inspect all naming-extension implementations.",
+        "evidence": [
+          {
+            "start_line": 31,
+            "end_line": 47,
+            "observation": "Declaration rendering locally combines enum inheritance suppression with mutually exclusive static/abstract modifiers based on reflection flags."
+          },
+          {
+            "start_line": 51,
+            "end_line": 80,
+            "observation": "Inheritance, constructors, and fields are emitted as independent sections from prepared collections; these repeated presentation loops do not create coupled state."
+          },
+          {
+            "start_line": 84,
+            "end_line": 101,
+            "observation": "Property rendering has one localized distinction for indexers, formatting their parameter types instead of the ordinary property name."
+          },
+          {
+            "start_line": 104,
+            "end_line": 114,
+            "observation": "Method rendering directly appends names and summaries from the prepared method list, with no additional selection or lifecycle logic."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5f980321bd24ae30",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/BadDataException.cs",
+      "role": "other",
+      "source_sha256": "dcbdb0913999978954a4a7320c0b5321d44a965eeffab598d86fd5c2e664667f",
+      "predictors": {
+        "C": 0,
+        "B": 0,
+        "K": 0,
+        "CT": 0,
+        "KT": 0,
+        "CH": 0,
+        "KH": 0,
+        "CTH": 0,
+        "KTH": 0,
+        "KQH": 0,
+        "KTHA": 0,
+        "CS": 2,
+        "lines": 64,
+        "E": 0,
+        "arity": 5,
+        "S": 2,
+        "T": 0,
+        "Q": 0,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "5f980321bd24ae30",
+        "role": "Public exception data carrier for a malformed CSV field and its raw record.",
+        "attention_priority": 0,
+        "review_difficulty": 0,
+        "confidence": "high",
+        "hardest_behavior": "Each constructor must retain the supplied field and raw record while forwarding context and optional error details to the base exception. This is routine parameter plumbing without an interacting invariant in this file.",
+        "counterevidence": "The type is a public serializable exception, so compatibility still matters, but no custom serialization, parsing, or state transitions are implemented here.",
+        "inspection_scope": "Read entire assigned BadDataException.cs, lines 1-64; no additional context.",
+        "evidence": [
+          {
+            "start_line": 10,
+            "end_line": 21,
+            "observation": "The exception adds two readonly strings describing the original field and row."
+          },
+          {
+            "start_line": 29,
+            "end_line": 33,
+            "observation": "The basic constructor forwards context and directly assigns both payload fields."
+          },
+          {
+            "start_line": 43,
+            "end_line": 62,
+            "observation": "The message and inner-exception overloads use the same direct payload assignments with corresponding base-constructor forwarding."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bc3de6cca9ddc54f",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/CsvContext.cs",
+      "role": "other",
+      "source_sha256": "f8cd70b34c90a37d77f400d062b6ab35de95c9d1eef442f6ad55790e894a51e3",
+      "predictors": {
+        "C": 2,
+        "B": 2,
+        "K": 2,
+        "CT": 2,
+        "KT": 2,
+        "CH": 3,
+        "KH": 3,
+        "CTH": 3,
+        "KTH": 3,
+        "KQH": 3,
+        "KTHA": 3,
+        "CS": 4,
+        "lines": 196,
+        "E": 2,
+        "arity": 1,
+        "S": 5,
+        "T": 0,
+        "Q": 0,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "bc3de6cca9ddc54f",
+        "role": "Production shared CSV context and facade for configuration, converter caches, and class-map registration.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "medium",
+        "hardest_behavior": "Keeping each constructor associated with the correct reader/parser/writer configuration and applying registration validation before adding maps. A change mainly requires focused checking of overload delegation and which operations mutate the map collection.",
+        "counterevidence": "Automapping, resolution, and map-collection behavior are delegated to other components. This file exposes shared state but does not itself coordinate a multistep parsing lifecycle or implement mapping recursion.",
+        "inspection_scope": "Read entire assigned CsvContext.cs, lines 1-196. Related assigned ObjectRecordCreator.cs and its inspected RecordCreator/ExpressionManager context also show consumption of this context; ClassMapCollection internals were not inspected.",
+        "evidence": [
+          {
+            "start_line": 54,
+            "end_line": 92,
+            "observation": "Constructors select their source component's CsvConfiguration and allocate a ClassMapCollection bound to this context; reader construction also captures its parser."
+          },
+          {
+            "start_line": 100,
+            "end_line": 138,
+            "observation": "Generic/type registration resolves an instance then delegates to map registration, which rejects maps having no member, reference, or parameter mappings."
+          },
+          {
+            "start_line": 173,
+            "end_line": 194,
+            "observation": "Both AutoMap overloads create and populate a default map and immediately add it to Maps before returning it."
+          }
+        ]
+      }
+    },
+    {
+      "id": "ee66ad691bf604b1",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/Expressions/ObjectRecordCreator.cs",
+      "role": "other",
+      "source_sha256": "70d661c11d32d3425cad33d229755589d97526d6876512b4611dee26ae03c582",
+      "predictors": {
+        "C": 5,
+        "B": 3,
+        "K": 5,
+        "CT": 5,
+        "KT": 5,
+        "CH": 6,
+        "KH": 6,
+        "CTH": 6,
+        "KTH": 6,
+        "KQH": 7,
+        "KTHA": 6,
+        "CS": 9,
+        "lines": 63,
+        "E": 4,
+        "arity": 1,
+        "S": 16,
+        "T": 0,
+        "Q": 1,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "ee66ad691bf604b1",
+        "role": "Production factory compiling typed record-construction delegates from CSV class maps.",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "confidence": "high",
+        "hardest_behavior": "Changing how a map becomes a reusable constructor delegate requires tracing map registration, constructor-parameter versus member-assignment mode, and the type and lifetime of compiled expressions. Helper code captures reader/resolver context, and the base class caches the delegate per record type.",
+        "counterevidence": "The detailed field conversions and recursive mapping are delegated to ExpressionManager. The assigned file has one clearly delineated construction choice rather than implementing those mapping rules itself.",
+        "inspection_scope": "Read entire assigned ObjectRecordCreator.cs, lines 1-63. Context: complete Expressions/RecordCreator.cs; ExpressionManager.cs lines 1-209 and 345-399, including constructor arguments, member assignments, and instance construction.",
+        "evidence": [
+          {
+            "start_line": 28,
+            "end_line": 33,
+            "observation": "Missing maps are created through AutoMap and added before the delegate's body is selected."
+          },
+          {
+            "start_line": 37,
+            "end_line": 56,
+            "observation": "Parameter maps select Expression.New using the configured constructor; otherwise assignments are generated and an empty assignment list is rejected before resolver-based construction."
+          },
+          {
+            "start_line": 59,
+            "end_line": 61,
+            "observation": "The body is compiled into Func<recordType>, making expression type correctness and captured mapping decisions part of subsequent row creation."
+          }
+        ]
+      }
+    },
+    {
+      "id": "15283dfb6587fff3",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/Expressions/ObjectRecordWriter.cs",
+      "role": "other",
+      "source_sha256": "63e8875199465b8e711f9ac38a4fa4998f2fc1d1917e6e9c917b9950e31b451c",
+      "predictors": {
+        "C": 20,
+        "B": 13,
+        "K": 11,
+        "CT": 20,
+        "KT": 11,
+        "CH": 21,
+        "KH": 12,
+        "CTH": 21,
+        "KTH": 12,
+        "KQH": 15,
+        "KTHA": 12,
+        "CS": 27,
+        "lines": 121,
+        "E": 11,
+        "arity": 1,
+        "S": 44,
+        "T": 0,
+        "Q": 7,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "15283dfb6587fff3",
+        "actual_role": "Builds and compiles mapped-object CSV write delegates, coordinating mapping order, custom conversions, constants, converter options, null handling, and field output.",
+        "attention_priority": 3,
+        "review_difficulty": 3,
+        "confidence": "high",
+        "hardest_behavior": "Changing generated field behavior requires distinguishing expression-construction time from later cached delegate execution while preserving mapping precedence and emitted field order. Custom conversion, constant conversion, ordinary member conversion, null records, and nested references take different paths; generated calls also affect the writer field type and output state. A meaningful change needs tracing these contracts across mapping, expression access, the cached writer, and output calls.",
+        "counterevidence": "Member processing is sequential and assembled from separate delegates; mapping traversal, safe nested access, conversion, and actual CSV formatting are delegated to named helpers. Existing constant and null-writing tests provide concrete behavioral examples. There is no concurrency or asynchronous lifecycle in this class.",
+        "inspection_scope": "Read ObjectRecordWriter.cs completely (1-121), RecordWriter.cs completely, Writing/ConstantTests.cs and Writing/WriteNullTests.cs completely. Inspected ExpressionManager.CreateGetMemberExpression (285-350), CsvWriter.WriteConvertedField (115-145), CsvWriter.CanWrite and record-type selection (685-730), and searched MemberMapCollection sorting/AddMembers locations. Did not execute tests or inspect every configuration combination.",
+        "evidence": [
+          {
+            "start_line": 31,
+            "end_line": 46,
+            "observation": "The generator may add an auto-map, flattens mapped members for ordering, and treats an empty map as an error before building any delegates."
+          },
+          {
+            "start_line": 53,
+            "end_line": 69,
+            "observation": "A custom writing conversion constructs typed arguments and calls WriteField directly, then continues before the general CanWrite filter; changing order changes policy."
+          },
+          {
+            "start_line": 73,
+            "end_line": 103,
+            "observation": "Constants use their runtime-type converter, while ordinary members require a configured converter and mutate merged options before embedding conversion calls in expressions."
+          },
+          {
+            "start_line": 96,
+            "end_line": 114,
+            "observation": "Ordinary mapped access relies on ExpressionManager, wraps class records in a null conditional, and calls WriteConvertedField with the mapped field type. This differs from the custom-conversion path."
+          },
+          {
+            "start_line": 114,
+            "end_line": 119,
+            "observation": "Per-member expression trees are compiled and combined into a later-executed action, so construction-time state and runtime writer effects must be considered separately."
+          }
+        ]
+      }
+    },
+    {
+      "id": "e8451a1aecd8d28e",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/TypeConversion/CollectionConverterFactory.cs",
+      "role": "other",
+      "source_sha256": "107d0ad93037a5f899909238501798e9ed3474c832e0573602d72b5fddadf2a0",
+      "predictors": {
+        "C": 19,
+        "B": 11,
+        "K": 7,
+        "CT": 19,
+        "KT": 7,
+        "CH": 20,
+        "KH": 8,
+        "CTH": 20,
+        "KTH": 8,
+        "KQH": 12,
+        "KTHA": 8,
+        "CS": 26,
+        "lines": 172,
+        "E": 17,
+        "arity": 3,
+        "S": 38,
+        "T": 0,
+        "Q": 10,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "e8451a1aecd8d28e",
+        "actual_role": "Production collection-type converter selection factory",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Keep eligibility and converter selection aligned, with specific array/dictionary/collection cases ahead of the generic enumerable fallback.",
+        "counterevidence": "The cases mainly form a static type-to-converter mapping; there is no collection traversal, element conversion, or evolving scan state here.",
+        "inspection_scope": "Full src/CsvHelper/TypeConversion/CollectionConverterFactory.cs, lines 1-172.",
+        "evidence": [
+          {
+            "start_line": 23,
+            "end_line": 89,
+            "observation": "Eligibility checks array and specific generic forms before accepting other IEnumerable-compatible types."
+          },
+          {
+            "start_line": 95,
+            "end_line": 113,
+            "observation": "Creation selects non-generic special cases using stored type hash codes, then handles arrays."
+          },
+          {
+            "start_line": 115,
+            "end_line": 170,
+            "observation": "Specific generic definitions select converters before the assignable IEnumerable fallback; unsupported creation throws."
+          }
+        ],
+        "attention_priority_reason": "A focused mapping/precedence review is appropriate; numerous listed cases do not themselves imply interacting behavioral complexity.",
+        "review_difficulty_reason": "Review can compare CanCreate with Create and check special-case identification without following a multi-stage lifecycle."
+      }
+    },
+    {
+      "id": "fb92efd958f8ed4d",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/TypeConversion/CollectionGenericConverter.cs",
+      "role": "other",
+      "source_sha256": "18da80f2f6c653c03530f51c7358fb6335b820424e98fc0cc19eb562a38579d8",
+      "predictors": {
+        "C": 13,
+        "B": 8,
+        "K": 9,
+        "CT": 13,
+        "KT": 9,
+        "CH": 13,
+        "KH": 9,
+        "CTH": 13,
+        "KTH": 9,
+        "KQH": 9,
+        "KTHA": 9,
+        "CS": 17,
+        "lines": 62,
+        "E": 8,
+        "arity": 3,
+        "S": 15,
+        "T": 0,
+        "Q": 0,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "fb92efd958f8ed4d",
+        "role": "Production converter that gathers CSV fields into a generic collection resolved from member metadata.",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "confidence": "medium",
+        "hardest_behavior": "Preserving field-selection precedence and conversion semantics across repeated names and positional ranges. A change must trace header availability, explicit name/index settings, range-end fallback, and the different conversion entry points.",
+        "counterevidence": "Collection construction is performed once and fields are appended sequentially. There is no persistent lifecycle or recursive algorithm in this file; reader conversion internals were not inspected.",
+        "inspection_scope": "Read entire assigned CollectionGenericConverter.cs, lines 1-62; no additional context.",
+        "evidence": [
+          {
+            "start_line": 25,
+            "end_line": 31,
+            "observation": "Collection and element types come from the mapped member, while named selection wins when explicitly named or when headers exist without an explicit index."
+          },
+          {
+            "start_line": 33,
+            "end_line": 44,
+            "observation": "Named conversion repeatedly calls TryGetField with increasing name occurrence indexes, stopping at the first unsuccessful lookup/conversion result."
+          },
+          {
+            "start_line": 48,
+            "end_line": 56,
+            "observation": "Positional selection derives an inclusive end from mapping metadata or parser field count and directly invokes the cached element converter with the original member map."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5192883e8a3b0893",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/TypeConversion/EnumConverter.cs",
+      "role": "other",
+      "source_sha256": "c3888cd34c2b6f1bc94af6708f8a248689f96d18daecdf1d1d32231b331ac9df",
+      "predictors": {
+        "C": 20,
+        "B": 15,
+        "K": 14,
+        "CT": 20,
+        "KT": 14,
+        "CH": 21,
+        "KH": 15,
+        "CTH": 21,
+        "KTH": 15,
+        "KQH": 15,
+        "KTHA": 15,
+        "CS": 24,
+        "lines": 116,
+        "E": 8,
+        "arity": 3,
+        "S": 14,
+        "T": 0,
+        "Q": 0,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "5192883e8a3b0893",
+        "actual_role": "CSV enum converter supporting NameAttribute aliases, optional case-insensitive matching, ordinary enum parsing, and reverse alias formatting.",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "confidence": "high",
+        "hardest_behavior": "Changing alias acceptance or output selection requires tracing how three lookup tables are initialized and how their different collision rules interact with case sensitivity, duplicate underlying values, alias-first parsing, and ordinary enum fallback. Forward and reverse mappings are intentionally not a simple bijection; fallback failure and null formatting also inherit behavior from the base converter.",
+        "counterevidence": "The dictionaries are populated only during construction and then read. Parsing ultimately delegates to framework enum operations; the focused enum test file supplies duplicate-name/value and case-sensitivity examples. There are no cross-record state transitions or broad orchestration responsibilities.",
+        "inspection_scope": "Read EnumConverter.cs completely (1-116), TypeConversion/EnumConverterTests.cs completely, and DefaultTypeConverter.cs completely. Static review only; neither target-framework branch was executed.",
+        "evidence": [
+          {
+            "start_line": 16,
+            "end_line": 19,
+            "observation": "Exact aliases, case-insensitive aliases, and reverse value-to-name formatting are represented by separate dictionaries with different key semantics."
+          },
+          {
+            "start_line": 41,
+            "end_line": 64,
+            "observation": "Initialization walks framework-enumerated values, resolves each name attribute, and preserves the first insertion separately in all three dictionaries; collisions and multiple aliases require tracing the resulting mappings."
+          },
+          {
+            "start_line": 70,
+            "end_line": 83,
+            "observation": "The per-member ignore-case option selects the alias dictionary, and recognized aliases take precedence over framework parsing."
+          },
+          {
+            "start_line": 85,
+            "end_line": 103,
+            "observation": "Two target-framework implementations use TryParse or Parse with catch, then delegate failures to the base converter."
+          },
+          {
+            "start_line": 107,
+            "end_line": 114,
+            "observation": "Output uses the chosen reverse alias when present and otherwise uses base formatting, so accepted input aliases do not all become output spellings."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b27fd2adff3276e4",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/TypeConversion/SingleConverter.cs",
+      "role": "other",
+      "source_sha256": "b5764893ac559695f62409ed5ad6d1912761e6cd8cfcc71914ee80b04c3096ba",
+      "predictors": {
+        "C": 1,
+        "B": 1,
+        "K": 1,
+        "CT": 1,
+        "KT": 1,
+        "CH": 1,
+        "KH": 1,
+        "CTH": 1,
+        "KTH": 1,
+        "KQH": 1,
+        "KTHA": 1,
+        "CS": 3,
+        "lines": 54,
+        "E": 1,
+        "arity": 3,
+        "S": 4,
+        "T": 0,
+        "Q": 0,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "b27fd2adff3276e4",
+        "actual_role": "Production CSV single-precision number converter",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Retain round-trip-oriented default formatting, explicit option precedence, culture-aware parsing, and fallback behavior for unsupported inputs.",
+        "counterevidence": "Numeric parsing and formatting are delegated to float APIs; there is no bespoke numeric algorithm or cross-record mutable state.",
+        "inspection_scope": "Full src/CsvHelper/TypeConversion/SingleConverter.cs, lines 1-54.",
+        "evidence": [
+          {
+            "start_line": 15,
+            "end_line": 15,
+            "observation": "The lazy default format probes whether float.MaxValue round-trips through the R format, otherwise chooses G9."
+          },
+          {
+            "start_line": 24,
+            "end_line": 33,
+            "observation": "An explicitly configured first format takes precedence; float values use configured culture and other values delegate to the base converter."
+          },
+          {
+            "start_line": 43,
+            "end_line": 52,
+            "observation": "Configured number styles override Float/AllowThousands defaults and parse failure delegates to base behavior."
+          }
+        ],
+        "attention_priority_reason": "A focused review of culture, format overrides, and fallback cases fits the change scope.",
+        "review_difficulty_reason": "The relevant option interactions are local and standard-library behavior supplies the numeric semantics."
+      }
+    },
+    {
+      "id": "dc5078f4a2bc1059",
+      "repository": "csvhelper",
+      "path": "tests/CsvHelper.Tests/CsvWriterReferenceMappingTests.cs",
+      "role": "test",
+      "source_sha256": "0cfce81910b44111e975a48b97612212f3ec9e7ac9f608d6a7fb453c399aa8ef",
+      "predictors": {
+        "C": 1,
+        "B": 1,
+        "K": 1,
+        "CT": 1,
+        "KT": 1,
+        "CH": 2,
+        "KH": 2,
+        "CTH": 2,
+        "KTH": 2,
+        "KQH": 4,
+        "KTHA": 2,
+        "CS": 6,
+        "lines": 156,
+        "E": 1,
+        "arity": 1,
+        "S": 21,
+        "T": 0,
+        "Q": 3,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "dc5078f4a2bc1059",
+        "role": "Integration-style tests specifying CSV output for nested reference maps and a null reference chain.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Keeping nested mapping order and null-reference output expectations consistent with the object fixture and emitted header. Review is a localized trace from the four mappings to the explicit expected CSV.",
+        "counterevidence": "Deep object initializers are fixture data. The file does not implement recursive traversal or null handling; assertions show complete expected output plainly.",
+        "inspection_scope": "Read entire assigned CsvWriterReferenceMappingTests.cs, lines 1-156; no additional context.",
+        "evidence": [
+          {
+            "start_line": 25,
+            "end_line": 62,
+            "observation": "The nested fixture is written after registering AMap, then flushed and rewound before comparing the full four-column output."
+          },
+          {
+            "start_line": 74,
+            "end_line": 91,
+            "observation": "The null-reference test preserves all headers but requires empty descendant fields in the data row."
+          },
+          {
+            "start_line": 121,
+            "end_line": 153,
+            "observation": "Each map contributes one named ID and, except the leaf, references the next map; this explicitly explains the expected field order."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b1bcafb0ca785eda",
+      "repository": "csvhelper",
+      "path": "tests/CsvHelper.Tests/TypeConversion/ByteArrayConverterTests.cs",
+      "role": "test",
+      "source_sha256": "11aa632875249434828d2a7d2e8d495b6e3ab20acc77baf06c58061677099275",
+      "predictors": {
+        "C": 6,
+        "B": 5,
+        "K": 6,
+        "CT": 6,
+        "KT": 6,
+        "CH": 6,
+        "KH": 6,
+        "CTH": 6,
+        "KTH": 6,
+        "KQH": 6,
+        "KTHA": 6,
+        "CS": 9,
+        "lines": 139,
+        "E": 3,
+        "arity": 2,
+        "S": 7,
+        "T": 0,
+        "Q": 0,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "b1bcafb0ca785eda",
+        "role": "Table-driven converter tests for hexadecimal and Base64 byte-array representations.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Preserving correspondence among format flags, example strings, and expected bytes while ensuring the assertions actually establish the intended conversion contract. The input direction's Zip-based byte checks require attention to equality coverage.",
+        "counterevidence": "Nested iteration is independent repetition over fixed examples, not an interacting runtime state machine. The format examples and expected bytes can be checked directly.",
+        "inspection_scope": "Read entire assigned ByteArrayConverterTests.cs, lines 1-139; no additional context.",
+        "evidence": [
+          {
+            "start_line": 18,
+            "end_line": 61,
+            "observation": "The input table separately specifies prefixed hex, dashed hex, and Base64 cases with explicit byte arrays."
+          },
+          {
+            "start_line": 64,
+            "end_line": 74,
+            "observation": "The test zips inputs to expectations and then actual bytes to expected bytes; it asserts matching pairs but does not explicitly assert byte-array lengths."
+          },
+          {
+            "start_line": 127,
+            "end_line": 135,
+            "observation": "The output direction checks the entire converted string for each paired fixture rather than iterating its characters."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9411b5d25cca81dc",
+      "repository": "dapper",
+      "path": "Dapper.ProviderTools/DbExceptionExtensions.cs",
+      "role": "other",
+      "source_sha256": "0e3cdc8aa617f5df2c1ac7d0c70cfbc560144bbe7069268063ab380aa4a7ef44",
+      "predictors": {
+        "C": 4,
+        "B": 2,
+        "K": 4,
+        "CT": 4,
+        "KT": 4,
+        "CH": 4,
+        "KH": 4,
+        "CTH": 4,
+        "KTH": 4,
+        "KQH": 4,
+        "KTHA": 4,
+        "CS": 8,
+        "lines": 64,
+        "E": 4,
+        "arity": 2,
+        "S": 11,
+        "T": 0,
+        "Q": 0,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "9411b5d25cca81dc",
+        "actual_role": "Provider-independent DbException number matching through a cached, compiled accessor for a public integer Number property.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Changing supported exception shapes requires checking reflection validation, expression compilation, and the distinction between discovery-time failures returning no accessor and getter invocation failures propagating. Cache construction may occur more than once for a type under contention, but its stored helper is immutable and its purpose is localized.",
+        "counterevidence": "The property contract is narrow and explicit: a readable public instance property of exactly the requested type. Missing or unsupported accessors produce false, and concurrency is delegated to ConcurrentDictionary. The helper has no caller-supplied mutation or elaborate invalidation lifecycle.",
+        "inspection_scope": "Read DbExceptionExtensions.cs completely (1-64). Searched IsNumber tests and inspected ProviderTests.cs 65-125, which covers matching/nonmatching SQL-provider errors. No reflection edge-case execution or provider connection was attempted.",
+        "evidence": [
+          {
+            "start_line": 17,
+            "end_line": 28,
+            "observation": "The public extension handles a null exception; matching requires an accessor, whose invocation occurs outside the reflection/compilation catch."
+          },
+          {
+            "start_line": 23,
+            "end_line": 36,
+            "observation": "A concurrent dictionary stores immutable per-type helpers, with check-then-create allowing duplicate helper construction rather than a complex coordinated initialization protocol."
+          },
+          {
+            "start_line": 44,
+            "end_line": 60,
+            "observation": "Reflection restricts the Number contract to a readable public instance property of the exact type, compiles a cast/property-access lambda, and maps construction exceptions to a missing accessor."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5e86376479bb760f",
+      "repository": "dapper",
+      "path": "Dapper.Rainbow/Database.Async.cs",
+      "role": "other",
+      "source_sha256": "83607315d4c382dfd10e36f133007d65842c98400a22155e80fec3f61180721d",
+      "predictors": {
+        "C": 0,
+        "B": 0,
+        "K": 0,
+        "CT": 0,
+        "KT": 0,
+        "CH": 1,
+        "KH": 1,
+        "CTH": 1,
+        "KTH": 1,
+        "KQH": 1,
+        "KTHA": 1,
+        "CS": 3,
+        "lines": 211,
+        "E": 0,
+        "arity": 7,
+        "S": 8,
+        "T": 0,
+        "Q": 0,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "5e86376479bb760f",
+        "actual_role": "Production Rainbow asynchronous CRUD SQL construction and database facade",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "confidence": "medium",
+        "hardest_behavior": "Generate insert/update SQL with correctly matching parameter names and Id semantics while preserving parameter-name ownership and database execution context.",
+        "counterevidence": "Most query overloads are thin forwarding methods, and actual command execution and row mapping live elsewhere.",
+        "inspection_scope": "Full Dapper.Rainbow/Database.Async.cs, lines 1-211; Database.cs GetParamNames lines 130-158 and targeted TableName/transaction/timeout symbol search.",
+        "evidence": [
+          {
+            "start_line": 19,
+            "end_line": 29,
+            "observation": "Insert removes Id from the list returned by GetParamNames, derives matching columns/placeholders, and obtains scope_identity as int."
+          },
+          {
+            "start_line": 38,
+            "end_line": 50,
+            "observation": "Update excludes Id from assignments but installs the caller-supplied Id in a DynamicParameters bag for the predicate."
+          },
+          {
+            "start_line": 90,
+            "end_line": 111,
+            "observation": "Basic execution and typed query wrappers pass the stored transaction and command timeout."
+          },
+          {
+            "start_line": 128,
+            "end_line": 129,
+            "observation": "A multimapping overload forwards its explicit transaction and timeout arguments rather than taking the stored defaults."
+          }
+        ],
+        "attention_priority_reason": "SQL/parameter consistency and shared metadata ownership warrant careful review even though async mechanics are delegated.",
+        "review_difficulty_reason": "The nearby GetParamNames implementation returns a cached mutable list for ordinary objects, so insert mutation and later operations require nonlocal reasoning; execution-context forwarding also varies by overload."
+      }
+    },
+    {
+      "id": "cdb0c9fbb61dfa87",
+      "repository": "dapper",
+      "path": "Dapper/DbString.cs",
+      "role": "other",
+      "source_sha256": "0f0632805a367c63c1dbfe616d068a50590575ea68ae1f1f5692c27984be1bb6",
+      "predictors": {
+        "C": 14,
+        "B": 6,
+        "K": 7,
+        "CT": 14,
+        "KT": 7,
+        "CH": 15,
+        "KH": 8,
+        "CTH": 15,
+        "KTH": 8,
+        "KQH": 10,
+        "KTHA": 8,
+        "CS": 18,
+        "lines": 106,
+        "E": 12,
+        "arity": 2,
+        "S": 15,
+        "T": 0,
+        "Q": 2,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "cdb0c9fbb61dfa87",
+        "actual_role": "Production SQL string parameter metadata adapter",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Choose string database type and parameter size consistently with ANSI/fixed-length flags, explicit length, nulls, and reuse of an existing parameter.",
+        "counterevidence": "All metadata decisions and the single command-collection mutation are visible in one method; there is no deferred lifecycle.",
+        "inspection_scope": "Full Dapper/DbString.cs, lines 1-106.",
+        "evidence": [
+          {
+            "start_line": 73,
+            "end_line": 87,
+            "observation": "Fixed length requires a supplied length; an existing named parameter is reused rather than appended."
+          },
+          {
+            "start_line": 89,
+            "end_line": 103,
+            "observation": "Value sanitization, default size, explicit length, and the two string flags determine provider parameter metadata before insertion."
+          }
+        ],
+        "attention_priority_reason": "Focused review of a small set of input assumptions is sufficient for a change.",
+        "review_difficulty_reason": "A compact metadata case table covers the behavior without tracing nonlocal state."
+      }
+    },
+    {
+      "id": "d8d2a1b4484973cc",
+      "repository": "dapper",
+      "path": "Dapper/DynamicParameters.cs",
+      "role": "other",
+      "source_sha256": "ed0379c8f8e79af4f1a49add9f46c672e6d03fe1c25ed0a3865e10e9f3ac87e6",
+      "predictors": {
+        "C": 70,
+        "B": 48,
+        "K": 20,
+        "CT": 70,
+        "KT": 20,
+        "CH": 71,
+        "KH": 21,
+        "CTH": 71,
+        "KTH": 21,
+        "KQH": 24,
+        "KTHA": 21,
+        "CS": 78,
+        "lines": 506,
+        "E": 28,
+        "arity": 7,
+        "S": 62,
+        "T": 0,
+        "Q": 6,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "d8d2a1b4484973cc",
+        "actual_role": "Production dynamic SQL parameter bag, template binding, and output callbacks",
+        "attention_priority": 3,
+        "review_difficulty": 3,
+        "confidence": "high",
+        "hardest_behavior": "Prepare output parameters from member expressions, bind template and explicit values to command parameters, then write returned values to targets only at completion.",
+        "counterevidence": "Provider-specific list/custom conversion work is delegated, and parameter metadata has a compact explicit structure; ordinary Add calls are simple assignments.",
+        "inspection_scope": "Full Dapper/DynamicParameters.cs, lines 1-506; full DynamicParameters.ParamInfo.cs and DynamicParameters.CachedOutputSetters.cs. GridReader completion callback wiring inspected as nearby context.",
+        "evidence": [
+          {
+            "start_line": 186,
+            "end_line": 229,
+            "observation": "Template appenders are cached by identity, command parameters are reconciled into the bag, then queued output preparation executes."
+          },
+          {
+            "start_line": 231,
+            "end_line": 308,
+            "observation": "Explicit parameters select custom, list, handler, or ordinary binding, reuse command parameters, and attach the provider parameter before literal substitution."
+          },
+          {
+            "start_line": 348,
+            "end_line": 413,
+            "observation": "Output validates a member chain, constructs parameter/cache names, and finds a per-target-type setter."
+          },
+          {
+            "start_line": 415,
+            "end_line": 491,
+            "observation": "Runtime IL walks the target chain and assigns the typed output value; a deferred callback then creates or adjusts InputOutput metadata and associates target and setter."
+          },
+          {
+            "start_line": 498,
+            "end_line": 503,
+            "observation": "Completion invokes the stored output setters, separate from initial preparation and command attachment."
+          }
+        ],
+        "attention_priority_reason": "Meaningful changes cross preparation, execution, and completion with externally visible target mutation.",
+        "review_difficulty_reason": "Review requires following expression validation, emitted IL stack behavior, cache identity, template precedence, provider parameter attachment, and deferred callbacks together."
+      }
+    },
+    {
+      "id": "320d1768e531f21b",
+      "repository": "dapper",
+      "path": "Dapper/SqlMapper.DapperRowMetaObject.cs",
+      "role": "other",
+      "source_sha256": "c336ba9d4807252881cd356c99d1db5494331d6770ec68a3336685a1dc4dddc3",
+      "predictors": {
+        "C": 2,
+        "B": 2,
+        "K": 2,
+        "CT": 2,
+        "KT": 2,
+        "CH": 2,
+        "KH": 2,
+        "CTH": 2,
+        "KTH": 2,
+        "KQH": 2,
+        "KTHA": 2,
+        "CS": 4,
+        "lines": 99,
+        "E": 2,
+        "arity": 3,
+        "S": 3,
+        "T": 0,
+        "Q": 0,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "320d1768e531f21b",
+        "actual_role": "Production dynamic-language binding adapter for Dapper rows",
+        "attention_priority": 1,
+        "review_difficulty": 2,
+        "confidence": "medium",
+        "hardest_behavior": "Generate valid dynamic call expressions and binding restrictions for row reads/writes while preserving Visual Basic invoke-member behavior.",
+        "counterevidence": "The class translates operations to existing dictionary/row methods and does not itself manage field storage or row layout.",
+        "inspection_scope": "Full Dapper/SqlMapper.DapperRowMetaObject.cs, lines 1-99; SqlMapper.DapperRow.cs lines 42-60 and 160-200, plus targeted symbol search.",
+        "evidence": [
+          {
+            "start_line": 19,
+            "end_line": 20,
+            "observation": "Read and write bindings select distinct reflected methods: dictionary Item getter and DapperRow.SetValue."
+          },
+          {
+            "start_line": 39,
+            "end_line": 50,
+            "observation": "Each generated call converts the receiver to LimitType and installs a type restriction on that receiver."
+          },
+          {
+            "start_line": 66,
+            "end_line": 89,
+            "observation": "Invoke-member deliberately behaves as a named value read for Visual Basic, while setter values convert to object before calling SetValue."
+          }
+        ],
+        "attention_priority_reason": "The behavior is a localized adapter, so attention centers on a narrow compatibility contract.",
+        "review_difficulty_reason": "Accurate review still requires specialized dynamic-binding knowledge: expression types, cached rule restrictions, return values, and language-specific invocation."
+      }
+    },
+    {
+      "id": "17e3a822fb2e1ee3",
+      "repository": "dapper",
+      "path": "Dapper/SqlMapper.GridReader.Async.cs",
+      "role": "other",
+      "source_sha256": "34e975c7d8b3f0d3ce46ee4c85dba50f92e00f4acca4c73cc5d8a85215098e35",
+      "predictors": {
+        "C": 11,
+        "B": 6,
+        "K": 7,
+        "CT": 11,
+        "KT": 7,
+        "CH": 12,
+        "KH": 8,
+        "CTH": 12,
+        "KTH": 8,
+        "KQH": 8,
+        "KTHA": 8,
+        "CS": 16,
+        "lines": 314,
+        "E": 8,
+        "arity": 3,
+        "S": 18,
+        "T": 0,
+        "Q": 0,
+        "H": 3,
+        "A": 0
+      },
+      "rating": {
+        "id": "17e3a822fb2e1ee3",
+        "actual_role": "Production asynchronous multi-result reader and resource lifecycle",
+        "attention_priority": 3,
+        "review_difficulty": 3,
+        "confidence": "high",
+        "hardest_behavior": "Maintain exactly-once ordered grid consumption, schema-appropriate deserialization, and reader/command completion through buffered, single-row, deferred, and asynchronous streaming paths.",
+        "counterevidence": "Public overloads mostly delegate and disposal is centralized, but their shared state makes the internal lifecycle materially demanding.",
+        "inspection_scope": "Full Dapper/SqlMapper.GridReader.Async.cs, lines 1-314; SqlMapper.GridReader.cs lines 16-47, 175-190, 393-425, 437-468 and targeted symbol search. Assigned Identity.cs and DynamicParameters.cs read in full.",
+        "evidence": [
+          {
+            "start_line": 136,
+            "end_line": 164,
+            "observation": "Finishing the matching grid either advances/reset-consumption state or disposes the reader, invokes completion, and disposes the command."
+          },
+          {
+            "start_line": 167,
+            "end_line": 195,
+            "observation": "Reads mark consumption before selecting buffered or synchronous deferred behavior, and reuse deserializers only when column hashes match."
+          },
+          {
+            "start_line": 197,
+            "end_line": 225,
+            "observation": "Single-row variants combine first/default/single semantics, surplus-row reads, deserialization, and grid advancement."
+          },
+          {
+            "start_line": 228,
+            "end_line": 274,
+            "observation": "Buffered and async-streaming loops guard the grid index and advance in finally, including early enumeration termination."
+          },
+          {
+            "start_line": 281,
+            "end_line": 310,
+            "observation": "Disposal conditionally cancels an open reader, uses target-framework-specific disposal, then releases the command."
+          }
+        ],
+        "attention_priority_reason": "Changes affect resource ownership, output callbacks, and subsequent result availability across asynchronous operation boundaries.",
+        "review_difficulty_reason": "Review must follow state shared with another partial file, cache/schema changes, cancellation, early disposal, and different exception/cleanup paths."
+      }
+    },
+    {
+      "id": "8c407de5a36308ad",
+      "repository": "dapper",
+      "path": "Dapper/SqlMapper.GridReader.cs",
+      "role": "other",
+      "source_sha256": "84d730081b8fa908e786c15802c09f1b94162e14f10903aaa619d0254caad9cb",
+      "predictors": {
+        "C": 11,
+        "B": 6,
+        "K": 7,
+        "CT": 11,
+        "KT": 7,
+        "CH": 11,
+        "KH": 7,
+        "CTH": 11,
+        "KTH": 7,
+        "KQH": 7,
+        "KTHA": 7,
+        "CS": 16,
+        "lines": 494,
+        "E": 8,
+        "arity": 7,
+        "S": 18,
+        "T": 0,
+        "Q": 0,
+        "H": 2,
+        "A": 0
+      },
+      "rating": {
+        "id": "8c407de5a36308ad",
+        "role": "Production owner of a database reader's ordered result sets, supporting row cardinality, deferred reads, multi-mapping, and cleanup.",
+        "attention_priority": 3,
+        "review_difficulty": 3,
+        "confidence": "high",
+        "hardest_behavior": "Preserving result ownership and resource lifetime when callers buffer, defer, abandon, or fail during a read. Consumption flags, result indexes, mapping cache identities, iterator-finally advancement, completion callbacks, and async counterparts form interacting nonlocal invariants.",
+        "counterevidence": "The many typed public overloads mostly delegate and should not inflate the assessment. Central before/after hooks and conversion helpers make much of the behavior reviewable, but their invocation timing still differs between pathways.",
+        "inspection_scope": "Read entire assigned SqlMapper.GridReader.cs, lines 1-494, and entire assigned SqlMapper.GridReader.Async.cs, lines 1-314. No database providers/tests executed; MultiMapImpl and deserializer implementation internals were not inspected.",
+        "evidence": [
+          {
+            "start_line": 179,
+            "end_line": 205,
+            "observation": "OnBeforeGrid rejects disposed/already-consumed results and sets a shared consumed bit before selecting a schema-sensitive deserializer and returning a buffered or deferred sequence."
+          },
+          {
+            "start_line": 208,
+            "end_line": 235,
+            "observation": "Single-row operations combine required/optional cardinality, extra-row detection, draining, and subsequent advancement; exceptions can interrupt this order."
+          },
+          {
+            "start_line": 239,
+            "end_line": 270,
+            "observation": "Multi-map iterator bodies acquire grid ownership and advance from finally, so invocation and enumeration timing are semantically significant."
+          },
+          {
+            "start_line": 393,
+            "end_line": 420,
+            "observation": "Deferred enumeration guards against a changed result index and advances from finally; the result index and active-consumption flag occupy the same field."
+          },
+          {
+            "start_line": 440,
+            "end_line": 482,
+            "observation": "Result completion either resets state for the next result or disposes the reader before invoking callbacks and disposing the command; explicit early disposal additionally cancels an open command."
+          }
+        ]
+      }
+    },
+    {
+      "id": "694c3397f95ffb06",
+      "repository": "dapper",
+      "path": "Dapper/SqlMapper.IDataReader.cs",
+      "role": "other",
+      "source_sha256": "dd1795f7ab62ef1467595afe687b753f79e37bf687f6313987e1d0c64a6fe3aa",
+      "predictors": {
+        "C": 8,
+        "B": 6,
+        "K": 8,
+        "CT": 8,
+        "KT": 8,
+        "CH": 9,
+        "KH": 9,
+        "CTH": 9,
+        "KTH": 9,
+        "KQH": 9,
+        "KTHA": 9,
+        "CS": 12,
+        "lines": 194,
+        "E": 5,
+        "arity": 5,
+        "S": 10,
+        "T": 0,
+        "Q": 0,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "694c3397f95ffb06",
+        "actual_role": "Production data-reader parsing and row-parser adapters",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "confidence": "high",
+        "hardest_behavior": "Preserve lazy reader advancement and typed conversion while choosing delegates compatible with reference and value types.",
+        "counterevidence": "Reader traversal has a regular shape and deserializer generation is delegated; the overload documentation explains the intended use.",
+        "inspection_scope": "Full Dapper/SqlMapper.IDataReader.cs, lines 1-194; no additional source inspected specifically for this file.",
+        "evidence": [
+          {
+            "start_line": 15,
+            "end_line": 35,
+            "observation": "The generic iterator advances before constructing its deserializer, then either casts or converts using the nullable underlying type and invariant culture."
+          },
+          {
+            "start_line": 114,
+            "end_line": 124,
+            "observation": "The IDataReader adapter converts each supplied reader and casts each deserialized result."
+          },
+          {
+            "start_line": 179,
+            "end_line": 191,
+            "observation": "The DbDataReader adapter uses a wrapper for value types but a delegate cast for reference types."
+          }
+        ],
+        "attention_priority_reason": "Changes to conversion or adapter behavior deserve tracing across the public overloads and deferred iteration.",
+        "review_difficulty_reason": "Verification needs reader-position, nullability, and delegate-variance reasoning together; the methods are otherwise localized."
+      }
+    },
+    {
+      "id": "b07eb05902f71e97",
+      "repository": "dapper",
+      "path": "Dapper/SqlMapper.Identity.cs",
+      "role": "other",
+      "source_sha256": "66220e23d789a493e1e10eddeafc1fd62a6a01ff9b779e083d859ac0c630a7ac",
+      "predictors": {
+        "C": 4,
+        "B": 3,
+        "K": 4,
+        "CT": 4,
+        "KT": 4,
+        "CH": 4,
+        "KH": 4,
+        "CTH": 4,
+        "KTH": 4,
+        "KQH": 4,
+        "KTHA": 4,
+        "CS": 7,
+        "lines": 284,
+        "E": 4,
+        "arity": 7,
+        "S": 15,
+        "T": 0,
+        "Q": 7,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "b07eb05902f71e97",
+        "actual_role": "Production identity and equality keys for cached queries",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "confidence": "high",
+        "hardest_behavior": "Maintain equality/hash agreement across base, generic, and array-backed identities, including ordered mapping types and connection comparison.",
+        "counterevidence": "The identity data is mostly readonly, and equality plus hash construction are explicit rather than distributed through mutation callbacks.",
+        "inspection_scope": "Full Dapper/SqlMapper.Identity.cs, lines 1-284. Other assigned parameter and grid files show identity consumers.",
+        "evidence": [
+          {
+            "start_line": 22,
+            "end_line": 51,
+            "observation": "Generic mapping-type count and hash stop at the first DontMap through short-circuit evaluation, while indexed type access exposes generic arguments."
+          },
+          {
+            "start_line": 58,
+            "end_line": 83,
+            "observation": "Array-backed identities compute a type hash at construction and retain the supplied array for later comparisons."
+          },
+          {
+            "start_line": 120,
+            "end_line": 139,
+            "observation": "The precomputed hash combines query, grid, result type, mapping types, parameter type, and the connection-string comparer."
+          },
+          {
+            "start_line": 253,
+            "end_line": 280,
+            "observation": "Equality compares the same identity dimensions plus ordered types across identity implementations."
+          }
+        ],
+        "attention_priority_reason": "Key changes can alter query-cache sharing and need deliberate validation of representations and consumers.",
+        "review_difficulty_reason": "A reviewer must reconcile construction, type ordering, equality, and hashing, but no asynchronous lifecycle needs tracing."
+      }
+    },
+    {
+      "id": "0203a1937a3c0f2a",
+      "repository": "dapper",
+      "path": "Dapper/SqlMapper.Link.cs",
+      "role": "other",
+      "source_sha256": "9441ea192b154081e4a85296e6213922d5f9892212a56cbbb160a18a9a78f032",
+      "predictors": {
+        "C": 3,
+        "B": 3,
+        "K": 3,
+        "CT": 3,
+        "KT": 3,
+        "CH": 3,
+        "KH": 3,
+        "CTH": 3,
+        "KTH": 3,
+        "KQH": 4,
+        "KTHA": 4,
+        "CS": 6,
+        "lines": 63,
+        "E": 2,
+        "arity": 3,
+        "S": 9,
+        "T": 0,
+        "Q": 1,
+        "H": 0,
+        "A": 1
+      },
+      "rating": {
+        "id": "0203a1937a3c0f2a",
+        "actual_role": "Internal reference-keyed concurrent append-only micro-cache used for provider command initialization delegates.",
+        "attention_priority": 3,
+        "review_difficulty": 3,
+        "confidence": "high",
+        "hardest_behavior": "Changing insertion or reset semantics requires tracing concurrent lookup, duplicate insertion, and clearing against immutable snapshots. Publication must preserve the chain, a competing insertion must be retried, and a caller losing a duplicate-key race must receive the already-published value through its ref parameter. These are interacting temporal invariants that are not established by a single sequential execution.",
+        "counterevidence": "The concurrency surface is deliberately small: nodes are immutable, there is one head reference, no per-node removal, and matching is explicitly by object identity. The inspected caller tolerates independently constructing a candidate before insertion. These constraints make the proof substantially smaller than a general concurrent collection.",
+        "inspection_scope": "Read SqlMapper.Link.cs completely (1-63). Searched Link usages in Dapper and inspected CommandDefinition.cs 125-205, including cache reset, lookup, delegate construction, and TryAdd. No execution or exhaustive concurrency-test review.",
+        "evidence": [
+          {
+            "start_line": 9,
+            "end_line": 17,
+            "observation": "The stated contract combines reference equality and thread safety with append-only values; Clear independently exchanges the shared head."
+          },
+          {
+            "start_line": 18,
+            "end_line": 30,
+            "observation": "Lookup traverses an existing chain and uses identity equality; a successful lookup returns the stored value without mutating nodes."
+          },
+          {
+            "start_line": 33,
+            "end_line": 48,
+            "observation": "TryAdd snapshots the head atomically, checks duplicates, returns a competing value by ref, and publishes only if the head still matches that snapshot; retry restarts the duplicate check."
+          },
+          {
+            "start_line": 51,
+            "end_line": 60,
+            "observation": "Constructor-only Key, Value, and Tail initialization is part of the immutable-chain assumption on which concurrent traversal depends."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4a7061b2037cc412",
+      "repository": "serilog",
+      "path": "src/Serilog/Context/EnricherStack.cs",
+      "role": "other",
+      "source_sha256": "cfcd64ece0d72941d40c1e63047daef5a1d8fc3818be05b45918f1bcf16deb19",
+      "predictors": {
+        "C": 1,
+        "B": 1,
+        "K": 1,
+        "CT": 1,
+        "KT": 1,
+        "CH": 1,
+        "KH": 1,
+        "CTH": 1,
+        "KTH": 1,
+        "KQH": 1,
+        "KTHA": 1,
+        "CS": 4,
+        "lines": 91,
+        "E": 1,
+        "arity": 2,
+        "S": 5,
+        "T": 0,
+        "Q": 0,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "4a7061b2037cc412",
+        "role": "Production immutable stack of log-event enrichers with a mutable value-type enumerator.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Preserving the empty sentinel and newest-first enumeration while allowing Reset to revisit the original immutable stack. This needs focused review of the cursor transition and empty-stack assumptions.",
+        "counterevidence": "There are no callbacks, external resources, or mutations of existing stack nodes. Count and enumeration state have direct local definitions.",
+        "inspection_scope": "Read entire assigned EnricherStack.cs, lines 1-91; no additional context.",
+        "evidence": [
+          {
+            "start_line": 32,
+            "end_line": 53,
+            "observation": "Push constructs a new node over the old stack; Count derives from the predecessor and IsEmpty depends on a missing predecessor."
+          },
+          {
+            "start_line": 61,
+            "end_line": 85,
+            "observation": "Enumerator retains the initial stack separately from its advancing cursor; MoveNext stops at the sentinel, and Reset restores both cursor and current value."
+          }
+        ]
+      }
+    },
+    {
+      "id": "f7418b45606f563c",
+      "repository": "serilog",
+      "path": "src/Serilog/Data/LogEventPropertyValueVisitor.cs",
+      "role": "other",
+      "source_sha256": "5a9335fb207203c685c88dcd143ea0b0c89d75cc913ffed5b9e8d7f2abd0f672",
+      "predictors": {
+        "C": 4,
+        "B": 2,
+        "K": 3,
+        "CT": 4,
+        "KT": 3,
+        "CH": 4,
+        "KH": 3,
+        "CTH": 4,
+        "KTH": 3,
+        "KQH": 3,
+        "KTHA": 3,
+        "CS": 8,
+        "lines": 110,
+        "E": 4,
+        "arity": 2,
+        "S": 10,
+        "T": 0,
+        "Q": 0,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "f7418b45606f563c",
+        "actual_role": "Production abstract typed dispatcher for log-event value visitors",
+        "attention_priority": 0,
+        "review_difficulty": 0,
+        "confidence": "high",
+        "hardest_behavior": "Dispatch each supported value kind to its typed hook and reject unknown kinds through the overridable fallback.",
+        "counterevidence": "The file does not traverse children or accumulate visitor state; it passes state unchanged and declares abstract handlers.",
+        "inspection_scope": "Full src/Serilog/Data/LogEventPropertyValueVisitor.cs, lines 1-110.",
+        "evidence": [
+          {
+            "start_line": 45,
+            "end_line": 62,
+            "observation": "Visit validates a value and directly selects one of four typed hooks or the unsupported hook."
+          },
+          {
+            "start_line": 70,
+            "end_line": 94,
+            "observation": "Concrete traversal/processing behavior is left to abstract implementations."
+          },
+          {
+            "start_line": 105,
+            "end_line": 108,
+            "observation": "The default unsupported hook validates and throws NotSupportedException."
+          }
+        ],
+        "attention_priority_reason": "This is routine dispatch plumbing with no interacting invariant owned by the file.",
+        "review_difficulty_reason": "A type-to-hook check directly establishes the local behavior; concrete visitor algorithms are outside this file."
+      }
+    },
+    {
+      "id": "f86c23fe0338ec73",
+      "repository": "serilog",
+      "path": "src/Serilog/Formatting/Display/LevelOutputFormat.cs",
+      "role": "other",
+      "source_sha256": "35673a854f6970ef0ae0db46d3659af02fc78b153b62f1ebc34af68242d5d677",
+      "predictors": {
+        "C": 7,
+        "B": 3,
+        "K": 5,
+        "CT": 7,
+        "KT": 5,
+        "CH": 7,
+        "KH": 5,
+        "CTH": 7,
+        "KTH": 5,
+        "KQH": 6,
+        "KTHA": 5,
+        "CS": 11,
+        "lines": 96,
+        "E": 7,
+        "arity": 3,
+        "S": 11,
+        "T": 0,
+        "Q": 1,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "f86c23fe0338ec73",
+        "role": "Production level-name formatter with predefined abbreviations, width selection, and casing.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Maintaining compatibility of short format strings, zero/negative derived widths, unknown levels, and fallback casing. These are focused local input-to-output rules; the nonstandard abbreviations must remain intentional.",
+        "counterevidence": "The formatter has no mutable per-call state outside local values. Lookup bounds are visibly guarded or clamped, and the case maps state every supported abbreviation.",
+        "inspection_scope": "Read entire assigned LevelOutputFormat.cs, lines 1-96; no additional context.",
+        "evidence": [
+          {
+            "start_line": 25,
+            "end_line": 53,
+            "observation": "Predefined case maps encode abbreviations such as Dbg and Eror, so widths are table selections rather than ordinary string truncation."
+          },
+          {
+            "start_line": 55,
+            "end_line": 82,
+            "observation": "Unknown levels and unsupported format shapes use casing fallback; short formats derive width by character arithmetic, return empty for width below one, then select a casing map."
+          },
+          {
+            "start_line": 85,
+            "end_line": 94,
+            "observation": "Width is capped at the level's available abbreviation length, while the no-width overload selects the final full name."
+          }
+        ]
+      }
+    },
+    {
+      "id": "d8623ee13857858c",
+      "repository": "serilog",
+      "path": "src/Serilog/Formatting/Display/MessageTemplateTextFormatter.cs",
+      "role": "other",
+      "source_sha256": "02b31879361828745a4644e6e2c91b78483c7cf9797fe54ec3d2a7668c44c0b8",
+      "predictors": {
+        "C": 40,
+        "B": 24,
+        "K": 23,
+        "CT": 40,
+        "KT": 23,
+        "CH": 40,
+        "KH": 23,
+        "CTH": 40,
+        "KTH": 23,
+        "KQH": 25,
+        "KTHA": 23,
+        "CS": 47,
+        "lines": 162,
+        "E": 21,
+        "arity": 2,
+        "S": 44,
+        "T": 0,
+        "Q": 2,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "d8623ee13857858c",
+        "role": "Production log-event display formatter combining reserved output fields, message rendering, custom properties, and alignment.",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "confidence": "high",
+        "hardest_behavior": "Keeping reserved-field precedence, missing-property suppression, string casing, nested message formatting, and padding consistent while managing an optional reusable output buffer. Review must trace how rendering decisions interact with output destination and buffer release.",
+        "counterevidence": "Most reserved-field cases are independent dispatch rules. Parsing and detailed value rendering are delegated, and there is no evolving event state across tokens beyond output and temporary buffering.",
+        "inspection_scope": "Read entire assigned MessageTemplateTextFormatter.cs, lines 1-162; complete assigned LevelOutputFormat.cs and MessageTemplateRenderer.cs; complete Rendering/ReusableStringWriter.cs for buffer ownership context.",
+        "evidence": [
+          {
+            "start_line": 60,
+            "end_line": 85,
+            "observation": "Text tokens render directly while reserved level, trace/span, and newline fields receive special rendering and padding before generic properties are considered."
+          },
+          {
+            "start_line": 86,
+            "end_line": 106,
+            "observation": "Exception output appends a newline and catches failures in exception string conversion before padding."
+          },
+          {
+            "start_line": 110,
+            "end_line": 148,
+            "observation": "Aligned generic fields acquire a reusable writer; Message and Properties delegate to specialized renderers, missing fields skip output, and scalar strings use display casing."
+          },
+          {
+            "start_line": 150,
+            "end_line": 157,
+            "observation": "Buffered output is padded using the accumulated value before disposing the writer, linking formatting behavior to temporary buffer ownership."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fa9cfde3db389169",
+      "repository": "serilog",
+      "path": "src/Serilog/Parsing/PropertyToken.cs",
+      "role": "other",
+      "source_sha256": "f6b6aab338d6d8c597806fbbd2ef71be43480f1d508e4399effe7fa968f26088",
+      "predictors": {
+        "C": 2,
+        "B": 2,
+        "K": 2,
+        "CT": 2,
+        "KT": 2,
+        "CH": 2,
+        "KH": 2,
+        "CTH": 2,
+        "KTH": 2,
+        "KQH": 2,
+        "KTHA": 2,
+        "CS": 5,
+        "lines": 147,
+        "E": 2,
+        "arity": 5,
+        "S": 7,
+        "T": 0,
+        "Q": 1,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "fa9cfde3db389169",
+        "actual_role": "Production parsed message-property token and positional-name metadata",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Keep positional classification, token equality, and rendering delegation consistent with stored raw text and property metadata.",
+        "counterevidence": "The object is immutable after construction, rendering is delegated, and positional parsing uses an explicit invariant culture and style.",
+        "inspection_scope": "Full src/Serilog/Parsing/PropertyToken.cs, lines 1-147; assigned MessageTemplateRenderer.cs also read in full.",
+        "evidence": [
+          {
+            "start_line": 34,
+            "end_line": 46,
+            "observation": "Only a nonnegative integer parsed without extra number styles populates positional metadata."
+          },
+          {
+            "start_line": 62,
+            "end_line": 67,
+            "observation": "Token rendering validates inputs and delegates with message-level literal and JSON flags disabled."
+          },
+          {
+            "start_line": 121,
+            "end_line": 137,
+            "observation": "Equality compares destructuring, format, name, and raw text, while hash uses the property name."
+          }
+        ],
+        "attention_priority_reason": "The substantive assumptions are focused token-value contracts rather than an interacting state machine.",
+        "review_difficulty_reason": "Construction and equality can be checked locally, with the rendering implementation available in the assigned renderer file."
+      }
+    },
+    {
+      "id": "1e8a0ebce32da820",
+      "repository": "serilog",
+      "path": "src/Serilog/Rendering/MessageTemplateRenderer.cs",
+      "role": "other",
+      "source_sha256": "01c9773bde02c6cd7ae60b0f7d075cea06779ab609d34fa4e00f2225a35c8758",
+      "predictors": {
+        "C": 11,
+        "B": 7,
+        "K": 9,
+        "CT": 11,
+        "KT": 9,
+        "CH": 11,
+        "KH": 9,
+        "CTH": 11,
+        "KTH": 9,
+        "KQH": 9,
+        "KTHA": 9,
+        "CS": 15,
+        "lines": 107,
+        "E": 7,
+        "arity": 6,
+        "S": 15,
+        "T": 0,
+        "Q": 0,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "1e8a0ebce32da820",
+        "role": "Production renderer for message-template text and property tokens with literal/JSON modes and alignment.",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "confidence": "high",
+        "hardest_behavior": "Maintaining mode precedence and token-level formatting while measuring the rendered value for padding. A meaningful change must trace outer literal/JSON flags, scalar-string handling, explicit property formats, missing tokens, and buffer lifetime together.",
+        "counterevidence": "The pipeline is cleanly split into token iteration, property rendering, and value rendering. It has no cross-event state or recursive parsing, and buffered lifetime uses a scoped disposal.",
+        "inspection_scope": "Read entire assigned MessageTemplateRenderer.cs, lines 1-107; complete assigned MessageTemplateTextFormatter.cs and complete Rendering/ReusableStringWriter.cs for call-site and buffering context.",
+        "evidence": [
+          {
+            "start_line": 24,
+            "end_line": 47,
+            "observation": "Outer format characters independently enable literal and JSON modes, which are passed together for each property token."
+          },
+          {
+            "start_line": 59,
+            "end_line": 72,
+            "observation": "Missing properties reproduce raw token text; present values render directly unless alignment requires a reusable temporary writer."
+          },
+          {
+            "start_line": 73,
+            "end_line": 89,
+            "observation": "Alignment compares width with the already-rendered buffer and either writes it directly or applies padding."
+          },
+          {
+            "start_line": 92,
+            "end_line": 105,
+            "observation": "Literal scalar strings take precedence over JSON; JSON formatting applies only without an explicit property format, otherwise normal value rendering receives the format provider."
+          }
+        ]
+      }
+    },
+    {
+      "id": "515e96b5002883b4",
+      "repository": "serilog",
+      "path": "test/Serilog.PerformanceTests/LevelControlBenchmark.cs",
+      "role": "test",
+      "source_sha256": "e39c10c7b18e4b04ac63d81328310ad8029e70e9c6c64afed5aa3976df5c4bf8",
+      "predictors": {
+        "C": 0,
+        "B": 0,
+        "K": 0,
+        "CT": 0,
+        "KT": 0,
+        "CH": 0,
+        "KH": 0,
+        "CTH": 0,
+        "KTH": 0,
+        "KQH": 0,
+        "KTHA": 0,
+        "CS": 2,
+        "lines": 55,
+        "E": 0,
+        "arity": 0,
+        "S": 4,
+        "T": 0,
+        "Q": 0,
+        "H": 0,
+        "A": 0
+      },
+      "rating": {
+        "id": "515e96b5002883b4",
+        "actual_role": "Performance benchmark fixture for logging-level checks",
+        "attention_priority": 0,
+        "review_difficulty": 0,
+        "confidence": "high",
+        "hardest_behavior": "Keep the fixed-level and switched-level benchmark cases comparable at enabled and disabled levels.",
+        "counterevidence": "The file configures four loggers and writes the same event once per benchmark; it owns no logging-level implementation or state transitions.",
+        "inspection_scope": "Full test/Serilog.PerformanceTests/LevelControlBenchmark.cs, lines 1-55.",
+        "evidence": [
+          {
+            "start_line": 14,
+            "end_line": 29,
+            "observation": "Setup varies fixed versus switch-controlled thresholds while using the same sink kind."
+          },
+          {
+            "start_line": 32,
+            "end_line": 54,
+            "observation": "Each benchmark performs a single Write on its designated logger."
+          }
+        ],
+        "attention_priority_reason": "This is routine fixture wiring with no interacting behavioral invariant in the file.",
+        "review_difficulty_reason": "The comparison can be checked directly from setup and each one-call benchmark."
+      }
+    },
+    {
+      "id": "56737f31c002e60b",
+      "repository": "serilog",
+      "path": "test/Serilog.Tests/ArgumentNullTests.cs",
+      "role": "test",
+      "source_sha256": "c4203a80f2abc649c9d6c0eda7cc700c1f28379f113f79efa05ebe80ff2db473",
+      "predictors": {
+        "C": 5,
+        "B": 4,
+        "K": 5,
+        "CT": 5,
+        "KT": 5,
+        "CH": 6,
+        "KH": 6,
+        "CTH": 6,
+        "KTH": 6,
+        "KQH": 6,
+        "KTHA": 6,
+        "CS": 8,
+        "lines": 51,
+        "E": 3,
+        "arity": 1,
+        "S": 9,
+        "T": 0,
+        "Q": 0,
+        "H": 1,
+        "A": 0
+      },
+      "rating": {
+        "id": "56737f31c002e60b",
+        "role": "Source-policy test enforcing use of a null-guard helper in directly enumerated Serilog source files.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Preserving the policy test's discovery boundary: find the solution from the caller source location, then inspect the intended source directory with a single exempt filename. This requires checking filesystem assumptions, not tracing application state.",
+        "counterevidence": "The predicate is a literal substring check and the search terminates at a found solution or filesystem root. It does not analyze C# semantics or recursively enumerate the source tree.",
+        "inspection_scope": "Read entire assigned ArgumentNullTests.cs, lines 1-51; no additional context.",
+        "evidence": [
+          {
+            "start_line": 11,
+            "end_line": 26,
+            "observation": "Run enumerates top-level *.cs files, exempts Guard.cs, and throws on the direct ArgumentNullException construction substring."
+          },
+          {
+            "start_line": 30,
+            "end_line": 49,
+            "observation": "Solution discovery begins at CallerFilePath and walks parent directories, failing if no *.sln is found before the root."
+          }
+        ]
+      }
+    }
+  ],
+  "development_strata": {
+    "original_matched": {
+      "C": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "B": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "K": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "CT": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "KT": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "CH": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "KH": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "CTH": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "KTH": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "KQH": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "KTHA": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "CS": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "lines": {
+        "pairs": 12,
+        "wins": 3,
+        "losses": 3,
+        "ties": 6,
+        "concordance": 0.5
+      },
+      "E": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "arity": {
+        "pairs": 12,
+        "wins": 2,
+        "losses": 3,
+        "ties": 7,
+        "concordance": 0.4583333333333333
+      },
+      "S": {
+        "pairs": 12,
+        "wins": 6,
+        "losses": 0,
+        "ties": 6,
+        "concordance": 0.75
+      },
+      "T": {
+        "pairs": 12,
+        "wins": 0,
+        "losses": 0,
+        "ties": 12,
+        "concordance": 0.5
+      },
+      "Q": {
+        "pairs": 12,
+        "wins": 2,
+        "losses": 1,
+        "ties": 9,
+        "concordance": 0.5416666666666666
+      },
+      "H": {
+        "pairs": 12,
+        "wins": 3,
+        "losses": 0,
+        "ties": 9,
+        "concordance": 0.625
+      },
+      "A": {
+        "pairs": 12,
+        "wins": 0,
+        "losses": 0,
+        "ties": 12,
+        "concordance": 0.5
+      }
+    },
+    "original_targeted": {
+      "C": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "B": {
+        "pairs": 3,
+        "wins": 3,
+        "losses": 0,
+        "ties": 0,
+        "concordance": 1.0
+      },
+      "K": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "concordance": 0.3333333333333333
+      },
+      "CT": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "KT": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "concordance": 0.3333333333333333
+      },
+      "CH": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "KH": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "CTH": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "KTH": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "KQH": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "KTHA": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 0,
+        "ties": 2,
+        "concordance": 0.6666666666666666
+      },
+      "CS": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "lines": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 2,
+        "ties": 0,
+        "concordance": 0.3333333333333333
+      },
+      "E": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "arity": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "S": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 3,
+        "ties": 0,
+        "concordance": 0.0
+      },
+      "T": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 0,
+        "ties": 3,
+        "concordance": 0.5
+      },
+      "Q": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 1,
+        "ties": 0,
+        "concordance": 0.6666666666666666
+      },
+      "H": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "A": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 0,
+        "ties": 2,
+        "concordance": 0.6666666666666666
+      }
+    }
+  },
+  "raw_report_sha256": {
+    "serilog": "396903ed91e287c8516952a79763fd80c588ee0e50e8c0ab4b913392f89bc37e",
+    "csvhelper": "c22f8d4446eb4fe13a39ce6d06df50b95d92fde23c17eb10e7c6407b9278dd39",
+    "dapper": "a8fc66d9bd2871cafad0a43e94e0719060c4816fc0adcb31cf634eb31bda9c19"
+  },
+  "limitation": "Phase-one labels reused as development only; induced pairs share files and are not independent"
+}

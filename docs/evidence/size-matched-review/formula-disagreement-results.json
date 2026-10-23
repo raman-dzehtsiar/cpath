@@ -1,0 +1,263 @@
+{
+  "pairs": [
+    {
+      "repository": "csvhelper",
+      "ids": [
+        "b03970e90af181ad",
+        "15283dfb6587fff3"
+      ],
+      "direction": {
+        "baseline": 1,
+        "breadth": -1
+      },
+      "rating_direction": {
+        "attention_priority": -1,
+        "review_difficulty": -1
+      }
+    },
+    {
+      "repository": "csvhelper",
+      "ids": [
+        "b03970e90af181ad",
+        "5192883e8a3b0893"
+      ],
+      "direction": {
+        "baseline": 1,
+        "breadth": -1
+      },
+      "rating_direction": {
+        "attention_priority": -1,
+        "review_difficulty": -1
+      }
+    },
+    {
+      "repository": "dapper",
+      "ids": [
+        "9411b5d25cca81dc",
+        "0203a1937a3c0f2a"
+      ],
+      "direction": {
+        "baseline": 1,
+        "breadth": -1
+      },
+      "rating_direction": {
+        "attention_priority": -1,
+        "review_difficulty": -1
+      }
+    }
+  ],
+  "samples": [
+    {
+      "id": "0203a1937a3c0f2a",
+      "repository": "dapper",
+      "path": "Dapper/SqlMapper.Link.cs",
+      "lines": 63,
+      "baseline": 3,
+      "breadth": 3,
+      "source_sha256": "9441ea192b154081e4a85296e6213922d5f9892212a56cbbb160a18a9a78f032",
+      "review": {
+        "id": "0203a1937a3c0f2a",
+        "actual_role": "Internal reference-keyed concurrent append-only micro-cache used for provider command initialization delegates.",
+        "attention_priority": 3,
+        "review_difficulty": 3,
+        "confidence": "high",
+        "hardest_behavior": "Changing insertion or reset semantics requires tracing concurrent lookup, duplicate insertion, and clearing against immutable snapshots. Publication must preserve the chain, a competing insertion must be retried, and a caller losing a duplicate-key race must receive the already-published value through its ref parameter. These are interacting temporal invariants that are not established by a single sequential execution.",
+        "counterevidence": "The concurrency surface is deliberately small: nodes are immutable, there is one head reference, no per-node removal, and matching is explicitly by object identity. The inspected caller tolerates independently constructing a candidate before insertion. These constraints make the proof substantially smaller than a general concurrent collection.",
+        "inspection_scope": "Read SqlMapper.Link.cs completely (1-63). Searched Link usages in Dapper and inspected CommandDefinition.cs 125-205, including cache reset, lookup, delegate construction, and TryAdd. No execution or exhaustive concurrency-test review.",
+        "evidence": [
+          {
+            "start_line": 9,
+            "end_line": 17,
+            "observation": "The stated contract combines reference equality and thread safety with append-only values; Clear independently exchanges the shared head."
+          },
+          {
+            "start_line": 18,
+            "end_line": 30,
+            "observation": "Lookup traverses an existing chain and uses identity equality; a successful lookup returns the stored value without mutating nodes."
+          },
+          {
+            "start_line": 33,
+            "end_line": 48,
+            "observation": "TryAdd snapshots the head atomically, checks duplicates, returns a competing value by ref, and publishes only if the head still matches that snapshot; retry restarts the duplicate check."
+          },
+          {
+            "start_line": 51,
+            "end_line": 60,
+            "observation": "Constructor-only Key, Value, and Tail initialization is part of the immutable-chain assumption on which concurrent traversal depends."
+          }
+        ]
+      }
+    },
+    {
+      "id": "15283dfb6587fff3",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/Expressions/ObjectRecordWriter.cs",
+      "lines": 121,
+      "baseline": 20,
+      "breadth": 13,
+      "source_sha256": "63e8875199465b8e711f9ac38a4fa4998f2fc1d1917e6e9c917b9950e31b451c",
+      "review": {
+        "id": "15283dfb6587fff3",
+        "actual_role": "Builds and compiles mapped-object CSV write delegates, coordinating mapping order, custom conversions, constants, converter options, null handling, and field output.",
+        "attention_priority": 3,
+        "review_difficulty": 3,
+        "confidence": "high",
+        "hardest_behavior": "Changing generated field behavior requires distinguishing expression-construction time from later cached delegate execution while preserving mapping precedence and emitted field order. Custom conversion, constant conversion, ordinary member conversion, null records, and nested references take different paths; generated calls also affect the writer field type and output state. A meaningful change needs tracing these contracts across mapping, expression access, the cached writer, and output calls.",
+        "counterevidence": "Member processing is sequential and assembled from separate delegates; mapping traversal, safe nested access, conversion, and actual CSV formatting are delegated to named helpers. Existing constant and null-writing tests provide concrete behavioral examples. There is no concurrency or asynchronous lifecycle in this class.",
+        "inspection_scope": "Read ObjectRecordWriter.cs completely (1-121), RecordWriter.cs completely, Writing/ConstantTests.cs and Writing/WriteNullTests.cs completely. Inspected ExpressionManager.CreateGetMemberExpression (285-350), CsvWriter.WriteConvertedField (115-145), CsvWriter.CanWrite and record-type selection (685-730), and searched MemberMapCollection sorting/AddMembers locations. Did not execute tests or inspect every configuration combination.",
+        "evidence": [
+          {
+            "start_line": 31,
+            "end_line": 46,
+            "observation": "The generator may add an auto-map, flattens mapped members for ordering, and treats an empty map as an error before building any delegates."
+          },
+          {
+            "start_line": 53,
+            "end_line": 69,
+            "observation": "A custom writing conversion constructs typed arguments and calls WriteField directly, then continues before the general CanWrite filter; changing order changes policy."
+          },
+          {
+            "start_line": 73,
+            "end_line": 103,
+            "observation": "Constants use their runtime-type converter, while ordinary members require a configured converter and mutate merged options before embedding conversion calls in expressions."
+          },
+          {
+            "start_line": 96,
+            "end_line": 114,
+            "observation": "Ordinary mapped access relies on ExpressionManager, wraps class records in a null conditional, and calls WriteConvertedField with the mapped field type. This differs from the custom-conversion path."
+          },
+          {
+            "start_line": 114,
+            "end_line": 119,
+            "observation": "Per-member expression trees are compiled and combined into a later-executed action, so construction-time state and runtime writer effects must be considered separately."
+          }
+        ]
+      }
+    },
+    {
+      "id": "5192883e8a3b0893",
+      "repository": "csvhelper",
+      "path": "src/CsvHelper/TypeConversion/EnumConverter.cs",
+      "lines": 116,
+      "baseline": 20,
+      "breadth": 15,
+      "source_sha256": "c3888cd34c2b6f1bc94af6708f8a248689f96d18daecdf1d1d32231b331ac9df",
+      "review": {
+        "id": "5192883e8a3b0893",
+        "actual_role": "CSV enum converter supporting NameAttribute aliases, optional case-insensitive matching, ordinary enum parsing, and reverse alias formatting.",
+        "attention_priority": 2,
+        "review_difficulty": 2,
+        "confidence": "high",
+        "hardest_behavior": "Changing alias acceptance or output selection requires tracing how three lookup tables are initialized and how their different collision rules interact with case sensitivity, duplicate underlying values, alias-first parsing, and ordinary enum fallback. Forward and reverse mappings are intentionally not a simple bijection; fallback failure and null formatting also inherit behavior from the base converter.",
+        "counterevidence": "The dictionaries are populated only during construction and then read. Parsing ultimately delegates to framework enum operations; the focused enum test file supplies duplicate-name/value and case-sensitivity examples. There are no cross-record state transitions or broad orchestration responsibilities.",
+        "inspection_scope": "Read EnumConverter.cs completely (1-116), TypeConversion/EnumConverterTests.cs completely, and DefaultTypeConverter.cs completely. Static review only; neither target-framework branch was executed.",
+        "evidence": [
+          {
+            "start_line": 16,
+            "end_line": 19,
+            "observation": "Exact aliases, case-insensitive aliases, and reverse value-to-name formatting are represented by separate dictionaries with different key semantics."
+          },
+          {
+            "start_line": 41,
+            "end_line": 64,
+            "observation": "Initialization walks framework-enumerated values, resolves each name attribute, and preserves the first insertion separately in all three dictionaries; collisions and multiple aliases require tracing the resulting mappings."
+          },
+          {
+            "start_line": 70,
+            "end_line": 83,
+            "observation": "The per-member ignore-case option selects the alias dictionary, and recognized aliases take precedence over framework parsing."
+          },
+          {
+            "start_line": 85,
+            "end_line": 103,
+            "observation": "Two target-framework implementations use TryParse or Parse with catch, then delegate failures to the base converter."
+          },
+          {
+            "start_line": 107,
+            "end_line": 114,
+            "observation": "Output uses the chosen reverse alias when present and otherwise uses base formatting, so accepted input aliases do not all become output spellings."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9411b5d25cca81dc",
+      "repository": "dapper",
+      "path": "Dapper.ProviderTools/DbExceptionExtensions.cs",
+      "lines": 64,
+      "baseline": 4,
+      "breadth": 2,
+      "source_sha256": "0e3cdc8aa617f5df2c1ac7d0c70cfbc560144bbe7069268063ab380aa4a7ef44",
+      "review": {
+        "id": "9411b5d25cca81dc",
+        "actual_role": "Provider-independent DbException number matching through a cached, compiled accessor for a public integer Number property.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "Changing supported exception shapes requires checking reflection validation, expression compilation, and the distinction between discovery-time failures returning no accessor and getter invocation failures propagating. Cache construction may occur more than once for a type under contention, but its stored helper is immutable and its purpose is localized.",
+        "counterevidence": "The property contract is narrow and explicit: a readable public instance property of exactly the requested type. Missing or unsupported accessors produce false, and concurrency is delegated to ConcurrentDictionary. The helper has no caller-supplied mutation or elaborate invalidation lifecycle.",
+        "inspection_scope": "Read DbExceptionExtensions.cs completely (1-64). Searched IsNumber tests and inspected ProviderTests.cs 65-125, which covers matching/nonmatching SQL-provider errors. No reflection edge-case execution or provider connection was attempted.",
+        "evidence": [
+          {
+            "start_line": 17,
+            "end_line": 28,
+            "observation": "The public extension handles a null exception; matching requires an accessor, whose invocation occurs outside the reflection/compilation catch."
+          },
+          {
+            "start_line": 23,
+            "end_line": 36,
+            "observation": "A concurrent dictionary stores immutable per-type helpers, with check-then-create allowing duplicate helper construction rather than a complex coordinated initialization protocol."
+          },
+          {
+            "start_line": 44,
+            "end_line": 60,
+            "observation": "Reflection restricts the Number contract to a readable public instance property of the exact type, compiles a cast/property-access lambda, and maps construction exceptions to a missing accessor."
+          }
+        ]
+      }
+    },
+    {
+      "id": "b03970e90af181ad",
+      "repository": "csvhelper",
+      "path": "docs-src/CsvHelper.DocsGenerator/Generators/TypeGenerator.cs",
+      "lines": 118,
+      "baseline": 24,
+      "breadth": 11,
+      "source_sha256": "cc62ef7e50369621f0b34e70b500977fc07a885e0814a880928679352c8692f4",
+      "review": {
+        "id": "b03970e90af181ad",
+        "actual_role": "Documentation generator rendering a reflected type into Markdown with declaration, inheritance, constructors, fields, properties, and methods.",
+        "attention_priority": 1,
+        "review_difficulty": 1,
+        "confidence": "high",
+        "hardest_behavior": "A declaration-rendering change needs a focused check of reflected type categories: suppress enum inheritance text, distinguish static from abstract classes without treating interfaces the same way, and preserve indexer parameter formatting. These are localized presentation assumptions rather than a stateful algorithm.",
+        "counterevidence": "Most of the body independently emits a section if its prepared member collection is nonempty. Metadata gathering and ordering are performed by TypeInfo, and naming/summary formatting is delegated to helpers. There is no backtracking, transactional state, or interaction among the member sections beyond appending output.",
+        "inspection_scope": "Read TypeGenerator.cs completely (1-118) and its TypeInfo.cs metadata builder completely (1-93). Did not execute the generator or inspect all naming-extension implementations.",
+        "evidence": [
+          {
+            "start_line": 31,
+            "end_line": 47,
+            "observation": "Declaration rendering locally combines enum inheritance suppression with mutually exclusive static/abstract modifiers based on reflection flags."
+          },
+          {
+            "start_line": 51,
+            "end_line": 80,
+            "observation": "Inheritance, constructors, and fields are emitted as independent sections from prepared collections; these repeated presentation loops do not create coupled state."
+          },
+          {
+            "start_line": 84,
+            "end_line": 101,
+            "observation": "Property rendering has one localized distinction for indexers, formatting their parameter types instead of the ordinary property name."
+          },
+          {
+            "start_line": 104,
+            "end_line": 114,
+            "observation": "Method rendering directly appends names and summaries from the prepared method list, with no additional selection or lifecycle logic."
+          }
+        ]
+      }
+    }
+  ],
+  "reviewer_sha256": "e3e47095a96259d1093792c2432213bdd6be79259757394b5701ce6ace57cfae",
+  "limitation": "Exploratory strict-reversal selection; shared file in two pairs; one reviewer; no inferential test"
+}

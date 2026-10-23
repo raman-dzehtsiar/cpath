@@ -1,0 +1,3549 @@
+{
+  "results_sha256": "b01321a88ca556000b114737944bd2de5f90505189247efe8ed1968061a1024e",
+  "decision": {
+    "frozen_leader": "B",
+    "strictly_beats_C": false,
+    "strictly_beats_CS": true,
+    "observed_reversals": [
+      "polly",
+      "test"
+    ],
+    "supported_default": "C",
+    "promote": false,
+    "reason": "The frozen leader does not improve neutral concordance over C; do not reselect from holdout."
+  },
+  "primary_dimensions_identical": 44,
+  "pair_details": [
+    {
+      "repository": "litedb",
+      "role": "production",
+      "stratum": "neutral",
+      "ids": [
+        "0c9e0647ff8bf596",
+        "afeaa3b7a651701b"
+      ],
+      "primary_reviewer": "a",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "K": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CT": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "E": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "arity": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "litedb",
+      "role": "production",
+      "stratum": "neutral",
+      "ids": [
+        "21107fd3d7866396",
+        "366eb849c7fa0f89"
+      ],
+      "primary_reviewer": "b",
+      "comparisons": {
+        "C": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "K": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CT": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KT": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "E": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "A": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        }
+      }
+    },
+    {
+      "repository": "polly",
+      "role": "production",
+      "stratum": "neutral",
+      "ids": [
+        "b0ef2d446a1a1622",
+        "b7e6712945c142c7"
+      ],
+      "primary_reviewer": "c",
+      "comparisons": {
+        "C": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "E": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "polly",
+      "role": "production",
+      "stratum": "challenge",
+      "ids": [
+        "38fa29055fc6c3b5",
+        "9d0ff6dd4ac505cc"
+      ],
+      "primary_reviewer": "a",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "K": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KT": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "lines": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "E": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "H": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "polly",
+      "role": "production",
+      "stratum": "challenge",
+      "ids": [
+        "5e83553250c20d51",
+        "c4768b25d73a9fe4"
+      ],
+      "primary_reviewer": "b",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "E": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "mediatr",
+      "role": "production",
+      "stratum": "neutral",
+      "ids": [
+        "90b61168c617d675",
+        "48a9e635f931cd65"
+      ],
+      "primary_reviewer": "c",
+      "comparisons": {
+        "C": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "E": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "mediatr",
+      "role": "test",
+      "stratum": "neutral",
+      "ids": [
+        "3d34fa2f2c525179",
+        "a468646b4fbea0c5"
+      ],
+      "primary_reviewer": "a",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "E": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "litedb",
+      "role": "production",
+      "stratum": "challenge",
+      "ids": [
+        "d6dd140e5f97d01c",
+        "64434972d65215a0"
+      ],
+      "primary_reviewer": "b",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "K": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CT": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KT": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "KQH": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "KTHA": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "E": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "polly",
+      "role": "test",
+      "stratum": "neutral",
+      "ids": [
+        "42015791daecfac4",
+        "60c4e6af17459973"
+      ],
+      "primary_reviewer": "c",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "K": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "E": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "polly",
+      "role": "production",
+      "stratum": "neutral",
+      "ids": [
+        "466d01740dc8a9f5",
+        "35e9f81d07311794"
+      ],
+      "primary_reviewer": "a",
+      "comparisons": {
+        "C": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "K": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CT": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KT": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "E": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "mediatr",
+      "role": "test",
+      "stratum": "neutral",
+      "ids": [
+        "424125397ba33842",
+        "bc43310d8301b719"
+      ],
+      "primary_reviewer": "b",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "CS": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "E": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "polly",
+      "role": "production",
+      "stratum": "neutral",
+      "ids": [
+        "b921e7afc8787218",
+        "bd3ca39971456111"
+      ],
+      "primary_reviewer": "c",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "B": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "K": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CT": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KT": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "E": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "polly",
+      "role": "test",
+      "stratum": "neutral",
+      "ids": [
+        "1accbb34007a77c3",
+        "2283dac28352032b"
+      ],
+      "primary_reviewer": "a",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "E": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "mediatr",
+      "role": "test",
+      "stratum": "neutral",
+      "ids": [
+        "0e491e2dba0f3fe0",
+        "0eb708c6a30d3397"
+      ],
+      "primary_reviewer": "b",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "E": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "mediatr",
+      "role": "production",
+      "stratum": "neutral",
+      "ids": [
+        "d0f7ff66df0778e2",
+        "025c651fa71f96be"
+      ],
+      "primary_reviewer": "c",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "B": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "K": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CT": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KT": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "E": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "litedb",
+      "role": "test",
+      "stratum": "neutral",
+      "ids": [
+        "8c3213ba4d06c448",
+        "2a138f2b690907e7"
+      ],
+      "primary_reviewer": "a",
+      "comparisons": {
+        "C": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "E": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "litedb",
+      "role": "production",
+      "stratum": "challenge",
+      "ids": [
+        "a93ad35795399e10",
+        "844b486811bbf4e2"
+      ],
+      "primary_reviewer": "b",
+      "comparisons": {
+        "C": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "E": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "T": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "litedb",
+      "role": "production",
+      "stratum": "neutral",
+      "ids": [
+        "e6a444c28b3a2944",
+        "813abcc94ccb9671"
+      ],
+      "primary_reviewer": "c",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "B": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "K": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "CT": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "KT": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "KH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "KTH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "E": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": -1,
+          "credit": 0
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "litedb",
+      "role": "test",
+      "stratum": "neutral",
+      "ids": [
+        "7f6584a6206ec602",
+        "5566974cd69c9960"
+      ],
+      "primary_reviewer": "a",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "B": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "K": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CT": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KT": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "E": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": 1,
+          "credit": 1
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": 1,
+          "credit": 0
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "litedb",
+      "role": "test",
+      "stratum": "neutral",
+      "ids": [
+        "c5b4a3cf6299531d",
+        "be2e0df8a78eb275"
+      ],
+      "primary_reviewer": "b",
+      "comparisons": {
+        "C": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "K": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CT": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KT": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "E": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "mediatr",
+      "role": "production",
+      "stratum": "neutral",
+      "ids": [
+        "3f9f1bb89daa23c5",
+        "18e5a9837b568389"
+      ],
+      "primary_reviewer": "c",
+      "comparisons": {
+        "C": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "B": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "K": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CT": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KT": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CTH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KTH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KQH": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "KTHA": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "CS": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "E": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "arity": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": -1,
+          "judgment_direction": -1,
+          "credit": 1
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": -1,
+          "credit": 0.5
+        }
+      }
+    },
+    {
+      "repository": "polly",
+      "role": "test",
+      "stratum": "neutral",
+      "ids": [
+        "b6ad5597e20e66a6",
+        "44a65dd5d586232c"
+      ],
+      "primary_reviewer": "a",
+      "comparisons": {
+        "C": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "B": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "K": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CT": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KT": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KQH": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "KTHA": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "CS": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "lines": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "E": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "arity": {
+          "predictor_direction": -1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "S": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "T": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "Q": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "H": {
+          "predictor_direction": 1,
+          "judgment_direction": 0,
+          "credit": 0.5
+        },
+        "A": {
+          "predictor_direction": 0,
+          "judgment_direction": 0,
+          "credit": 0.5
+        }
+      }
+    }
+  ],
+  "tie_breakdown": {
+    "neutral": {
+      "C": {
+        "judgment_tied": 6,
+        "predictor_tied": 5,
+        "both_tied": 1
+      },
+      "B": {
+        "judgment_tied": 6,
+        "predictor_tied": 4,
+        "both_tied": 2
+      },
+      "K": {
+        "judgment_tied": 6,
+        "predictor_tied": 5,
+        "both_tied": 2
+      },
+      "CT": {
+        "judgment_tied": 6,
+        "predictor_tied": 5,
+        "both_tied": 1
+      },
+      "KT": {
+        "judgment_tied": 6,
+        "predictor_tied": 5,
+        "both_tied": 2
+      },
+      "CH": {
+        "judgment_tied": 6,
+        "predictor_tied": 2,
+        "both_tied": 0
+      },
+      "KH": {
+        "judgment_tied": 6,
+        "predictor_tied": 2,
+        "both_tied": 0
+      },
+      "CTH": {
+        "judgment_tied": 6,
+        "predictor_tied": 2,
+        "both_tied": 0
+      },
+      "KTH": {
+        "judgment_tied": 6,
+        "predictor_tied": 2,
+        "both_tied": 0
+      },
+      "KQH": {
+        "judgment_tied": 6,
+        "predictor_tied": 2,
+        "both_tied": 0
+      },
+      "KTHA": {
+        "judgment_tied": 6,
+        "predictor_tied": 2,
+        "both_tied": 0
+      },
+      "CS": {
+        "judgment_tied": 6,
+        "predictor_tied": 3,
+        "both_tied": 0
+      },
+      "lines": {
+        "judgment_tied": 6,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "E": {
+        "judgment_tied": 6,
+        "predictor_tied": 4,
+        "both_tied": 1
+      },
+      "arity": {
+        "judgment_tied": 6,
+        "predictor_tied": 5,
+        "both_tied": 1
+      },
+      "S": {
+        "judgment_tied": 6,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "T": {
+        "judgment_tied": 6,
+        "predictor_tied": 18,
+        "both_tied": 6
+      },
+      "Q": {
+        "judgment_tied": 6,
+        "predictor_tied": 11,
+        "both_tied": 4
+      },
+      "H": {
+        "judgment_tied": 6,
+        "predictor_tied": 2,
+        "both_tied": 0
+      },
+      "A": {
+        "judgment_tied": 6,
+        "predictor_tied": 17,
+        "both_tied": 6
+      }
+    },
+    "challenge": {
+      "C": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "B": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "K": {
+        "judgment_tied": 2,
+        "predictor_tied": 2,
+        "both_tied": 1
+      },
+      "CT": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "KT": {
+        "judgment_tied": 2,
+        "predictor_tied": 2,
+        "both_tied": 1
+      },
+      "CH": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "KH": {
+        "judgment_tied": 2,
+        "predictor_tied": 1,
+        "both_tied": 1
+      },
+      "CTH": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "KTH": {
+        "judgment_tied": 2,
+        "predictor_tied": 1,
+        "both_tied": 1
+      },
+      "KQH": {
+        "judgment_tied": 2,
+        "predictor_tied": 1,
+        "both_tied": 1
+      },
+      "KTHA": {
+        "judgment_tied": 2,
+        "predictor_tied": 1,
+        "both_tied": 1
+      },
+      "CS": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "lines": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "E": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "arity": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "S": {
+        "judgment_tied": 2,
+        "predictor_tied": 0,
+        "both_tied": 0
+      },
+      "T": {
+        "judgment_tied": 2,
+        "predictor_tied": 3,
+        "both_tied": 1
+      },
+      "Q": {
+        "judgment_tied": 2,
+        "predictor_tied": 1,
+        "both_tied": 1
+      },
+      "H": {
+        "judgment_tied": 2,
+        "predictor_tied": 2,
+        "both_tied": 2
+      },
+      "A": {
+        "judgment_tied": 2,
+        "predictor_tied": 4,
+        "both_tied": 2
+      }
+    }
+  },
+  "overlap": {
+    "neutral": {
+      "primary": {
+        "C": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "B": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "K": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "CT": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "KT": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "CH": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "KH": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666
+        },
+        "CTH": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "KTH": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666
+        },
+        "KQH": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666
+        },
+        "KTHA": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666
+        },
+        "CS": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "lines": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "E": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666
+        },
+        "arity": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "S": {
+          "pairs": 6,
+          "wins": 1,
+          "losses": 2,
+          "ties": 3,
+          "concordance": 0.4166666666666667
+        },
+        "T": {
+          "pairs": 6,
+          "wins": 0,
+          "losses": 0,
+          "ties": 6,
+          "concordance": 0.5
+        },
+        "Q": {
+          "pairs": 6,
+          "wins": 1,
+          "losses": 0,
+          "ties": 5,
+          "concordance": 0.5833333333333334
+        },
+        "H": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666
+        },
+        "A": {
+          "pairs": 6,
+          "wins": 1,
+          "losses": 0,
+          "ties": 5,
+          "concordance": 0.5833333333333334
+        }
+      },
+      "secondary": {
+        "C": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "B": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "K": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "CT": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "KT": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334
+        },
+        "CH": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 1,
+          "ties": 2,
+          "concordance": 0.6666666666666666
+        },
+        "KH": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 0,
+          "ties": 3,
+          "concordance": 0.75
+        },
+        "CTH": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 1,
+          "ties": 2,
+          "concordance": 0.6666666666666666
+        },
+        "KTH": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 0,
+          "ties": 3,
+          "concordance": 0.75
+        },
+        "KQH": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 0,
+          "ties": 3,
+          "concordance": 0.75
+        },
+        "KTHA": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 0,
+          "ties": 3,
+          "concordance": 0.75
+        },
+        "CS": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 1,
+          "ties": 2,
+          "concordance": 0.6666666666666666
+        },
+        "lines": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 2,
+          "ties": 2,
+          "concordance": 0.5
+        },
+        "E": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666
+        },
+        "arity": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 2,
+          "ties": 2,
+          "concordance": 0.5
+        },
+        "S": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 2,
+          "ties": 2,
+          "concordance": 0.5
+        },
+        "T": {
+          "pairs": 6,
+          "wins": 0,
+          "losses": 0,
+          "ties": 6,
+          "concordance": 0.5
+        },
+        "Q": {
+          "pairs": 6,
+          "wins": 1,
+          "losses": 0,
+          "ties": 5,
+          "concordance": 0.5833333333333334
+        },
+        "H": {
+          "pairs": 6,
+          "wins": 3,
+          "losses": 0,
+          "ties": 3,
+          "concordance": 0.75
+        },
+        "A": {
+          "pairs": 6,
+          "wins": 1,
+          "losses": 0,
+          "ties": 5,
+          "concordance": 0.5833333333333334
+        }
+      }
+    },
+    "challenge": {
+      "primary": {
+        "C": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "B": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "K": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "CT": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KT": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "CH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "CTH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KTH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KQH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KTHA": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "CS": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "lines": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "E": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "arity": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "S": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "T": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "Q": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "H": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "A": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        }
+      },
+      "secondary": {
+        "C": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "B": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "K": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "CT": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KT": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "CH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "CTH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KTH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KQH": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "KTHA": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "CS": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "lines": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "E": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "arity": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "S": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "T": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "Q": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "H": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        },
+        "A": {
+          "pairs": 0,
+          "wins": 0,
+          "losses": 0,
+          "ties": 0,
+          "concordance": null
+        }
+      }
+    }
+  },
+  "without_documentation_snippets": {
+    "neutral": {
+      "C": {
+        "pairs": 17,
+        "wins": 6,
+        "losses": 1,
+        "ties": 10,
+        "concordance": 0.6470588235294118
+      },
+      "B": {
+        "pairs": 17,
+        "wins": 7,
+        "losses": 2,
+        "ties": 8,
+        "concordance": 0.6470588235294118
+      },
+      "K": {
+        "pairs": 17,
+        "wins": 7,
+        "losses": 1,
+        "ties": 9,
+        "concordance": 0.6764705882352942
+      },
+      "CT": {
+        "pairs": 17,
+        "wins": 6,
+        "losses": 1,
+        "ties": 10,
+        "concordance": 0.6470588235294118
+      },
+      "KT": {
+        "pairs": 17,
+        "wins": 7,
+        "losses": 1,
+        "ties": 9,
+        "concordance": 0.6764705882352942
+      },
+      "CH": {
+        "pairs": 17,
+        "wins": 7,
+        "losses": 2,
+        "ties": 8,
+        "concordance": 0.6470588235294118
+      },
+      "KH": {
+        "pairs": 17,
+        "wins": 8,
+        "losses": 1,
+        "ties": 8,
+        "concordance": 0.7058823529411765
+      },
+      "CTH": {
+        "pairs": 17,
+        "wins": 7,
+        "losses": 2,
+        "ties": 8,
+        "concordance": 0.6470588235294118
+      },
+      "KTH": {
+        "pairs": 17,
+        "wins": 8,
+        "losses": 1,
+        "ties": 8,
+        "concordance": 0.7058823529411765
+      },
+      "KQH": {
+        "pairs": 17,
+        "wins": 8,
+        "losses": 1,
+        "ties": 8,
+        "concordance": 0.7058823529411765
+      },
+      "KTHA": {
+        "pairs": 17,
+        "wins": 8,
+        "losses": 1,
+        "ties": 8,
+        "concordance": 0.7058823529411765
+      },
+      "CS": {
+        "pairs": 17,
+        "wins": 6,
+        "losses": 2,
+        "ties": 9,
+        "concordance": 0.6176470588235294
+      },
+      "lines": {
+        "pairs": 17,
+        "wins": 8,
+        "losses": 3,
+        "ties": 6,
+        "concordance": 0.6470588235294118
+      },
+      "E": {
+        "pairs": 17,
+        "wins": 7,
+        "losses": 1,
+        "ties": 9,
+        "concordance": 0.6764705882352942
+      },
+      "arity": {
+        "pairs": 17,
+        "wins": 3,
+        "losses": 4,
+        "ties": 10,
+        "concordance": 0.47058823529411764
+      },
+      "S": {
+        "pairs": 17,
+        "wins": 6,
+        "losses": 5,
+        "ties": 6,
+        "concordance": 0.5294117647058824
+      },
+      "T": {
+        "pairs": 17,
+        "wins": 0,
+        "losses": 0,
+        "ties": 17,
+        "concordance": 0.5
+      },
+      "Q": {
+        "pairs": 17,
+        "wins": 3,
+        "losses": 2,
+        "ties": 12,
+        "concordance": 0.5294117647058824
+      },
+      "H": {
+        "pairs": 17,
+        "wins": 7,
+        "losses": 3,
+        "ties": 7,
+        "concordance": 0.6176470588235294
+      },
+      "A": {
+        "pairs": 17,
+        "wins": 1,
+        "losses": 0,
+        "ties": 16,
+        "concordance": 0.5294117647058824
+      }
+    },
+    "challenge": {
+      "C": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "B": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 2,
+        "ties": 1,
+        "concordance": 0.16666666666666666
+      },
+      "K": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 0,
+        "ties": 2,
+        "concordance": 0.6666666666666666
+      },
+      "CT": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "KT": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 0,
+        "ties": 2,
+        "concordance": 0.6666666666666666
+      },
+      "CH": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "KH": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "CTH": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "KTH": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "KQH": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "KTHA": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "CS": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "lines": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "E": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "arity": {
+        "pairs": 3,
+        "wins": 2,
+        "losses": 0,
+        "ties": 1,
+        "concordance": 0.8333333333333334
+      },
+      "S": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "T": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 0,
+        "ties": 3,
+        "concordance": 0.5
+      },
+      "Q": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "H": {
+        "pairs": 3,
+        "wins": 1,
+        "losses": 1,
+        "ties": 1,
+        "concordance": 0.5
+      },
+      "A": {
+        "pairs": 3,
+        "wins": 0,
+        "losses": 0,
+        "ties": 3,
+        "concordance": 0.5
+      }
+    }
+  },
+  "limitation": "Post-label descriptive audit. Original pairs, labels and selection remain authoritative; no hypothesis test or reselection."
+}

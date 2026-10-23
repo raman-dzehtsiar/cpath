@@ -1,8 +1,9 @@
 # Research
 
-We are researching an **attention score** to help developers prioritize human
-review and reduce future maintenance effort, including during agent-assisted
-development. The current preview uses cognitive complexity alone; a combined
+We are looking for the best way to define an **attention score**: a metric that
+helps developers and AI agents prioritize review and improvement efforts to keep
+codebases maintainable.
+The current preview uses cognitive complexity alone; a combined
 score and architectural-drift detection remain research goals.
 
 ## Why start with cognitive complexity?
@@ -17,6 +18,9 @@ In a score-blinded assessment, coding agents judged all ten sampled top-ranked
 files to need careful or intensive review. This supports further investigation,
 but file size showed a similar association with their judgments, and human
 maintainers have not yet validated the ranking.
+
+See the [latest attention-ranking research](attention-ranking-results.md) for
+comparisons with additional signals and low-complexity review cases.
 
 Scientific studies also suggest cognitive complexity can help identify code that
 is difficult to understand, while showing limits to its predictive value:
@@ -33,10 +37,10 @@ is difficult to understand, while showing limits to its predictive value:
 
 ## Starting points
 
-We will begin with a focused study before developing a broader attention score.
+Our next step is a focused maintainer study before developing a broader attention score.
 
 - Evaluate cpath's current cognitive-complexity ranking as the initial approach.
-- Initially study C# projects to keep the research scope manageable.
+- Keep the research focused on C# projects to keep the scope manageable.
 - Ask those projects' maintainers which files need attention first and why,
   before showing them cpath's scores. Compare their assessments with cpath's ranking.
 

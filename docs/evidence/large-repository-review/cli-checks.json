@@ -1,0 +1,48 @@
+{
+  "binary_sha256": "6a5703a2593a081fca01d34c2b1747408eb99f26d4038901ee09bc36c490cf99",
+  "runs": [
+    {
+      "repository": "roslyn",
+      "command": [
+        "<repo root>/target/release/cpath",
+        "<research root>/repos/roslyn",
+        "--top",
+        "20",
+        "--threads",
+        "2"
+      ],
+      "exit_code": 3,
+      "rows": 20,
+      "scored": 16658,
+      "unscored": 287,
+      "wall_seconds": 36.01,
+      "user_seconds": 67.17,
+      "system_seconds": 0.78,
+      "peak_rss_kib": 201504,
+      "exact_top20_parity": true,
+      "diagnostics_and_omitted_count": true
+    },
+    {
+      "repository": "aspnetcore",
+      "command": [
+        "<repo root>/target/release/cpath",
+        "<research root>/repos/aspnetcore",
+        "--top",
+        "20",
+        "--threads",
+        "2"
+      ],
+      "exit_code": 3,
+      "rows": 20,
+      "scored": 10629,
+      "unscored": 254,
+      "wall_seconds": 13.56,
+      "user_seconds": 25.04,
+      "system_seconds": 0.3,
+      "peak_rss_kib": 43180,
+      "exact_top20_parity": true,
+      "diagnostics_and_omitted_count": true
+    }
+  ],
+  "scope": "Full default product selection, no excludes; one verification scan each, not repeated timing study"
+}

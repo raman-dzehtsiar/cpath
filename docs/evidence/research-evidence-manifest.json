@@ -1,0 +1,103 @@
+{
+  "schema": "cpath.research.public-evidence.v1",
+  "research_base_commit": "fbfc7ba88b24f6e6d5be09d93ea50be93956a5b2",
+  "notes": [
+    "Selected historical results preserve ratings, scores and measurements; local paths are replaced with portable placeholders. Source and report hashes embedded in the results describe the original unsanitized observations.",
+    "Narratives are consolidated in docs/attention-ranking-results.md. Duplicate snapshots, packets and execution logs are omitted.",
+    "Original external raw reports and source checkouts were absent from the supplied environment. Placeholder paths do not imply those files are distributed.",
+    "File bytes and sha256 describe the public sanitized artifacts. Where sanitization changed a file, original_bytes and original_sha256 retain its original artifact identity."
+  ],
+  "files": {
+    "size-matched-review/results.json": {
+      "bytes": 73199,
+      "sha256": "bf9f12d46272d5fac426e83b4f5a40c461a56cbb8a609f986d8140fe025bd692"
+    },
+    "size-matched-review/formula-disagreement-results.json": {
+      "bytes": 15356,
+      "sha256": "16c6597329165f7f3d890af03e76ba988963d3403c6107301c018c6aca4e303f"
+    },
+    "size-matched-review/formula-disagreement-repeat-ratings.json": {
+      "bytes": 14634,
+      "sha256": "52f5f859a03274bf2450b2c89614880bcbe78b206891ae19a317be2aae83079d"
+    },
+    "size-matched-review/reviewer-sensitivity.json": {
+      "bytes": 3506,
+      "sha256": "76d3608bf9605c3b3db817999ba5b93f0e22c77404e0c3e56b761c785602a67b"
+    },
+    "small-repository-coverage.json": {
+      "bytes": 41039,
+      "sha256": "5549c7bc8a16f20ae251cfe0799cec69da6cf51dbcf244afb14b82768f7bfd36"
+    },
+    "small-repository-benchmarks.json": {
+      "bytes": 25175,
+      "sha256": "11405e80ea1398a99d4da29343b9dc0c63715837e0c8de6c602941bcbc2e1da8"
+    },
+    "combined-signal-review/results.json": {
+      "bytes": 222947,
+      "sha256": "b01321a88ca556000b114737944bd2de5f90505189247efe8ed1968061a1024e"
+    },
+    "combined-signal-review/formula-selection.json": {
+      "bytes": 98484,
+      "sha256": "2f6e9cf8343d2841d4ddc14bcfe29a7fdf6d5b20805a7a1a298594c93bb027ca"
+    },
+    "combined-signal-review/reviewer-sensitivity.json": {
+      "bytes": 81519,
+      "sha256": "2baeb9ffbbe7b09317041bf14f25063f321e4e3eb0f0e5ae97145f4aaeb735bf"
+    },
+    "combined-signal-review/syntax-controls.json": {
+      "bytes": 54221,
+      "sha256": "7e3d15f24f8b5f226b0d2b83bb680556c18bb57edac0894cffb8a58e7f0f06db",
+      "original_sha256": "6a5da47c6341d16f94bd2dce59437e016f4467a5f549e163e8adbe695729c509",
+      "original_bytes": 54231
+    },
+    "combined-signal-review/scan-benchmarks.json": {
+      "bytes": 44951,
+      "sha256": "6a287ec6a6b58e15fd6806d84bd206a83450d69808e3c539b95395ab92a173b6"
+    },
+    "large-repository-review/results.json": {
+      "bytes": 226542,
+      "sha256": "7f8fbab87c47582ae17c45f1b858706d0915529908ad1562cabe28a9386d9de5",
+      "original_sha256": "79661fc47b7251a322ad9ebf66cc1c3b5dd7c95d66592f2dc6815459c7c09a56",
+      "original_bytes": 226564
+    },
+    "low-complexity-review/results.json": {
+      "bytes": 61543,
+      "sha256": "adb152b644e0aa92b34d9715b6cdb85f58ea6e0d0f6ead978ba8c2eeaaa073de",
+      "original_sha256": "2e1cc7e7820cedce86c0054d2fab48fb92404d316ef71c1c967251b45a00742f",
+      "original_bytes": 61565
+    },
+    "large-repository-review/scan-benchmarks.json": {
+      "bytes": 51446,
+      "sha256": "d04e9f14437a5fe4ca60bc9f99b58d0d58e039271ef654490be040ac050e114d",
+      "original_sha256": "c170bb539429947840e3c42f7e78acc3828f2f3b6b38335182b48440093f359d",
+      "original_bytes": 53698
+    },
+    "large-repository-review/coverage-checks.json": {
+      "bytes": 1152,
+      "sha256": "ed7317f34f334b206b0dc77a215b9375b4722b6f2d3901631332779e0693d132"
+    },
+    "large-repository-review/cli-checks.json": {
+      "bytes": 1226,
+      "sha256": "9970238d6d1a227c626492f14a1d5c36610ad0d06593903ac1c14013a81084db",
+      "original_sha256": "a08a01ea3d442085bdcf55eac2c422524140ad189a7abc6ec958b1c0d853930c",
+      "original_bytes": 1268
+    }
+  },
+  "source_revisions": {
+    "serilog": "81af75f3a5e28ec9f5be18ef74357a9914a51745",
+    "csvhelper": "33970e5183383bdac1fbce3b3fbcdf46b318ca52",
+    "dapper": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+    "fmt": "0fc31633e7d53ac895ae0a688b83b7d44f0b0c1f",
+    "polly": "3f3adad9d5af85658fc3585018f02a2d8c2173e8",
+    "mediatr": "916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5",
+    "litedb": "7b71bc4dd45b48a1df4418ddb4cd245832273b35",
+    "roslyn": "e275404771b5908c7e9b53893969f1aaa721d45b",
+    "aspnetcore": "6e62760191a731f63d79b49fad7eda0aaf855cf3"
+  },
+  "path_placeholders": {
+    "<repo root>": "cpath checkout used for the original experiments",
+    "<research root>": "experiment inputs and target repository checkouts",
+    "<benchmark output>": "directory containing explicit benchmark reports",
+    "<time executable>": "GNU time executable used for process measurements"
+  }
+}

@@ -19,6 +19,14 @@ path = "tools/inspect.rs"
 name = "failure_audit"
 path = "tools/failure_audit.rs"
 
+[[example]]
+name = "cognitive_ranking_experiment"
+path = "tools/cognitive_ranking_experiment.rs"
+
+[[example]]
+name = "syntax_signal_experiment"
+path = "tools/syntax_signal_experiment.rs"
+
 [dependencies]
 crossbeam-channel = "0.5"
 globset = "0.4"

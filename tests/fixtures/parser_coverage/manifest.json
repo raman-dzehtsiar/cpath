@@ -1,0 +1,83 @@
+{
+  "protocol": "Small purposive coverage probes, expectations fixed before runtime inspection; not a repository coverage sample.",
+  "probes": [
+    {
+      "path": "complete_branches.cs",
+      "expected": "scored",
+      "score": 2,
+      "rationale": "Two represented if decisions, even though one is selected in any build."
+    },
+    {
+      "path": "split_expression.cs",
+      "expected": "unscored",
+      "score": null,
+      "rationale": "Valid conditional expression suffix outside the documented extension."
+    },
+    {
+      "path": "split_brace.cs",
+      "expected": "unscored",
+      "score": null,
+      "rationale": "Either build configuration has balanced braces; combined source branches do not."
+    },
+    {
+      "path": "conditional_else.cs",
+      "expected": "scored",
+      "score": 3,
+      "rationale": "Outer if1 and two direct conditional else-if alternatives1 each."
+    },
+    {
+      "path": "conditional_else.c",
+      "expected": "observe",
+      "score": null,
+      "rationale": "C-family support and direct-else-if nesting comparison; not assumed."
+    },
+    {
+      "path": "conditional_else.cpp",
+      "expected": "observe",
+      "score": null,
+      "rationale": "C-family support and direct-else-if nesting comparison; not assumed."
+    },
+    {
+      "path": "explicit_annotation.cpp",
+      "expected": "scored",
+      "score": 1,
+      "rationale": "Explicit annotation metadata preserves one real if."
+    },
+    {
+      "path": "unknown_annotation.cpp",
+      "expected": "unscored",
+      "score": null,
+      "rationale": "Known error-free macro misparse must remain unscored."
+    },
+    {
+      "path": "old_style_pointer.c",
+      "expected": "unscored",
+      "score": null,
+      "rationale": "Legacy C function is known to become orphan block; guard must reject."
+    },
+    {
+      "path": "pointer_array.cpp",
+      "expected": "scored",
+      "score": 1,
+      "rationale": "Historical unscored construct now patched; ternary survives."
+    },
+    {
+      "path": "macro_hidden.c",
+      "expected": "scored",
+      "score": 0,
+      "rationale": "A call-shaped macro hides expansion control flow; source syntax score is zero."
+    },
+    {
+      "path": "macro_expanded.c",
+      "expected": "scored",
+      "score": 3,
+      "rationale": "Equivalent expanded source: loop1 + nested if2. No expansion is performed in scans."
+    },
+    {
+      "path": "malformed.cs",
+      "expected": "unscored",
+      "score": null,
+      "rationale": "Malformed negative control must not receive a zero."
+    }
+  ]
+}

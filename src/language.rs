@@ -76,6 +76,23 @@ struct Frame<'tree> {
 
 impl SourceParser for CSharpParser {
     fn parse(&mut self, path: PathBuf, source: &str) -> Result<FileFacts, String> {
+        self.parse_observed(path, source, |_, _, _| {})
+    }
+}
+
+impl CSharpParser {
+    /// Visit syntax during extraction without retaining source or trees in facts.
+    /// This language-layer hook supports developer experiments; the normal parser
+    /// uses a no-op visitor. Calls are preorder, after callable ownership is set,
+    /// and contain exactly the cognitive event emitted for that node, if any.
+    /// Nested callables have independent indices; their enclosing callable can
+    /// resume later. Directive conditions and comments are excluded as usual.
+    pub fn parse_observed(
+        &mut self,
+        path: PathBuf,
+        source: &str,
+        mut observe: impl FnMut(Node<'_>, Option<usize>, Option<&ComplexityEvent>),
+    ) -> Result<FileFacts, String> {
         let tree = self
             .parser
             .parse(source, None)
@@ -139,6 +156,10 @@ impl SourceParser for CSharpParser {
                     line: line(node),
                 });
             }
+            let event = frame
+                .method
+                .and_then(|method| control.and_then(|_| facts.methods[method].events.last()));
+            observe(node, frame.method, event);
             let nesting_control = matches!(
                 control,
                 Some(
@@ -321,13 +342,7 @@ fn control_kind(
                 ControlKind::If
             }
         }
-        "else" => {
-            if else_target(node).is_some_and(has_non_if_alternative) {
-                ControlKind::Else
-            } else {
-                return None;
-            }
-        }
+        "else" if else_target(node).is_some_and(has_non_if_alternative) => ControlKind::Else,
         "for_statement" | "foreach_statement" | "while_statement" | "do_statement" => {
             ControlKind::Loop
         }
@@ -360,6 +375,40 @@ mod tests {
             .unwrap()
             .parse("Example.cs".into(), source)
             .unwrap()
+    }
+
+    #[test]
+    fn syntax_observer_preserves_facts_and_nested_callable_ownership() {
+        let source = "class C { void M(bool a) { if(a) { System.Action local = () => { if(a) {} }; } if(a) {} } }";
+        let ordinary = parse(source);
+        let mut events = Vec::new();
+        let observed = CSharpParser::new()
+            .unwrap()
+            .parse_observed("Example.cs".into(), source, |node, method, event| {
+                if let Some(event) = event {
+                    events.push((
+                        method.unwrap(),
+                        event.kind,
+                        event.nesting,
+                        node.kind().to_owned(),
+                    ));
+                }
+            })
+            .unwrap();
+        assert_eq!(format!("{ordinary:?}"), format!("{observed:?}"));
+        assert_eq!(
+            events.iter().map(|event| event.0).collect::<Vec<_>>(),
+            vec![0, 1, 0]
+        );
+        assert!(events
+            .iter()
+            .all(|event| event.1 == ControlKind::If && event.2 == 0));
+        let mut calls = 0;
+        assert!(CSharpParser::new()
+            .unwrap()
+            .parse_observed("Bad.cs".into(), "class C { void M( {", |_, _, _| calls += 1)
+            .is_err());
+        assert_eq!(calls, 0);
     }
 
     #[test]

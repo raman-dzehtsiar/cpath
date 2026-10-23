@@ -1,0 +1,42 @@
+{
+  "roslyn": {
+    "scored": 16658,
+    "unscored": 287,
+    "scored_coverage_fraction": 0.9830628503983476,
+    "failure_counts": {
+      "Parse": 286,
+      "Encoding": 1
+    },
+    "full_default_unscored": 287,
+    "native_unscored": 0,
+    "failure_category_clues": {
+      "pattern_or_boolean_text_near_error": 17,
+      "conditional_directive_near_error": 100,
+      "parse_other": 52,
+      "preprocessor_near_error": 117,
+      "encoding": 1
+    },
+    "failure_census_count_kind_parity": true,
+    "bounded_diagnostics_match_census": true,
+    "scored_failure_paths_disjoint": true
+  },
+  "aspnetcore": {
+    "scored": 10516,
+    "unscored": 136,
+    "scored_coverage_fraction": 0.9872324446113406,
+    "failure_counts": {
+      "Parse": 136
+    },
+    "full_default_unscored": 254,
+    "native_unscored": 118,
+    "failure_category_clues": {
+      "parse_other": 25,
+      "conditional_directive_near_error": 98,
+      "pattern_or_boolean_text_near_error": 9,
+      "preprocessor_near_error": 4
+    },
+    "failure_census_count_kind_parity": true,
+    "bounded_diagnostics_match_census": true,
+    "scored_failure_paths_disjoint": true
+  }
+}

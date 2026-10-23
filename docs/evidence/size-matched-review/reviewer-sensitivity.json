@@ -1,0 +1,146 @@
+{
+  "post_review_descriptive_only": true,
+  "reason": "Realized reviewer assignment imbalance; original primary ratings and endpoints unchanged",
+  "summary": {
+    "same_reviewer": {
+      "attention_priority": {
+        "baseline": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666,
+          "two_sided_sign_p": 0.5
+        },
+        "lines": {
+          "pairs": 6,
+          "wins": 1,
+          "losses": 1,
+          "ties": 4,
+          "concordance": 0.5,
+          "two_sided_sign_p": 1.0
+        },
+        "events": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666,
+          "two_sided_sign_p": 0.5
+        },
+        "breadth": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 0,
+          "ties": 4,
+          "concordance": 0.6666666666666666,
+          "two_sided_sign_p": 0.5
+        }
+      },
+      "review_difficulty": {
+        "baseline": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334,
+          "two_sided_sign_p": 1.0
+        },
+        "lines": {
+          "pairs": 6,
+          "wins": 1,
+          "losses": 2,
+          "ties": 3,
+          "concordance": 0.4166666666666667,
+          "two_sided_sign_p": 1.0
+        },
+        "events": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334,
+          "two_sided_sign_p": 1.0
+        },
+        "breadth": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 1,
+          "ties": 3,
+          "concordance": 0.5833333333333334,
+          "two_sided_sign_p": 1.0
+        }
+      }
+    },
+    "different_reviewers": {
+      "attention_priority": {
+        "baseline": {
+          "pairs": 6,
+          "wins": 4,
+          "losses": 0,
+          "ties": 2,
+          "concordance": 0.8333333333333334,
+          "two_sided_sign_p": 0.125
+        },
+        "lines": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 2,
+          "ties": 2,
+          "concordance": 0.5,
+          "two_sided_sign_p": 1.0
+        },
+        "events": {
+          "pairs": 6,
+          "wins": 4,
+          "losses": 0,
+          "ties": 2,
+          "concordance": 0.8333333333333334,
+          "two_sided_sign_p": 0.125
+        },
+        "breadth": {
+          "pairs": 6,
+          "wins": 4,
+          "losses": 0,
+          "ties": 2,
+          "concordance": 0.8333333333333334,
+          "two_sided_sign_p": 0.125
+        }
+      },
+      "review_difficulty": {
+        "baseline": {
+          "pairs": 6,
+          "wins": 4,
+          "losses": 0,
+          "ties": 2,
+          "concordance": 0.8333333333333334,
+          "two_sided_sign_p": 0.125
+        },
+        "lines": {
+          "pairs": 6,
+          "wins": 2,
+          "losses": 2,
+          "ties": 2,
+          "concordance": 0.5,
+          "two_sided_sign_p": 1.0
+        },
+        "events": {
+          "pairs": 6,
+          "wins": 4,
+          "losses": 0,
+          "ties": 2,
+          "concordance": 0.8333333333333334,
+          "two_sided_sign_p": 0.125
+        },
+        "breadth": {
+          "pairs": 6,
+          "wins": 4,
+          "losses": 0,
+          "ties": 2,
+          "concordance": 0.8333333333333334,
+          "two_sided_sign_p": 0.125
+        }
+      }
+    }
+  }
+}
