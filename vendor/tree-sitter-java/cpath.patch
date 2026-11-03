@@ -1,0 +1,1216 @@
+--- a/grammar.js
++++ b/grammar.js
+@@ -9,9 +9,9 @@
+ /// <reference types="tree-sitter-cli/dsl" />
+ // @ts-check
+ 
+-const DIGITS = token(choice('0', seq(/[1-9]/, optional(seq(optional('_'), sep1(/[0-9]+/, /_+/))))));
+-const DECIMAL_DIGITS = token(sep1(/[0-9]+/, '_'));
+-const HEX_DIGITS = token(sep1(/[A-Fa-f0-9]+/, '_'));
++const DIGITS = token(choice('0', seq(/[1-9]/, optional(seq(/[0-9_]*/, /[0-9]/)))));
++const DECIMAL_DIGITS = token(sep1(/[0-9]+/, /_+/));
++const HEX_DIGITS = token(sep1(/[A-Fa-f0-9]+/, /_+/));
+ 
+ /* eslint-disable no-multi-spaces */
+ 
+@@ -73,6 +73,9 @@
+   ],
+ 
+   conflicts: $ => [
++    [$.type_pattern, $.annotated_type],
++    [$.array_type, $.dimensions],
++    [$.dimensions],
+     [$.modifiers, $.annotated_type, $.receiver_parameter],
+     [$.modifiers, $.annotated_type, $.module_declaration, $.package_declaration],
+     [$._unannotated_type, $.primary_expression, $.inferred_parameters],
+@@ -127,22 +130,22 @@
+     )),
+ 
+     octal_integer_literal: _ => token(seq(
+-      choice('0o', '0O', '0'),
+-      sep1(/[0-7]+/, '_'),
++      choice('0o', '0O', seq('0', optional(/_+/))),
++      sep1(/[0-7]+/, /_+/),
+       optional(choice('l', 'L')),
+     )),
+ 
+     binary_integer_literal: _ => token(seq(
+       choice('0b', '0B'),
+-      sep1(/[01]+/, '_'),
++      sep1(/[01]+/, /_+/),
+       optional(choice('l', 'L')),
+     )),
+ 
+     decimal_floating_point_literal: _ => token(choice(
+       seq(DECIMAL_DIGITS, '.', optional(DECIMAL_DIGITS), optional(seq((/[eE]/), optional(choice('-', '+')), DECIMAL_DIGITS)), optional(/[fFdD]/)),
+       seq('.', DECIMAL_DIGITS, optional(seq((/[eE]/), optional(choice('-', '+')), DECIMAL_DIGITS)), optional(/[fFdD]/)),
+-      seq(DIGITS, /[eE]/, optional(choice('-', '+')), DECIMAL_DIGITS, optional(/[fFdD]/)),
+-      seq(DIGITS, optional(seq((/[eE]/), optional(choice('-', '+')), DECIMAL_DIGITS)), (/[fFdD]/)),
++      seq(DECIMAL_DIGITS, /[eE]/, optional(choice('-', '+')), DECIMAL_DIGITS, optional(/[fFdD]/)),
++      seq(DECIMAL_DIGITS, optional(seq((/[eE]/), optional(choice('-', '+')), DECIMAL_DIGITS)), (/[fFdD]/)),
+     )),
+ 
+     hex_floating_point_literal: _ => token(seq(
+@@ -154,7 +157,7 @@
+       optional(seq(
+         /[pP]/,
+         optional(choice('-', '+')),
+-        DIGITS,
++        DECIMAL_DIGITS,
+         optional(/[fFdD]/),
+       )),
+     )),
+@@ -196,10 +199,10 @@
+     // We give names to the token() constructs containing a regexp
+     // so as to obtain a node in the CST.
+ 
+-    string_fragment: _ => token.immediate(prec(1, /[^"\\]+/)),
++    string_fragment: _ => token.immediate(prec(1, choice(/[^"\\]+/, '\0'))),
+     _multiline_string_fragment: _ => choice(
+-      /[^"\\]+/,
+-      /"([^"\\]|\\")*/,
++      token.immediate(prec(1, /[^"\\]+/)),
++      token.immediate(/"([^"\\]|\\")*/),
+     ),
+ 
+     string_interpolation: $ => seq(
+@@ -260,6 +263,7 @@
+         $._reserved_identifier,
+         $.field_access,
+         $.array_access,
++        $.parenthesized_expression,
+       )),
+       field('operator', choice('=', '+=', '-=', '*=', '/=', '&=', '|=', '^=', '%=', '<<=', '>>=', '>>>=')),
+       field('right', $.expression),
+@@ -475,7 +479,7 @@
+       seq($.super, $._type),
+     ),
+ 
+-    dimensions: $ => prec.right(repeat1(
++    dimensions: $ => prec.dynamic(-1, repeat1(
+       seq(repeat($._annotation), '[', ']'),
+     )),
+ 
+@@ -520,12 +524,13 @@
+       $.type_pattern,
+       $.record_pattern,
+     ),
+-    type_pattern: $ => seq($._unannotated_type, choice($.identifier, $._reserved_identifier)),
+-    record_pattern: $ => seq(choice($.identifier, $._reserved_identifier, $.generic_type), $.record_pattern_body),
++    type_pattern: $ => seq(repeat(choice($._annotation, 'final')), $._unannotated_type, choice($.identifier, $._reserved_identifier)),
++    record_pattern: $ => seq(choice($.identifier, $._reserved_identifier, $.generic_type, $.scoped_type_identifier), $.record_pattern_body),
+     record_pattern_body: $ => seq('(', commaSep(choice($.record_pattern_component, $.record_pattern)), ')'),
+     record_pattern_component: $ => choice(
+       $.underscore_pattern,
+       seq(
++        repeat(choice($._annotation, 'final')),
+         $._unannotated_type,
+         choice($.identifier, $._reserved_identifier),
+       ),
+@@ -634,7 +639,7 @@
+       $._variable_declarator_id,
+     ),
+ 
+-    catch_type: $ => sep1($._unannotated_type, '|'),
++    catch_type: $ => seq($._unannotated_type, repeat(seq('|', $._type))),
+ 
+     finally_clause: $ => seq('finally', $.block),
+ 
+@@ -840,9 +845,10 @@
+ 
+     import_declaration: $ => seq(
+       'import',
+-      optional('static'),
+-      $._name,
+-      optional(seq('.', $.asterisk)),
++      choice(
++        seq(optional('static'), $._name, optional(seq('.', $.asterisk))),
++        seq('module', $._name),
++      ),
+       ';',
+     ),
+ 
+@@ -978,8 +984,8 @@
+ 
+     constructor_body: $ => seq(
+       '{',
+-      optional($.explicit_constructor_invocation),
+       repeat($.statement),
++      optional(seq($.explicit_constructor_invocation, repeat($.statement))),
+       '}',
+     ),
+ 
+@@ -1240,6 +1246,7 @@
+     spread_parameter: $ => seq(
+       optional($.modifiers),
+       $._unannotated_type,
++      repeat($._annotation),
+       '...',
+       repeat($._annotation),
+       $.variable_declarator,
+--- /dev/null
++++ b/test/corpus/cpath-varargs.txt
+@@ -0,0 +1,286 @@
++================================================
++Cpath varargs varargs_method
++================================================
++import java.lang.annotation.*;
++@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
++@Target(ElementType.TYPE_USE) @interface B {}
++class Coverage { int f(Object @A @B ... values) { int n = 0; for (Object value : values) { if (value != null) n++; } return n; } }
++
++---
++
++(program
++  (import_declaration
++    (scoped_identifier
++      (scoped_identifier
++        (identifier)
++        (identifier))
++      (identifier))
++    (asterisk))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body
++      (annotation_type_element_declaration
++        (integral_type)
++        (identifier)
++        (decimal_integer_literal))))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body))
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (spread_parameter
++            (type_identifier)
++            (marker_annotation
++              (identifier))
++            (marker_annotation
++              (identifier))
++            (variable_declarator
++              (identifier))))
++        (block
++          (local_variable_declaration
++            (integral_type)
++            (variable_declarator
++              (identifier)
++              (decimal_integer_literal)))
++          (enhanced_for_statement
++            (type_identifier)
++            (identifier)
++            (identifier)
++            (block
++              (if_statement
++                (parenthesized_expression
++                  (binary_expression
++                    (identifier)
++                    (null_literal)))
++                (expression_statement
++                  (update_expression
++                    (identifier))))))
++          (return_statement
++            (identifier)))))))
++
++================================================
++Cpath varargs varargs_constructor
++================================================
++import java.lang.annotation.*;
++@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
++@Target(ElementType.TYPE_USE) @interface B {}
++class Coverage { Coverage(String @A(1 + 2) ... values) { if (values == null) throw new IllegalArgumentException(); } }
++
++---
++
++(program
++  (import_declaration
++    (scoped_identifier
++      (scoped_identifier
++        (identifier)
++        (identifier))
++      (identifier))
++    (asterisk))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body
++      (annotation_type_element_declaration
++        (integral_type)
++        (identifier)
++        (decimal_integer_literal))))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body))
++  (class_declaration
++    (identifier)
++    (class_body
++      (constructor_declaration
++        (identifier)
++        (formal_parameters
++          (spread_parameter
++            (type_identifier)
++            (annotation
++              (identifier)
++              (annotation_argument_list
++                (binary_expression
++                  (decimal_integer_literal)
++                  (decimal_integer_literal))))
++            (variable_declarator
++              (identifier))))
++        (constructor_body
++          (if_statement
++            (parenthesized_expression
++              (binary_expression
++                (identifier)
++                (null_literal)))
++            (throw_statement
++              (object_creation_expression
++                (type_identifier)
++                (argument_list)))))))))
++
++================================================
++Cpath varargs varargs_array
++================================================
++import java.lang.annotation.*;
++@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
++@Target(ElementType.TYPE_USE) @interface B {}
++class Coverage { int f(String @A [] @B ... values) { return values.length > 0 ? values[0].length : 0; } }
++
++---
++
++(program
++  (import_declaration
++    (scoped_identifier
++      (scoped_identifier
++        (identifier)
++        (identifier))
++      (identifier))
++    (asterisk))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body
++      (annotation_type_element_declaration
++        (integral_type)
++        (identifier)
++        (decimal_integer_literal))))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body))
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (spread_parameter
++            (array_type
++              (type_identifier)
++              (dimensions
++                (marker_annotation
++                  (identifier))))
++            (marker_annotation
++              (identifier))
++            (variable_declarator
++              (identifier))))
++        (block
++          (return_statement
++            (ternary_expression
++              (binary_expression
++                (field_access
++                  (identifier)
++                  (identifier))
++                (decimal_integer_literal))
++              (field_access
++                (array_access
++                  (identifier)
++                  (decimal_integer_literal))
++                (identifier))
++              (decimal_integer_literal))))))))
++
++================================================
++Cpath varargs varargs_record
++================================================
++import java.lang.annotation.*;
++@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
++@Target(ElementType.TYPE_USE) @interface B {}
++record Coverage(String @A ... values) { Coverage { if (values == null) throw new IllegalArgumentException(); } }
++
++---
++
++(program
++  (import_declaration
++    (scoped_identifier
++      (scoped_identifier
++        (identifier)
++        (identifier))
++      (identifier))
++    (asterisk))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body
++      (annotation_type_element_declaration
++        (integral_type)
++        (identifier)
++        (decimal_integer_literal))))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body))
++  (record_declaration
++    (identifier)
++    (formal_parameters
++      (spread_parameter
++        (type_identifier)
++        (marker_annotation
++          (identifier))
++        (variable_declarator
++          (identifier))))
++    (class_body
++      (compact_constructor_declaration
++        (identifier)
++        (block
++          (if_statement
++            (parenthesized_expression
++              (binary_expression
++                (identifier)
++                (null_literal)))
++            (throw_statement
++              (object_creation_expression
++                (type_identifier)
++                (argument_list)))))))))
+--- /dev/null
++++ b/test/corpus/cpath_consolidated.txt
+@@ -0,0 +1,660 @@
++==================
++Consolidated Java constructor_super_prologue
++==================
++class Parent { Parent(int x) {} }
++class Coverage extends Parent { Coverage(int x) { if (x < 0) x = -x; super(x); if (x > 1) System.out.println(x); } }
++
++---
++
++(program
++  (class_declaration
++    (identifier)
++    (class_body
++      (constructor_declaration
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (integral_type)
++            (identifier)))
++        (constructor_body))))
++  (class_declaration
++    (identifier)
++    (superclass
++      (type_identifier))
++    (class_body
++      (constructor_declaration
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (integral_type)
++            (identifier)))
++        (constructor_body
++          (if_statement
++            (parenthesized_expression
++              (binary_expression
++                (identifier)
++                (decimal_integer_literal)))
++            (expression_statement
++              (assignment_expression
++                (identifier)
++                (unary_expression
++                  (identifier)))))
++          (explicit_constructor_invocation
++            (super)
++            (argument_list
++              (identifier)))
++          (if_statement
++            (parenthesized_expression
++              (binary_expression
++                (identifier)
++                (decimal_integer_literal)))
++            (expression_statement
++              (method_invocation
++                (field_access
++                  (identifier)
++                  (identifier))
++                (identifier)
++                (argument_list
++                  (identifier))))))))))
++
++==================
++Consolidated Java constructor_this_prologue
++==================
++class Coverage { Coverage(int x) { if (x < 0) x = -x; this(x, true); } Coverage(int x, boolean unused) { if (x > 1) System.out.println(x); } }
++
++---
++
++(program
++  (class_declaration
++    (identifier)
++    (class_body
++      (constructor_declaration
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (integral_type)
++            (identifier)))
++        (constructor_body
++          (if_statement
++            (parenthesized_expression
++              (binary_expression
++                (identifier)
++                (decimal_integer_literal)))
++            (expression_statement
++              (assignment_expression
++                (identifier)
++                (unary_expression
++                  (identifier)))))
++          (explicit_constructor_invocation
++            (this)
++            (argument_list
++              (identifier)
++              (true)))))
++      (constructor_declaration
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (integral_type)
++            (identifier))
++          (formal_parameter
++            (boolean_type)
++            (identifier)))
++        (constructor_body
++          (if_statement
++            (parenthesized_expression
++              (binary_expression
++                (identifier)
++                (decimal_integer_literal)))
++            (expression_statement
++              (method_invocation
++                (field_access
++                  (identifier)
++                  (identifier))
++                (identifier)
++                (argument_list
++                  (identifier))))))))))
++
++==================
++Consolidated Java parenthesized_assignment
++==================
++class Coverage { int f(boolean flag) { int value = 0; (value) = flag ? 1 : 2; (value) += 1; return value; } }
++
++---
++
++(program
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (boolean_type)
++            (identifier)))
++        (block
++          (local_variable_declaration
++            (integral_type)
++            (variable_declarator
++              (identifier)
++              (decimal_integer_literal)))
++          (expression_statement
++            (assignment_expression
++              (parenthesized_expression
++                (identifier))
++              (ternary_expression
++                (identifier)
++                (decimal_integer_literal)
++                (decimal_integer_literal))))
++          (expression_statement
++            (assignment_expression
++              (parenthesized_expression
++                (identifier))
++              (decimal_integer_literal)))
++          (return_statement
++            (identifier)))))))
++
++==================
++Consolidated Java leading_zero_float
++==================
++class Coverage { double f(boolean flag) { double value = 043F + 09e1 + 00D; return flag ? value : 0; } }
++
++---
++
++(program
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (floating_point_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (boolean_type)
++            (identifier)))
++        (block
++          (local_variable_declaration
++            (floating_point_type)
++            (variable_declarator
++              (identifier)
++              (binary_expression
++                (binary_expression
++                  (decimal_floating_point_literal)
++                  (decimal_floating_point_literal))
++                (decimal_floating_point_literal))))
++          (return_statement
++            (ternary_expression
++              (identifier)
++              (identifier)
++              (decimal_integer_literal))))))))
++
++==================
++Consolidated Java annotated_record_pattern
++==================
++import java.lang.annotation.*;
++@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
++@Target(ElementType.TYPE_USE) @interface B {}
++record Pair(String text) {}
++class Coverage { int f(Object value) { if (value instanceof Pair(@A String text)) return text.length(); return 0; } }
++
++---
++
++(program
++  (import_declaration
++    (scoped_identifier
++      (scoped_identifier
++        (identifier)
++        (identifier))
++      (identifier))
++    (asterisk))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body
++      (annotation_type_element_declaration
++        (integral_type)
++        (identifier)
++        (decimal_integer_literal))))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body))
++  (record_declaration
++    (identifier)
++    (formal_parameters
++      (formal_parameter
++        (type_identifier)
++        (identifier)))
++    (class_body))
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (type_identifier)
++            (identifier)))
++        (block
++          (if_statement
++            (parenthesized_expression
++              (instanceof_expression
++                (identifier)
++                (record_pattern
++                  (identifier)
++                  (record_pattern_body
++                    (record_pattern_component
++                      (marker_annotation
++                        (identifier))
++                      (type_identifier)
++                      (identifier))))))
++            (return_statement
++              (method_invocation
++                (identifier)
++                (identifier)
++                (argument_list))))
++          (return_statement
++            (decimal_integer_literal)))))))
++
++==================
++Consolidated Java qualified_record_pattern
++==================
++class Outer { record Pair(String text) {} }
++class Coverage { int f(Object value) { if (value instanceof Outer.Pair(String text)) return text.length(); return 0; } }
++
++---
++
++(program
++  (class_declaration
++    (identifier)
++    (class_body
++      (record_declaration
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (type_identifier)
++            (identifier)))
++        (class_body))))
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (type_identifier)
++            (identifier)))
++        (block
++          (if_statement
++            (parenthesized_expression
++              (instanceof_expression
++                (identifier)
++                (record_pattern
++                  (scoped_type_identifier
++                    (type_identifier)
++                    (type_identifier))
++                  (record_pattern_body
++                    (record_pattern_component
++                      (type_identifier)
++                      (identifier))))))
++            (return_statement
++              (method_invocation
++                (identifier)
++                (identifier)
++                (argument_list))))
++          (return_statement
++            (decimal_integer_literal)))))))
++
++==================
++Consolidated Java annotated_multi_catch
++==================
++import java.lang.annotation.*;
++@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
++@Target(ElementType.TYPE_USE) @interface B {}
++class Coverage { void risk() throws java.io.IOException, ReflectiveOperationException {} int f() { try { risk(); return 0; } catch (java.io.IOException | @A ReflectiveOperationException error) { return 1; } } }
++
++---
++
++(program
++  (import_declaration
++    (scoped_identifier
++      (scoped_identifier
++        (identifier)
++        (identifier))
++      (identifier))
++    (asterisk))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body
++      (annotation_type_element_declaration
++        (integral_type)
++        (identifier)
++        (decimal_integer_literal))))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body))
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (void_type)
++        (identifier)
++        (formal_parameters)
++        (throws
++          (scoped_type_identifier
++            (scoped_type_identifier
++              (type_identifier)
++              (type_identifier))
++            (type_identifier))
++          (type_identifier))
++        (block))
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters)
++        (block
++          (try_statement
++            (block
++              (expression_statement
++                (method_invocation
++                  (identifier)
++                  (argument_list)))
++              (return_statement
++                (decimal_integer_literal)))
++            (catch_clause
++              (catch_formal_parameter
++                (catch_type
++                  (scoped_type_identifier
++                    (scoped_type_identifier
++                      (type_identifier)
++                      (type_identifier))
++                    (type_identifier))
++                  (annotated_type
++                    (marker_annotation
++                      (identifier))
++                    (type_identifier)))
++                (identifier))
++              (block
++                (return_statement
++                  (decimal_integer_literal))))))))))
++
++==================
++Consolidated Java text_block_slashes
++==================
++class Coverage { int f(boolean flag) { String text = """
++ ///"""; return flag ? text.length() : 0; } }
++
++---
++
++(program
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (boolean_type)
++            (identifier)))
++        (block
++          (local_variable_declaration
++            (type_identifier)
++            (variable_declarator
++              (identifier)
++              (string_literal
++                (multiline_string_fragment))))
++          (return_statement
++            (ternary_expression
++              (identifier)
++              (method_invocation
++                (identifier)
++                (identifier)
++                (argument_list))
++              (decimal_integer_literal))))))))
++
++==================
++Consolidated Java numeric_underscores
++==================
++class Coverage { double f(boolean flag) { double value = 1__0 + 0_52 + 0xA__B + 0b1__0 + 01__2F + 0x1p0__1; return flag ? value : 0; } }
++
++---
++
++(program
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (floating_point_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (boolean_type)
++            (identifier)))
++        (block
++          (local_variable_declaration
++            (floating_point_type)
++            (variable_declarator
++              (identifier)
++              (binary_expression
++                (binary_expression
++                  (binary_expression
++                    (binary_expression
++                      (binary_expression
++                        (decimal_integer_literal)
++                        (octal_integer_literal))
++                      (hex_integer_literal))
++                    (binary_integer_literal))
++                  (decimal_floating_point_literal))
++                (hex_floating_point_literal))))
++          (return_statement
++            (ternary_expression
++              (identifier)
++              (identifier)
++              (decimal_integer_literal))))))))
++
++==================
++Consolidated Java pattern_modifiers
++==================
++import java.lang.annotation.*;
++@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
++@Target(ElementType.TYPE_USE) @interface B {}
++record Pair(String text) {} class Coverage { int f(Object value) { if (value instanceof Pair(final String text)) return text.length(); return switch (value) { case @A String text -> text.length(); case final Integer number -> number; default -> 0; }; } }
++
++---
++
++(program
++  (import_declaration
++    (scoped_identifier
++      (scoped_identifier
++        (identifier)
++        (identifier))
++      (identifier))
++    (asterisk))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body
++      (annotation_type_element_declaration
++        (integral_type)
++        (identifier)
++        (decimal_integer_literal))))
++  (annotation_type_declaration
++    (modifiers
++      (annotation
++        (identifier)
++        (annotation_argument_list
++          (field_access
++            (identifier)
++            (identifier)))))
++    (identifier)
++    (annotation_type_body))
++  (record_declaration
++    (identifier)
++    (formal_parameters
++      (formal_parameter
++        (type_identifier)
++        (identifier)))
++    (class_body))
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (type_identifier)
++            (identifier)))
++        (block
++          (if_statement
++            (parenthesized_expression
++              (instanceof_expression
++                (identifier)
++                (record_pattern
++                  (identifier)
++                  (record_pattern_body
++                    (record_pattern_component
++                      (type_identifier)
++                      (identifier))))))
++            (return_statement
++              (method_invocation
++                (identifier)
++                (identifier)
++                (argument_list))))
++          (return_statement
++            (switch_expression
++              (parenthesized_expression
++                (identifier))
++              (switch_block
++                (switch_rule
++                  (switch_label
++                    (pattern
++                      (type_pattern
++                        (marker_annotation
++                          (identifier))
++                        (type_identifier)
++                        (identifier))))
++                  (expression_statement
++                    (method_invocation
++                      (identifier)
++                      (identifier)
++                      (argument_list))))
++                (switch_rule
++                  (switch_label
++                    (pattern
++                      (type_pattern
++                        (type_identifier)
++                        (identifier))))
++                  (expression_statement
++                    (identifier)))
++                (switch_rule
++                  (switch_label)
++                  (expression_statement
++                    (decimal_integer_literal)))))))))))
++
++==================
++Consolidated Java null_character_string
++==================
++class Coverage { int f(boolean flag) { String value = " NULL "; return flag ? value.length() : 0; } }
++
++---
++
++(program
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (boolean_type)
++            (identifier)))
++        (block
++          (local_variable_declaration
++            (type_identifier)
++            (variable_declarator
++              (identifier)
++              (string_literal
++                (string_fragment)
++                (string_fragment))))
++          (return_statement
++            (ternary_expression
++              (identifier)
++              (method_invocation
++                (identifier)
++                (identifier)
++                (argument_list))
++              (decimal_integer_literal))))))))
++
++==================
++Consolidated Java text_block_comments
++==================
++class Coverage { int f(boolean flag) { String text = """
++ // if (ignored) {}
++ /* while (ignored) {} */
++ /// @param value"""; return flag ? text.length() : 0; } }
++
++---
++
++(program
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (boolean_type)
++            (identifier)))
++        (block
++          (local_variable_declaration
++            (type_identifier)
++            (variable_declarator
++              (identifier)
++              (string_literal
++                (multiline_string_fragment))))
++          (return_statement
++            (ternary_expression
++              (identifier)
++              (method_invocation
++                (identifier)
++                (identifier)
++                (argument_list))
++              (decimal_integer_literal))))))))
+--- /dev/null
++++ b/test/corpus/cpath_module_import.txt
+@@ -0,0 +1,66 @@
++==================
++Module import declaration
++==================
++import module java.base;
++class Probe { int f(boolean x) { return x ? 1 : 0; } }
++
++---
++
++(program
++  (import_declaration
++    (scoped_identifier
++      (identifier)
++      (identifier)))
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (boolean_type)
++            (identifier)))
++        (block
++          (return_statement
++            (ternary_expression
++              (identifier)
++              (decimal_integer_literal)
++              (decimal_integer_literal))))))))
++
++==================
++Module remains an ordinary identifier
++==================
++import module.foo;
++import static module.foo.bar;
++class Probe { int module(boolean x) { return x ? 1 : 0; } }
++
++---
++
++(program
++  (import_declaration
++    (scoped_identifier
++      (identifier)
++      (identifier)))
++  (import_declaration
++    (scoped_identifier
++      (scoped_identifier
++        (identifier)
++        (identifier))
++      (identifier)))
++  (class_declaration
++    (identifier)
++    (class_body
++      (method_declaration
++        (integral_type)
++        (identifier)
++        (formal_parameters
++          (formal_parameter
++            (boolean_type)
++            (identifier)))
++        (block
++          (return_statement
++            (ternary_expression
++              (identifier)
++              (decimal_integer_literal)
++              (decimal_integer_literal))))))))
+--- a/bindings/rust/build.rs
++++ b/bindings/rust/build.rs
+@@ -12,4 +12,23 @@
+     println!("cargo:rerun-if-changed={}", parser_path.to_str().unwrap());
+ 
+     c_config.compile("tree-sitter-java");
++
++    let reference_dir = src_dir.join("rca");
++    let reference_path = reference_dir.join("parser.c");
++    let reference_header = reference_dir.join("tree_sitter/parser.h");
++    let mut reference = cc::Build::new();
++    reference.std("c11").include(&reference_dir);
++    #[cfg(target_env = "msvc")]
++    reference.flag("-utf-8");
++    reference.define("tree_sitter_java", Some("tree_sitter_java_rca"));
++    reference.file(&reference_path);
++    println!(
++        "cargo:rerun-if-changed={}",
++        reference_path.to_str().unwrap()
++    );
++    println!(
++        "cargo:rerun-if-changed={}",
++        reference_header.to_str().unwrap()
++    );
++    reference.compile("tree-sitter-java-rca");
+ }
+--- a/bindings/rust/lib.rs
++++ b/bindings/rust/lib.rs
+@@ -29,12 +29,16 @@
+ 
+ extern "C" {
+     fn tree_sitter_java() -> *const ();
++    fn tree_sitter_java_rca() -> *const ();
+ }
+ 
+ /// The tree-sitter [`LanguageFn`][LanguageFn] for this grammar.
+ ///
+ /// [LanguageFn]: https://docs.rs/tree-sitter-language/*/tree_sitter_language/struct.LanguageFn.html
+ pub const LANGUAGE: LanguageFn = unsafe { LanguageFn::from_raw(tree_sitter_java) };
++
++/// Unmodified 0.23.5 grammar for the explicitly pinned RCA MI profile.
++pub const LANGUAGE_RCA: LanguageFn = unsafe { LanguageFn::from_raw(tree_sitter_java_rca) };
+ 
+ /// The content of the [`node-types.json`][] file for this grammar.
+ ///

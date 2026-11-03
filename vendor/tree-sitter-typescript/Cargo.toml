@@ -1,0 +1,18 @@
+[package]
+name = "tree-sitter-typescript-cpath"
+version = "0.23.2"
+edition = "2021"
+license = "MIT"
+publish = false
+description = "Maintained TypeScript and TSX cognitive-complexity grammar for cpath"
+links = "tree-sitter-typescript-cpath"
+build = "build.rs"
+
+[lib]
+path = "lib.rs"
+
+[dependencies]
+tree-sitter-language = "0.1"
+
+[build-dependencies]
+cc = "1.1"

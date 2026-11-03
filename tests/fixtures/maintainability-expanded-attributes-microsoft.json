@@ -1,0 +1,60 @@
+{
+  "records": [
+    {
+      "name": "AttributeBase.AttributeBase(int)",
+      "kind": "Constructor",
+      "start_byte": 680,
+      "end_byte": 715,
+      "index": 100
+    },
+    {
+      "name": "OrdinaryAttributes.OrdinaryAttributes()",
+      "kind": "Constructor",
+      "start_byte": 529,
+      "end_byte": 647,
+      "index": 85
+    },
+    {
+      "name": "PrimaryBaseAttributes.PrimaryBaseAttributes(int)",
+      "kind": "Constructor",
+      "start_byte": 719,
+      "end_byte": 890,
+      "index": 77
+    },
+    {
+      "name": "PrimaryBoth.PrimaryBoth()",
+      "kind": "Constructor",
+      "start_byte": 256,
+      "end_byte": 381,
+      "index": 76
+    },
+    {
+      "name": "PrimaryObsolete.PrimaryObsolete()",
+      "kind": "Constructor",
+      "start_byte": 86,
+      "end_byte": 146,
+      "index": 93
+    },
+    {
+      "name": "PrimaryRecordAttributes.PrimaryRecordAttributes(int)",
+      "kind": "Constructor",
+      "start_byte": 892,
+      "end_byte": 967,
+      "index": 93
+    },
+    {
+      "name": "PrimarySuppression.PrimarySuppression()",
+      "kind": "Constructor",
+      "start_byte": 148,
+      "end_byte": 254,
+      "index": 84
+    },
+    {
+      "name": "TypeOnly.TypeOnly()",
+      "kind": "Constructor",
+      "start_byte": 383,
+      "end_byte": 489,
+      "index": 100
+    }
+  ]
+}

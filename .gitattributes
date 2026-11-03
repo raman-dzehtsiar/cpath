@@ -1,0 +1,16 @@
+vendor/tree-sitter-c-sharp/** text eol=lf
+# Unified patches require a leading space on blank context lines. Their actual
+# additions remain covered by parser regression tests.
+vendor/tree-sitter-c-sharp/cpath.patch whitespace=-blank-at-eol
+vendor/tree-sitter-cpp/** text eol=lf
+vendor/tree-sitter-cpp/cpath.patch whitespace=-blank-at-eol
+vendor/tree-sitter-go/** text eol=lf
+vendor/tree-sitter-go/cpath.patch whitespace=-blank-at-eol
+vendor/tree-sitter-python/** text eol=lf
+vendor/tree-sitter-python/cpath.patch whitespace=-blank-at-eol
+vendor/tree-sitter-java/** text eol=lf
+vendor/tree-sitter-java/cpath.patch whitespace=-blank-at-eol
+vendor/tree-sitter-typescript/** text eol=lf
+vendor/tree-sitter-typescript/cpath.patch whitespace=-blank-at-eol
+# Keep source coordinates stable across test platforms.
+tests/fixtures/** text eol=lf

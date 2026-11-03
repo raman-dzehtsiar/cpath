@@ -1,0 +1,3165 @@
+{
+  "probes": [
+    {
+      "name": "boolean_comments",
+      "language": "java",
+      "source": "class Probe { boolean f(boolean a, boolean b, boolean c) { return a && (/* note */ b || c); } boolean g(boolean a, boolean b, boolean c) { return a || (// note\n b && c); } }\n",
+      "cognitive": {
+        "file_score": 4,
+        "units": [
+          {
+            "name": "f",
+            "score": 2
+          },
+          {
+            "name": "g",
+            "score": 2
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "boolean_comments.java",
+          "index": 77.65496628023978
+        },
+        {
+          "name": "Probe",
+          "index": 77.78946920421637
+        },
+        {
+          "name": "f",
+          "index": 87.39110892755866
+        },
+        {
+          "name": "g",
+          "index": 80.82445142751708
+        }
+      ]
+    },
+    {
+      "name": "switch_enum_lambdas",
+      "language": "java",
+      "source": "import java.util.function.Function; class Probe { enum Mode { A, B } Function<Boolean,Integer> f(Mode mode, boolean flag) { return switch(mode) { case A -> v -> v ? 1 : 2; case B -> flag ? v -> (v ? 1 : 2) : v -> (v ? 3 : 4); }; } }\n",
+      "cognitive": {
+        "file_score": 9,
+        "units": [
+          {
+            "name": "f",
+            "score": 9
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "switch_enum_lambdas.java",
+          "index": 81.80729322600676
+        },
+        {
+          "name": "Probe",
+          "index": 82.37786440355323
+        },
+        {
+          "name": "f",
+          "index": 83.05085241871839
+        }
+      ]
+    },
+    {
+      "name": "switch_nested_lambdas",
+      "language": "java",
+      "source": "import java.util.function.Function; class Probe { enum Mode { A, B } Function<Boolean,Function<Boolean,Integer>> f(Mode mode) { return switch(mode) { case A -> a -> b -> a && b ? 1 : 2; case B -> a -> b -> { if(a || b) return 1; return 0; }; }; } }\n",
+      "cognitive": {
+        "file_score": 8,
+        "units": [
+          {
+            "name": "f",
+            "score": 8
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "switch_nested_lambdas.java",
+          "index": 81.68824224040185
+        },
+        {
+          "name": "Probe",
+          "index": 82.23900477294691
+        },
+        {
+          "name": "f",
+          "index": 82.89298039382273
+        }
+      ]
+    },
+    {
+      "name": "enum_initializers",
+      "language": "java",
+      "source": "enum Probe { A; { if (ordinal() > 0) { for (int i=0;i<2;i++) if(i>0) break; } } static { if (values().length > 0) System.out.println(1); } }\n",
+      "cognitive": {
+        "file_score": 7,
+        "units": [],
+        "initializers": [
+          {
+            "name": "<block>",
+            "score": 6,
+            "first": {
+              "column": 16
+            },
+            "end": {
+              "column": 79
+            }
+          },
+          {
+            "name": "<static_initializer>",
+            "score": 1,
+            "first": {
+              "column": 80
+            },
+            "end": {
+              "column": 138
+            }
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "enum_initializers.java",
+          "index": 83.09514980029195
+        }
+      ]
+    },
+    {
+      "name": "anonymous_local_class",
+      "language": "java",
+      "source": "class Probe { Object f() { return new Missing() { Object g() { class Local { int h(boolean x) { if(x) return 1; return 0; } } return new Local(); } }; } }\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 3
+          },
+          {
+            "name": "g",
+            "score": 0
+          },
+          {
+            "name": "h",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "anonymous_local_class.java",
+          "index": 84.28181476608327
+        },
+        {
+          "name": "Probe",
+          "index": 84.4163176900599
+        },
+        {
+          "name": "f",
+          "index": 84.8194187643335
+        },
+        {
+          "name": "g",
+          "index": 85.94823477745825
+        },
+        {
+          "name": "Local",
+          "index": 87.39110892755866
+        },
+        {
+          "name": "h",
+          "index": 88.05500934718515
+        }
+      ]
+    },
+    {
+      "name": "anonymous_generic_local_class",
+      "language": "java",
+      "source": "class Probe<T> { Object f() { return new Missing<T>() { Object g() { class Local implements MissingInterface<T> { int h(boolean x) { if(x) return 1; return 0; } } return new Local(); } }; } }\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 3
+          },
+          {
+            "name": "g",
+            "score": 0
+          },
+          {
+            "name": "h",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "anonymous_generic_local_class.java",
+          "index": 83.49868829041763
+        },
+        {
+          "name": "Probe",
+          "index": 83.63319121439424
+        },
+        {
+          "name": "f",
+          "index": 84.14882713694428
+        },
+        {
+          "name": "g",
+          "index": 85.33869434179233
+        },
+        {
+          "name": "Local",
+          "index": 86.5771092740746
+        },
+        {
+          "name": "h",
+          "index": 88.05500934718515
+        }
+      ]
+    },
+    {
+      "name": "local_generic_class",
+      "language": "java",
+      "source": "class Probe<T> { Object f() { class Local implements MissingInterface<T> { int h(boolean x) { if(x) return 1; return 0; } } return new Local(); } }\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "f",
+            "score": 2
+          },
+          {
+            "name": "h",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "local_generic_class.java",
+          "index": 84.5687523388908
+        },
+        {
+          "name": "Probe",
+          "index": 84.70325526286742
+        },
+        {
+          "name": "f",
+          "index": 85.33869434179233
+        },
+        {
+          "name": "Local",
+          "index": 86.5771092740746
+        },
+        {
+          "name": "h",
+          "index": 88.05500934718515
+        }
+      ]
+    },
+    {
+      "name": "anonymous_local_override",
+      "language": "java",
+      "source": "class Probe<T> { Object f() { return new Missing<T>() { @Override Object g() { final class Local implements MissingInterface<T> { @Override public int h(boolean x) { if(x) return 1; return 0; } } return new Local(); } }; } }\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 3
+          },
+          {
+            "name": "g",
+            "score": 0
+          },
+          {
+            "name": "h",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "anonymous_local_override.java",
+          "index": 83.16988945583104
+        },
+        {
+          "name": "Probe",
+          "index": 83.30439237980765
+        },
+        {
+          "name": "f",
+          "index": 83.78832578689259
+        },
+        {
+          "name": "g",
+          "index": 84.8801121766532
+        },
+        {
+          "name": "Local",
+          "index": 86.12266236609052
+        },
+        {
+          "name": "h",
+          "index": 87.72186934271383
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "language": "java",
+      "source": "",
+      "cognitive": {
+        "file_score": 0,
+        "units": []
+      },
+      "maintainability": [
+        {
+          "name": "empty.java",
+          "index": 0.0
+        }
+      ]
+    },
+    {
+      "name": "branches",
+      "language": "java",
+      "source": "class Probe { int f(int x) { if (x > 0) return 1; else if (x < 0) return 2; else return 3; } }\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 3
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "branches.java",
+          "index": 84.87212339546603
+        },
+        {
+          "name": "Probe",
+          "index": 85.00662631944265
+        },
+        {
+          "name": "f",
+          "index": 85.43005313824888
+        }
+      ]
+    },
+    {
+      "name": "boolean",
+      "language": "java",
+      "source": "class Probe { boolean f(boolean a, boolean b, boolean c, boolean d) { return a && (b && c) || d && a; } }\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 3
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "boolean.java",
+          "index": 85.41530495583382
+        },
+        {
+          "name": "Probe",
+          "index": 85.54980787981043
+        },
+        {
+          "name": "f",
+          "index": 86.04531553801895
+        }
+      ]
+    },
+    {
+      "name": "loops",
+      "language": "java",
+      "source": "class Probe { void f(int n) { outer: for (int i=0;i<n;i++) { while(n>0) { if(n==2) break outer; else continue; } } } }\n",
+      "cognitive": {
+        "file_score": 8,
+        "units": [
+          {
+            "name": "f",
+            "score": 8
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "loops.java",
+          "index": 83.26956680280638
+        },
+        {
+          "name": "Probe",
+          "index": 83.40406972678298
+        },
+        {
+          "name": "f",
+          "index": 83.73164962594643
+        }
+      ]
+    },
+    {
+      "name": "catch",
+      "language": "java",
+      "source": "class Probe { void f() { try { if (true) return; } catch (Exception e) { if (true) return; } finally { if (true) return; } } }\n",
+      "cognitive": {
+        "file_score": 5,
+        "units": [
+          {
+            "name": "f",
+            "score": 5
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "catch.java",
+          "index": 85.26830896477423
+        },
+        {
+          "name": "Probe",
+          "index": 85.40281188875086
+        },
+        {
+          "name": "f",
+          "index": 85.88910976839932
+        }
+      ]
+    },
+    {
+      "name": "lambda",
+      "language": "java",
+      "source": "class Probe { void f(boolean a) { Runnable r = () -> { if(a) return; }; } }\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "f",
+            "score": 2
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "lambda.java",
+          "index": 87.07225042846774
+        },
+        {
+          "name": "Probe",
+          "index": 87.20675335244435
+        },
+        {
+          "name": "f",
+          "index": 87.84520646313126
+        }
+      ]
+    },
+    {
+      "name": "local_class",
+      "language": "java",
+      "source": "class Probe { void f(boolean a) { class Inner { void g() { if(a) return; } } } }\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "f",
+            "score": 2
+          },
+          {
+            "name": "g",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "local_class.java",
+          "index": 86.62942952088429
+        },
+        {
+          "name": "Probe",
+          "index": 86.76393244486088
+        },
+        {
+          "name": "f",
+          "index": 87.3799431239995
+        },
+        {
+          "name": "Inner",
+          "index": 88.79629435783933
+        },
+        {
+          "name": "g",
+          "index": 89.70856625542544
+        }
+      ]
+    },
+    {
+      "name": "anonymous",
+      "language": "java",
+      "source": "class Probe { void f(boolean a) { Runnable r = new Runnable() { public void run() { if(a) return; } }; } }\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "f",
+            "score": 2
+          },
+          {
+            "name": "run",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "anonymous.java",
+          "index": 85.94890680398942
+        },
+        {
+          "name": "Probe",
+          "index": 86.08340972796604
+        },
+        {
+          "name": "f",
+          "index": 86.60415351169291
+        },
+        {
+          "name": "run",
+          "index": 89.70856625542544
+        }
+      ]
+    },
+    {
+      "name": "initializers",
+      "language": "java",
+      "source": "class Probe { static { if(true) System.out.println(1); } { if(true) System.out.println(2); } int value = true ? 1 : 2; }\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [],
+        "initializers": [
+          {
+            "name": "<static_initializer>",
+            "score": 1,
+            "first": {
+              "column": 14
+            },
+            "end": {
+              "column": 56
+            }
+          },
+          {
+            "name": "<block>",
+            "score": 1,
+            "first": {
+              "column": 57
+            },
+            "end": {
+              "column": 92
+            }
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "initializers.java",
+          "index": 85.05045562381113
+        },
+        {
+          "name": "Probe",
+          "index": 85.18495854778774
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "language": "java",
+      "source": "class Probe { int f(int n) { return switch(n) { case 1 -> n > 0 ? 2 : 3; default -> 4; }; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "switch.java",
+          "index": 84.90655318844327
+        },
+        {
+          "name": "Probe",
+          "index": 85.0410561124199
+        },
+        {
+          "name": "f",
+          "index": 85.46595078870877
+        }
+      ]
+    },
+    {
+      "name": "record",
+      "language": "java",
+      "source": "record Probe(int n) { Probe { if(n<0) throw new IllegalArgumentException(); } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "Probe",
+            "score": 1
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "record.java",
+          "index": 87.52561185153526
+        }
+      ]
+    },
+    {
+      "name": "operands",
+      "language": "java",
+      "source": "class Probe { int f(int x) throws Exception { int y = 0x10; float z = 1.5f; return x + y; } }\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "operands.java",
+          "index": 85.52668923674378
+        },
+        {
+          "name": "Probe",
+          "index": 85.66119216072038
+        },
+        {
+          "name": "f",
+          "index": 86.11502888850585
+        }
+      ]
+    },
+    {
+      "name": "unicode",
+      "language": "java",
+      "source": "class Probe { String f(boolean a) { String x = \"😀\"; if(a) return x; return \"é\"; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "unicode.java",
+          "index": 86.62563019638021
+        },
+        {
+          "name": "Probe",
+          "index": 86.76013312035681
+        },
+        {
+          "name": "f",
+          "index": 87.34125627642095
+        }
+      ]
+    },
+    {
+      "name": "enum_constant",
+      "language": "java",
+      "source": "enum Probe { A { int f(boolean a) { if(a) return 1; return 0; } }; abstract int f(boolean a); }\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          },
+          {
+            "name": "f",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "enum_constant.java",
+          "index": 85.69467666840382
+        },
+        {
+          "name": "f",
+          "index": 88.05500934718515
+        },
+        {
+          "name": "f",
+          "index": 91.52886172685359
+        }
+      ]
+    },
+    {
+      "name": "nested_switch",
+      "language": "java",
+      "source": "class Probe { int f(int n) { return switch(n) { case 1 -> switch(n) { case 2 -> 3; default -> 4; }; default -> 5; }; } }\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "nested_switch.java",
+          "index": 84.66931921570396
+        },
+        {
+          "name": "Probe",
+          "index": 84.80382213968058
+        },
+        {
+          "name": "f",
+          "index": 85.21275102555464
+        }
+      ]
+    },
+    {
+      "name": "switch_statement",
+      "language": "java",
+      "source": "class Probe { void f(int n) { switch(n) { case 1: if(n>0) return; break; default: break; } } }\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 3
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "switch_statement.java",
+          "index": 84.85231969888629
+        },
+        {
+          "name": "Probe",
+          "index": 84.9868226228629
+        },
+        {
+          "name": "f",
+          "index": 85.4074215710145
+        }
+      ]
+    },
+    {
+      "name": "annotation_elements",
+      "language": "java",
+      "source": "@interface Probe { int value(); String name() default \"x\"; }\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "value",
+            "score": 0
+          },
+          {
+            "name": "name",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "annotation_elements.java",
+          "index": 89.06530020579255
+        }
+      ]
+    },
+    {
+      "name": "nested_local_class",
+      "language": "java",
+      "source": "class Probe { void f(boolean a) { class Local { class Inner { void g() { if(a) return; } } } } }\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 3
+          },
+          {
+            "name": "g",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "nested_local_class.java",
+          "index": 86.0661418157865
+        },
+        {
+          "name": "Probe",
+          "index": 86.2006447397631
+        },
+        {
+          "name": "f",
+          "index": 86.76393244486088
+        },
+        {
+          "name": "Local",
+          "index": 88.01136107537192
+        },
+        {
+          "name": "Inner",
+          "index": 88.79629435783933
+        },
+        {
+          "name": "g",
+          "index": 89.70856625542544
+        }
+      ]
+    },
+    {
+      "name": "implicit_class",
+      "language": "java",
+      "source": "void main() { if(true) System.out.println(1); }\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "main",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "implicit_class.java",
+          "index": 88.38926872443766
+        },
+        {
+          "name": "main",
+          "index": 88.52377164841425
+        }
+      ]
+    },
+    {
+      "name": "ternary_switch",
+      "language": "java",
+      "source": "class Probe { int f(int n) { return n == 0 ? 1 : switch(n) { case 2 -> 3; default -> 4; }; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "ternary_switch.java",
+          "index": 84.90655318844327
+        },
+        {
+          "name": "Probe",
+          "index": 85.0410561124199
+        },
+        {
+          "name": "f",
+          "index": 85.46595078870877
+        }
+      ]
+    },
+    {
+      "name": "initializer_local_class",
+      "language": "java",
+      "source": "class Probe { static { class Local { void f(boolean a) { if(a) return; } } } }\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "initializers": [
+          {
+            "name": "<static_initializer>",
+            "score": 2,
+            "first": {
+              "column": 14
+            },
+            "end": {
+              "column": 76
+            }
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "initializer_local_class.java",
+          "index": 87.44169769120144
+        },
+        {
+          "name": "Probe",
+          "index": 87.57620061517807
+        },
+        {
+          "name": "Local",
+          "index": 88.53169835763696
+        },
+        {
+          "name": "f",
+          "index": 89.388171704887
+        }
+      ]
+    },
+    {
+      "name": "starred_index",
+      "language": "python",
+      "source": "def f(a, *items):\n    return a[*items] if items else None\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 58
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "annotation_slices",
+      "language": "python",
+      "source": "def f(a, b, c, d):\n    def inner(x: a[:, :, c:d], y: a[b+1:c*2:d], z: a[::c]):\n        return x if y else z\n    return inner\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          },
+          {
+            "name": "inner",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 125
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "type_parameter_defaults",
+      "language": "python",
+      "source": "type Alias[T = int | str] = list[T]\nclass Box[T: int | float = int, *Ts = *tuple[int, ...], **P = [int, str]]:\n    def f[U: int | float = int](self, x):\n        if x:\n            return x + 1\n        return 0\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 209
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 72.80132549375759
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 3,
+          "N2": 6,
+          "h1": 2,
+          "h2": 5
+        },
+        "parameters": {
+          "cyclomatic": 3
+        }
+      }
+    },
+    {
+      "name": "starred_return_expressions",
+      "language": "python",
+      "source": "def f(x, y):\n    return x + 1, *[y + 1], *((None,) * 2)\ndef g(x):\n    return *[None] * 3, *x,\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          },
+          {
+            "name": "g",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 94
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 75.667389205507
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 4,
+          "N2": 8,
+          "h1": 2,
+          "h2": 7
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "starred_assignment_expressions",
+      "language": "python",
+      "source": "head, *tail = values, *[]\ndef f(values):\n    head, *tail = values, *[1 + 2]\n    return head + len(tail)\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 104
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 78.7218789164598
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 1,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "multiline_attribute_dedent",
+      "language": "python",
+      "source": "def f(bar):\n    (bar.\n  baz)\n    (bar.\n  baz(\n  ))\n    if bar:\n        return bar.baz + 1\n    return 0\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 103
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 78.01508585192973
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 1,
+          "N2": 2,
+          "h1": 1,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "negative_union_patterns",
+      "language": "python",
+      "source": "def f(x):\n    match x:\n        case 1 | -1 | -2.5: return 1\n        case [0, -3] | [1, -4]: return 2\n    return 0\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 114
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 72.27642713791997
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 4,
+          "N2": 4,
+          "h1": 1,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 3
+        }
+      }
+    },
+    {
+      "name": "fstring_prefix_conditional",
+      "language": "python",
+      "source": "def f(x, y, condition, a, b, c):\n    return f'{x if condition else y:=a if b else c}'\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 86
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "fstring_index_walrus",
+      "language": "python",
+      "source": "def f(values):\n    return f'{values[index := 1]:=10}'\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 54
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "fstring_nested_walrus",
+      "language": "python",
+      "source": "def f(x):\n    return f'{x:={(width := x if x else 1)}}'\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 56
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "commented_operand",
+      "language": "python",
+      "source": "def f(x):\n    return x + ( # same operand\n        x)\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 53
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 1,
+          "N2": 2,
+          "h1": 1,
+          "h2": 1
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "complex_identity",
+      "language": "python",
+      "source": "def f(x):\n    return (x == 0) + (x == 0j) + (x == 1j) + (x == 1.0j) + (x == False)\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 83
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 79.29749436490734
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 9,
+          "N2": 18,
+          "h1": 2,
+          "h2": 11
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "ellipsis_identity",
+      "language": "python",
+      "source": "def f(x):\n    return (x is ...) + (x is ...) + (x == 'x')\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 58
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 81.55548152026562
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 5,
+          "N2": 10,
+          "h1": 3,
+          "h2": 6
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "surrogate_identity",
+      "language": "python",
+      "source": "def f(x):\n    return (x == '\\udcff') or (x == '\\udcff') or (x == r'\\udcff')\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 76
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 81.88917842985657
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 4,
+          "N2": 9,
+          "h1": 2,
+          "h2": 6
+        },
+        "parameters": {
+          "cyclomatic": 3
+        }
+      }
+    },
+    {
+      "name": "huge_integer_identity",
+      "language": "python",
+      "source": "def f(x):\n    return (x == 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000) + (x == 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001) + (x == 0x4e34d4b9425abc6bff953b020a29b77de53ac65fa7ddba23b2e96665bcdbb2994d1d5f91e725004ad40263240000000000000000000000000000000000000) + (x == 999999999999999980835596172437374590573120014030318793091164810154100112203678582976298268616221151962702060266176005440567032331208403948233373515776) + (x == 1e150)\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 653
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 79.21087925265464
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 9,
+          "N2": 18,
+          "h1": 2,
+          "h2": 12
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "negative_match_values",
+      "language": "python",
+      "source": "def f(x):\n    match x:\n        case -1: return 1\n        case -2.5: return 2\n        case -1j: return 3\n        case -1-2j: return 4\n    return 0\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 146
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 66.17975377782642
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 5,
+          "N2": 6,
+          "h1": 2,
+          "h2": 5
+        },
+        "parameters": {
+          "cyclomatic": 5
+        }
+      }
+    },
+    {
+      "name": "legacy_print_shift",
+      "language": "python",
+      "source": "def f(stream, value):\n    print >> stream, value\n    return value + 1\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 70
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 81.12095583420833
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 2,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "slice_before_semicolon",
+      "language": "python",
+      "source": "x = 1 + 2\nrow = values[:, :]; other = 3\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 40
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 84.71624627594792
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 1,
+          "N2": 2,
+          "h1": 1,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "blank_after_continuation",
+      "language": "python",
+      "source": "x = 1 + 2 \\\n\ny = 3 + 4\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 23
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 91.85519391654297
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 1,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "comment_after_continuation",
+      "language": "python",
+      "source": "x = 1 + 2 \\\n# marker\ny = 3 + 4\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 31
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 1,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "fstring_equal_format",
+      "language": "python",
+      "source": "x = 1 + 2\nvalue = f'{x:=10}'\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 29
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 84.71624627594792
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 1,
+          "N2": 2,
+          "h1": 1,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "fstring_static_format_expression",
+      "language": "python",
+      "source": "def f(x, a, b, c):\n    return f'{x:=a if b else c}'\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 52
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "fstring_nested_format_expression",
+      "language": "python",
+      "source": "def f(x, a, b, c):\n    return f'{x:={a if b else c}}'\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 54
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "fstring_parenthesized_walrus",
+      "language": "python",
+      "source": "def f(x):\n    return f'{(y := x if x else 1)}'\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 47
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "bytes_escape_identity",
+      "language": "python",
+      "source": "def f(x):\n    return (x == b'\\u0041') + (x == br'\\u0041') + (x == b'\\777') + (x == b'\\xff')\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 92
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 80.26652433949664
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 7,
+          "N2": 14,
+          "h1": 2,
+          "h2": 9
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "continued_strings",
+      "language": "python",
+      "source": "x = 'a' \\\n    'b' \\\n    'c'\ny = 1 + 2\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 38
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 88.5574946685516
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 1,
+          "N2": 2,
+          "h1": 1,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "continued_multiline_assert",
+      "language": "python",
+      "source": "def f(x):\n    assert x == \\\n        '''first\n        second'''\n    return x + 1\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 80
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 81.3127850999211
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 2,
+          "h2": 3
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "inline_comment_continuation",
+      "language": "python",
+      "source": "x = 1 + 2 # comment ending in \\\ny = 3 + 4\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 42
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 1,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "match_guard",
+      "language": "python",
+      "source": "def f(x):\n    match x:\n        case int() if x > 0:\n            return x + 1\n        case _:\n            return 0\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 114
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 74.74612759987951
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 2,
+          "h2": 3
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "module_only",
+      "language": "python",
+      "source": "for x in xs:\n    if x:\n        print(x)\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [],
+        "module": {
+          "score": 3,
+          "start_byte": 0,
+          "end_byte": 40
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 3
+        }
+      }
+    },
+    {
+      "name": "module_and_function",
+      "language": "python",
+      "source": "if ready:\n    for x in xs:\n        print(x)\ndef f(x):\n    if x:\n        return 1\n",
+      "cognitive": {
+        "file_score": 4,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 3,
+          "start_byte": 0,
+          "end_byte": 81
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 4
+        }
+      }
+    },
+    {
+      "name": "conditional_function",
+      "language": "python",
+      "source": "if ready:\n    def f(x):\n        if x:\n            return 1\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 59
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 3
+        }
+      }
+    },
+    {
+      "name": "module_class",
+      "language": "python",
+      "source": "class C:\n    if flag:\n        x = 1\n    def f(self, x):\n        if x:\n            return x\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 91
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 4
+        }
+      }
+    },
+    {
+      "name": "empty",
+      "language": "python",
+      "source": "",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 0
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "branches",
+      "language": "python",
+      "source": "def f(x):\n    if x > 0:\n        return 1\n    elif x < 0:\n        return 2\n    else:\n        return 3\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 3
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 101
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 73.60511169965281
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 2,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 3
+        }
+      }
+    },
+    {
+      "name": "boolean",
+      "language": "python",
+      "source": "def f(a,b,c,d):\n    return a and (b and c) or d and a\n",
+      "cognitive": {
+        "file_score": 4,
+        "units": [
+          {
+            "name": "f",
+            "score": 4
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 54
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 81.69603500964215
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 4,
+          "N2": 8,
+          "h1": 2,
+          "h2": 7
+        },
+        "parameters": {
+          "cyclomatic": 5
+        }
+      }
+    },
+    {
+      "name": "loops",
+      "language": "python",
+      "source": "def f(xs):\n    for x in xs:\n        while x:\n            if x == 2:\n                break\n        else:\n            return 1\n    else:\n        return 2\n",
+      "cognitive": {
+        "file_score": 8,
+        "units": [
+          {
+            "name": "f",
+            "score": 8
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 152
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 73.63582576341963
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 1,
+          "N2": 2,
+          "h1": 1,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 6
+        }
+      }
+    },
+    {
+      "name": "catch",
+      "language": "python",
+      "source": "def f(x):\n    try:\n        if x: return 1\n    except ValueError:\n        if x: return 2\n    else:\n        return 3\n    finally:\n        if x: return 4\n",
+      "cognitive": {
+        "file_score": 6,
+        "units": [
+          {
+            "name": "f",
+            "score": 6
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 151
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 6
+        }
+      }
+    },
+    {
+      "name": "lambda",
+      "language": "python",
+      "source": "def f(x):\n    return lambda y: y if x else 0\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 45
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "wrapper",
+      "language": "python",
+      "source": "def outer():\n    def inner(x):\n        if x:\n            return 1\n        return 0\n    return inner\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "outer",
+            "score": 1
+          },
+          {
+            "name": "inner",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 100
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "nested",
+      "language": "python",
+      "source": "def outer(a):\n    x = 1\n    def inner(b):\n        if b:\n            return 1\n    if a:\n        return inner\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "outer",
+            "score": 3
+          },
+          {
+            "name": "inner",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 108
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "nested_class",
+      "language": "python",
+      "source": "def f(a):\n    class Inner:\n        def g(self):\n            if a:\n                return 1\n    return Inner\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          },
+          {
+            "name": "g",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 108
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "match",
+      "language": "python",
+      "source": "def f(x):\n    match x:\n        case 1:\n            if x: return 1\n        case _:\n            return 0\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "f",
+            "score": 2
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 103
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 3
+        }
+      }
+    },
+    {
+      "name": "comprehension",
+      "language": "python",
+      "source": "def f(xs):\n    return [x + 1 for x in xs if x > 0 if x < 4]\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 60
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 83.07472846242624
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 3,
+          "N2": 6,
+          "h1": 3,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 4
+        }
+      }
+    },
+    {
+      "name": "with",
+      "language": "python",
+      "source": "def f(x):\n    with x:\n        if x:\n            return 1\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 57
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "decorator",
+      "language": "python",
+      "source": "@decorate(True if condition else False)\ndef f(x):\n    if x:\n        return 1\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "f",
+            "score": 2
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 77
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "constants",
+      "language": "python",
+      "source": "def f(x):\n    a = x + 1\n    b = x + 1.0\n    c = x + True\n    d = x + 0x1\n    e = x + 'x'\n    return a + b + c + d + e\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 118
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 67.63401257535298
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 9,
+          "N2": 18,
+          "h1": 1,
+          "h2": 10
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "strings",
+      "language": "python",
+      "source": "a = 'a\\n' + \"a\\x0a\"\nb = 'a' 'b' + 'ab'\nc = r'a\\n' + b'a\\n'\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 59
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 80.2142947126916
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 3,
+          "N2": 6,
+          "h1": 1,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "multiline",
+      "language": "python",
+      "source": "\"\"\"module\n\ntext\"\"\"\n# comment\nx = (1 +\n     2)\ndef f(x):\n    \"doc\"\n    return x * 2 # note\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 90
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 2,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "class",
+      "language": "python",
+      "source": "class C:\n    if flag:\n        x = 1\n    def f(self, x):\n        if x:\n            return x+1\n    class Nested:\n        def g(self,x):\n            if x:\n                return x+2\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          },
+          {
+            "name": "g",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 179
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 69.63772110572219
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 1,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 4
+        }
+      }
+    },
+    {
+      "name": "fstring",
+      "language": "python",
+      "source": "def f(x):\n    return f'{x if x else 1}:{x:02d}'\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 48
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "assert",
+      "language": "python",
+      "source": "def f(a,b):\n    assert a and b\n    return a + b\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 48
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 81.7666469851924
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 2,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "comparison",
+      "language": "python",
+      "source": "def f(a,b,c):\n    return a < b <= c and a not in c and b is not None\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 69
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 80.91231868811289
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 5,
+          "N2": 10,
+          "h1": 5,
+          "h2": 7
+        },
+        "parameters": {
+          "cyclomatic": 3
+        }
+      }
+    },
+    {
+      "name": "signature",
+      "language": "python",
+      "source": "def f(x: int = 1 + 2) -> int:\n    return x + 3\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 47
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 88.5574946685516
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 1,
+          "N2": 2,
+          "h1": 1,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "type_union",
+      "language": "python",
+      "source": "class C:\n    x: list[int] | None = None\n    y: dict[str, int | float]\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 70
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 76.60788737769361
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 1,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "except_star",
+      "language": "python",
+      "source": "def f(x):\n    try:\n        x += 1\n    except* ValueError:\n        x += 2\n    else:\n        x += 3\n    return x\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "f",
+            "score": 2
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 111
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 70.9222281052121
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 3,
+          "N2": 6,
+          "h1": 1,
+          "h2": 4
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "fstring_template",
+      "language": "python",
+      "source": "x = 2\ns = f'''a\n{{\n{x}\n}}\nb:{x:02d}\n'''\ny = x + 1\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 50
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 81.99083716851001
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 1,
+          "N2": 2,
+          "h1": 1,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "line_continuation",
+      "language": "python",
+      "source": "def f(a,b):\n    assert a == \\\n        b\n    return a + b\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 57
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 81.7666469851924
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 2,
+          "N2": 4,
+          "h1": 2,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "comment_continuation",
+      "language": "python",
+      "source": "# A comment ending with \\\n# another comment\nx = 1 + 2\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 54
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 1,
+          "N2": 2,
+          "h1": 1,
+          "h2": 2
+        },
+        "parameters": {
+          "cyclomatic": 1
+        }
+      }
+    },
+    {
+      "name": "decorated_class",
+      "language": "python",
+      "source": "def f():\n    if flag:\n        @decorate(1 if condition else 2)\n        class C:\n            def g(self):\n                if flag:\n                    return 1\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "f",
+            "score": 3
+          },
+          {
+            "name": "g",
+            "score": 1
+          }
+        ],
+        "module": {
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 159
+        }
+      },
+      "maintainability": [
+        {
+          "name": "<module>",
+          "index": 100.0
+        }
+      ],
+      "inputs": {
+        "halstead": {
+          "N1": 0,
+          "N2": 0,
+          "h1": 0,
+          "h2": 0
+        },
+        "parameters": {
+          "cyclomatic": 2
+        }
+      }
+    },
+    {
+      "name": "text_block_comments",
+      "language": "java",
+      "source": "class Coverage { int f(boolean flag) { String text = \"\"\"\n // if (ignored) {}\n /* while (ignored) {} */\n /// @param value\"\"\"; return flag ? text.length() : 0; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "text_block_comments.java",
+          "index": 73.0748339748568
+        },
+        {
+          "name": "Coverage",
+          "index": 73.20933689883341
+        },
+        {
+          "name": "f",
+          "index": 73.74271213984255
+        }
+      ]
+    },
+    {
+      "name": "mi_qualified_empty_record",
+      "language": "java",
+      "source": "class Probe { record R() {} int f(Object value) { return switch (value) { case Probe.R() -> 1; default -> 0; }; } }\n",
+      "cognitive": {
+        "file_score": 0,
+        "units": [
+          {
+            "name": "f",
+            "score": 0
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "mi_qualified_empty_record.java",
+          "index": 85.60806155615113
+        },
+        {
+          "name": "Probe",
+          "index": 85.74256448012774
+        },
+        {
+          "name": "f",
+          "index": 86.5556325893873
+        }
+      ]
+    },
+    {
+      "name": "mi_text_block_boundary",
+      "language": "java",
+      "source": "class Probe { void use(String a, int n, String b) {} void f(boolean flag) { use(\"\"\"\n /*\n \"\"\", flag ? 1 : 0, \"\"\"\n */\n \"\"\"); } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "use",
+            "score": 0
+          },
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      },
+      "maintainability": [
+        {
+          "name": "mi_text_block_boundary.java",
+          "index": 70.89095245189407
+        },
+        {
+          "name": "Probe",
+          "index": 71.02545537587066
+        },
+        {
+          "name": "use",
+          "index": 89.35513233151332
+        },
+        {
+          "name": "f",
+          "index": 74.59576264055268
+        }
+      ]
+    }
+  ]
+}

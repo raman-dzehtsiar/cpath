@@ -1,0 +1,6 @@
+{
+  "name": "tree-sitter-typescript-cpath",
+  "version": "0.23.2",
+  "private": true,
+  "type": "commonjs"
+}

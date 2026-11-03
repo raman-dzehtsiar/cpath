@@ -1,0 +1,53 @@
+{
+  "records": [
+    {
+      "name": "OperationRegressions.Factory(int)",
+      "kind": "Ordinary",
+      "start_byte": 94,
+      "end_byte": 167,
+      "index": 89
+    },
+    {
+      "name": "OperationRegressions.NestedInvocation(int)",
+      "kind": "Ordinary",
+      "start_byte": 172,
+      "end_byte": 239,
+      "index": 92
+    },
+    {
+      "name": "OperationRegressions.Utf8.get",
+      "kind": "PropertyGet",
+      "start_byte": 283,
+      "end_byte": 313,
+      "index": 100
+    },
+    {
+      "name": "OperationRegressions.RawUtf8.get",
+      "kind": "PropertyGet",
+      "start_byte": 360,
+      "end_byte": 374,
+      "index": 100
+    },
+    {
+      "name": "OperationRegressions.Uninitialized(int)",
+      "kind": "Ordinary",
+      "start_byte": 381,
+      "end_byte": 552,
+      "index": 85
+    },
+    {
+      "name": "OperationRegressions.Assign(out int, out int)",
+      "kind": "Ordinary",
+      "start_byte": 558,
+      "end_byte": 666,
+      "index": 86
+    },
+    {
+      "name": "OperationRegressions.NestedConditional(bool, bool, bool)",
+      "kind": "Ordinary",
+      "start_byte": 672,
+      "end_byte": 802,
+      "index": 80
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+========================================================================
+Typed conditional arrow owns its return annotation
+:language(typescript)
+:language(tsx)
+========================================================================
+
+const choose = flag ? (item):Result => item : other => other;
+
+---
+
+(program
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (ternary_expression
+        (identifier)
+        (arrow_function
+          (formal_parameters
+            (required_parameter
+              (identifier)))
+          (type_annotation
+            (type_identifier))
+          (identifier))
+        (arrow_function
+          (identifier)
+          (identifier))))))
+
+========================================================================
+Generic types executable arrows and shifts stay distinct
+:language(typescript)
+:language(tsx)
+========================================================================
+
+consume<<T>(item:T)=>T>(identity); const fn=<T,>(item:T)=>item; const shifted=value<<amount;
+
+---
+
+(program
+  (expression_statement
+    (call_expression
+      (identifier)
+      (type_arguments
+        (function_type
+          (type_parameters
+            (type_parameter
+              (type_identifier)))
+          (formal_parameters
+            (required_parameter
+              (identifier)
+              (type_annotation
+                (type_identifier))))
+          (type_identifier)))
+      (arguments
+        (identifier))))
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (arrow_function
+        (type_parameters
+          (type_parameter
+            (type_identifier)))
+        (formal_parameters
+          (required_parameter
+            (identifier)
+            (type_annotation
+              (type_identifier))))
+        (identifier))))
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (binary_expression
+        (identifier)
+        (identifier)))))
+
+========================================================================
+Generic arrow versus a comparison to a type assertion
+:language(typescript)
+========================================================================
+
+const fn=<T>(item:T)=>item; const compared=value < <number> other;
+
+---
+
+(program
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (arrow_function
+        (type_parameters
+          (type_parameter
+            (type_identifier)))
+        (formal_parameters
+          (required_parameter
+            (identifier)
+            (type_annotation
+              (type_identifier))))
+        (identifier))))
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (binary_expression
+        (identifier)
+        (type_assertion
+          (type_arguments
+            (predefined_type))
+          (identifier))))))
+
+========================================================================
+Generic function type inside JSX
+:language(tsx)
+========================================================================
+
+const node=<Panel value={consume<<T>(item:T)=>T>(identity)} />;
+
+---
+
+(program
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (jsx_self_closing_element
+        (identifier)
+        (jsx_attribute
+          (property_identifier)
+          (jsx_expression
+            (call_expression
+              (identifier)
+              (type_arguments
+                (function_type
+                  (type_parameters
+                    (type_parameter
+                      (type_identifier)))
+                  (formal_parameters
+                    (required_parameter
+                      (identifier)
+                      (type_annotation
+                        (type_identifier))))
+                  (type_identifier)))
+              (arguments
+                (identifier)))))))))
+
+========================================================================
+Separated less-than signs are not a shift
+:language(typescript)
+:language(tsx)
+:error
+========================================================================
+
+const invalid=value < <amount;
+
+---
+
+==================
+Cpath atomic shifts and generic lookahead
+:language(typescript)
+:language(tsx)
+==================
+const comparison = left << right > (value);
+const callback = left << right > ((value) => value);
+const first = factory <<T extends Map<string, {value: ")>"}>>(value: T) => T>(identity);
+const second = factory<<T = `${`>`}`>(value: T) => T>(identity);
+const third = factory<</* parameter */ const T>(value: {text: ")=>"}) /* arrow */ => T>(identity);
+const fourth = factory<<T>(callback: (value: T) => T) => T>(identity);
+
+---
+
+(program
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (binary_expression
+        (binary_expression
+          (identifier)
+          (identifier))
+        (parenthesized_expression
+          (identifier)))))
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (binary_expression
+        (binary_expression
+          (identifier)
+          (identifier))
+        (parenthesized_expression
+          (arrow_function
+            (formal_parameters
+              (required_parameter
+                (identifier)))
+            (identifier))))))
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (call_expression
+        (identifier)
+        (type_arguments
+          (function_type
+            (type_parameters
+              (type_parameter
+                (type_identifier)
+                (constraint
+                  (generic_type
+                    (type_identifier)
+                    (type_arguments
+                      (predefined_type)
+                      (object_type
+                        (property_signature
+                          (property_identifier)
+                          (type_annotation
+                            (literal_type
+                              (string
+                                (string_fragment)))))))))))
+            (formal_parameters
+              (required_parameter
+                (identifier)
+                (type_annotation
+                  (type_identifier))))
+            (type_identifier)))
+        (arguments
+          (identifier)))))
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (call_expression
+        (identifier)
+        (type_arguments
+          (function_type
+            (type_parameters
+              (type_parameter
+                (type_identifier)
+                (default_type
+                  (template_literal_type
+                    (template_type
+                      (template_literal_type
+                        (string_fragment)))))))
+            (formal_parameters
+              (required_parameter
+                (identifier)
+                (type_annotation
+                  (type_identifier))))
+            (type_identifier)))
+        (arguments
+          (identifier)))))
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (call_expression
+        (identifier)
+        (type_arguments
+          (function_type
+            (type_parameters
+              (comment)
+              (type_parameter
+                (type_identifier)))
+            (formal_parameters
+              (required_parameter
+                (identifier)
+                (type_annotation
+                  (object_type
+                    (property_signature
+                      (property_identifier)
+                      (type_annotation
+                        (literal_type
+                          (string
+                            (string_fragment)))))))))
+            (comment)
+            (type_identifier)))
+        (arguments
+          (identifier)))))
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (call_expression
+        (identifier)
+        (type_arguments
+          (function_type
+            (type_parameters
+              (type_parameter
+                (type_identifier)))
+            (formal_parameters
+              (required_parameter
+                (identifier)
+                (type_annotation
+                  (function_type
+                    (formal_parameters
+                      (required_parameter
+                        (identifier)
+                        (type_annotation
+                          (type_identifier))))
+                    (type_identifier)))))
+            (type_identifier)))
+        (arguments
+          (identifier))))))

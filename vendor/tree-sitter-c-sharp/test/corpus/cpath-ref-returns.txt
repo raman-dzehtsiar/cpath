@@ -1,0 +1,36 @@
+================================================================================
+cpath ref-returning invocations preserve assignment targets
+================================================================================
+class C {
+    void Set(int value) {
+        Ref() = value;
+        Ref() += value;
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(compilation_unit
+  (class_declaration
+    (identifier)
+    (declaration_list
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (parameter_list
+          (parameter
+            (predefined_type)
+            (identifier)))
+        (block
+          (expression_statement
+            (assignment_expression
+              (invocation_expression
+                (identifier)
+                (argument_list))
+              (identifier)))
+          (expression_statement
+            (assignment_expression
+              (invocation_expression
+                (identifier)
+                (argument_list))
+              (identifier))))))))

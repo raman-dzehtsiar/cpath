@@ -1,0 +1,43 @@
+==================
+Pattern not binds before and, then or
+==================
+
+result = x is not 1 and not 2 or not 3;
+
+---
+
+(compilation_unit
+  (global_statement
+    (expression_statement
+      (assignment_expression
+        (identifier)
+        (is_pattern_expression
+          (identifier)
+          (or_pattern
+            (and_pattern
+              (negated_pattern (constant_pattern (integer_literal)))
+              (negated_pattern (constant_pattern (integer_literal))))
+            (negated_pattern (constant_pattern (integer_literal)))))))))
+
+==================
+Pattern not keeps arithmetic inside its constant operands
+==================
+
+result = x is not 1 + 2 and not 3 * 4;
+
+---
+
+(compilation_unit
+  (global_statement
+    (expression_statement
+      (assignment_expression
+        (identifier)
+        (is_pattern_expression
+          (identifier)
+          (and_pattern
+            (negated_pattern
+              (constant_pattern
+                (binary_expression (integer_literal) (integer_literal))))
+            (negated_pattern
+              (constant_pattern
+                (binary_expression (integer_literal) (integer_literal))))))))))

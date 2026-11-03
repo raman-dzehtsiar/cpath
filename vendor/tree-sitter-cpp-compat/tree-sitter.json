@@ -1,0 +1,4 @@
+{
+  "grammars": [{"name": "cpp_compat", "camelcase": "CppCompat", "scope": "source.cpp.compat", "path": ".", "file-types": ["cpp"]}],
+  "metadata": {"version": "0.23.4", "license": "MIT"}
+}

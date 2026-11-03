@@ -1,0 +1,53 @@
+{
+  "records": [
+    {
+      "name": "LocalCallCases.Discarded(LocalCallTarget)",
+      "kind": "Ordinary",
+      "start_byte": 234,
+      "end_byte": 339,
+      "index": 88
+    },
+    {
+      "name": "LocalCallCases.Static()",
+      "kind": "Ordinary",
+      "start_byte": 345,
+      "end_byte": 400,
+      "index": 100
+    },
+    {
+      "name": "LocalCallCases.Add(int)",
+      "kind": "Ordinary",
+      "start_byte": 405,
+      "end_byte": 452,
+      "index": 100
+    },
+    {
+      "name": "LocalCallCases.Collection(System.Collections.Generic.List<int>)",
+      "kind": "Ordinary",
+      "start_byte": 457,
+      "end_byte": 516,
+      "index": 97
+    },
+    {
+      "name": "LocalCallTarget.Value()",
+      "kind": "Ordinary",
+      "start_byte": 102,
+      "end_byte": 126,
+      "index": 100
+    },
+    {
+      "name": "LocalCallTarget.StaticValue()",
+      "kind": "Ordinary",
+      "start_byte": 131,
+      "end_byte": 168,
+      "index": 100
+    },
+    {
+      "name": "LocalCallTarget.Empty()",
+      "kind": "Ordinary",
+      "start_byte": 173,
+      "end_byte": 196,
+      "index": 100
+    }
+  ]
+}

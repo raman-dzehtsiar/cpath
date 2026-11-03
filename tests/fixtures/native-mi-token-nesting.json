@@ -1,0 +1,115 @@
+{
+  "cases": [
+    {
+      "language": "cpp",
+      "name": "primitive_prefix_signed_casts",
+      "source": "typedef unsigned char BYTE; int f() { return ~(BYTE)+3 + -(BYTE)-4; }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.1674412167907,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 15.0,
+            "N2": 3.0,
+            "n1": 8.0,
+            "n2": 3.0,
+            "volume": 62.26976913547135
+          }
+        },
+        {
+          "name": "f",
+          "mi": 87.85637226669046,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 3.0,
+            "n1": 8.0,
+            "n2": 3.0,
+            "volume": 51.89147427955946
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "ordinary_parenthesized_values",
+      "source": "int f(int value) { return (value)+3 + (value)-4; }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.34125627642095,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 6.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 58.81033751683405
+          }
+        },
+        {
+          "name": "f",
+          "mi": 87.47575920039756,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 6.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 58.81033751683405
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "commented_primitive_cast",
+      "source": "typedef unsigned char BYTE; int f() { return (/*type*/BYTE/*end*/)+3; }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 89.03556913395947,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 10.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 33.68825906469125
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.04489473439764,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 25.26619429851844
+          }
+        }
+      ]
+    }
+  ]
+}

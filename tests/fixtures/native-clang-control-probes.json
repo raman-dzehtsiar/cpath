@@ -1,0 +1,220 @@
+{
+  "cases": [
+    {
+      "language": "cpp",
+      "source": "int goto_direct(int x) { if(x) goto done; return 0; done: return 1; }\nint goto_braced(int x) { if(x) { goto done; } return 0; done: return 1; }\nint goto_standalone(int x) { goto done; done: return x; }\nint for_direct(int x) { int n=0; if(x) for(int i=0;i<x;i++) n++; else for(int j=0;j<x;j++) n--; return n; }\nint for_braced(int x) { int n=0; if(x) { for(int i=0;i<x;i++) n++; } else { for(int j=0;j<x;j++) n--; } return n; }\nint while_direct(int x) { if(x) while(x>1) { if(x==2) break; x--; } return x; }\nint do_direct(int x) { if(x) do { if(x==2) break; x--; } while(x); return x; }\nint switch_direct(int x) { if(x) switch(x) { case 1: if(x) x++; break; default: x--; } return x; }\nint ternary_direct(int x) { if(x) x ? x++ : x--; return x; }\nint ternary_parenthesized(int x) { if(x) (x ? x++ : x--); return x; }\nint ternary_return(int x) { if(x) return x ? 1 : 2; return 0; }\nint logical_direct(int a,int b) { if(a) a && b; else a || b; return a; }\nint nested_if(int x) { if(x) if(x>1) return 1; return 0; }\nint else_if_comment(int x) { if(x) return 1; else /* comment */ if(x<0) return -1; return 0; }\nint else_body_comment(int x) { if(x) return 1; else /* comment */ while(x) x++; return x; }\nint lambda_direct(int x) { if(x) [x]() { if(x) return 1; return 0; }; return 0; }\nint lambda_parenthesized(int x) { if(x) ([x]() { if(x) return 1; return 0; }); return 0; }\n",
+      "units": [
+        {
+          "name": "goto_direct",
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 69
+        },
+        {
+          "name": "goto_braced",
+          "score": 2,
+          "start_byte": 70,
+          "end_byte": 143
+        },
+        {
+          "name": "goto_standalone",
+          "score": 1,
+          "start_byte": 144,
+          "end_byte": 201
+        },
+        {
+          "name": "for_direct",
+          "score": 2,
+          "start_byte": 202,
+          "end_byte": 309
+        },
+        {
+          "name": "for_braced",
+          "score": 6,
+          "start_byte": 310,
+          "end_byte": 425
+        },
+        {
+          "name": "while_direct",
+          "score": 3,
+          "start_byte": 426,
+          "end_byte": 505
+        },
+        {
+          "name": "do_direct",
+          "score": 3,
+          "start_byte": 506,
+          "end_byte": 584
+        },
+        {
+          "name": "switch_direct",
+          "score": 3,
+          "start_byte": 585,
+          "end_byte": 683
+        },
+        {
+          "name": "ternary_direct",
+          "score": 1,
+          "start_byte": 684,
+          "end_byte": 744
+        },
+        {
+          "name": "ternary_parenthesized",
+          "score": 3,
+          "start_byte": 745,
+          "end_byte": 814
+        },
+        {
+          "name": "ternary_return",
+          "score": 3,
+          "start_byte": 815,
+          "end_byte": 878
+        },
+        {
+          "name": "logical_direct",
+          "score": 4,
+          "start_byte": 879,
+          "end_byte": 951
+        },
+        {
+          "name": "nested_if",
+          "score": 3,
+          "start_byte": 952,
+          "end_byte": 1010
+        },
+        {
+          "name": "else_if_comment",
+          "score": 2,
+          "start_byte": 1011,
+          "end_byte": 1105
+        },
+        {
+          "name": "else_body_comment",
+          "score": 2,
+          "start_byte": 1106,
+          "end_byte": 1197
+        },
+        {
+          "name": "lambda_direct",
+          "score": 3,
+          "start_byte": 1198,
+          "end_byte": 1279
+        },
+        {
+          "name": "<lambda>",
+          "score": 1,
+          "start_byte": 1231,
+          "end_byte": 1266
+        },
+        {
+          "name": "lambda_parenthesized",
+          "score": 4,
+          "start_byte": 1280,
+          "end_byte": 1370
+        },
+        {
+          "name": "<lambda>",
+          "score": 1,
+          "start_byte": 1321,
+          "end_byte": 1356
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "source": "int goto_direct(int x) { if(x) goto done; return 0; done: return 1; }\nint goto_braced(int x) { if(x) { goto done; } return 0; done: return 1; }\nint goto_standalone(int x) { goto done; done: return x; }\nint for_direct(int x) { int n=0; if(x) for(int i=0;i<x;i++) n++; else for(int j=0;j<x;j++) n--; return n; }\nint for_braced(int x) { int n=0; if(x) { for(int i=0;i<x;i++) n++; } else { for(int j=0;j<x;j++) n--; } return n; }\nint while_direct(int x) { if(x) while(x>1) { if(x==2) break; x--; } return x; }\nint do_direct(int x) { if(x) do { if(x==2) break; x--; } while(x); return x; }\nint switch_direct(int x) { if(x) switch(x) { case 1: if(x) x++; break; default: x--; } return x; }\nint ternary_direct(int x) { if(x) x ? x++ : x--; return x; }\nint ternary_parenthesized(int x) { if(x) (x ? x++ : x--); return x; }\nint ternary_return(int x) { if(x) return x ? 1 : 2; return 0; }\nint logical_direct(int a,int b) { if(a) a && b; else a || b; return a; }\nint nested_if(int x) { if(x) if(x>1) return 1; return 0; }\nint else_if_comment(int x) { if(x) return 1; else /* comment */ if(x<0) return -1; return 0; }\nint else_body_comment(int x) { if(x) return 1; else /* comment */ while(x) x++; return x; }\n",
+      "units": [
+        {
+          "name": "goto_direct",
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 69
+        },
+        {
+          "name": "goto_braced",
+          "score": 2,
+          "start_byte": 70,
+          "end_byte": 143
+        },
+        {
+          "name": "goto_standalone",
+          "score": 1,
+          "start_byte": 144,
+          "end_byte": 201
+        },
+        {
+          "name": "for_direct",
+          "score": 2,
+          "start_byte": 202,
+          "end_byte": 309
+        },
+        {
+          "name": "for_braced",
+          "score": 6,
+          "start_byte": 310,
+          "end_byte": 425
+        },
+        {
+          "name": "while_direct",
+          "score": 3,
+          "start_byte": 426,
+          "end_byte": 505
+        },
+        {
+          "name": "do_direct",
+          "score": 3,
+          "start_byte": 506,
+          "end_byte": 584
+        },
+        {
+          "name": "switch_direct",
+          "score": 3,
+          "start_byte": 585,
+          "end_byte": 683
+        },
+        {
+          "name": "ternary_direct",
+          "score": 1,
+          "start_byte": 684,
+          "end_byte": 744
+        },
+        {
+          "name": "ternary_parenthesized",
+          "score": 3,
+          "start_byte": 745,
+          "end_byte": 814
+        },
+        {
+          "name": "ternary_return",
+          "score": 3,
+          "start_byte": 815,
+          "end_byte": 878
+        },
+        {
+          "name": "logical_direct",
+          "score": 4,
+          "start_byte": 879,
+          "end_byte": 951
+        },
+        {
+          "name": "nested_if",
+          "score": 3,
+          "start_byte": 952,
+          "end_byte": 1010
+        },
+        {
+          "name": "else_if_comment",
+          "score": 2,
+          "start_byte": 1011,
+          "end_byte": 1105
+        },
+        {
+          "name": "else_body_comment",
+          "score": 2,
+          "start_byte": 1106,
+          "end_byte": 1197
+        }
+      ]
+    }
+  ]
+}

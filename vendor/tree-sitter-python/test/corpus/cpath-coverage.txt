@@ -1,0 +1,230 @@
+================================================
+Cpath coverage type_parameter_defaults
+================================================
+type Alias[T = int | str] = list[T]
+class Box[T: int | float = int, *Ts = *tuple[int, ...], **P = [int, str]]:
+    def f[U: int | float = int](self, x):
+        if x:
+            return x + 1
+        return 0
+
+---
+
+(module
+  (type_alias_statement
+    (type
+      (generic_type
+        (identifier)
+        (type_parameter
+          (default_type
+            (type
+              (identifier))
+            (type
+              (binary_operator
+                (identifier)
+                (identifier)))))))
+    (type
+      (generic_type
+        (identifier)
+        (type_parameter
+          (type
+            (identifier))))))
+  (class_definition
+    (identifier)
+    (type_parameter
+      (default_type
+        (type
+          (constrained_type
+            (type
+              (identifier))
+            (type
+              (binary_operator
+                (identifier)
+                (identifier)))))
+        (type
+          (identifier)))
+      (default_type
+        (type
+          (splat_type
+            (identifier)))
+        (list_splat
+          (subscript
+            (identifier)
+            (identifier)
+            (ellipsis))))
+      (default_type
+        (type
+          (splat_type
+            (identifier)))
+        (type
+          (list
+            (identifier)
+            (identifier)))))
+    (block
+      (function_definition
+        (identifier)
+        (type_parameter
+          (default_type
+            (type
+              (constrained_type
+                (type
+                  (identifier))
+                (type
+                  (binary_operator
+                    (identifier)
+                    (identifier)))))
+            (type
+              (identifier))))
+        (parameters
+          (identifier)
+          (identifier))
+        (block
+          (if_statement
+            (identifier)
+            (block
+              (return_statement
+                (binary_operator
+                  (identifier)
+                  (integer)))))
+          (return_statement
+            (integer)))))))
+
+================================================
+Cpath coverage starred_return_expressions
+================================================
+def f(x, y):
+    return x + 1, *[y + 1], *((None,) * 2)
+def g(x):
+    return *[None] * 3, *x,
+
+---
+
+(module
+  (function_definition
+    (identifier)
+    (parameters
+      (identifier)
+      (identifier))
+    (block
+      (return_statement
+        (expression_list
+          (binary_operator
+            (identifier)
+            (integer))
+          (list_splat
+            (list
+              (binary_operator
+                (identifier)
+                (integer))))
+          (list_splat
+            (parenthesized_expression
+              (binary_operator
+                (tuple
+                  (none))
+                (integer))))))))
+  (function_definition
+    (identifier)
+    (parameters
+      (identifier))
+    (block
+      (return_statement
+        (expression_list
+          (list_splat
+            (binary_operator
+              (list
+                (none))
+              (integer)))
+          (list_splat
+            (identifier)))))))
+
+================================================
+Cpath coverage starred_assignment_expressions
+================================================
+head, *tail = values, *[]
+def f(values):
+    head, *tail = values, *[1 + 2]
+    return head + len(tail)
+
+---
+
+(module
+  (expression_statement
+    (assignment
+      (pattern_list
+        (identifier)
+        (list_splat_pattern
+          (identifier)))
+      (expression_list
+        (identifier)
+        (list_splat
+          (list)))))
+  (function_definition
+    (identifier)
+    (parameters
+      (identifier))
+    (block
+      (expression_statement
+        (assignment
+          (pattern_list
+            (identifier)
+            (list_splat_pattern
+              (identifier)))
+          (expression_list
+            (identifier)
+            (list_splat
+              (list
+                (binary_operator
+                  (integer)
+                  (integer)))))))
+      (return_statement
+        (binary_operator
+          (identifier)
+          (call
+            (identifier)
+            (argument_list
+              (identifier))))))))
+
+================================================
+Cpath coverage multiline_attribute_dedent
+================================================
+def f(bar):
+    (bar.
+  baz)
+    (bar.
+  baz(
+  ))
+    if bar:
+        return bar.baz + 1
+    return 0
+
+---
+
+(module
+  (function_definition
+    (identifier)
+    (parameters
+      (identifier))
+    (block
+      (expression_statement
+        (parenthesized_expression
+          (attribute
+            (identifier)
+            (identifier))))
+      (expression_statement
+        (parenthesized_expression
+          (call
+            (attribute
+              (identifier)
+              (identifier))
+            (argument_list))))
+      (if_statement
+        (identifier)
+        (block
+          (return_statement
+            (binary_operator
+              (attribute
+                (identifier)
+                (identifier))
+              (integer)))))
+      (return_statement
+        (integer)))))

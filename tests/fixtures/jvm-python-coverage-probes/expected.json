@@ -1,0 +1,252 @@
+{
+  "probes": [
+    {
+      "name": "varargs_method",
+      "source": "import java.lang.annotation.*;\n@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }\n@Target(ElementType.TYPE_USE) @interface B {}\nclass Coverage { int f(Object @A @B ... values) { int n = 0; for (Object value : values) { if (value != null) n++; } return n; } }\n",
+      "cognitive": {
+        "file_score": 3,
+        "units": [
+          {
+            "name": "value",
+            "score": 0
+          },
+          {
+            "name": "f",
+            "score": 3
+          }
+        ]
+      }
+    },
+    {
+      "name": "varargs_constructor",
+      "source": "import java.lang.annotation.*;\n@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }\n@Target(ElementType.TYPE_USE) @interface B {}\nclass Coverage { Coverage(String @A(1 + 2) ... values) { if (values == null) throw new IllegalArgumentException(); } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "value",
+            "score": 0
+          },
+          {
+            "name": "Coverage",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "varargs_array",
+      "source": "import java.lang.annotation.*;\n@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }\n@Target(ElementType.TYPE_USE) @interface B {}\nclass Coverage { int f(String @A [] @B ... values) { return values.length > 0 ? values[0].length : 0; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "value",
+            "score": 0
+          },
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "varargs_record",
+      "source": "import java.lang.annotation.*;\n@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }\n@Target(ElementType.TYPE_USE) @interface B {}\nrecord Coverage(String @A ... values) { Coverage { if (values == null) throw new IllegalArgumentException(); } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "value",
+            "score": 0
+          },
+          {
+            "name": "Coverage",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "module_import",
+      "source": "import module java.base;\nclass Probe { int f(boolean x) { return x ? 1 : 0; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "constructor_super_prologue",
+      "source": "class Parent { Parent(int x) {} }\nclass Coverage extends Parent { Coverage(int x) { if (x < 0) x = -x; super(x); if (x > 1) System.out.println(x); } }\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "Parent",
+            "score": 0
+          },
+          {
+            "name": "Coverage",
+            "score": 2
+          }
+        ]
+      }
+    },
+    {
+      "name": "constructor_this_prologue",
+      "source": "class Coverage { Coverage(int x) { if (x < 0) x = -x; this(x, true); } Coverage(int x, boolean unused) { if (x > 1) System.out.println(x); } }\n",
+      "cognitive": {
+        "file_score": 2,
+        "units": [
+          {
+            "name": "Coverage",
+            "score": 1
+          },
+          {
+            "name": "Coverage",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "parenthesized_assignment",
+      "source": "class Coverage { int f(boolean flag) { int value = 0; (value) = flag ? 1 : 2; (value) += 1; return value; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "leading_zero_float",
+      "source": "class Coverage { double f(boolean flag) { double value = 043F + 09e1 + 00D; return flag ? value : 0; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "annotated_record_pattern",
+      "source": "import java.lang.annotation.*;\n@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }\n@Target(ElementType.TYPE_USE) @interface B {}\nrecord Pair(String text) {}\nclass Coverage { int f(Object value) { if (value instanceof Pair(@A String text)) return text.length(); return 0; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "value",
+            "score": 0
+          },
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "qualified_record_pattern",
+      "source": "class Outer { record Pair(String text) {} }\nclass Coverage { int f(Object value) { if (value instanceof Outer.Pair(String text)) return text.length(); return 0; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "annotated_multi_catch",
+      "source": "import java.lang.annotation.*;\n@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }\n@Target(ElementType.TYPE_USE) @interface B {}\nclass Coverage { void risk() throws java.io.IOException, ReflectiveOperationException {} int f() { try { risk(); return 0; } catch (java.io.IOException | @A ReflectiveOperationException error) { return 1; } } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "value",
+            "score": 0
+          },
+          {
+            "name": "risk",
+            "score": 0
+          },
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "text_block_slashes",
+      "source": "class Coverage { int f(boolean flag) { String text = \"\"\"\n ///\"\"\"; return flag ? text.length() : 0; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "numeric_underscores",
+      "source": "class Coverage { double f(boolean flag) { double value = 1__0 + 0_52 + 0xA__B + 0b1__0 + 01__2F + 0x1p0__1; return flag ? value : 0; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "pattern_modifiers",
+      "source": "import java.lang.annotation.*;\n@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }\n@Target(ElementType.TYPE_USE) @interface B {}\nrecord Pair(String text) {} class Coverage { int f(Object value) { if (value instanceof Pair(final String text)) return text.length(); return switch (value) { case @A String text -> text.length(); case final Integer number -> number; default -> 0; }; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "value",
+            "score": 0
+          },
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "null_character_string",
+      "source": "class Coverage { int f(boolean flag) { String value = \"\u0000NULL\u0000\"; return flag ? value.length() : 0; } }\n",
+      "cognitive": {
+        "file_score": 1,
+        "units": [
+          {
+            "name": "f",
+            "score": 1
+          }
+        ]
+      }
+    }
+  ]
+}

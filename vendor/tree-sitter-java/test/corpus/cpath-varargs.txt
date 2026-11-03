@@ -1,0 +1,286 @@
+================================================
+Cpath varargs varargs_method
+================================================
+import java.lang.annotation.*;
+@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
+@Target(ElementType.TYPE_USE) @interface B {}
+class Coverage { int f(Object @A @B ... values) { int n = 0; for (Object value : values) { if (value != null) n++; } return n; } }
+
+---
+
+(program
+  (import_declaration
+    (scoped_identifier
+      (scoped_identifier
+        (identifier)
+        (identifier))
+      (identifier))
+    (asterisk))
+  (annotation_type_declaration
+    (modifiers
+      (annotation
+        (identifier)
+        (annotation_argument_list
+          (field_access
+            (identifier)
+            (identifier)))))
+    (identifier)
+    (annotation_type_body
+      (annotation_type_element_declaration
+        (integral_type)
+        (identifier)
+        (decimal_integer_literal))))
+  (annotation_type_declaration
+    (modifiers
+      (annotation
+        (identifier)
+        (annotation_argument_list
+          (field_access
+            (identifier)
+            (identifier)))))
+    (identifier)
+    (annotation_type_body))
+  (class_declaration
+    (identifier)
+    (class_body
+      (method_declaration
+        (integral_type)
+        (identifier)
+        (formal_parameters
+          (spread_parameter
+            (type_identifier)
+            (marker_annotation
+              (identifier))
+            (marker_annotation
+              (identifier))
+            (variable_declarator
+              (identifier))))
+        (block
+          (local_variable_declaration
+            (integral_type)
+            (variable_declarator
+              (identifier)
+              (decimal_integer_literal)))
+          (enhanced_for_statement
+            (type_identifier)
+            (identifier)
+            (identifier)
+            (block
+              (if_statement
+                (parenthesized_expression
+                  (binary_expression
+                    (identifier)
+                    (null_literal)))
+                (expression_statement
+                  (update_expression
+                    (identifier))))))
+          (return_statement
+            (identifier)))))))
+
+================================================
+Cpath varargs varargs_constructor
+================================================
+import java.lang.annotation.*;
+@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
+@Target(ElementType.TYPE_USE) @interface B {}
+class Coverage { Coverage(String @A(1 + 2) ... values) { if (values == null) throw new IllegalArgumentException(); } }
+
+---
+
+(program
+  (import_declaration
+    (scoped_identifier
+      (scoped_identifier
+        (identifier)
+        (identifier))
+      (identifier))
+    (asterisk))
+  (annotation_type_declaration
+    (modifiers
+      (annotation
+        (identifier)
+        (annotation_argument_list
+          (field_access
+            (identifier)
+            (identifier)))))
+    (identifier)
+    (annotation_type_body
+      (annotation_type_element_declaration
+        (integral_type)
+        (identifier)
+        (decimal_integer_literal))))
+  (annotation_type_declaration
+    (modifiers
+      (annotation
+        (identifier)
+        (annotation_argument_list
+          (field_access
+            (identifier)
+            (identifier)))))
+    (identifier)
+    (annotation_type_body))
+  (class_declaration
+    (identifier)
+    (class_body
+      (constructor_declaration
+        (identifier)
+        (formal_parameters
+          (spread_parameter
+            (type_identifier)
+            (annotation
+              (identifier)
+              (annotation_argument_list
+                (binary_expression
+                  (decimal_integer_literal)
+                  (decimal_integer_literal))))
+            (variable_declarator
+              (identifier))))
+        (constructor_body
+          (if_statement
+            (parenthesized_expression
+              (binary_expression
+                (identifier)
+                (null_literal)))
+            (throw_statement
+              (object_creation_expression
+                (type_identifier)
+                (argument_list)))))))))
+
+================================================
+Cpath varargs varargs_array
+================================================
+import java.lang.annotation.*;
+@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
+@Target(ElementType.TYPE_USE) @interface B {}
+class Coverage { int f(String @A [] @B ... values) { return values.length > 0 ? values[0].length : 0; } }
+
+---
+
+(program
+  (import_declaration
+    (scoped_identifier
+      (scoped_identifier
+        (identifier)
+        (identifier))
+      (identifier))
+    (asterisk))
+  (annotation_type_declaration
+    (modifiers
+      (annotation
+        (identifier)
+        (annotation_argument_list
+          (field_access
+            (identifier)
+            (identifier)))))
+    (identifier)
+    (annotation_type_body
+      (annotation_type_element_declaration
+        (integral_type)
+        (identifier)
+        (decimal_integer_literal))))
+  (annotation_type_declaration
+    (modifiers
+      (annotation
+        (identifier)
+        (annotation_argument_list
+          (field_access
+            (identifier)
+            (identifier)))))
+    (identifier)
+    (annotation_type_body))
+  (class_declaration
+    (identifier)
+    (class_body
+      (method_declaration
+        (integral_type)
+        (identifier)
+        (formal_parameters
+          (spread_parameter
+            (array_type
+              (type_identifier)
+              (dimensions
+                (marker_annotation
+                  (identifier))))
+            (marker_annotation
+              (identifier))
+            (variable_declarator
+              (identifier))))
+        (block
+          (return_statement
+            (ternary_expression
+              (binary_expression
+                (field_access
+                  (identifier)
+                  (identifier))
+                (decimal_integer_literal))
+              (field_access
+                (array_access
+                  (identifier)
+                  (decimal_integer_literal))
+                (identifier))
+              (decimal_integer_literal))))))))
+
+================================================
+Cpath varargs varargs_record
+================================================
+import java.lang.annotation.*;
+@Target(ElementType.TYPE_USE) @interface A { int value() default 0; }
+@Target(ElementType.TYPE_USE) @interface B {}
+record Coverage(String @A ... values) { Coverage { if (values == null) throw new IllegalArgumentException(); } }
+
+---
+
+(program
+  (import_declaration
+    (scoped_identifier
+      (scoped_identifier
+        (identifier)
+        (identifier))
+      (identifier))
+    (asterisk))
+  (annotation_type_declaration
+    (modifiers
+      (annotation
+        (identifier)
+        (annotation_argument_list
+          (field_access
+            (identifier)
+            (identifier)))))
+    (identifier)
+    (annotation_type_body
+      (annotation_type_element_declaration
+        (integral_type)
+        (identifier)
+        (decimal_integer_literal))))
+  (annotation_type_declaration
+    (modifiers
+      (annotation
+        (identifier)
+        (annotation_argument_list
+          (field_access
+            (identifier)
+            (identifier)))))
+    (identifier)
+    (annotation_type_body))
+  (record_declaration
+    (identifier)
+    (formal_parameters
+      (spread_parameter
+        (type_identifier)
+        (marker_annotation
+          (identifier))
+        (variable_declarator
+          (identifier))))
+    (class_body
+      (compact_constructor_declaration
+        (identifier)
+        (block
+          (if_statement
+            (parenthesized_expression
+              (binary_expression
+                (identifier)
+                (null_literal)))
+            (throw_statement
+              (object_creation_expression
+                (type_identifier)
+                (argument_list)))))))))

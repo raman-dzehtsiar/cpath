@@ -1,0 +1,130 @@
+{
+  "records": [
+    {
+      "name": "Base.Base()",
+      "kind": "Constructor",
+      "start_byte": 168,
+      "end_byte": 185,
+      "index": 100
+    },
+    {
+      "name": "Base.Base(int)",
+      "kind": "Constructor",
+      "start_byte": 190,
+      "end_byte": 216,
+      "index": 100
+    },
+    {
+      "name": "Base.Base(object)",
+      "kind": "Constructor",
+      "start_byte": 221,
+      "end_byte": 250,
+      "index": 100
+    },
+    {
+      "name": "Pair.Pair(string, string)",
+      "kind": "Constructor",
+      "start_byte": 579,
+      "end_byte": 701,
+      "index": 100
+    },
+    {
+      "name": "Pair.Both()",
+      "kind": "Ordinary",
+      "start_byte": 633,
+      "end_byte": 699,
+      "index": 92
+    },
+    {
+      "name": "Plain.Plain(int)",
+      "kind": "Constructor",
+      "start_byte": 253,
+      "end_byte": 290,
+      "index": 87
+    },
+    {
+      "name": "PrimaryBase.PrimaryBase(int)",
+      "kind": "Constructor",
+      "start_byte": 291,
+      "end_byte": 348,
+      "index": 90
+    },
+    {
+      "name": "PrimaryBool.PrimaryBool(bool)",
+      "kind": "Constructor",
+      "start_byte": 523,
+      "end_byte": 578,
+      "index": 87
+    },
+    {
+      "name": "PrimaryImplicit.PrimaryImplicit(int)",
+      "kind": "Constructor",
+      "start_byte": 349,
+      "end_byte": 403,
+      "index": 87
+    },
+    {
+      "name": "PrimaryNull.PrimaryNull(object)",
+      "kind": "Constructor",
+      "start_byte": 404,
+      "end_byte": 467,
+      "index": 90
+    },
+    {
+      "name": "PrimaryNullPlain.PrimaryNullPlain(object)",
+      "kind": "Constructor",
+      "start_byte": 468,
+      "end_byte": 522,
+      "index": 87
+    },
+    {
+      "name": "RegressionCases.EmptyLambdas()",
+      "kind": "Ordinary",
+      "start_byte": 744,
+      "end_byte": 926,
+      "index": 79
+    },
+    {
+      "name": "RegressionCases.LambdaReturn()",
+      "kind": "Ordinary",
+      "start_byte": 931,
+      "end_byte": 1038,
+      "index": 82
+    },
+    {
+      "name": "RegressionCases.Parameters(int)",
+      "kind": "Ordinary",
+      "start_byte": 1043,
+      "end_byte": 1101,
+      "index": 100
+    },
+    {
+      "name": "RegressionCases.ParameterArray(params int[])",
+      "kind": "Ordinary",
+      "start_byte": 1106,
+      "end_byte": 1186,
+      "index": 97
+    },
+    {
+      "name": "RegressionCases.NameOf()",
+      "kind": "Ordinary",
+      "start_byte": 1191,
+      "end_byte": 1243,
+      "index": 97
+    },
+    {
+      "name": "RegressionCases.VoidArrow()",
+      "kind": "Ordinary",
+      "start_byte": 1248,
+      "end_byte": 1336,
+      "index": 96
+    },
+    {
+      "name": "RegressionCases.DefaultValue()",
+      "kind": "Ordinary",
+      "start_byte": 1341,
+      "end_byte": 1390,
+      "index": 100
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+========================================
+F-string static format text
+========================================
+f'{x:=a if b else c}'
+f'{x if condition else y:=a if b else c}'
+
+---
+
+(module
+  (expression_statement
+    (string
+      (string_start)
+      (interpolation
+        (identifier)
+        (format_specifier))
+      (string_end)))
+  (expression_statement
+    (string
+      (string_start)
+      (interpolation
+        (conditional_expression
+          (identifier)
+          (identifier)
+          (identifier))
+        (format_specifier))
+      (string_end))))
+
+========================================
+F-string nested format expressions
+========================================
+f'{x:={a if b else c}}'
+
+---
+
+(module
+  (expression_statement
+    (string
+      (string_start)
+      (interpolation
+        (identifier)
+        (format_specifier
+          (format_expression
+            (conditional_expression
+              (identifier)
+              (identifier)
+              (identifier)))))
+      (string_end))))
+
+========================================
+F-string genuine assignment expressions
+========================================
+f'{(y := x if x else 1)}'
+f'{values[index := 1]:=10}'
+
+---
+
+(module
+  (expression_statement
+    (string
+      (string_start)
+      (interpolation
+        (parenthesized_expression
+          (conditional_expression
+            (named_expression
+              (identifier)
+              (identifier))
+            (identifier)
+            (integer))))
+      (string_end)))
+  (expression_statement
+    (string
+      (string_start)
+      (interpolation
+        (subscript
+          (identifier)
+          (named_expression
+            (identifier)
+            (integer)))
+        (format_specifier))
+      (string_end))))
+
+========================================
+F-string nested format assignment expressions
+========================================
+f'{x:={(width := x if x else 1)}}'
+
+---
+
+(module
+  (expression_statement
+    (string
+      (string_start)
+      (interpolation
+        (identifier)
+        (format_specifier
+          (format_expression
+            (parenthesized_expression
+              (conditional_expression
+                (named_expression
+                  (identifier)
+                  (identifier))
+                (identifier)
+                (integer))))))
+      (string_end))))

@@ -1,0 +1,10 @@
+# Copyright (c) 2026 Raman Dzehtsiar
+# SPDX-License-Identifier: MIT
+
+[alias]
+coverage = "llvm-cov --locked --lib --bins --tests --ignore-filename-regex /vendor/ --fail-under-lines 80"
+
+[build]
+# Keep fingerprints and intermediate artifacts off Windows mounts when using WSL.
+# Each checkout gets its own cache; final binaries still go in target/.
+build-dir = "{cargo-cache-home}/build/hotpath-{workspace-path-hash}"

@@ -1,0 +1,97 @@
+==================
+Starred subscript arguments
+==================
+def f(a, *items):
+    return a[*items] if items else None
+
+---
+
+(module
+  (function_definition
+    (identifier)
+    (parameters
+      (identifier)
+      (list_splat_pattern
+        (identifier)))
+    (block
+      (return_statement
+        (conditional_expression
+          (subscript
+            (identifier)
+            (list_splat
+              (identifier)))
+          (identifier)
+          (none))))))
+
+==================
+Slices in annotation arguments
+==================
+def f(a, b, c, d):
+    def inner(x: a[:, :, c:d], y: a[b+1:c*2:d], z: a[::c]):
+        return x if y else z
+    return inner
+
+---
+
+(module
+  (function_definition
+    (identifier)
+    (parameters
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier))
+    (block
+      (function_definition
+        (identifier)
+        (parameters
+          (typed_parameter
+            (identifier)
+            (type
+              (generic_type
+                (identifier)
+                (type_parameter
+                  (slice)
+                  (slice)
+                  (type
+                    (constrained_type
+                      (type
+                        (identifier))
+                      (type
+                        (identifier))))))))
+          (typed_parameter
+            (identifier)
+            (type
+              (generic_type
+                (identifier)
+                (type_parameter
+                  (type
+                    (constrained_type
+                      (type
+                        (binary_operator
+                          (identifier)
+                          (integer)))
+                      (type
+                        (constrained_type
+                          (type
+                            (binary_operator
+                              (identifier)
+                              (integer)))
+                          (type
+                            (identifier))))))))))
+          (typed_parameter
+            (identifier)
+            (type
+              (generic_type
+                (identifier)
+                (type_parameter
+                  (slice
+                    (identifier)))))))
+        (block
+          (return_statement
+            (conditional_expression
+              (identifier)
+              (identifier)
+              (identifier)))))
+      (return_statement
+        (identifier)))))

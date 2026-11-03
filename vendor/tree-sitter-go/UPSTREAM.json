@@ -1,0 +1,39 @@
+{
+  "repository": "https://github.com/tree-sitter/tree-sitter-go",
+  "revision": "1547678a9da59885853f5f5cc8a99cc203fa2e2c",
+  "version": "0.25.0",
+  "generator": "tree-sitter 0.25.10",
+  "abi": 15,
+  "upstream_files": {
+    "Cargo.toml": "5ee41aa04cfe06f4c22ef001f397fde80636d5ee312d77ff5352243d59ac9639",
+    "LICENSE": "2e0110e07abef7c2548b26ec9d6969775617ca539a0dc8dbeeb14d6452c711d1",
+    "README.md": "37e2434348fcf0f67520f55fe71090b72d23ebfedb453c351492ec6e11bcb4d2",
+    "grammar.js": "53e114833c6769d8a86b9e2dfab8bb68b0aaf185e7008a5c572bfa21b77aff1b",
+    "tree-sitter.json": "80d8a24648d35abb30a3cb2dbcc3a1af3919f274bcabcc277c0d9535d60abf9e",
+    "bindings/rust/build.rs": "d4b87805dc1aec1dd9206b15899ed521a7c12d9a54eaa5212199f50f03eef28f",
+    "bindings/rust/lib.rs": "a252df2d14bbd23933df23fcad14aee4a8e96e9f04e05dd1fe969718a452d5b3",
+    "src/grammar.json": "0dcc665aa521a1b73a200be13b4e376780cca037d764a165f12864babfe28000",
+    "src/node-types.json": "8d77e723df0f0dfccb66d4571a5c3c17ecfb6c90959044c0992146b21f383bff",
+    "src/parser.c": "3dbf6ed1238b5dfcf2be4d2f2d4cb27a14d34f34d7784eccccbfd532fd4a6d85",
+    "src/tree_sitter/parser.h": "180b893c8734778fd32f372dfbc27bd6ad1cd2221f26150b31256ff6716320d2",
+    "src/tree_sitter/alloc.h": "b29c1c9fb7cc82f58c84b376df1297d6e2737a1d655fd356db0859e3c29c2fea",
+    "src/tree_sitter/array.h": "5bdf6ed1a78e3409fd443e085ca967a64c188a5d082aaf7f819bccd53a471c94",
+    "queries/highlights.scm": "81182c986547eba7fa6316e82dfd621fb13b8fc89efac85432aee51a48ed0896",
+    "queries/tags.scm": "d1a9b1f678fe0278b85054e2dc56a28ef26aa478b8c88fb2b0dd83cdcdb9db35",
+    "test/corpus/source_files.txt": "71dd3c8f6114cbfa9830974b86c823f14a339f6d1c858d71cb828f509965f34d",
+    "test/corpus/expressions.txt": "2583b1f2d7096c0e6eb1d67bbebd312101c84ebee5711194d934bbae54516baf",
+    "test/corpus/statements.txt": "1d08ec916211c2a64238e834a1cd53f25acd55865ce85cd9fad5b152cb423f9c",
+    "test/corpus/types.txt": "1e88caa9030e5b23ffd3ef95f2893ea5abec62cd2e98139dc66991439551f741",
+    "test/corpus/declarations.txt": "ed67a2aa1baf58cbbfeb713a44b8832849bc9002e55b36817183f5382644b219",
+    "test/corpus/errors.txt": "54b05f61d2effa44dc19ef181f7efd2fc618548856fb6b74313af5744c27335f",
+    "test/corpus/literals.txt": "a536ea4f486e3a72b8484feef02f68b7f6c451edb2acb0ac4428ae32d453ea7a"
+  },
+  "generated_files": [
+    "src/parser.c",
+    "src/grammar.json",
+    "src/node-types.json",
+    "src/tree_sitter/parser.h",
+    "src/tree_sitter/alloc.h",
+    "src/tree_sitter/array.h"
+  ]
+}

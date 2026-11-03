@@ -1,0 +1,125 @@
+{
+  "cases": [
+    {
+      "language": "c",
+      "name": "parenthesized_macro_types",
+      "source": "#define REGISTER(T) void bind_##T(T)\nREGISTER(float);\nREGISTER(double);\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.27773584674304,
+          "cyclomatic": 1.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 6.0,
+            "n1": 2.0,
+            "n2": 4.0,
+            "volume": 28.43458750793272
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "implicit_type_parenthesized_parameter",
+      "source": "extern legacy(void);\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 93.54204911302038,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 2.0,
+            "N2": 2.0,
+            "n1": 2.0,
+            "n2": 2.0,
+            "volume": 8.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "parenthesized_macro_types",
+      "source": "#define REGISTER(T) void bind_##T(T)\nREGISTER(float);\nREGISTER(double);\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.27773584674304,
+          "cyclomatic": 1.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 6.0,
+            "n1": 2.0,
+            "n2": 4.0,
+            "volume": 28.43458750793272
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "template_function_type_argument",
+      "source": "template<class T> void invoke(); void f() { invoke<int>(); }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.6070230300377,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 13.0,
+            "N2": 4.0,
+            "n1": 6.0,
+            "n2": 3.0,
+            "volume": 53.8887250245193
+          }
+        },
+        {
+          "name": "f",
+          "mi": 89.52267462886361,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 2.0,
+            "n1": 6.0,
+            "n2": 2.0,
+            "volume": 30.0
+          }
+        }
+      ]
+    }
+  ],
+  "parser_cases": [
+    {
+      "name": "primitive_alias_value_comparisons",
+      "language": "c",
+      "source": "int a, INT; int g(int); int f(void) { return a < INT > g(0); }\n"
+    },
+    {
+      "name": "primitive_alias_value_comparisons",
+      "language": "cpp",
+      "source": "int a, INT; int g(int); int f(void) { return a < INT > g(0); }\n"
+    }
+  ]
+}

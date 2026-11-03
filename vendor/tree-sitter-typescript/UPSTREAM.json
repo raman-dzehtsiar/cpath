@@ -1,0 +1,56 @@
+{
+  "repository": "https://github.com/tree-sitter/tree-sitter-typescript",
+  "revision": "f975a621f4e7f532fe322e13c4f79495e0a7b2e7",
+  "version": "0.23.2",
+  "javascript": {
+    "repository": "https://github.com/tree-sitter/tree-sitter-javascript",
+    "version": "0.23.1",
+    "npm_integrity": "sha512-/bnhbrTD9frUYHQTiYnPcxyHORIw157ERBa6dqzaKxvR/x3PC4Yzd+D1pZIMS6zNg2v3a8BZ0oK7jHqsQo9fWA=="
+  },
+  "generator_version": "0.25.10",
+  "abi": 14,
+  "upstream_files": {
+    "LICENSE": "49bf33cf78ef5897e4e161ce1517df7de1ae5042a65b6bcfd44401e0fc606559",
+    "common/define-grammar.js": "c2ac6894e0db6164f56dc339788d9da2da60ce1f81d888e6b74a74fc81db818f",
+    "common/scanner.h": "da66ef2bd14a3f7ea743e25ba068c6c9aae2c3509db200ff80c4a0e6116e564c",
+    "javascript/LICENSE": "2e0110e07abef7c2548b26ec9d6969775617ca539a0dc8dbeeb14d6452c711d1",
+    "javascript/grammar.js": "230e330dd914d94297e5e58d53942cd5debf9c069852da93b6a6b1daae1967dc",
+    "javascript/package.json": "2d677a45985e03e329f78e2f8b0f7b401ae68698eec2743059fc34e56f1f6644",
+    "javascript/queries/highlights-jsx.scm": "0cad1712acaf40804bc5dc7c8476858752c1f549cdf7d8c63c747317be0f8fa6",
+    "javascript/queries/highlights-params.scm": "bbe7a58cacfb1c954cb0eab44779fd80421ed59b762b975723447207635de50d",
+    "javascript/queries/highlights.scm": "d3630ae6dc9b2b27b230b5f8bb92b05cd491fb12bff353dae62a0a6d780461ee",
+    "javascript/queries/injections.scm": "bea345407ce1f24bccf2b3c1a128acc14e19301327074285368586e793dcb86d",
+    "javascript/queries/locals.scm": "c1dd2cfa1400d397fa974208fc9edfe817be4a3c8b42bb99af5c8d193b1bb753",
+    "javascript/queries/tags.scm": "6ef988cce5a428a15b5460e3ee96f1478705f965fc6e848a91a18bfa6c6f0212",
+    "queries/highlights.scm": "e0c35adb819127bfd4f853fac5419e7d8ba44760246201d04a4a5ce0228a10c5",
+    "queries/locals.scm": "c3680f9b56276fb2ccc9f1d5f4d03dbca5d64bdf3e6d52ce5a4ad342cec162d5",
+    "queries/tags.scm": "b391288bcc71b513a5df7c9bb232d8bc7418d7e274b125aa0aa4bdd6121a0338",
+    "test/corpus/declarations.txt": "def4872b240ec88a3742e96d5669624c1ef22e8a94950148bd73ffcbf5ca02b7",
+    "test/corpus/expressions.txt": "999ae1e22344b5deadba3e36ca53fce47aaf9245e32ac2f32febdac83924af42",
+    "test/corpus/functions.txt": "992df043202aa4389c40550917e4b1374257b224082fb16e09ce7737e0f38697",
+    "test/corpus/types.txt": "5cb1c5799a0fcad900e8f9a445c7854fda8ab361e0196ad1f87f48abbad3d5ff",
+    "tree-sitter.json": "4f39daa6a0bde84506cdeaf0b4460ed262df880030b3e6073868d0c746932291",
+    "tsx/grammar.js": "19b7bc89bac1dfbb64e01ca15ca52345056028c2582d71762efd675af947a0f6",
+    "tsx/src/scanner.c": "d563cd30b2f39718c9ae4292795c5ce03a2ad01954ba3a86ef84c2781a736673",
+    "typescript/grammar.js": "7e4109889b2ce2731dde89f82f545a12f1e54a286f72bc874f1aed9965c5d5ae",
+    "typescript/src/scanner.c": "9125013b42cb888379d9be909f1d73dfb75a37626c2cdbf4122718a2b431a6d3"
+  },
+  "generated_files": [
+    "tsx/src/grammar.json",
+    "tsx/src/node-types.json",
+    "tsx/src/parser.c",
+    "tsx/src/tree_sitter/alloc.h",
+    "tsx/src/tree_sitter/array.h",
+    "tsx/src/tree_sitter/parser.h",
+    "typescript/src/grammar.json",
+    "typescript/src/node-types.json",
+    "typescript/src/parser.c",
+    "typescript/src/tree_sitter/alloc.h",
+    "typescript/src/tree_sitter/array.h",
+    "typescript/src/tree_sitter/parser.h"
+  ],
+  "corrections": [
+    "typed conditional arrow ownership",
+    "generic function-type argument lookahead with unchanged atomic shift tokens"
+  ]
+}

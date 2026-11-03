@@ -1,0 +1,46 @@
+==================
+async as a contextual parameter and value identifier
+==================
+
+class C { int M(bool async) => async ? 1 : 0; }
+
+---
+
+(compilation_unit
+  (class_declaration
+    name: (identifier)
+    body: (declaration_list
+      (method_declaration
+        returns: (predefined_type)
+        name: (identifier)
+        parameters: (parameter_list
+          (parameter
+            type: (predefined_type)
+            name: (identifier)))
+        body: (arrow_expression_clause
+          (conditional_expression
+            condition: (identifier)
+            consequence: (integer_literal)
+            alternative: (integer_literal)))))))
+
+==================
+async as an implicit lambda parameter
+==================
+
+class C { object M() { return async => async; } }
+
+---
+
+(compilation_unit
+  (class_declaration
+    name: (identifier)
+    body: (declaration_list
+      (method_declaration
+        returns: (predefined_type)
+        name: (identifier)
+        parameters: (parameter_list)
+        body: (block
+          (return_statement
+            (lambda_expression
+              parameters: (implicit_parameter)
+              body: (identifier))))))))

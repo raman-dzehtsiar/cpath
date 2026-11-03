@@ -1,0 +1,111 @@
+--- a/grammar.js
++++ b/grammar.js
+@@ -88,6 +88,10 @@
+     ')',
+     '}',
+     'except',
++
++    // A lookahead marker; the scanner never emits it. Attribute names can
++    // continue on a less-indented line inside parentheses.
++    $._attribute_continuation,
+   ],
+ 
+   inline: $ => [
+@@ -468,7 +472,7 @@
+     ),
+     type_parameter: $ => seq(
+       '[',
+-      commaSep1($.type),
++      commaSep1(choice($.type, $.default_type)),
+       optional(','),
+       ']',
+     ),
+@@ -523,13 +527,13 @@
+     ),
+ 
+     expression_list: $ => prec.right(seq(
+-      $.expression,
++      choice($.expression, $.list_splat),
+       choice(
+         ',',
+         seq(
+           repeat1(seq(
+             ',',
+-            $.expression,
++            choice($.expression, $.list_splat),
+           )),
+           optional(','),
+         ),
+@@ -895,13 +899,13 @@
+     attribute: $ => prec(PREC.call, seq(
+       field('object', $.primary_expression),
+       '.',
+-      field('attribute', $.identifier),
++      field('attribute', seq(optional($._attribute_continuation), $.identifier)),
+     )),
+ 
+     subscript: $ => prec(PREC.call, seq(
+       field('value', $.primary_expression),
+       '[',
+-      commaSep1(field('subscript', choice($.expression, $.slice))),
++      commaSep1(field('subscript', choice($.expression, $.slice, $.list_splat))),
+       optional(','),
+       ']',
+     )),
+@@ -941,13 +945,24 @@
+       $.constrained_type,
+       $.member_type,
+     ),
++    default_type: $ => seq(
++      field('name', $.type),
++      '=',
++      field('value', choice($.type, $.list_splat)),
++    ),
+     splat_type: $ => prec(1, seq(choice('*', '**'), $.identifier)),
+     generic_type: $ => prec(1, seq(
+       choice(
+         $.identifier,
+         alias('type', $.identifier),
+       ),
+-      $.type_parameter,
++      alias($._type_arguments, $.type_parameter),
++    )),
++    _type_arguments: $ => prec(1, seq(
++      '[',
++      commaSep1(choice($.type, $.default_type, prec(-1, $.slice))),
++      optional(','),
++      ']',
+     )),
+     union_type: $ => prec.left(seq($.type, '|', $.type)),
+     constrained_type: $ => prec.right(seq($.type, ':', $.type)),
+@@ -1113,8 +1128,10 @@
+ 
+     _not_escape_sequence: _ => token.immediate('\\'),
+ 
++    _format_specifier_start: _ => token(prec(1, ':')),
++
+     format_specifier: $ => seq(
+-      ':',
++      alias($._format_specifier_start, ':'),
+       repeat(choice(
+         token(prec(1, /[^{}\n]+/)),
+         alias($.interpolation, $.format_expression),
+--- a/src/scanner.c
++++ b/src/scanner.c
+@@ -19,6 +19,7 @@
+     CLOSE_BRACKET,
+     CLOSE_BRACE,
+     EXCEPT,
++    ATTRIBUTE_CONTINUATION,
+ };
+ 
+ typedef enum {
+@@ -279,7 +280,7 @@
+ 
+             if ((valid_symbols[DEDENT] ||
+                  (!valid_symbols[NEWLINE] && !(valid_symbols[STRING_START] && next_tok_is_string_start) &&
+-                  !within_brackets)) &&
++                  !within_brackets && !valid_symbols[ATTRIBUTE_CONTINUATION])) &&
+                 indent_length < current_indent_length && !scanner->inside_interpolated_string &&
+ 
+                 // Wait to create a dedent token until we've consumed any

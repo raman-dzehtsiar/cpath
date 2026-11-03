@@ -1,0 +1,187 @@
+======================================================================
+Member pointers and template specializations
+======================================================================
+
+template <typename T, bool Value = false> struct traits;
+template <typename C, typename R, typename... A>
+struct traits<R (C::*)(A...) const, false> { int f(int x) { if (x) return 1; return 0; } };
+struct C { int value; int f(double) const; };
+using Data = int C::*;
+using Function = int (C::*)(double) const;
+using Qualified = int (C::* const)(double) const;
+namespace N { template <typename T> struct Box { int f() const; }; }
+using Nested = int (N::Box<int>::*)() const;
+
+---
+
+(translation_unit
+  (template_declaration
+    (template_parameter_list
+      (type_parameter_declaration
+        (type_identifier))
+      (optional_parameter_declaration
+        (primitive_type)
+        (identifier)
+        (false)))
+    (struct_specifier
+      (type_identifier)))
+  (template_declaration
+    (template_parameter_list
+      (type_parameter_declaration
+        (type_identifier))
+      (type_parameter_declaration
+        (type_identifier))
+      (variadic_type_parameter_declaration
+        (type_identifier)))
+    (struct_specifier
+      (template_type
+        (type_identifier)
+        (template_argument_list
+          (type_descriptor
+            (type_identifier)
+            (abstract_function_declarator
+              (abstract_parenthesized_declarator
+                (abstract_member_pointer_declarator
+                  (namespace_identifier)))
+              (parameter_list
+                (variadic_parameter_declaration
+                  (type_identifier)
+                  (variadic_declarator)))
+              (type_qualifier)))
+          (false)))
+      (field_declaration_list
+        (function_definition
+          (primitive_type)
+          (function_declarator
+            (field_identifier)
+            (parameter_list
+              (parameter_declaration
+                (primitive_type)
+                (identifier))))
+          (compound_statement
+            (if_statement
+              (condition_clause
+                (identifier))
+              (return_statement
+                (number_literal)))
+            (return_statement
+              (number_literal)))))))
+  (struct_specifier
+    (type_identifier)
+    (field_declaration_list
+      (field_declaration
+        (primitive_type)
+        (field_identifier))
+      (field_declaration
+        (primitive_type)
+        (function_declarator
+          (field_identifier)
+          (parameter_list
+            (parameter_declaration
+              (primitive_type)))
+          (type_qualifier)))))
+  (alias_declaration
+    (type_identifier)
+    (type_descriptor
+      (primitive_type)
+      (abstract_member_pointer_declarator
+        (namespace_identifier))))
+  (alias_declaration
+    (type_identifier)
+    (type_descriptor
+      (primitive_type)
+      (abstract_function_declarator
+        (abstract_parenthesized_declarator
+          (abstract_member_pointer_declarator
+            (namespace_identifier)))
+        (parameter_list
+          (parameter_declaration
+            (primitive_type)))
+        (type_qualifier))))
+  (alias_declaration
+    (type_identifier)
+    (type_descriptor
+      (primitive_type)
+      (abstract_function_declarator
+        (abstract_parenthesized_declarator
+          (abstract_member_pointer_declarator
+            (namespace_identifier)
+            (type_qualifier)))
+        (parameter_list
+          (parameter_declaration
+            (primitive_type)))
+        (type_qualifier))))
+  (namespace_definition
+    (namespace_identifier)
+    (declaration_list
+      (template_declaration
+        (template_parameter_list
+          (type_parameter_declaration
+            (type_identifier)))
+        (struct_specifier
+          (type_identifier)
+          (field_declaration_list
+            (field_declaration
+              (primitive_type)
+              (function_declarator
+                (field_identifier)
+                (parameter_list)
+                (type_qualifier))))))))
+  (alias_declaration
+    (type_identifier)
+    (type_descriptor
+      (primitive_type)
+      (abstract_function_declarator
+        (abstract_parenthesized_declarator
+          (abstract_member_pointer_declarator
+            (namespace_identifier)
+            (template_type
+              (type_identifier)
+              (template_argument_list
+                (type_descriptor
+                  (primitive_type))))))
+        (parameter_list)
+        (type_qualifier)))))
+
+======================================================================
+Global delete operand binding
+======================================================================
+
+void release(int **p, bool b) { ::delete[] p[b ? 0 : 1]; ::delete p[0]; delete *p; }
+
+---
+
+(translation_unit
+  (function_definition
+    (primitive_type)
+    (function_declarator
+      (identifier)
+      (parameter_list
+        (parameter_declaration
+          (primitive_type)
+          (pointer_declarator
+            (pointer_declarator
+              (identifier))))
+        (parameter_declaration
+          (primitive_type)
+          (identifier))))
+    (compound_statement
+      (expression_statement
+        (delete_expression
+          (subscript_expression
+            (identifier)
+            (subscript_argument_list
+              (conditional_expression
+                (identifier)
+                (number_literal)
+                (number_literal))))))
+      (expression_statement
+        (delete_expression
+          (subscript_expression
+            (identifier)
+            (subscript_argument_list
+              (number_literal)))))
+      (expression_statement
+        (delete_expression
+          (pointer_expression
+            (identifier)))))))

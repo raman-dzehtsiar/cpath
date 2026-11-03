@@ -1,0 +1,396 @@
+{
+  "cases": [
+    {
+      "language": "cpp",
+      "name": "primitive_functional_casts",
+      "source": "typedef unsigned DWORD; typedef long intmax_t; int f(int x) { return DWORD(x) + intmax_t(x) + wchar_t(x); }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.85534864099078,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 18.0,
+            "N2": 5.0,
+            "n1": 6.0,
+            "n2": 2.0,
+            "volume": 69.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 87.57083824985985,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 5.0,
+            "n1": 6.0,
+            "n2": 2.0,
+            "volume": 57.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "primitive_template_argument",
+      "source": "template<class T> int f() { return sizeof(T); } int g() { return f<wchar_t>(); }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.28753666604713,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 18.0,
+            "N2": 5.0,
+            "n1": 8.0,
+            "n2": 3.0,
+            "volume": 79.56692722865783
+          }
+        },
+        {
+          "name": "f",
+          "mi": 89.84306917940205,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 2.0,
+            "n1": 6.0,
+            "n2": 2.0,
+            "volume": 27.0
+          }
+        },
+        {
+          "name": "g",
+          "mi": 89.06530020579255,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 2.0,
+            "n1": 7.0,
+            "n2": 2.0,
+            "volume": 34.86917501586544
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "primitive_signed_cast_literals",
+      "source": "int f() { return (wchar_t)-97 + (wchar_t)+3 + (wchar_t)- 4; }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.1674412167907,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 4.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 62.26976913547135
+          }
+        },
+        {
+          "name": "f",
+          "mi": 87.30194414076732,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 4.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 62.26976913547135
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "primitive_pointer_cast",
+      "source": "typedef unsigned char* PUCHAR; int f(int value) { return *(PUCHAR)&value; }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.6070230300377,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 3.0,
+            "n1": 7.0,
+            "n2": 2.0,
+            "volume": 53.8887250245193
+          }
+        },
+        {
+          "name": "f",
+          "mi": 88.55729948050106,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 10.0,
+            "N2": 3.0,
+            "n1": 7.0,
+            "n2": 2.0,
+            "volume": 41.209025018750054
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "primitive_chained_casts",
+      "source": "typedef unsigned long DWORD; typedef unsigned long ULONG_PTR; int f(int (*call)(int), int value) { return (DWORD) (ULONG_PTR) (*call)(value); }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.9471933595175,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 23.0,
+            "N2": 5.0,
+            "n1": 7.0,
+            "n2": 3.0,
+            "volume": 93.01398665684614
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.5504585847232,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 19.0,
+            "N2": 5.0,
+            "n1": 7.0,
+            "n2": 3.0,
+            "volume": 79.7262742772967
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "qualified_primitive_function",
+      "source": "namespace n { int DWORD(int value) { return value; } } int f() { return n::DWORD(3); }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.42967306760842,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 7.0,
+            "n1": 6.0,
+            "n2": 5.0,
+            "volume": 72.64806399138324
+          }
+        },
+        {
+          "name": "n",
+          "mi": 89.09833957916625,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 4.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 33.0
+          }
+        },
+        {
+          "name": "DWORD",
+          "mi": 90.04489473439764,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 25.26619429851844
+          }
+        },
+        {
+          "name": "f",
+          "mi": 89.35513233151332,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 3.0,
+            "n1": 6.0,
+            "n2": 3.0,
+            "volume": 31.69925001442312
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "ambiguous_function_pointer_parameter",
+      "source": "typedef void RESULT; void f(void) { RESULT (*handler) (int); (void)handler; }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.43633532588323,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 5.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 57.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 88.09342382647894,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 4.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 48.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "seh_try_operator",
+      "source": "int f(int value) { __try { if (value) return 1; } __except (1) { return 2; } return 0; }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.17914643546438,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 16.0,
+            "N2": 7.0,
+            "n1": 7.0,
+            "n2": 5.0,
+            "volume": 82.45413751658658
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.31364935944097,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 16.0,
+            "N2": 7.0,
+            "n1": 7.0,
+            "n2": 5.0,
+            "volume": 82.45413751658658
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "seh_and_standard_try_operators",
+      "source": "int f(int value) { __try { if (value) return 1; } __except (1) { return 2; } return 0; }\nint g(int value) { try { return value; } catch (int) { return 3; } }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 77.25246213464506,
+          "cyclomatic": 5.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 30.0,
+            "N2": 11.0,
+            "n1": 9.0,
+            "n2": 7.0,
+            "volume": 164.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.31364935944097,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 16.0,
+            "N2": 7.0,
+            "n1": 7.0,
+            "n2": 5.0,
+            "volume": 82.45413751658658
+          }
+        },
+        {
+          "name": "g",
+          "mi": 87.29077833720814,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 4.0,
+            "n1": 7.0,
+            "n2": 3.0,
+            "volume": 59.79470570797252
+          }
+        }
+      ]
+    }
+  ],
+  "parser_cases": [
+    {
+      "name": "primitive_value_argument",
+      "language": "cpp",
+      "source": "typedef unsigned DWORD; int f(int BYTE) { return DWORD(BYTE) + BYTE; }\n"
+    }
+  ]
+}

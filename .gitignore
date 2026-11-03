@@ -1,0 +1,33 @@
+# Rust build output and rustfmt backups. Keep Cargo.lock for the CLI.
+target/
+**/*.rs.bk
+
+/.codex/
+/.claude/
+/AGENTS.local.md
+/CLAUDE.local.md
+
+# Editor and IDE state.
+/.idea/
+/.vscode/
+/.vs/
+*.swp
+*.swo
+*~
+
+# Development-tool caches and dependencies.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+
+# Local environment files; examples may be shared.
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# OS metadata.
+.DS_Store
+Thumbs.db
+Desktop.ini

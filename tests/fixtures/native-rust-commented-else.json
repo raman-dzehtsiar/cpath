@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "name": "commented_else_if",
+      "source": "fn f(v: bool) { if v {} else /* branch */ if v {} else {} }\n",
+      "expected_file_cognitive": 3
+    },
+    {
+      "name": "line_commented_else_if",
+      "source": "fn f(v: bool) { if v {} else\n// branch\nif v {} else {} }\n",
+      "expected_file_cognitive": 3
+    },
+    {
+      "name": "nested_commented_else_if",
+      "source": "fn f(v: bool) { loop { if v {} else /* branch */ if v { if v {} } else {} } }\n",
+      "expected_file_cognitive": 5
+    },
+    {
+      "name": "closure_commented_else_if",
+      "source": "fn f(v: bool) { if v {} else /* branch */ if v { let g = || { if v {} }; } }\n",
+      "expected_file_cognitive": 5
+    }
+  ]
+}

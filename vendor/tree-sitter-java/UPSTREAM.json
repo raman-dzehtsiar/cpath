@@ -1,0 +1,54 @@
+{
+  "repository": "https://github.com/tree-sitter/tree-sitter-java",
+  "revision": "94703d5a6bed02b98e438d7cad1136c01a60ba2c",
+  "version": "0.23.5",
+  "crate_sha256": "0aa6cbcdc8c679b214e616fd3300da67da0e492e066df01bcf5a5921a71e90d6",
+  "generator": "tree-sitter 0.25.10",
+  "generator_sha256": "de21a99ed95e683526b26eee456e12352752487daed0d20afc85157212ab8e3d",
+  "abi": 14,
+  "upstream_files": {
+    "README.md": "82250389ffc5e51aa84e0d36159c7d142d92489b5bec8784e57bbeeda966adf3",
+    "Cargo.toml": "695636a6a3e4b2db2117221574989ef1378646e766340224600a615daabc606f",
+    "LICENSE": "52ed137b039cd9c46409bc22e89938af911c95b157feae2d040b51e6084369a7",
+    "grammar.js": "b89ada7566bda16a8d7a710755c27824d6097e44b8d3b1dafbb749f3c34d13e0",
+    "tree-sitter.json": "5b8f0cb5514a4a04720beba0e5991c48837844fe0ce2ba2d02ec7e6a44a344d8",
+    "src/grammar.json": "47ca521cd7a888d671d9f26301e8697fa686e04912032e959d242b5f25877eb6",
+    "src/node-types.json": "19c46facc653381c337ff6cad75dd8b052524179a366c80825d6d0010520eef2",
+    "src/parser.c": "4add5150cf4531eb5dd97f3343dcf65cd11704c84711348b328582b83424a0e4",
+    "queries/highlights.scm": "576c0df8df0b116cd642140ddc508c01f9d3283582afd8581c1f35caf4d71386",
+    "queries/tags.scm": "bcb22147b8582d92743fc973864cefb894a4c12b3957f16f3d472b2ec7cd4c49",
+    "test/corpus/expressions.txt": "85106c000e4bad6392b2d37973ec822e22b2cf466a9c89a7a9a23b45916ab533",
+    "test/corpus/comments.txt": "56d36d11ba83f59dda06cbe76f275f3c0cea2fb126e29b3236a662f0d7cb766e",
+    "test/corpus/precedence.txt": "91af55bd4eaa7d87989ca76d62917277b970356b21636e664d17a556d4e3c643",
+    "test/corpus/types.txt": "eb55fa3f45eb1bb8f94cd3ab740db2104c7ee7464cc972a0967beb8aad59b081",
+    "test/corpus/declarations.txt": "c1f27cf33257368caa9e7c6aa3906fbcf43247631f0725bb8c09cf65ef92fa20",
+    "test/corpus/literals.txt": "aa326ee6b556e3eab3e4f9d5b843f4ce6c36167dcb9dd6dbe2342fd3272e989f",
+    "test/highlight/types.java": "a0e01ba654f16ff57688b6c641f3a44461f3d137f826a77eb86c96b897b80261",
+    "bindings/rust/build.rs": "f0bb2a9bab500d44db01ae3a0537c648aba9f5a2b6cda39ea22f2897e2a38441",
+    "bindings/rust/lib.rs": "447525e5afdc29d94ad4014c525a43c04d4193de2f4131d774ad41ac51600218",
+    "src/tree_sitter/parser.h": "a1f6ef161fbaf48a0e10fca90ef5290a062462b307b3898aa562993853b9f80a",
+    "src/tree_sitter/alloc.h": "b29c1c9fb7cc82f58c84b376df1297d6e2737a1d655fd356db0859e3c29c2fea",
+    "src/tree_sitter/array.h": "5bdf6ed1a78e3409fd443e085ca967a64c188a5d082aaf7f819bccd53a471c94"
+  },
+  "generated_files": [
+    "src/parser.c",
+    "src/grammar.json",
+    "src/node-types.json",
+    "src/tree_sitter/parser.h",
+    "src/tree_sitter/alloc.h",
+    "src/tree_sitter/array.h"
+  ],
+  "reference_parser": {
+    "path": "src/rca/parser.c",
+    "sha256": "4add5150cf4531eb5dd97f3343dcf65cd11704c84711348b328582b83424a0e4",
+    "version": "tree-sitter-java 0.23.5",
+    "consumer": "rust-code-analysis 37e5d83c056c8cbf827223d5814a93c5218df1a9",
+    "purpose": "Preserve the explicit MI profile grammar, including reference parsing quirks. The compiler renames only the exported symbol.",
+    "headers": [
+      {
+        "path": "src/rca/tree_sitter/parser.h",
+        "sha256": "a1f6ef161fbaf48a0e10fca90ef5290a062462b307b3898aa562993853b9f80a"
+      }
+    ]
+  }
+}

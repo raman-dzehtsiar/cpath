@@ -1,0 +1,734 @@
+{
+  "cases": [
+    {
+      "id": "javascript-terminated_contextual_fields",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 61,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-break_line_terminators",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 127,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 9
+      }
+    },
+    {
+      "id": "javascript-same_span_mi_scopes",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 46,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-trailing_function_comments",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 98,
+        "start_line": 1,
+        "end_line": 4,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-class_contextual_linebreaks",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 57,
+        "start_line": 1,
+        "end_line": 5,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-computed_method_key",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 40,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 1
+      }
+    },
+    {
+      "id": "javascript-computed_key_function",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 69,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-global_nested_control",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 88,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 7
+      }
+    },
+    {
+      "id": "javascript-global_function_branches",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 42,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 2
+      }
+    },
+    {
+      "id": "javascript-commented_logical_group",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 64,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-conditional_functions",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 68,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-nested_conditional_functions",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 106,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-commented_else_if",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 88,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-object_accessors",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 66,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-empty",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 0,
+        "start_line": 1,
+        "end_line": 1,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-empty_function",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 19,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-branches",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 86,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-logical",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 68,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-nullish",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 36,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-nested",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 90,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-nested_no_outer_control",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 88,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-switch",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 90,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-catch",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 88,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-labels",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 89,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-ternary",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 36,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-methods",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 121,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-generators",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 54,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-literals",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 71,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "javascript-global_control",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 33,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 1
+      }
+    },
+    {
+      "id": "javascript-object_methods",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 67,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-jsx_parenthesized_component",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 97,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-terminated_contextual_fields",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 61,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-break_line_terminators",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 127,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 9
+      }
+    },
+    {
+      "id": "tsx-same_span_mi_scopes",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 46,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-trailing_function_comments",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 98,
+        "start_line": 1,
+        "end_line": 4,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-class_contextual_linebreaks",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 57,
+        "start_line": 1,
+        "end_line": 5,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-computed_method_key",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 40,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 1
+      }
+    },
+    {
+      "id": "tsx-computed_key_function",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 69,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-global_nested_control",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 88,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 7
+      }
+    },
+    {
+      "id": "tsx-global_function_branches",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 42,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 2
+      }
+    },
+    {
+      "id": "tsx-commented_logical_group",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 64,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-conditional_functions",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 68,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-nested_conditional_functions",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 106,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-commented_else_if",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 88,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-object_accessors",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 66,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-empty",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 0,
+        "start_line": 1,
+        "end_line": 1,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-empty_function",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 19,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-branches",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 86,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-logical",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 68,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-nullish",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 36,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-nested",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 90,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-nested_no_outer_control",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 88,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-switch",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 90,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-catch",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 88,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-labels",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 89,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-ternary",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 36,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-methods",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 121,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-generators",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 54,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-literals",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 71,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-react",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 113,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-jsx_short_circuit",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 74,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "tsx-global_control",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 33,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 1
+      }
+    },
+    {
+      "id": "tsx-object_methods",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 67,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-assertion_logical_chain",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 123,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-nonnull_indexed_chain",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 86,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-nonnull_called_chain",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 59,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-nonnull_logical",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 68,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-nonnull_grouped",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 69,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-nonnull_comparison",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 73,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-interfaces",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 63,
+        "start_line": 1,
+        "end_line": 3,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-namespaces",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 74,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-decorators",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 78,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    },
+    {
+      "id": "typescript-types",
+      "module_unit": {
+        "start_byte": 0,
+        "end_byte": 81,
+        "start_line": 1,
+        "end_line": 2,
+        "score": 0
+      }
+    }
+  ]
+}

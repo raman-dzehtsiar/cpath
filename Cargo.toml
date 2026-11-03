@@ -1,0 +1,34 @@
+# Copyright (c) 2026 Raman Dzehtsiar
+# SPDX-License-Identifier: MIT
+
+[package]
+name = "cpath"
+version = "0.1.0"
+edition = "2021"
+authors = ["Raman Dzehtsiar"]
+license = "MIT"
+description = "Local, offline source-code metrics."
+publish = false
+
+[dependencies]
+crossbeam-channel = "0.5"
+globset = "0.4"
+ignore = "0.4"
+serde = "1"
+serde_json = "1"
+tree-sitter = "0.25"
+# Patched upstream grammar; see vendor/tree-sitter-c-sharp/CPATH.md.
+tree-sitter-c-sharp = { path = "vendor/tree-sitter-c-sharp" }
+tree-sitter-c = "=0.24.2"
+tree-sitter-cpp = { path = "vendor/tree-sitter-cpp" }
+tree-sitter-cpp-compat = { path = "vendor/tree-sitter-cpp-compat" }
+tree-sitter-rust = "=0.23.2"
+tree-sitter-java = { path = "vendor/tree-sitter-java" }
+tree-sitter-python = { path = "vendor/tree-sitter-python" }
+tree-sitter-javascript = "=0.23.1"
+tree-sitter-typescript = "=0.23.2"
+tree-sitter-typescript-cpath = { path = "vendor/tree-sitter-typescript" }
+tree-sitter-go = { path = "vendor/tree-sitter-go" }
+
+[dev-dependencies]
+tempfile = "3"

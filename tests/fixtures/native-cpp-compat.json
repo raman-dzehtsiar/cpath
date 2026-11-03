@@ -1,0 +1,86 @@
+{
+  "cases": [
+    {
+      "language": "cpp",
+      "name": "dense_templates_with_named_member_pointer",
+      "source": "// SPDX-License-Identifier: MIT\n#include <tuple>\ntemplate<int... I> struct S {};\ntemplate<class T0,class T1,class T2,class T3,class T4,class T5,class T6,class T7,class T8,class T9,class T10,class T11,class T12,class T13,class T14,int V15,int V16,int V17,int V18,int V19,int V20,int V21,int V22,int V23,int V24,int V25,int V26,int V27,int V28,int V29,int V30,class T31,class T32,class T33,int V34,int V35,int V36,int V37,class T38,class T39,class T40,int V41,int V42,int V43,int V44,class T45,class T46,class T47,int V48,int V49,int V50,int V51,int V52,int V53,class T54,int V55,int V56> struct D {};\ntemplate<bool Masking> using A=std::tuple<D<int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,0,1,256,256,128,32,64,32,8,8,2,32,32,2,4,2,S<4, 64, 1>,S<1, 0, 2>,S<1, 0, 2>,2,8,8,true,S<4, 64, 1>,S<1, 0, 2>,S<1, 0, 2>,2,8,8,true,S<16, 16, 1>,S<0, 2, 1>,S<0, 2, 1>,1,4,2,false,1,2,S<1, 32, 1, 8>,8,Masking>>;\nint f(int x) { A<false> value; if (x) { for(int i=0;i<x;++i) { if(i&1) ++x; } } return x; }\nstruct Owner { int value; };\nint Owner::* member = &Owner::value;\n",
+      "status": "ok",
+      "file_cognitive": 6,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 6,
+          "start_byte": 916,
+          "end_byte": 1007
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 55.16867019688089,
+          "cyclomatic": 8.0,
+          "source_lines": 8.0,
+          "halstead": {
+            "N1": 256.0,
+            "N2": 157.0,
+            "n1": 15.0,
+            "n2": 82.0,
+            "volume": 2725.764003823284
+          }
+        },
+        {
+          "name": "S",
+          "mi": 97.75768108835572,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 1.0,
+            "N2": 1.0,
+            "n1": 1.0,
+            "n2": 1.0,
+            "volume": 2.0
+          }
+        },
+        {
+          "name": "D",
+          "mi": 97.75768108835572,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 1.0,
+            "N2": 1.0,
+            "n1": 1.0,
+            "n2": 1.0,
+            "volume": 2.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 83.71823206094457,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 26.0,
+            "N2": 15.0,
+            "n1": 12.0,
+            "n2": 8.0,
+            "volume": 177.19905189038187
+          }
+        },
+        {
+          "name": "Owner",
+          "mi": 92.40962204246611,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 3.0,
+            "N2": 2.0,
+            "n1": 3.0,
+            "n2": 2.0,
+            "volume": 11.60964047443681
+          }
+        }
+      ]
+    }
+  ]
+}

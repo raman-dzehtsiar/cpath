@@ -1,0 +1,134 @@
+================================================================================
+cpath conditional argument tails retain nested and alternative branches
+================================================================================
+M(first
+#if A
+    , second, third
+#if B
+    , fourth
+#endif
+#elif C
+    , fifth
+#else
+#endif
+    , last);
+
+--------------------------------------------------------------------------------
+
+(compilation_unit
+  (global_statement
+    (expression_statement
+      (invocation_expression
+        (identifier)
+        (argument_list
+          (argument
+            (identifier))
+          (preproc_if
+            (identifier)
+            (argument
+              (identifier))
+            (argument
+              (identifier))
+            (preproc_if
+              (identifier)
+              (argument
+                (identifier)))
+            (preproc_elif
+              (identifier)
+              (argument
+                (identifier))
+              (preproc_else)))
+          (argument
+            (identifier)))))))
+
+================================================================================
+cpath conditional parameter tails retain nested and empty branches
+================================================================================
+class C {
+    void M(int first
+#if A
+        , ref int second
+#if B
+        , int third = 3
+#else
+#endif
+#elif C
+        , int fourth = 4
+#else
+#endif
+#if D
+        , params int[] rest
+#endif
+    ) {}
+}
+
+--------------------------------------------------------------------------------
+
+(compilation_unit
+  (class_declaration
+    (identifier)
+    (declaration_list
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (parameter_list
+          (parameter
+            (predefined_type)
+            (identifier))
+          (preproc_if
+            (identifier)
+            (parameter
+              (modifier)
+              (predefined_type)
+              (identifier))
+            (preproc_if
+              (identifier)
+              (parameter
+                (predefined_type)
+                (identifier)
+                (integer_literal))
+              (preproc_else))
+            (preproc_elif
+              (identifier)
+              (parameter
+                (predefined_type)
+                (identifier)
+                (integer_literal))
+              (preproc_else)))
+          (preproc_if
+            (identifier)
+            (array_type
+              (predefined_type)
+              (array_rank_specifier))
+            (identifier)))
+        (block)))))
+
+================================================================================
+cpath conditional argument tail rejects missing comma
+:error
+================================================================================
+M(first
+#if A
+    second
+#endif
+);
+
+--------------------------------------------------------------------------------
+
+(compilation_unit)
+
+================================================================================
+cpath conditional parameter tail rejects missing comma
+:error
+================================================================================
+class C {
+    void M(int first
+#if A
+        int second
+#endif
+    ) {}
+}
+
+--------------------------------------------------------------------------------
+
+(compilation_unit)

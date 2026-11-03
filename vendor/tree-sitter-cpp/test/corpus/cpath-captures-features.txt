@@ -1,0 +1,70 @@
+================================================================================
+cpath direct lambda capture initializers
+================================================================================
+auto f = [value{flag ? 1 : 2}, other(3), &ref(source)] { return value; };
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (declaration
+    (placeholder_type_specifier
+      (auto))
+    (init_declarator
+      (identifier)
+      (lambda_expression
+        (lambda_capture_specifier
+          (lambda_capture_initializer
+            (identifier)
+            (initializer_list
+              (conditional_expression
+                (identifier)
+                (number_literal)
+                (number_literal))))
+          (lambda_capture_initializer
+            (identifier)
+            (argument_list
+              (number_literal)))
+          (lambda_capture_initializer
+            (identifier)
+            (argument_list
+              (identifier))))
+        (compound_statement
+          (return_statement
+            (identifier)))))))
+
+================================================================================
+cpath scoped attribute feature checks
+================================================================================
+#if __has_cpp_attribute(gnu::fallthrough)
+int first();
+#elif __has_cpp_attribute(clang::fallthrough)
+int second();
+#endif
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (preproc_if
+    (call_expression
+      (identifier)
+      (argument_list
+        (qualified_identifier
+          (identifier)
+          (identifier))))
+    (declaration
+      (primitive_type)
+      (function_declarator
+        (identifier)
+        (parameter_list)))
+    (preproc_elif
+      (call_expression
+        (identifier)
+        (argument_list
+          (qualified_identifier
+            (identifier)
+            (identifier))))
+      (declaration
+        (primitive_type)
+        (function_declarator
+          (identifier)
+          (parameter_list))))))

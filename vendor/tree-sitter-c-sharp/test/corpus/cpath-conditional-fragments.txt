@@ -1,0 +1,422 @@
+================================================================================
+Cpath conditional lists
+================================================================================
+
+class C :
+#if A
+    IA,
+#elif B
+#if C
+    IB,
+#endif
+#endif
+    IC
+{
+    int M(bool a, bool b) {
+        var xs = new [] {
+#if A && B
+            a ? 1 : 2,
+#elif C
+            b ? 3 : 4,
+#else
+#endif
+            a && b ? 5 : 6,
+#if D
+            a ? 7 : 8, b ? 9 : 10
+#else
+            11
+#endif
+        };
+        try { if (a) F(); }
+#if A && B
+        catch (E) { if (b) F(); }
+#elif C
+#if D
+        catch (E2) when (a || b) { while (b) F(); }
+#endif
+#endif
+        finally { if (b) F(); }
+        return 0;
+    }
+}
+
+---
+
+(compilation_unit
+  (class_declaration
+    (identifier)
+    (base_list
+      (preproc_if
+        (identifier)
+        (identifier)
+        (preproc_elif
+          (identifier)
+          (preproc_if
+            (identifier)
+            (identifier))))
+      (identifier))
+    (declaration_list
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (parameter_list
+          (parameter
+            (predefined_type)
+            (identifier))
+          (parameter
+            (predefined_type)
+            (identifier)))
+        (block
+          (local_declaration_statement
+            (variable_declaration
+              (implicit_type)
+              (variable_declarator
+                (identifier)
+                (implicit_array_creation_expression
+                  (initializer_expression
+                    (preproc_if
+                      (binary_expression
+                        (identifier)
+                        (identifier))
+                      (conditional_expression
+                        (identifier)
+                        (integer_literal)
+                        (integer_literal))
+                      (preproc_elif
+                        (identifier)
+                        (conditional_expression
+                          (identifier)
+                          (integer_literal)
+                          (integer_literal))
+                        (preproc_else)))
+                    (conditional_expression
+                      (binary_expression
+                        (identifier)
+                        (identifier))
+                      (integer_literal)
+                      (integer_literal))
+                    (preproc_if
+                      (identifier)
+                      (conditional_expression
+                        (identifier)
+                        (integer_literal)
+                        (integer_literal))
+                      (conditional_expression
+                        (identifier)
+                        (integer_literal)
+                        (integer_literal))
+                      (preproc_else
+                        (integer_literal))))))))
+          (try_statement
+            (block
+              (if_statement
+                (identifier)
+                (expression_statement
+                  (invocation_expression
+                    (identifier)
+                    (argument_list)))))
+            (preproc_if
+              (binary_expression
+                (identifier)
+                (identifier))
+              (catch_clause
+                (catch_declaration
+                  (identifier))
+                (block
+                  (if_statement
+                    (identifier)
+                    (expression_statement
+                      (invocation_expression
+                        (identifier)
+                        (argument_list))))))
+              (preproc_elif
+                (identifier)
+                (preproc_if
+                  (identifier)
+                  (catch_clause
+                    (catch_declaration
+                      (identifier))
+                    (catch_filter_clause
+                      (binary_expression
+                        (identifier)
+                        (identifier)))
+                    (block
+                      (while_statement
+                        (identifier)
+                        (expression_statement
+                          (invocation_expression
+                            (identifier)
+                            (argument_list)))))))))
+            (finally_clause
+              (block
+                (if_statement
+                  (identifier)
+                  (expression_statement
+                    (invocation_expression
+                      (identifier)
+                      (argument_list)))))))
+          (return_statement
+            (integer_literal)))))))
+
+================================================================================
+Cpath conditional else
+================================================================================
+
+class C {
+    void M(bool a, bool b) {
+        if (a && b) { while (b) {} }
+#if A
+        else if (b) { if (a) {} }
+#elif B
+#if C
+        else if (a) { while (b) {} }
+#endif
+#endif
+        else { if (a) {} }
+        if (b) {}
+#if D
+        else { while (a) {} }
+#else
+        else if (a) {}
+#endif
+        if (a) {}
+        else
+#if X
+        if (b) {}
+#else
+        while (a) {}
+#endif
+    }
+}
+
+---
+
+(compilation_unit
+  (class_declaration
+    (identifier)
+    (declaration_list
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (parameter_list
+          (parameter
+            (predefined_type)
+            (identifier))
+          (parameter
+            (predefined_type)
+            (identifier)))
+        (block
+          (if_statement
+            (binary_expression
+              (identifier)
+              (identifier))
+            (block
+              (while_statement
+                (identifier)
+                (block)))
+            (preproc_if_in_else_if_tail
+              (identifier)
+              (conditional_else_clause
+                (if_statement
+                  (identifier)
+                  (block
+                    (if_statement
+                      (identifier)
+                      (block)))))
+              (preproc_elif
+                (identifier)
+                (preproc_if
+                  (identifier)
+                  (conditional_else_clause
+                    (if_statement
+                      (identifier)
+                      (block
+                        (while_statement
+                          (identifier)
+                          (block))))))))
+            (block
+              (if_statement
+                (identifier)
+                (block))))
+          (if_statement
+            (identifier)
+            (block)
+            (preproc_if_in_else_tail
+              (identifier)
+              (conditional_else_clause
+                (block
+                  (while_statement
+                    (identifier)
+                    (block))))
+              (preproc_else
+                (conditional_else_clause
+                  (if_statement
+                    (identifier)
+                    (block))))))
+          (if_statement
+            (identifier)
+            (block)
+            (preproc_if
+              (identifier)
+              (if_statement
+                (identifier)
+                (block))
+              (preproc_else
+                (while_statement
+                  (identifier)
+                  (block))))))))))
+
+================================================================================
+Cpath conditional terminated
+================================================================================
+
+class C {
+    const int Default =
+#if A
+        1;
+#else
+        2;
+#endif
+    int P =>
+#if A
+        true ? 1 : 2;
+#elif B
+        false ? 3 : 4;
+#else
+        0;
+#endif
+    void M(bool a, bool b) {
+        if (a) {
+            int? x =
+#if A && B
+                a && b ? 1 : 2;
+#else
+#if C
+                b ? 3 : 4;
+#else
+                5;
+#endif
+#endif
+            x ??=
+#if B
+                b ? 6 : 7;
+#else
+                8;
+#endif
+            System.Action f =
+#if A
+                () => { if (a) {} };
+#else
+                () => { while (b) {} };
+#endif
+        }
+    }
+}
+
+---
+
+(compilation_unit
+  (class_declaration
+    (identifier)
+    (declaration_list
+      (field_declaration
+        (modifier)
+        (variable_declaration
+          (predefined_type)
+          (variable_declarator
+            (identifier)
+            (preproc_if
+              (identifier)
+              (integer_literal)
+              (preproc_else
+                (integer_literal))))))
+      (property_declaration
+        (predefined_type)
+        (identifier)
+        (arrow_expression_clause
+          (preproc_if
+            (identifier)
+            (conditional_expression
+              (boolean_literal)
+              (integer_literal)
+              (integer_literal))
+            (preproc_elif
+              (identifier)
+              (conditional_expression
+                (boolean_literal)
+                (integer_literal)
+                (integer_literal))
+              (preproc_else
+                (integer_literal))))))
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (parameter_list
+          (parameter
+            (predefined_type)
+            (identifier))
+          (parameter
+            (predefined_type)
+            (identifier)))
+        (block
+          (if_statement
+            (identifier)
+            (block
+              (local_declaration_statement
+                (variable_declaration
+                  (nullable_type
+                    (predefined_type))
+                  (variable_declarator
+                    (identifier)
+                    (preproc_if
+                      (binary_expression
+                        (identifier)
+                        (identifier))
+                      (conditional_expression
+                        (binary_expression
+                          (identifier)
+                          (identifier))
+                        (integer_literal)
+                        (integer_literal))
+                      (preproc_else
+                        (preproc_if
+                          (identifier)
+                          (conditional_expression
+                            (identifier)
+                            (integer_literal)
+                            (integer_literal))
+                          (preproc_else
+                            (integer_literal))))))))
+              (expression_statement
+                (assignment_expression
+                  (identifier)
+                  (preproc_if
+                    (identifier)
+                    (conditional_expression
+                      (identifier)
+                      (integer_literal)
+                      (integer_literal))
+                    (preproc_else
+                      (integer_literal)))))
+              (local_declaration_statement
+                (variable_declaration
+                  (qualified_name
+                    (identifier)
+                    (identifier))
+                  (variable_declarator
+                    (identifier)
+                    (preproc_if
+                      (identifier)
+                      (lambda_expression
+                        (parameter_list)
+                        (block
+                          (if_statement
+                            (identifier)
+                            (block))))
+                      (preproc_else
+                        (lambda_expression
+                          (parameter_list)
+                          (block
+                            (while_statement
+                              (identifier)
+                              (block))))))))))))))))

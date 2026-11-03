@@ -1,0 +1,54 @@
+==================
+allows ref struct constraints on generic declarations
+==================
+
+delegate void Action<T>(T value) where T : allows ref struct;
+class C<T> where T : allows ref struct {
+    int M<U>() where U : struct, allows ref struct => 1;
+    int allows() => 2;
+}
+
+---
+
+(compilation_unit
+  (delegate_declaration
+    (predefined_type)
+    (identifier)
+    (type_parameter_list
+      (type_parameter
+        (identifier)))
+    (parameter_list
+      (parameter
+        (identifier)
+        (identifier)))
+    (type_parameter_constraints_clause
+      (identifier)
+      (type_parameter_constraint)))
+  (class_declaration
+    (identifier)
+    (type_parameter_list
+      (type_parameter
+        (identifier)))
+    (type_parameter_constraints_clause
+      (identifier)
+      (type_parameter_constraint))
+    (declaration_list
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (type_parameter_list
+          (type_parameter
+            (identifier)))
+        (parameter_list)
+        (type_parameter_constraints_clause
+          (identifier)
+          (type_parameter_constraint)
+          (type_parameter_constraint))
+        (arrow_expression_clause
+          (integer_literal)))
+      (method_declaration
+        (predefined_type)
+        (identifier)
+        (parameter_list)
+        (arrow_expression_clause
+          (integer_literal))))))

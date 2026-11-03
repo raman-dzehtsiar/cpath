@@ -1,0 +1,597 @@
+--- a/common/define-grammar.js
++++ b/common/define-grammar.js
+@@ -1,4 +1,4 @@
+-const JavaScript = require('tree-sitter-javascript/grammar');
++const JavaScript = require('../javascript/grammar');
+ 
+ module.exports = function defineGrammar(dialect) {
+   return grammar(JavaScript, {
+@@ -7,6 +7,7 @@
+     externals: ($, previous) => previous.concat([
+       $._function_signature_automatic_semicolon,
+       $.__error_recovery,
++      $._cpath_generic_argument,
+     ]),
+ 
+     supertypes: ($, previous) => previous.concat([
+@@ -71,6 +72,8 @@
+     ]),
+ 
+     conflicts: ($, previous) => previous.concat([
++      [$._call_signature, $._cpath_typed_ternary_arrow],
++      [$.primary_expression, $.arrow_function, $._cpath_typed_ternary_arrow],
+       [$.call_expression, $.instantiation_expression, $.binary_expression],
+       [$.call_expression, $.instantiation_expression, $.binary_expression, $.unary_expression],
+       [$.call_expression, $.instantiation_expression, $.binary_expression, $.update_expression],
+@@ -131,6 +134,26 @@
+       ]),
+ 
+     rules: {
++      // Prefer a complete typed arrow in the consequence over a return-type colon as separator.
++      ternary_expression: $ => prec.right('ternary', seq(
++        field('condition', $.expression),
++        alias($._ternary_qmark, '?'),
++        field('consequence', choice(
++          $.expression,
++          prec.dynamic(1, alias($._cpath_typed_ternary_arrow, $.arrow_function)),
++        )),
++        ':',
++        field('alternative', $.expression),
++      )),
++
++      _cpath_typed_ternary_arrow: $ => seq(
++        optional('async'),
++        field('type_parameters', optional($.type_parameters)),
++        field('parameters', $.formal_parameters),
++        field('return_type', choice($.type_annotation, $.asserts_annotation, $.type_predicate_annotation)),
++        '=>',
++        field('body', choice($.expression, $.statement_block)),
++      ),
+       public_field_definition: $ => seq(
+         repeat(field('decorator', $.decorator)),
+         optional(choice(
+@@ -952,7 +975,7 @@
+       ),
+ 
+       type_arguments: $ => seq(
+-        '<',
++        choice('<', alias($._cpath_generic_argument, '<')),
+         commaSep1($.type),
+         optional(','),
+         '>',
+--- a/common/scanner.h
++++ b/common/scanner.h
+@@ -1,4 +1,5 @@
+ #include "tree_sitter/parser.h"
++#include "tree_sitter/array.h"
+ 
+ #include <wctype.h>
+ 
+@@ -13,6 +14,7 @@
+     JSX_TEXT,
+     FUNCTION_SIGNATURE_AUTOMATIC_SEMICOLON,
+     ERROR_RECOVERY,
++    CPATH_GENERIC_ARGUMENT,
+ };
+ 
+ static void advance(TSLexer *lexer) { lexer->advance(lexer, false); }
+@@ -314,6 +316,145 @@
+     return saw_text;
+ }
+ 
++
++/* Look ahead without consuming the first '<' of a generic-function type
++ * argument. Ordinary shifts retain their original atomic lexer token. */
++static bool cpath_skip_lookahead_trivia(TSLexer *lexer) {
++    for (;;) {
++        while (iswspace(lexer->lookahead)) advance(lexer);
++        if (lexer->lookahead != '/') return true;
++        advance(lexer);
++        if (lexer->lookahead == '/') {
++            while (lexer->lookahead && lexer->lookahead != '\n') advance(lexer);
++        } else if (lexer->lookahead == '*') {
++            advance(lexer);
++            bool closed = false;
++            while (lexer->lookahead) {
++                if (lexer->lookahead == '*') {
++                    advance(lexer);
++                    if (lexer->lookahead == '/') {
++                        advance(lexer);
++                        closed = true;
++                        break;
++                    }
++                } else advance(lexer);
++            }
++            if (!closed) return false;
++        } else return false;
++    }
++}
++
++static bool cpath_skip_quoted_type(TSLexer *lexer) {
++    Array(int32_t) delimiters = array_new();
++    array_push(&delimiters, lexer->lookahead);
++    advance(lexer);
++    while (delimiters.size && lexer->lookahead) {
++        int32_t end = *array_back(&delimiters);
++        int32_t value = lexer->lookahead;
++        advance(lexer);
++        if (end != '}') {
++            if (value == '\\' && lexer->lookahead) advance(lexer);
++            else if (value == end) array_pop(&delimiters);
++            else if (end == '`' && value == '$' && lexer->lookahead == '{') {
++                advance(lexer);
++                array_push(&delimiters, '}');
++            }
++        } else if (value == '}') array_pop(&delimiters);
++        else if (value == '{') array_push(&delimiters, '}');
++        else if (value == '\'' || value == '"' || value == '`') array_push(&delimiters, value);
++        else if (value == '/' && lexer->lookahead == '/') {
++            while (lexer->lookahead && lexer->lookahead != '\n') advance(lexer);
++        } else if (value == '/' && lexer->lookahead == '*') {
++            advance(lexer);
++            while (lexer->lookahead) {
++                if (lexer->lookahead == '*') {
++                    advance(lexer);
++                    if (lexer->lookahead == '/') { advance(lexer); break; }
++                } else advance(lexer);
++            }
++        }
++    }
++    bool complete = delimiters.size == 0;
++    array_delete(&delimiters);
++    return complete;
++}
++
++static bool cpath_identifier_character(int32_t value) {
++    return iswalnum(value) || value == '_' || value == '$' || value == '\\' || value >= 128;
++}
++
++static bool cpath_scan_generic_argument(TSLexer *lexer) {
++    if (lexer->lookahead != '<') return false;
++    advance(lexer);
++    lexer->mark_end(lexer);
++    if (lexer->lookahead != '<') return false;
++    advance(lexer);
++    unsigned angles = 1, parentheses = 0, brackets = 0, braces = 0;
++    bool name_seen = false, constraint = false;
++    while (angles && lexer->lookahead) {
++        if (!cpath_skip_lookahead_trivia(lexer)) return false;
++        int32_t value = lexer->lookahead;
++        bool top = angles == 1 && !parentheses && !brackets && !braces;
++        if (value == '\'' || value == '"' || value == '`') {
++            if (!cpath_skip_quoted_type(lexer)) return false;
++            continue;
++        }
++        if (top && !constraint && cpath_identifier_character(value)) {
++            char word[16]; unsigned size = 0;
++            while (cpath_identifier_character(lexer->lookahead)) {
++                if (size + 1 < sizeof word) word[size++] = (char)lexer->lookahead;
++                advance(lexer);
++            }
++            word[size] = 0;
++            if (!name_seen) {
++                if (strcmp(word, "const") && strcmp(word, "in") && strcmp(word, "out")) name_seen = true;
++            } else if (!strcmp(word, "extends")) constraint = true;
++            else return false;
++            continue;
++        }
++        advance(lexer);
++        switch (value) {
++            case '<':
++                if (top && !constraint) return false;
++                angles++;
++                break;
++            case '>': angles--; break;
++            case '(' : parentheses++; break;
++            case ')' : if (!parentheses) return false; parentheses--; break;
++            case '[' : brackets++; break;
++            case ']' : if (!brackets) return false; brackets--; break;
++            case '{' : braces++; break;
++            case '}' : if (!braces) return false; braces--; break;
++            case '=':
++                if (top) constraint = true;
++                if (lexer->lookahead == '>') advance(lexer);
++                break;
++            case ',': if (top) { name_seen = false; constraint = false; } break;
++            case ';': if (top) return false; break;
++            case 0: return false;
++        }
++    }
++    if (angles || parentheses || brackets || braces || !cpath_skip_lookahead_trivia(lexer) || lexer->lookahead != '(') return false;
++    advance(lexer);
++    parentheses = 1;
++    while (parentheses && lexer->lookahead) {
++        if (!cpath_skip_lookahead_trivia(lexer)) return false;
++        int32_t value = lexer->lookahead;
++        if (value == '\'' || value == '"' || value == '`') {
++            if (!cpath_skip_quoted_type(lexer)) return false;
++            continue;
++        }
++        advance(lexer);
++        if (value == '(') parentheses++;
++        else if (value == ')') parentheses--;
++    }
++    if (parentheses || !cpath_skip_lookahead_trivia(lexer) || lexer->lookahead != '=') return false;
++    advance(lexer);
++    if (lexer->lookahead != '>') return false;
++    lexer->result_symbol = CPATH_GENERIC_ARGUMENT;
++    return true;
++}
++
+ static inline bool external_scanner_scan(void *payload, TSLexer *lexer, const bool *valid_symbols) {
+     if (valid_symbols[TEMPLATE_CHARS]) {
+         if (valid_symbols[AUTOMATIC_SEMICOLON]) {
+@@ -332,7 +473,15 @@
+         if (!ret && !scanned_comment && valid_symbols[TERNARY_QMARK] && lexer->lookahead == '?') {
+             return scan_ternary_qmark(lexer);
+         }
++        if (!ret && valid_symbols[CPATH_GENERIC_ARGUMENT] && lexer->lookahead == '<') {
++            return cpath_scan_generic_argument(lexer);
++        }
+         return ret;
++    }
++    if (valid_symbols[CPATH_GENERIC_ARGUMENT]) {
++        bool scanned_comment = false;
++        if (!scan_whitespace_and_comments(lexer, &scanned_comment)) return false;
++        if (lexer->lookahead == '<') return cpath_scan_generic_argument(lexer);
+     }
+     if (valid_symbols[TERNARY_QMARK]) {
+         return scan_ternary_qmark(lexer);
+--- a/tree-sitter.json
++++ b/tree-sitter.json
+@@ -13,16 +13,16 @@
+       ],
+       "highlights": [
+         "queries/highlights.scm",
+-        "node_modules/tree-sitter-javascript/queries/highlights.scm"
++        "javascript/queries/highlights.scm"
+       ],
+-      "injections": "node_modules/tree-sitter-javascript/queries/injections.scm",
++      "injections": "javascript/queries/injections.scm",
+       "locals": [
+         "queries/locals.scm",
+-        "node_modules/tree-sitter-javascript/queries/locals.scm"
++        "javascript/queries/locals.scm"
+       ],
+       "tags": [
+         "queries/tags.scm",
+-        "node_modules/tree-sitter-javascript/queries/tags.scm"
++        "javascript/queries/tags.scm"
+       ],
+       "injection-regex": "^(ts|typescript)$"
+     },
+@@ -39,14 +39,14 @@
+       ],
+       "highlights": [
+         "queries/highlights.scm",
+-        "node_modules/tree-sitter-javascript/queries/highlights-jsx.scm",
+-        "node_modules/tree-sitter-javascript/queries/highlights.scm"
++        "javascript/queries/highlights-jsx.scm",
++        "javascript/queries/highlights.scm"
+       ],
+-      "injections": "node_modules/tree-sitter-javascript/queries/injections.scm",
+-      "locals": "node_modules/tree-sitter-javascript/queries/locals.scm",
++      "injections": "javascript/queries/injections.scm",
++      "locals": "javascript/queries/locals.scm",
+       "tags": [
+         "queries/tags.scm",
+-        "node_modules/tree-sitter-javascript/queries/tags.scm"
++        "javascript/queries/tags.scm"
+       ],
+       "injection-regex": "^(ts|typescript)$"
+     },
+@@ -63,14 +63,14 @@
+       ],
+       "highlights": [
+         "queries/highlights.scm",
+-        "node_modules/tree-sitter-javascript/queries/highlights-jsx.scm",
+-        "node_modules/tree-sitter-javascript/queries/highlights.scm"
++        "javascript/queries/highlights-jsx.scm",
++        "javascript/queries/highlights.scm"
+       ],
+-      "injections": "node_modules/tree-sitter-javascript/queries/injections.scm",
+-      "locals": "node_modules/tree-sitter-javascript/queries/locals.scm",
++      "injections": "javascript/queries/injections.scm",
++      "locals": "javascript/queries/locals.scm",
+       "tags": [
+         "queries/tags.scm",
+-        "node_modules/tree-sitter-javascript/queries/tags.scm"
++        "javascript/queries/tags.scm"
+       ],
+       "content-regex": "@flow"
+     }
+--- /dev/null
++++ b/test/corpus/cpath.txt
+@@ -0,0 +1,292 @@
++========================================================================
++Typed conditional arrow owns its return annotation
++:language(typescript)
++:language(tsx)
++========================================================================
++
++const choose = flag ? (item):Result => item : other => other;
++
++---
++
++(program
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (ternary_expression
++        (identifier)
++        (arrow_function
++          (formal_parameters
++            (required_parameter
++              (identifier)))
++          (type_annotation
++            (type_identifier))
++          (identifier))
++        (arrow_function
++          (identifier)
++          (identifier))))))
++
++========================================================================
++Generic types executable arrows and shifts stay distinct
++:language(typescript)
++:language(tsx)
++========================================================================
++
++consume<<T>(item:T)=>T>(identity); const fn=<T,>(item:T)=>item; const shifted=value<<amount;
++
++---
++
++(program
++  (expression_statement
++    (call_expression
++      (identifier)
++      (type_arguments
++        (function_type
++          (type_parameters
++            (type_parameter
++              (type_identifier)))
++          (formal_parameters
++            (required_parameter
++              (identifier)
++              (type_annotation
++                (type_identifier))))
++          (type_identifier)))
++      (arguments
++        (identifier))))
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (arrow_function
++        (type_parameters
++          (type_parameter
++            (type_identifier)))
++        (formal_parameters
++          (required_parameter
++            (identifier)
++            (type_annotation
++              (type_identifier))))
++        (identifier))))
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (binary_expression
++        (identifier)
++        (identifier)))))
++
++========================================================================
++Generic arrow versus a comparison to a type assertion
++:language(typescript)
++========================================================================
++
++const fn=<T>(item:T)=>item; const compared=value < <number> other;
++
++---
++
++(program
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (arrow_function
++        (type_parameters
++          (type_parameter
++            (type_identifier)))
++        (formal_parameters
++          (required_parameter
++            (identifier)
++            (type_annotation
++              (type_identifier))))
++        (identifier))))
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (binary_expression
++        (identifier)
++        (type_assertion
++          (type_arguments
++            (predefined_type))
++          (identifier))))))
++
++========================================================================
++Generic function type inside JSX
++:language(tsx)
++========================================================================
++
++const node=<Panel value={consume<<T>(item:T)=>T>(identity)} />;
++
++---
++
++(program
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (jsx_self_closing_element
++        (identifier)
++        (jsx_attribute
++          (property_identifier)
++          (jsx_expression
++            (call_expression
++              (identifier)
++              (type_arguments
++                (function_type
++                  (type_parameters
++                    (type_parameter
++                      (type_identifier)))
++                  (formal_parameters
++                    (required_parameter
++                      (identifier)
++                      (type_annotation
++                        (type_identifier))))
++                  (type_identifier)))
++              (arguments
++                (identifier)))))))))
++
++========================================================================
++Separated less-than signs are not a shift
++:language(typescript)
++:language(tsx)
++:error
++========================================================================
++
++const invalid=value < <amount;
++
++---
++
++==================
++Cpath atomic shifts and generic lookahead
++:language(typescript)
++:language(tsx)
++==================
++const comparison = left << right > (value);
++const callback = left << right > ((value) => value);
++const first = factory <<T extends Map<string, {value: ")>"}>>(value: T) => T>(identity);
++const second = factory<<T = `${`>`}`>(value: T) => T>(identity);
++const third = factory<</* parameter */ const T>(value: {text: ")=>"}) /* arrow */ => T>(identity);
++const fourth = factory<<T>(callback: (value: T) => T) => T>(identity);
++
++---
++
++(program
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (binary_expression
++        (binary_expression
++          (identifier)
++          (identifier))
++        (parenthesized_expression
++          (identifier)))))
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (binary_expression
++        (binary_expression
++          (identifier)
++          (identifier))
++        (parenthesized_expression
++          (arrow_function
++            (formal_parameters
++              (required_parameter
++                (identifier)))
++            (identifier))))))
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (call_expression
++        (identifier)
++        (type_arguments
++          (function_type
++            (type_parameters
++              (type_parameter
++                (type_identifier)
++                (constraint
++                  (generic_type
++                    (type_identifier)
++                    (type_arguments
++                      (predefined_type)
++                      (object_type
++                        (property_signature
++                          (property_identifier)
++                          (type_annotation
++                            (literal_type
++                              (string
++                                (string_fragment)))))))))))
++            (formal_parameters
++              (required_parameter
++                (identifier)
++                (type_annotation
++                  (type_identifier))))
++            (type_identifier)))
++        (arguments
++          (identifier)))))
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (call_expression
++        (identifier)
++        (type_arguments
++          (function_type
++            (type_parameters
++              (type_parameter
++                (type_identifier)
++                (default_type
++                  (template_literal_type
++                    (template_type
++                      (template_literal_type
++                        (string_fragment)))))))
++            (formal_parameters
++              (required_parameter
++                (identifier)
++                (type_annotation
++                  (type_identifier))))
++            (type_identifier)))
++        (arguments
++          (identifier)))))
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (call_expression
++        (identifier)
++        (type_arguments
++          (function_type
++            (type_parameters
++              (comment)
++              (type_parameter
++                (type_identifier)))
++            (formal_parameters
++              (required_parameter
++                (identifier)
++                (type_annotation
++                  (object_type
++                    (property_signature
++                      (property_identifier)
++                      (type_annotation
++                        (literal_type
++                          (string
++                            (string_fragment)))))))))
++            (comment)
++            (type_identifier)))
++        (arguments
++          (identifier)))))
++  (lexical_declaration
++    (variable_declarator
++      (identifier)
++      (call_expression
++        (identifier)
++        (type_arguments
++          (function_type
++            (type_parameters
++              (type_parameter
++                (type_identifier)))
++            (formal_parameters
++              (required_parameter
++                (identifier)
++                (type_annotation
++                  (function_type
++                    (formal_parameters
++                      (required_parameter
++                        (identifier)
++                        (type_annotation
++                          (type_identifier))))
++                    (type_identifier)))))
++            (type_identifier)))
++        (arguments
++          (identifier))))))

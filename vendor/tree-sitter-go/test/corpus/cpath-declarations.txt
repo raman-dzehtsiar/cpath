@@ -1,0 +1,42 @@
+==================
+cpath final grouped declaration semicolons
+==================
+package p
+func f() int {
+ var (x int; y=1)
+ const (c=2)
+ return x+y+c
+}
+
+---
+
+(source_file
+  (package_clause
+    (package_identifier))
+  (function_declaration
+    (identifier)
+    (parameter_list)
+    (type_identifier)
+    (block
+      (statement_list
+        (var_declaration
+          (var_spec_list
+            (var_spec
+              (identifier)
+              (type_identifier))
+            (var_spec
+              (identifier)
+              (expression_list
+                (int_literal)))))
+        (const_declaration
+          (const_spec
+            (identifier)
+            (expression_list
+              (int_literal))))
+        (return_statement
+          (expression_list
+            (binary_expression
+              (binary_expression
+                (identifier)
+                (identifier))
+              (identifier))))))))

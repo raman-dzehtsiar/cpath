@@ -1,0 +1,66 @@
+==================
+Module import declaration
+==================
+import module java.base;
+class Probe { int f(boolean x) { return x ? 1 : 0; } }
+
+---
+
+(program
+  (import_declaration
+    (scoped_identifier
+      (identifier)
+      (identifier)))
+  (class_declaration
+    (identifier)
+    (class_body
+      (method_declaration
+        (integral_type)
+        (identifier)
+        (formal_parameters
+          (formal_parameter
+            (boolean_type)
+            (identifier)))
+        (block
+          (return_statement
+            (ternary_expression
+              (identifier)
+              (decimal_integer_literal)
+              (decimal_integer_literal))))))))
+
+==================
+Module remains an ordinary identifier
+==================
+import module.foo;
+import static module.foo.bar;
+class Probe { int module(boolean x) { return x ? 1 : 0; } }
+
+---
+
+(program
+  (import_declaration
+    (scoped_identifier
+      (identifier)
+      (identifier)))
+  (import_declaration
+    (scoped_identifier
+      (scoped_identifier
+        (identifier)
+        (identifier))
+      (identifier)))
+  (class_declaration
+    (identifier)
+    (class_body
+      (method_declaration
+        (integral_type)
+        (identifier)
+        (formal_parameters
+          (formal_parameter
+            (boolean_type)
+            (identifier)))
+        (block
+          (return_statement
+            (ternary_expression
+              (identifier)
+              (decimal_integer_literal)
+              (decimal_integer_literal))))))))

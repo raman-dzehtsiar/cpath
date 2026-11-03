@@ -1,0 +1,519 @@
+{
+  "cases": [
+    {
+      "language": "c",
+      "name": "reserved_macro_parameter",
+      "source": "#define ROLE(int) (int)\nint f(void) { return ROLE(3); }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 81.85613905648286,
+          "cyclomatic": 2.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 5.0,
+            "n1": 5.0,
+            "n2": 4.0,
+            "volume": 41.209025018750054
+          }
+        },
+        {
+          "name": "f",
+          "mi": 89.52267462886361,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 30.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "primitive_macro_name",
+      "source": "#define bool _Bool\n#define int long\n#define void char\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.71624627594792,
+          "cyclomatic": 1.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 0.0,
+            "N2": 3.0,
+            "n1": 0.0,
+            "n2": 3.0,
+            "volume": 4.754887502163468
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "pointer_typedef_names",
+      "source": "typedef void *PVOID;\ntypedef void *HANDLE;\ntypedef void *FILE;\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.79333392150134,
+          "cyclomatic": 1.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 1.0,
+            "n1": 3.0,
+            "n2": 1.0,
+            "volume": 24.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "function_pointer_typedef_names",
+      "source": "typedef void (*HANDLE)(int INT, int BOOL);\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 89.43466805813847,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 30.880904142633646
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "array_typedef_name",
+      "source": "typedef int INT[3];\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 92.8634839277374,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 4.0,
+            "N2": 1.0,
+            "n1": 3.0,
+            "n2": 1.0,
+            "volume": 10.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "function_typedef_name",
+      "source": "typedef int INT(int BOOL);\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 92.30905580181427,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 1.0,
+            "n1": 3.0,
+            "n2": 1.0,
+            "volume": 12.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "keyword_preprocessor_conditions",
+      "source": "#if defined(int) || bool\nint f(void) { return 1; }\n#endif\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 77.9813628317924,
+          "cyclomatic": 3.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 4.0,
+            "n1": 6.0,
+            "n2": 4.0,
+            "volume": 39.86313713864835
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.40306536914221,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "guarded_template_arguments",
+      "source": "#ifndef ROLE_H\n#define ROLE_H\nrestore_t<int> setup (void);\n#endif\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 76.38935962878045,
+          "cyclomatic": 1.0,
+          "source_lines": 4.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 4.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 30.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "fixed_width_long_aliases",
+      "source": "typedef signed int LONG32;\ntypedef unsigned int ULONG32;\ntypedef long long LONG64;\ntypedef unsigned long long ULONG64;\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.73016892765423,
+          "cyclomatic": 1.0,
+          "source_lines": 4.0,
+          "halstead": {
+            "N1": 10.0,
+            "N2": 0.0,
+            "n1": 2.0,
+            "n2": 0.0,
+            "volume": 10.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "reserved_macro_parameter",
+      "source": "#define ROLE(int) (int)\nint f(void) { return ROLE(3); }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 81.85613905648286,
+          "cyclomatic": 2.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 5.0,
+            "n1": 5.0,
+            "n2": 4.0,
+            "volume": 41.209025018750054
+          }
+        },
+        {
+          "name": "f",
+          "mi": 89.52267462886361,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 30.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "primitive_macro_name",
+      "source": "#define bool _Bool\n#define int long\n#define void char\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.71624627594792,
+          "cyclomatic": 1.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 0.0,
+            "N2": 3.0,
+            "n1": 0.0,
+            "n2": 3.0,
+            "volume": 4.754887502163468
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "pointer_typedef_names",
+      "source": "typedef void *PVOID;\ntypedef void *HANDLE;\ntypedef void *FILE;\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.79333392150134,
+          "cyclomatic": 1.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 1.0,
+            "n1": 3.0,
+            "n2": 1.0,
+            "volume": 24.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "function_pointer_typedef_names",
+      "source": "typedef void (*HANDLE)(int INT, int BOOL);\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 89.43466805813847,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 30.880904142633646
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "array_typedef_name",
+      "source": "typedef int INT[3];\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 92.8634839277374,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 4.0,
+            "N2": 1.0,
+            "n1": 3.0,
+            "n2": 1.0,
+            "volume": 10.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "function_typedef_name",
+      "source": "typedef int INT(int BOOL);\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 92.30905580181427,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 1.0,
+            "n1": 3.0,
+            "n2": 1.0,
+            "volume": 12.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "reserved_argument_tokens",
+      "source": "RESTORE<int> setup(void);\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 90.40306536914221,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "keyword_preprocessor_conditions",
+      "source": "#if defined(int) || bool\nint f(void) { return 1; }\n#endif\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 77.9813628317924,
+          "cyclomatic": 3.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 4.0,
+            "n1": 6.0,
+            "n2": 4.0,
+            "volume": 39.86313713864835
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.40306536914221,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "guarded_template_arguments",
+      "source": "#ifndef ROLE_H\n#define ROLE_H\nrestore_t<int> setup (void);\n#endif\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 76.38935962878045,
+          "cyclomatic": 1.0,
+          "source_lines": 4.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 4.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 30.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "fixed_width_long_aliases",
+      "source": "typedef signed int LONG32;\ntypedef unsigned int ULONG32;\ntypedef long long LONG64;\ntypedef unsigned long long ULONG64;\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.73016892765423,
+          "cyclomatic": 1.0,
+          "source_lines": 4.0,
+          "halstead": {
+            "N1": 10.0,
+            "N2": 0.0,
+            "n1": 2.0,
+            "n2": 0.0,
+            "volume": 10.0
+          }
+        }
+      ]
+    }
+  ],
+  "rejected_cases": [
+    {
+      "name": "reserved_argument_tokens",
+      "language": "c",
+      "source": "RESTORE<int> setup(void);\n"
+    }
+  ]
+}

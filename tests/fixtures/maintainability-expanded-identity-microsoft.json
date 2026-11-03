@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "name": "IdentityCases.Cases.get",
+      "kind": "PropertyGet",
+      "start_byte": 404,
+      "end_byte": 684,
+      "index": 79
+    },
+    {
+      "name": "IdentityCases.Types.get",
+      "kind": "PropertyGet",
+      "start_byte": 748,
+      "end_byte": 1087,
+      "index": 80
+    }
+  ]
+}

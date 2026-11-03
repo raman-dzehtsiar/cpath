@@ -1,0 +1,8 @@
+// SPDX-License-Identifier: MIT
+// Share the unchanged upstream scanner while keeping both language symbols distinct.
+#define tree_sitter_cpp_external_scanner_create tree_sitter_cpp_compat_external_scanner_create
+#define tree_sitter_cpp_external_scanner_destroy tree_sitter_cpp_compat_external_scanner_destroy
+#define tree_sitter_cpp_external_scanner_scan tree_sitter_cpp_compat_external_scanner_scan
+#define tree_sitter_cpp_external_scanner_serialize tree_sitter_cpp_compat_external_scanner_serialize
+#define tree_sitter_cpp_external_scanner_deserialize tree_sitter_cpp_compat_external_scanner_deserialize
+#include "../../tree-sitter-cpp/src/scanner.c"

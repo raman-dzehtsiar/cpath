@@ -1,0 +1,63 @@
+--- a/grammar.js
++++ b/grammar.js
+@@ -85,6 +85,7 @@
+   word: $ => $.identifier,
+ 
+   conflicts: $ => [
++    [$.type_parameter_declaration, $._simple_type],
+     [$._simple_type, $._expression],
+     [$._simple_type, $.generic_type, $._expression],
+     [$.qualified_type, $._expression],
+@@ -178,7 +179,7 @@
+         $.const_spec,
+         seq(
+           '(',
+-          repeat(seq($.const_spec, terminator)),
++          optionalTrailingSep($.const_spec, terminator),
+           ')',
+         ),
+       ),
+@@ -214,7 +215,7 @@
+ 
+     var_spec_list: $ => seq(
+       '(',
+-      repeat(seq($.var_spec, terminator)),
++      optionalTrailingSep($.var_spec, terminator),
+       ')',
+     ),
+ 
+@@ -231,6 +232,7 @@
+       'func',
+       field('receiver', $.parameter_list),
+       field('name', $._field_identifier),
++      field('type_parameters', optional($.type_parameter_list)),
+       field('parameters', $.parameter_list),
+       field('result', optional(choice($.parameter_list, $._simple_type))),
+       field('body', optional($.block)),
+@@ -709,7 +711,7 @@
+     special_argument_list: $ => seq(
+       '(',
+       optional(seq(
+-        $._type,
++        choice($._type, $._expression),
+         repeat(seq(',', $._expression)),
+         optional(','),
+       )),
+@@ -783,7 +785,7 @@
+       ']',
+     )),
+ 
+-    composite_literal: $ => prec(PREC.composite_literal, seq(
++    composite_literal: $ => prec.dynamic(-1, prec(PREC.composite_literal, seq(
+       field('type', choice(
+         $.map_type,
+         $.slice_type,
+@@ -795,7 +797,7 @@
+         $.qualified_type,
+       )),
+       field('body', $.literal_value),
+-    )),
++    ))),
+ 
+     literal_value: $ => seq(
+       '{',

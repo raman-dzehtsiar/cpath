@@ -1,0 +1,305 @@
+{
+  "records": [
+    {
+      "name": "Examples.Add(int, int)",
+      "kind": "Ordinary",
+      "start_byte": 116,
+      "end_byte": 154,
+      "index": 95
+    },
+    {
+      "name": "Examples.Identity(int)",
+      "kind": "Ordinary",
+      "start_byte": 159,
+      "end_byte": 191,
+      "index": 100
+    },
+    {
+      "name": "Examples.Empty()",
+      "kind": "Ordinary",
+      "start_byte": 196,
+      "end_byte": 219,
+      "index": 100
+    },
+    {
+      "name": "Examples.Constant()",
+      "kind": "Ordinary",
+      "start_byte": 224,
+      "end_byte": 252,
+      "index": 100
+    },
+    {
+      "name": "Examples.Branch(int)",
+      "kind": "Ordinary",
+      "start_byte": 257,
+      "end_byte": 317,
+      "index": 85
+    },
+    {
+      "name": "Examples.Loop(int)",
+      "kind": "Ordinary",
+      "start_byte": 322,
+      "end_byte": 415,
+      "index": 75
+    },
+    {
+      "name": "Examples.Set(int)",
+      "kind": "Ordinary",
+      "start_byte": 420,
+      "end_byte": 457,
+      "index": 96
+    },
+    {
+      "name": "Examples.Get()",
+      "kind": "Ordinary",
+      "start_byte": 462,
+      "end_byte": 488,
+      "index": 100
+    },
+    {
+      "name": "Examples.Print(string)",
+      "kind": "Ordinary",
+      "start_byte": 493,
+      "end_byte": 546,
+      "index": 100
+    },
+    {
+      "name": "Examples.Call(int)",
+      "kind": "Ordinary",
+      "start_byte": 551,
+      "end_byte": 593,
+      "index": 97
+    },
+    {
+      "name": "Examples.Local(int)",
+      "kind": "Ordinary",
+      "start_byte": 598,
+      "end_byte": 665,
+      "index": 81
+    },
+    {
+      "name": "Examples.Lambda(int[])",
+      "kind": "Ordinary",
+      "start_byte": 670,
+      "end_byte": 736,
+      "index": 84
+    },
+    {
+      "name": "Examples.Catch(int)",
+      "kind": "Ordinary",
+      "start_byte": 741,
+      "end_byte": 823,
+      "index": 82
+    },
+    {
+      "name": "Examples.Switch(int)",
+      "kind": "Ordinary",
+      "start_byte": 828,
+      "end_byte": 926,
+      "index": 89
+    },
+    {
+      "name": "Examples.Choose(bool, string, string)",
+      "kind": "Ordinary",
+      "start_byte": 931,
+      "end_byte": 993,
+      "index": 95
+    },
+    {
+      "name": "Examples.Coalesce(string, string)",
+      "kind": "Ordinary",
+      "start_byte": 998,
+      "end_byte": 1051,
+      "index": 96
+    },
+    {
+      "name": "Examples.Assign()",
+      "kind": "Ordinary",
+      "start_byte": 1056,
+      "end_byte": 1107,
+      "index": 82
+    },
+    {
+      "name": "Examples.Fold()",
+      "kind": "Ordinary",
+      "start_byte": 1112,
+      "end_byte": 1139,
+      "index": 95
+    },
+    {
+      "name": "Examples.Text(int)",
+      "kind": "Ordinary",
+      "start_byte": 1144,
+      "end_byte": 1186,
+      "index": 100
+    },
+    {
+      "name": "Examples.Property.get",
+      "kind": "PropertyGet",
+      "start_byte": 1213,
+      "end_byte": 1226,
+      "index": 100
+    },
+    {
+      "name": "Examples.Property.set",
+      "kind": "PropertySet",
+      "start_byte": 1227,
+      "end_byte": 1248,
+      "index": 96
+    },
+    {
+      "name": "Examples.ArrowProperty.get",
+      "kind": "PropertyGet",
+      "start_byte": 1280,
+      "end_byte": 1288,
+      "index": 100
+    },
+    {
+      "name": "Examples.Default(int)",
+      "kind": "Ordinary",
+      "start_byte": 1294,
+      "end_byte": 1329,
+      "index": 87
+    },
+    {
+      "name": "Examples.Attribute(int)",
+      "kind": "Ordinary",
+      "start_byte": 1334,
+      "end_byte": 1393,
+      "index": 91
+    },
+    {
+      "name": "Examples.Fluent()",
+      "kind": "Ordinary",
+      "start_byte": 1398,
+      "end_byte": 1450,
+      "index": 88
+    },
+    {
+      "name": "Examples.TypeTest(object)",
+      "kind": "Ordinary",
+      "start_byte": 1455,
+      "end_byte": 1511,
+      "index": 100
+    },
+    {
+      "name": "Examples.TypeObject()",
+      "kind": "Ordinary",
+      "start_byte": 1516,
+      "end_byte": 1561,
+      "index": 100
+    },
+    {
+      "name": "Examples.ConditionalVoid(Examples)",
+      "kind": "Ordinary",
+      "start_byte": 1566,
+      "end_byte": 1627,
+      "index": 96
+    },
+    {
+      "name": "Examples.DelegateCall()",
+      "kind": "Ordinary",
+      "start_byte": 1674,
+      "end_byte": 1714,
+      "index": 96
+    },
+    {
+      "name": "Examples.Each(int[])",
+      "kind": "Ordinary",
+      "start_byte": 1719,
+      "end_byte": 1821,
+      "index": 80
+    },
+    {
+      "name": "Examples.SwitchExpression(int)",
+      "kind": "Ordinary",
+      "start_byte": 1826,
+      "end_byte": 1892,
+      "index": 94
+    },
+    {
+      "name": "Examples.Query(int[])",
+      "kind": "Ordinary",
+      "start_byte": 1897,
+      "end_byte": 2014,
+      "index": 80
+    },
+    {
+      "name": "Examples.AnnotatedProperty.get",
+      "kind": "PropertyGet",
+      "start_byte": 2075,
+      "end_byte": 2083,
+      "index": 100
+    },
+    {
+      "name": "Examples.StaticPropertyReceiver()",
+      "kind": "Ordinary",
+      "start_byte": 2089,
+      "end_byte": 2163,
+      "index": 94
+    },
+    {
+      "name": "Examples.NoArgumentAttribute()",
+      "kind": "Ordinary",
+      "start_byte": 2168,
+      "end_byte": 2225,
+      "index": 93
+    },
+    {
+      "name": "Examples.ArraySize()",
+      "kind": "Ordinary",
+      "start_byte": 2230,
+      "end_byte": 2277,
+      "index": 94
+    },
+    {
+      "name": "Examples.EarlyReturn(bool)",
+      "kind": "Ordinary",
+      "start_byte": 2282,
+      "end_byte": 2344,
+      "index": 90
+    },
+    {
+      "name": "Examples.Examples()",
+      "kind": "Constructor",
+      "start_byte": 2349,
+      "end_byte": 2380,
+      "index": 100
+    },
+    {
+      "name": "Examples.Examples(int)",
+      "kind": "Constructor",
+      "start_byte": 2385,
+      "end_byte": 2430,
+      "index": 96
+    },
+    {
+      "name": "Examples.Reference()",
+      "kind": "Ordinary",
+      "start_byte": 2435,
+      "end_byte": 2475,
+      "index": 100
+    },
+    {
+      "name": "Examples.RefAssignment(int)",
+      "kind": "Ordinary",
+      "start_byte": 2480,
+      "end_byte": 2574,
+      "index": 82
+    },
+    {
+      "name": "Primary.Primary(int, int)",
+      "kind": "Constructor",
+      "start_byte": 2577,
+      "end_byte": 2670,
+      "index": 80
+    },
+    {
+      "name": "Primary.Sum()",
+      "kind": "Ordinary",
+      "start_byte": 2634,
+      "end_byte": 2668,
+      "index": 95
+    }
+  ]
+}

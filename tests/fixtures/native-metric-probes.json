@@ -1,0 +1,3476 @@
+{
+  "cases": [
+    {
+      "language": "rust",
+      "name": "empty",
+      "source": "",
+      "status": "ok",
+      "file_cognitive": 0.0,
+      "cognitive_units": [],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 0.0,
+          "cyclomatic": 1.0,
+          "source_lines": 0.0,
+          "halstead": {
+            "N1": 0.0,
+            "N2": 0.0,
+            "n1": 0.0,
+            "n2": 0.0,
+            "volume": null
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "empty_function",
+      "source": "fn f() {}\n",
+      "status": "ok",
+      "file_cognitive": 0.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 93.40754618904377,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 3.0,
+            "N2": 1.0,
+            "n1": 3.0,
+            "n2": 1.0,
+            "volume": 8.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 93.54204911302038,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 3.0,
+            "N2": 1.0,
+            "n1": 3.0,
+            "n2": 1.0,
+            "volume": 8.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "literal",
+      "source": "fn f() -> i32 { 1 }\n",
+      "status": "ok",
+      "file_cognitive": 0.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 90.67462282039806,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.80912574437467,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "addition",
+      "source": "fn f(a: i32) -> i32 { a + 1 }\n",
+      "status": "ok",
+      "file_cognitive": 0.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 88.93079728181593,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 4.0,
+            "n1": 6.0,
+            "n2": 3.0,
+            "volume": 34.86917501586544
+          }
+        },
+        {
+          "name": "f",
+          "mi": 89.06530020579255,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 4.0,
+            "n1": 6.0,
+            "n2": 3.0,
+            "volume": 34.86917501586544
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "conditions",
+      "source": "fn f(a: bool, b: bool) -> bool { if a && b { true } else { false } }\n",
+      "status": "ok",
+      "file_cognitive": 3.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.52922146235069,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 7.0,
+            "n1": 8.0,
+            "n2": 5.0,
+            "volume": 70.30835464468075
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.6637243863273,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 7.0,
+            "n1": 8.0,
+            "n2": 5.0,
+            "volume": 70.30835464468075
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "loop",
+      "source": "fn f() { loop { break; } }\n",
+      "status": "ok",
+      "file_cognitive": 0.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 90.79109357767128,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 1.0,
+            "n1": 5.0,
+            "n2": 1.0,
+            "volume": 18.094737505048094
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.92559650164787,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 1.0,
+            "n1": 5.0,
+            "n2": 1.0,
+            "volume": 18.094737505048094
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "closure",
+      "source": "fn f() { let g = |x: bool| { if x { 1 } else { 2 } }; g(true); }\n",
+      "status": "ok",
+      "file_cognitive": 3.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        },
+        {
+          "name": "<anonymous>",
+          "score": 3.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.78314189871142,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 15.0,
+            "N2": 8.0,
+            "n1": 9.0,
+            "n2": 6.0,
+            "volume": 89.85848369899593
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.91764482268802,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 15.0,
+            "N2": 8.0,
+            "n1": 9.0,
+            "n2": 6.0,
+            "volume": 89.85848369899593
+          }
+        },
+        {
+          "name": "<anonymous>",
+          "mi": 89.30016513416186,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 4.0,
+            "n1": 4.0,
+            "n2": 3.0,
+            "volume": 30.880904142633646
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "nested",
+      "source": "fn f() { fn g(a: bool) { if a {} } g(true); }\n",
+      "status": "ok",
+      "file_cognitive": 2.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 2.0
+        },
+        {
+          "name": "g",
+          "score": 2.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.19558754888519,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 6.0,
+            "n1": 6.0,
+            "n2": 4.0,
+            "volume": 56.47277761308516
+          }
+        },
+        {
+          "name": "f",
+          "mi": 87.33009047286178,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 6.0,
+            "n1": 6.0,
+            "n2": 4.0,
+            "volume": 56.47277761308516
+          }
+        },
+        {
+          "name": "g",
+          "mi": 89.91039181042103,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 25.26619429851844
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "match",
+      "source": "fn f(x: i32) -> i32 { match x { 0 => 1, 1 | 2 => 3, _ => 4 } }\n",
+      "status": "ok",
+      "file_cognitive": 1.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 1.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.38182044815039,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 10.0,
+            "n1": 9.0,
+            "n2": 8.0,
+            "volume": 98.09910819000814
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.516323372127,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 10.0,
+            "n1": 9.0,
+            "n2": 8.0,
+            "volume": 98.09910819000814
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "struct_impl",
+      "source": "struct S { x: i32 }\nimpl S { fn f(&self) -> i32 { self.x } }\n",
+      "status": "ok",
+      "file_cognitive": 0.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 81.72163613250626,
+          "cyclomatic": 3.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 10.0,
+            "N2": 3.0,
+            "n1": 7.0,
+            "n2": 2.0,
+            "volume": 41.209025018750054
+          }
+        },
+        {
+          "name": "S",
+          "mi": 88.93079728181593,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 3.0,
+            "n1": 7.0,
+            "n2": 2.0,
+            "volume": 34.86917501586544
+          }
+        },
+        {
+          "name": "f",
+          "mi": 89.35513233151332,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 3.0,
+            "n1": 7.0,
+            "n2": 2.0,
+            "volume": 31.69925001442312
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "macro",
+      "source": "fn f() { println!(\"hello\"); }\n",
+      "status": "ok",
+      "file_cognitive": 0.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 89.70856625542544,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 27.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 89.84306917940205,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 27.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "return",
+      "source": "int f(void) { return 1; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 25
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 90.26856244516559,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.40306536914221,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "return",
+      "source": "int f() { return 1; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 21
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 90.67462282039806,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.80912574437467,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "conditions",
+      "source": "int f(bool a, bool b) { if (a && b) return 1; else return 2; }\n",
+      "status": "ok",
+      "file_cognitive": 3,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3,
+          "start_byte": 0,
+          "end_byte": 62
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.13825899074344,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 7.0,
+            "n1": 9.0,
+            "n2": 5.0,
+            "volume": 79.9544533632097
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.27276191472004,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 7.0,
+            "n1": 9.0,
+            "n2": 5.0,
+            "volume": 79.9544533632097
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "ternary",
+      "source": "int f(bool a) { return a ? 1 : 2; }\n",
+      "status": "ok",
+      "file_cognitive": 1,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 35
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 88.02252687893109,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 5.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 44.97261104228487
+          }
+        },
+        {
+          "name": "f",
+          "mi": 88.15702980290769,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 5.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 44.97261104228487
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "lambda",
+      "source": "int f() { auto g = [](bool x) { if (x) return 1; return 2; }; return g(true); }\n",
+      "status": "ok",
+      "file_cognitive": 3,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 2,
+          "start_byte": 0,
+          "end_byte": 79
+        },
+        {
+          "name": "<lambda>",
+          "score": 1,
+          "start_byte": 19,
+          "end_byte": 60
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.62329681439843,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 18.0,
+            "N2": 8.0,
+            "n1": 8.0,
+            "n2": 6.0,
+            "volume": 98.99122797349771
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.75779973837504,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 18.0,
+            "N2": 8.0,
+            "n1": 8.0,
+            "n2": 6.0,
+            "volume": 98.99122797349771
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "class",
+      "source": "struct S { int x; int f() { return x; } };\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 18,
+          "end_byte": 39
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 88.45583592989814,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 4.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 39.0
+          }
+        },
+        {
+          "name": "S",
+          "mi": 88.83374357896388,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 4.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 36.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.80912574437467,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "invalid",
+      "source": "fn f( {\n",
+      "status": "syntax_error"
+    },
+    {
+      "language": "cpp",
+      "name": "returned_lambda",
+      "source": "auto f() { return [] { if (true) return 1; return 0; }; }",
+      "status": "ok",
+      "file_cognitive": 3,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 2,
+          "start_byte": 0,
+          "end_byte": 57
+        },
+        {
+          "name": "<lambda>",
+          "score": 1,
+          "start_byte": 18,
+          "end_byte": 54
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": null,
+          "cyclomatic": 3.0,
+          "source_lines": 0.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 4.0,
+            "n1": 6.0,
+            "n2": 4.0,
+            "volume": 53.150849518197795
+          }
+        },
+        {
+          "name": "f",
+          "mi": 87.6489489719527,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 4.0,
+            "n1": 6.0,
+            "n2": 4.0,
+            "volume": 53.150849518197795
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "function_without_final_newline",
+      "source": "int f(void){return 0;}",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 0,
+          "end_byte": 22
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": null,
+          "cyclomatic": 2.0,
+          "source_lines": 0.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.40306536914221,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "platform_type_aliases",
+      "source": "typedef long HRESULT; typedef char* LPTSTR; typedef unsigned DWORD; HRESULT f(LPTSTR x, DWORD* y) { return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 68,
+          "end_byte": 111
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.69867891556162,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 17.0,
+            "N2": 4.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 72.64806399138324
+          }
+        },
+        {
+          "name": "f",
+          "mi": 88.2915327268843,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 4.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 44.97261104228487
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "integer_type_aliases",
+      "source": "typedef signed char int_least8_t; typedef unsigned short uint_fast16_t; int_least8_t f(uint_fast16_t x) { return x; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 72,
+          "end_byte": 117
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 88.56680683273038,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 39.302968908806456
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.04489473439764,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 25.26619429851844
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "declaration_annotation",
+      "source": "#define MOZ_IMPLICIT\nstruct S { MOZ_IMPLICIT S(int); };\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 83.95287862637382,
+          "cyclomatic": 2.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 3.0,
+            "n1": 4.0,
+            "n2": 2.0,
+            "volume": 20.67970000576925
+          }
+        },
+        {
+          "name": "S",
+          "mi": 91.85519391654297,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 4.0,
+            "N2": 2.0,
+            "n1": 4.0,
+            "n2": 1.0,
+            "volume": 13.931568569324174
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "standalone_return_macro",
+      "source": "#define API_RESULT int\nAPI_RESULT\nf() { return 0; }\n",
+      "status": "ok",
+      "cognitive_status": "unscored",
+      "file_cognitive": null,
+      "cognitive_units": null,
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 80.26671692775281,
+          "cyclomatic": 2.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 4.0,
+            "N2": 3.0,
+            "n1": 4.0,
+            "n2": 3.0,
+            "volume": 19.651484454403228
+          }
+        },
+        {
+          "name": "f",
+          "mi": 91.52886172685359,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 4.0,
+            "N2": 2.0,
+            "n1": 4.0,
+            "n2": 2.0,
+            "volume": 15.509775004326936
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "global_condition",
+      "source": "const VALUE: i32 = if cfg!(feature = \"a\") { 1 } else { 2 };\n",
+      "status": "ok",
+      "file_cognitive": 2.0,
+      "cognitive_units": [
+        {
+          "name": "<module>",
+          "score": 2.0,
+          "start_byte": 0,
+          "end_byte": 60
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.51707037810155,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 6.0,
+            "n1": 7.0,
+            "n2": 6.0,
+            "volume": 55.506595772116384
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "global_and_nested",
+      "source": "const FLAG: bool = cfg!(feature = \"a\") && cfg!(feature = \"b\");\nfn f(a: bool) { if a { fn g(b: bool) { if b {} } g(a); } }\n",
+      "status": "ok",
+      "file_cognitive": 4.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        },
+        {
+          "name": "g",
+          "score": 2.0
+        },
+        {
+          "name": "<module>",
+          "score": 1.0,
+          "start_byte": 0,
+          "end_byte": 122
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 77.14352353980198,
+          "cyclomatic": 6.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 24.0,
+            "N2": 15.0,
+            "n1": 9.0,
+            "n2": 9.0,
+            "volume": 162.62707505625016
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.41154581299577,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 8.0,
+            "n1": 6.0,
+            "n2": 4.0,
+            "volume": 73.08241808752197
+          }
+        },
+        {
+          "name": "g",
+          "mi": 89.91039181042103,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 25.26619429851844
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "associated_constant",
+      "source": "struct S;\nimpl S { const VALUE: i32 = if cfg!(feature = \"a\") { 1 } else { 2 }; fn f() {} }\n",
+      "status": "ok",
+      "file_cognitive": 2.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0.0
+        },
+        {
+          "name": "<module>",
+          "score": 2.0,
+          "start_byte": 0,
+          "end_byte": 91
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.49312372420772,
+          "cyclomatic": 4.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 7.0,
+            "n1": 8.0,
+            "n2": 7.0,
+            "volume": 82.0447025077789
+          }
+        },
+        {
+          "name": "S",
+          "mi": 86.34265189891657,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 13.0,
+            "N2": 7.0,
+            "n1": 8.0,
+            "n2": 7.0,
+            "volume": 78.13781191217038
+          }
+        },
+        {
+          "name": "f",
+          "mi": 93.54204911302038,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 3.0,
+            "N2": 1.0,
+            "n1": 3.0,
+            "n2": 1.0,
+            "volume": 8.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "conditional_closure",
+      "source": "fn f(a: bool) { if a { let g = |b: bool| { if b {} }; g(a); } }\n",
+      "status": "ok",
+      "file_cognitive": 4.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 4.0
+        },
+        {
+          "name": "<anonymous>",
+          "score": 3.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.5601737444272,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 17.0,
+            "N2": 8.0,
+            "n1": 9.0,
+            "n2": 4.0,
+            "volume": 92.5109929535273
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.69467666840382,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 17.0,
+            "N2": 8.0,
+            "n1": 9.0,
+            "n2": 4.0,
+            "volume": 92.5109929535273
+          }
+        },
+        {
+          "name": "<anonymous>",
+          "mi": 90.8458683161048,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 4.0,
+            "n2": 1.0,
+            "volume": 18.575424759098897
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "nested_function_in_loop",
+      "source": "fn f() { for _ in 0..3 { fn g(b: bool) { if b {} } g(true); } }\n",
+      "status": "ok",
+      "file_cognitive": 3.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        },
+        {
+          "name": "g",
+          "score": 2.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.6486389747348,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 9.0,
+            "n1": 8.0,
+            "n2": 7.0,
+            "volume": 89.85848369899593
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.78314189871142,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 9.0,
+            "n1": 8.0,
+            "n2": 7.0,
+            "volume": 89.85848369899593
+          }
+        },
+        {
+          "name": "g",
+          "mi": 89.91039181042103,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 25.26619429851844
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "primitive_alias_on_separate_line",
+      "source": "typedef long HRESULT;\nHRESULT\nf() { return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 22,
+          "end_byte": 47
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.86065655252033,
+          "cyclomatic": 2.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        },
+        {
+          "name": "f",
+          "mi": 91.52886172685359,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 4.0,
+            "N2": 2.0,
+            "n1": 4.0,
+            "n2": 2.0,
+            "volume": 15.509775004326936
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "function_in_conditional_closure",
+      "source": "fn f(a: bool) { if a { let c = || { if a { fn g(b: bool) { if b {} } g(a); } }; c(); } }\n",
+      "status": "ok",
+      "file_cognitive": 7.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 7.0
+        },
+        {
+          "name": "<anonymous>",
+          "score": 6.0
+        },
+        {
+          "name": "g",
+          "score": 3.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.18136235706906,
+          "cyclomatic": 7.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 24.0,
+            "N2": 11.0,
+            "n1": 9.0,
+            "n2": 5.0,
+            "volume": 133.25742227201616
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.31586528104567,
+          "cyclomatic": 6.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 24.0,
+            "N2": 11.0,
+            "n1": 9.0,
+            "n2": 5.0,
+            "volume": 133.25742227201616
+          }
+        },
+        {
+          "name": "<anonymous>",
+          "mi": 86.8573575473804,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 13.0,
+            "N2": 6.0,
+            "n1": 7.0,
+            "n2": 3.0,
+            "volume": 63.11663380285988
+          }
+        },
+        {
+          "name": "g",
+          "mi": 89.91039181042103,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 25.26619429851844
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "global_closure_under_if",
+      "source": "const F: fn(bool) -> bool = if cfg!(feature = \"a\") { |b: bool| { if b { true } else { false } } } else { |b: bool| b };\n",
+      "status": "ok",
+      "file_cognitive": 6.0,
+      "cognitive_units": [
+        {
+          "name": "<anonymous>",
+          "score": 4.0
+        },
+        {
+          "name": "<anonymous>",
+          "score": 0.0
+        },
+        {
+          "name": "<module>",
+          "score": 2.0,
+          "start_byte": 0,
+          "end_byte": 120
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.41342313714667,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 23.0,
+            "N2": 10.0,
+            "n1": 10.0,
+            "n2": 7.0,
+            "volume": 134.88627376126118
+          }
+        },
+        {
+          "name": "<anonymous>",
+          "mi": 89.30016513416186,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 4.0,
+            "n1": 4.0,
+            "n2": 3.0,
+            "volume": 30.880904142633646
+          }
+        },
+        {
+          "name": "<anonymous>",
+          "mi": 93.57076430684866,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 3.0,
+            "N2": 2.0,
+            "n1": 2.0,
+            "n2": 1.0,
+            "volume": 7.92481250360578
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "macro_question_tokens",
+      "source": "fn f() -> Result<(), ()> { let _ = vec![Ok::<(), ()>(())?, Ok::<(), ()>(())?]; Ok(())?; Ok(()) }\n",
+      "status": "ok",
+      "file_cognitive": 0.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 83.80760630863833,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 37.0,
+            "N2": 7.0,
+            "n1": 13.0,
+            "n2": 4.0,
+            "volume": 179.8483650150149
+          }
+        },
+        {
+          "name": "f",
+          "mi": 83.94210923261492,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 37.0,
+            "N2": 7.0,
+            "n1": 13.0,
+            "n2": 4.0,
+            "volume": 179.8483650150149
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "sizeof_integer_aliases",
+      "source": "typedef signed char int_least8_t; typedef unsigned short uint_fast16_t; int f() { return sizeof(int_least8_t) + sizeof(uint_fast16_t); }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 72,
+          "end_byte": 136
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.60075026775776,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 17.0,
+            "N2": 1.0,
+            "n1": 7.0,
+            "n2": 1.0,
+            "volume": 54.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 88.72484177785137,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 1.0,
+            "n1": 7.0,
+            "n2": 1.0,
+            "volume": 39.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "using_integer_aliases",
+      "source": "namespace types { using uint8_t = unsigned char; using int16_t = short; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 89.91039181042103,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 4.0,
+            "n2": 3.0,
+            "volume": 25.26619429851844
+          }
+        },
+        {
+          "name": "types",
+          "mi": 90.04489473439764,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 4.0,
+            "n2": 3.0,
+            "volume": 25.26619429851844
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "if_condition_ternary",
+      "source": "int f(bool a, bool b) { if (a ? (b ? 1 : 2) : 0) return 1; return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 4,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 4,
+          "start_byte": 0,
+          "end_byte": 70
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.16104729029566,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 17.0,
+            "N2": 10.0,
+            "n1": 9.0,
+            "n2": 6.0,
+            "volume": 105.48604608143
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.29555021427228,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 17.0,
+            "N2": 10.0,
+            "n1": 9.0,
+            "n2": 6.0,
+            "volume": 105.48604608143
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "if_condition_declaration",
+      "source": "int f(bool a, bool b) { if (int value = a ? (b ? 1 : 2) : 0) return value; return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 1,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 86
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.70325526286742,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 19.0,
+            "N2": 11.0,
+            "n1": 10.0,
+            "n2": 7.0,
+            "volume": 122.62388523751017
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.83775818684404,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 19.0,
+            "N2": 11.0,
+            "n1": 10.0,
+            "n2": 7.0,
+            "volume": 122.62388523751017
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "if_init_statement",
+      "source": "int f(bool a) { if (int value = a ? 1 : 0; value) return value; return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 2,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 2,
+          "start_byte": 0,
+          "end_byte": 75
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.73219861551097,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 15.0,
+            "N2": 9.0,
+            "n1": 9.0,
+            "n2": 5.0,
+            "volume": 91.3765181293825
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.86670153948756,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 15.0,
+            "N2": 9.0,
+            "n1": 9.0,
+            "n2": 5.0,
+            "volume": 91.3765181293825
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "else_if_condition",
+      "source": "int f(bool a, bool b) { if (a) return 1; else if (b ? true : false) return 2; return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 2,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 2,
+          "start_byte": 0,
+          "end_byte": 89
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.74560925267659,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 19.0,
+            "N2": 10.0,
+            "n1": 10.0,
+            "n2": 8.0,
+            "volume": 120.92782504182705
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.8801121766532,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 19.0,
+            "N2": 10.0,
+            "n1": 10.0,
+            "n2": 8.0,
+            "volume": 120.92782504182705
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "boolean_groups",
+      "source": "bool f(bool a, bool b, bool c, bool d) { return a && (b || c) && d; }\n",
+      "status": "ok",
+      "file_cognitive": 2,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 2,
+          "start_byte": 0,
+          "end_byte": 69
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.5601737444272,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 16.0,
+            "N2": 9.0,
+            "n1": 8.0,
+            "n2": 5.0,
+            "volume": 92.5109929535273
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.69467666840382,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 16.0,
+            "N2": 9.0,
+            "n1": 8.0,
+            "n2": 5.0,
+            "volume": 92.5109929535273
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "boolean_through_expression",
+      "source": "bool f(bool a, bool b, bool c) { return a && ((b && c) ? 1 : 2); }\n",
+      "status": "ok",
+      "file_cognitive": 2,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 2,
+          "start_byte": 0,
+          "end_byte": 66
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.39508086568037,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 16.0,
+            "N2": 9.0,
+            "n1": 9.0,
+            "n2": 6.0,
+            "volume": 97.67226489021297
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.52958378965698,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 16.0,
+            "N2": 9.0,
+            "n1": 9.0,
+            "n2": 6.0,
+            "volume": 97.67226489021297
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "lambda_condition_variable",
+      "source": "int f(bool a, bool b) { if (auto value = [a, b] { if (a && b) return 1; return 0; }()) return value; return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 3,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 112
+        },
+        {
+          "name": "<lambda>",
+          "score": 2,
+          "start_byte": 41,
+          "end_byte": 83
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.21460283169871,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 24.0,
+            "N2": 12.0,
+            "n1": 10.0,
+            "n2": 6.0,
+            "volume": 144.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.34910575567532,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 24.0,
+            "N2": 12.0,
+            "n1": 10.0,
+            "n2": 6.0,
+            "volume": 144.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "logical_lambda_conversion",
+      "source": "bool f(bool a) { return a && [] { return true && false; }; }\n",
+      "status": "ok",
+      "file_cognitive": 2,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 60
+        },
+        {
+          "name": "<lambda>",
+          "score": 1,
+          "start_byte": 29,
+          "end_byte": 57
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.07225042846774,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 5.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 58.81033751683405
+          }
+        },
+        {
+          "name": "f",
+          "mi": 87.20675335244435,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 5.0,
+            "n1": 7.0,
+            "n2": 4.0,
+            "volume": 58.81033751683405
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "qualified_integer_aliases",
+      "source": "typedef unsigned short uint16_t; namespace types { using uint16_t = unsigned short; } int f() { types::uint16_t value = 0; return sizeof(uint16_t) + sizeof(types::uint16_t) + value; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 86,
+          "end_byte": 183
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.29122879204877,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 21.0,
+            "N2": 8.0,
+            "n1": 9.0,
+            "n2": 5.0,
+            "volume": 110.41329273967052
+          }
+        },
+        {
+          "name": "types",
+          "mi": 92.40962204246611,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 3.0,
+            "N2": 2.0,
+            "n1": 3.0,
+            "n2": 2.0,
+            "volume": 11.60964047443681
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.48691849989586,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 16.0,
+            "N2": 6.0,
+            "n1": 9.0,
+            "n2": 4.0,
+            "volume": 81.40967379910403
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "negated_disjunction",
+      "source": "fn f(a: bool, b: bool, c: bool) -> bool { !(a || b || c) }\n",
+      "status": "ok",
+      "file_cognitive": 2.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 2.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.32128283702565,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 7.0,
+            "n1": 8.0,
+            "n2": 4.0,
+            "volume": 75.28421251514428
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.45578576100226,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 7.0,
+            "n1": 8.0,
+            "n2": 4.0,
+            "volume": 75.28421251514428
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "repeated_boolean_expressions",
+      "source": "fn f(a: bool, b: bool, c: bool, d: bool) -> bool { let x = a && b; let y = c && d; x || y }\n",
+      "status": "ok",
+      "file_cognitive": 2.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 2.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.26190374853952,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 21.0,
+            "N2": 13.0,
+            "n1": 11.0,
+            "n2": 7.0,
+            "volume": 141.7774500490386
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.39640667251615,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 21.0,
+            "N2": 13.0,
+            "n1": 11.0,
+            "n2": 7.0,
+            "volume": 141.7774500490386
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "mixed_boolean_anchor",
+      "source": "fn f(a: bool, b: bool, c: bool, d: bool) -> bool { a || b && c && d }\n",
+      "status": "ok",
+      "file_cognitive": 3.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 85.68431080378703,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 15.0,
+            "N2": 9.0,
+            "n1": 8.0,
+            "n2": 5.0,
+            "volume": 88.81055323538621
+          }
+        },
+        {
+          "name": "f",
+          "mi": 85.81881372776365,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 15.0,
+            "N2": 9.0,
+            "n1": 8.0,
+            "n2": 5.0,
+            "volume": 88.81055323538621
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "unary_between_boolean_expressions",
+      "source": "fn f(a: bool, b: bool, c: bool, d: bool) -> bool { let x = a && b; let _ = -1; let y = c && d; x || y }\n",
+      "status": "ok",
+      "file_cognitive": 3.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 83.60969039239237,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 25.0,
+            "N2": 15.0,
+            "n1": 12.0,
+            "n2": 9.0,
+            "volume": 175.69269691115042
+          }
+        },
+        {
+          "name": "f",
+          "mi": 83.74419331636898,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 25.0,
+            "N2": 15.0,
+            "n1": 12.0,
+            "n2": 9.0,
+            "volume": 175.69269691115042
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "boolean_nested_callable_scopes",
+      "source": "fn f(a: bool, b: bool) { let _ = a && b; let c = || { a && b }; fn g(a: bool, b: bool) -> bool { a && b } let _ = a && b; c(); g(a, b); }\n",
+      "status": "ok",
+      "file_cognitive": 3.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        },
+        {
+          "name": "<anonymous>",
+          "score": 1.0
+        },
+        {
+          "name": "g",
+          "score": 1.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 82.4017333873238,
+          "cyclomatic": 8.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 35.0,
+            "N2": 21.0,
+            "n1": 11.0,
+            "n2": 6.0,
+            "volume": 228.897919110019
+          }
+        },
+        {
+          "name": "f",
+          "mi": 82.5362363113004,
+          "cyclomatic": 7.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 35.0,
+            "N2": 21.0,
+            "n1": 11.0,
+            "n2": 6.0,
+            "volume": 228.897919110019
+          }
+        },
+        {
+          "name": "<anonymous>",
+          "mi": 91.72069099256635,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 4.0,
+            "N2": 2.0,
+            "n1": 3.0,
+            "n2": 2.0,
+            "volume": 13.931568569324174
+          }
+        },
+        {
+          "name": "g",
+          "mi": 88.05500934718515,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 5.0,
+            "n1": 7.0,
+            "n2": 3.0,
+            "volume": 46.50699332842307
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "boolean_if_boundary",
+      "source": "fn f(a: bool, b: bool) -> bool { let first = a && b; if a && b { return first; } a && b }\n",
+      "status": "ok",
+      "file_cognitive": 3.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.73762047148944,
+          "cyclomatic": 6.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 18.0,
+            "N2": 11.0,
+            "n1": 12.0,
+            "n2": 4.0,
+            "volume": 116.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.87212339546603,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 18.0,
+            "N2": 11.0,
+            "n1": 12.0,
+            "n2": 4.0,
+            "volume": 116.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "boolean_unary_before_if",
+      "source": "fn f(a: bool, b: bool, c: bool) -> bool { let x = !(a || b || c); if a && b && c { x } else { a && b } }\n",
+      "status": "ok",
+      "file_cognitive": 5.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 5.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 83.6012613989805,
+          "cyclomatic": 8.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 23.0,
+            "N2": 14.0,
+            "n1": 13.0,
+            "n2": 5.0,
+            "volume": 154.28722505336555
+          }
+        },
+        {
+          "name": "f",
+          "mi": 83.7357643229571,
+          "cyclomatic": 7.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 23.0,
+            "N2": 14.0,
+            "n1": 13.0,
+            "n2": 5.0,
+            "volume": 154.28722505336555
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "boolean_loop_boundary",
+      "source": "fn f(a: bool, b: bool) { let _ = a && b; while a && b { if a || b { break; } } }\n",
+      "status": "ok",
+      "file_cognitive": 6.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 6.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.82041966020705,
+          "cyclomatic": 7.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 17.0,
+            "N2": 10.0,
+            "n1": 12.0,
+            "n2": 4.0,
+            "volume": 108.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.95492258418366,
+          "cyclomatic": 6.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 17.0,
+            "N2": 10.0,
+            "n1": 12.0,
+            "n2": 4.0,
+            "volume": 108.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "boolean_match_boundary",
+      "source": "fn f(a: bool, b: bool) -> i32 { let x = a && b; match (a && b, x) { (true, _) => 1, _ => 0 } }\n",
+      "status": "ok",
+      "file_cognitive": 3.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 83.84470941000342,
+          "cyclomatic": 6.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 22.0,
+            "N2": 14.0,
+            "n1": 12.0,
+            "n2": 8.0,
+            "volume": 155.58941141594505
+          }
+        },
+        {
+          "name": "f",
+          "mi": 83.97921233398002,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 22.0,
+            "N2": 14.0,
+            "n1": 12.0,
+            "n2": 8.0,
+            "volume": 155.58941141594505
+          }
+        }
+      ]
+    },
+    {
+      "language": "rust",
+      "name": "boolean_else_if_boundary",
+      "source": "fn f(a: bool, b: bool) { if a && b {} else if a && b {} }\n",
+      "status": "ok",
+      "file_cognitive": 3.0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 3.0
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.5883516994272,
+          "cyclomatic": 6.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 7.0,
+            "n1": 7.0,
+            "n2": 3.0,
+            "volume": 63.11663380285988
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.72285462340379,
+          "cyclomatic": 5.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 7.0,
+            "n1": 7.0,
+            "n2": 3.0,
+            "volume": 63.11663380285988
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "member_pointer_types",
+      "source": "template <typename T, bool Value = false> struct traits;\ntemplate <typename C, typename R, typename... A>\nstruct traits<R (C::*)(A...) const, false> { int f(int x) { if (x) return 1; return 0; } };\nstruct C { int value; int f(double) const; };\nusing Data = int C::*;\nusing Function = int (C::*)(double) const;\nusing Qualified = int (C::* const)(double) const;\nnamespace N { template <typename T> struct Box { int f() const; }; }\nusing Nested = int (N::Box<int>::*)() const;\n",
+      "status": "ok",
+      "file_cognitive": 1,
+      "mi_status": "oracle_unvalidated",
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 1,
+          "start_byte": 151,
+          "end_byte": 194
+        }
+      ],
+      "mi_units": null
+    },
+    {
+      "language": "cpp",
+      "name": "global_delete_operands",
+      "source": "void release(int **p, bool b) { ::delete[] p[b ? 0 : 1]; ::delete p[0]; delete *p; }\n",
+      "status": "ok",
+      "file_cognitive": 1,
+      "cognitive_units": [
+        {
+          "name": "release",
+          "score": 1,
+          "start_byte": 0,
+          "end_byte": 84
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.84177931439649,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 22.0,
+            "N2": 10.0,
+            "n1": 11.0,
+            "n2": 5.0,
+            "volume": 128.0
+          }
+        },
+        {
+          "name": "release",
+          "mi": 84.97628223837309,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 22.0,
+            "N2": 10.0,
+            "n1": 11.0,
+            "n2": 5.0,
+            "volume": 128.0
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "member_return_alias_line",
+      "source": "typedef long HRESULT;\nstruct S {\nHRESULT\nf() { return 0; }\n};\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 33,
+          "end_byte": 58
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 73.4519341161379,
+          "cyclomatic": 3.0,
+          "source_lines": 5.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 36.0
+          }
+        },
+        {
+          "name": "S",
+          "mi": 76.57525125534227,
+          "cyclomatic": 2.0,
+          "source_lines": 4.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 27.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.2424682443331,
+          "cyclomatic": 1.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "prefixed_return_alias_line",
+      "source": "typedef long HRESULT;\nstatic HRESULT\nf() { return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 22,
+          "end_byte": 54
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.50248591777577,
+          "cyclomatic": 2.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 25.26619429851844
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.2424682443331,
+          "cyclomatic": 1.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "namespace_return_alias_line",
+      "source": "typedef long HRESULT;\nnamespace N {\nHRESULT\nf() { return 0; }\n}\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 36,
+          "end_byte": 61
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 73.71653011634028,
+          "cyclomatic": 3.0,
+          "source_lines": 5.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 33.0
+          }
+        },
+        {
+          "name": "N",
+          "mi": 76.57525125534227,
+          "cyclomatic": 2.0,
+          "source_lines": 4.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 27.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.2424682443331,
+          "cyclomatic": 1.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "template_return_alias_line",
+      "source": "typedef long HRESULT;\ntemplate <typename T> HRESULT\nf() { return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 44,
+          "end_byte": 69
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 78.11586575576901,
+          "cyclomatic": 2.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 3.0,
+            "n1": 7.0,
+            "n2": 3.0,
+            "volume": 39.86313713864835
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.2424682443331,
+          "cyclomatic": 1.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "prefixed_return_alias_line",
+      "source": "typedef long HRESULT;\nstatic HRESULT\nf(void) { return 0; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 22,
+          "end_byte": 58
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.18209136723735,
+          "cyclomatic": 2.0,
+          "source_lines": 3.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 28.07354922057604
+          }
+        },
+        {
+          "name": "f",
+          "mi": 83.83640786910061,
+          "cyclomatic": 1.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "preproc_return_alias_line",
+      "source": "typedef long HRESULT;\n#if 1\nHRESULT\nf() { return 0; }\n#endif\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 28,
+          "end_byte": 53
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 74.14086516603763,
+          "cyclomatic": 2.0,
+          "source_lines": 5.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 30.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.2424682443331,
+          "cyclomatic": 1.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "linkage_return_alias_line",
+      "source": "typedef long HRESULT;\nextern \"C\" {\nHRESULT\nf() { return 0; }\n}\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 35,
+          "end_byte": 60
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 73.85103304031689,
+          "cyclomatic": 2.0,
+          "source_lines": 5.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 3.0,
+            "n1": 5.0,
+            "n2": 3.0,
+            "volume": 33.0
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.2424682443331,
+          "cyclomatic": 1.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "linkage_preproc_return_alias_line",
+      "source": "typedef long HRESULT;\nextern \"C\" {\n#if 1\nHRESULT\nf() { return 0; }\n#endif\n}\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 41,
+          "end_byte": 66
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 70.23126302740533,
+          "cyclomatic": 2.0,
+          "source_lines": 7.0,
+          "halstead": {
+            "N1": 8.0,
+            "N2": 4.0,
+            "n1": 5.0,
+            "n2": 4.0,
+            "volume": 38.039100017307746
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.2424682443331,
+          "cyclomatic": 1.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "global_initializer_control",
+      "source": "int value = 1 ? 2 : 3;\nint f(void) { return value; }\n",
+      "status": "ok",
+      "cognitive_has_unscored_scopes": true,
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 23,
+          "end_byte": 52
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 80.43529688779049,
+          "cyclomatic": 3.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 6.0,
+            "n1": 8.0,
+            "n2": 5.0,
+            "volume": 62.907475208398566
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.40306536914221,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 22.458839376460833
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "global_initializer_control",
+      "source": "int value = true ? 2 : 3;\nint f() { return value; }\n",
+      "status": "ok",
+      "cognitive_has_unscored_scopes": true,
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 26,
+          "end_byte": 51
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 80.61965246290478,
+          "cyclomatic": 3.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 10.0,
+            "N2": 6.0,
+            "n1": 8.0,
+            "n2": 5.0,
+            "volume": 59.207035490257475
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.80912574437467,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "global_initializer_lambda",
+      "source": "auto choose = [](bool b) { if (b) return 1; return 0; };\n",
+      "status": "ok",
+      "cognitive_has_unscored_scopes": false,
+      "file_cognitive": 1,
+      "cognitive_units": [
+        {
+          "name": "<lambda>",
+          "score": 1,
+          "start_byte": 14,
+          "end_byte": 55
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 87.2328660458382,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 5.0,
+            "n1": 8.0,
+            "n2": 4.0,
+            "volume": 60.94436251225965
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "global_initializer_mixed",
+      "source": "int value = true ? 2 : 3;\nauto choose = [](bool b) { if (b) return 1; return 0; };\n",
+      "status": "ok",
+      "cognitive_has_unscored_scopes": true,
+      "file_cognitive": 1,
+      "cognitive_units": [
+        {
+          "name": "<lambda>",
+          "score": 1,
+          "start_byte": 40,
+          "end_byte": 81
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 78.7800256229379,
+          "cyclomatic": 3.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 17.0,
+            "N2": 9.0,
+            "n1": 10.0,
+            "n2": 8.0,
+            "volume": 108.41805003750011
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "member_initializer_control",
+      "source": "struct S { int value = true ? 2 : 3; int f() { return value; } };\n",
+      "status": "ok",
+      "cognitive_has_unscored_scopes": true,
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 37,
+          "end_byte": 62
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.44260635009799,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 12.0,
+            "N2": 7.0,
+            "n1": 8.0,
+            "n2": 6.0,
+            "volume": 72.33974351909448
+          }
+        },
+        {
+          "name": "S",
+          "mi": 86.74152421594913,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 7.0,
+            "n1": 8.0,
+            "n2": 6.0,
+            "volume": 68.53238859703687
+          }
+        },
+        {
+          "name": "f",
+          "mi": 90.80912574437467,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 5.0,
+            "N2": 2.0,
+            "n1": 5.0,
+            "n2": 2.0,
+            "volume": 19.651484454403228
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "constructor_initializer_control",
+      "source": "struct S { int value; S(bool b) : value(b ? 2 : 3) {} };\n",
+      "status": "ok",
+      "cognitive_has_unscored_scopes": false,
+      "file_cognitive": 1,
+      "cognitive_units": [
+        {
+          "name": "S",
+          "score": 1,
+          "start_byte": 22,
+          "end_byte": 53
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 86.73402042696297,
+          "cyclomatic": 4.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 8.0,
+            "n1": 6.0,
+            "n2": 5.0,
+            "volume": 65.72920075410865
+          }
+        },
+        {
+          "name": "S",
+          "mi": 87.03293829281411,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 10.0,
+            "N2": 8.0,
+            "n1": 6.0,
+            "n2": 5.0,
+            "volume": 62.26976913547135
+          }
+        },
+        {
+          "name": "S",
+          "mi": 88.28036692332512,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 7.0,
+            "N2": 6.0,
+            "n1": 5.0,
+            "n2": 5.0,
+            "volume": 43.18506523353571
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "platform_pointer_aliases",
+      "source": "typedef unsigned char UCHAR; typedef unsigned long ULONG; typedef void* PVOID; typedef UCHAR* PUCHAR; typedef ULONG* PULONG; typedef UCHAR* PBYTE; typedef UCHAR* LPBYTE; typedef const unsigned short* PCWSTR; PVOID f(PUCHAR a, PULONG b, PBYTE c, LPBYTE d, PCWSTR e) { return a; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 208,
+          "end_byte": 278
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 83.91730166205257,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 42.0,
+            "N2": 7.0,
+            "n1": 7.0,
+            "n2": 6.0,
+            "volume": 181.32154618891352
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.72479160895547,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 7.0,
+            "n1": 6.0,
+            "n2": 6.0,
+            "volume": 75.28421251514428
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "platform_handle_aliases",
+      "source": "typedef void* HDC; typedef void* HKL; typedef void* HLOCAL; typedef void* HMODULE; typedef void* HWND; typedef unsigned short LANGID; HDC f(HKL a, HLOCAL b, HMODULE c, HWND d, LANGID e) { return a; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 134,
+          "end_byte": 199
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 84.314509234315,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 36.0,
+            "N2": 7.0,
+            "n1": 7.0,
+            "n2": 6.0,
+            "volume": 159.11890788006696
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.72479160895547,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 14.0,
+            "N2": 7.0,
+            "n1": 6.0,
+            "n2": 6.0,
+            "volume": 75.28421251514428
+          }
+        }
+      ]
+    },
+    {
+      "language": "c",
+      "name": "platform_sized_integer_aliases",
+      "source": "typedef signed char INT8; typedef short INT16; typedef int INT32; typedef long long INT64; typedef unsigned char UINT8; typedef unsigned short UINT16; typedef unsigned UINT32; typedef unsigned long long UINT64; INT64 f(INT8 a, INT16 b, INT32 c, UINT8 d, UINT16 e, UINT32 f, UINT64 g) { return a + b + c + d + e + f + g; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 211,
+          "end_byte": 321
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 83.31791572835769,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 43.0,
+            "N2": 15.0,
+            "n1": 7.0,
+            "n2": 7.0,
+            "volume": 220.82658547934105
+          }
+        },
+        {
+          "name": "f",
+          "mi": 84.65930935114555,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 24.0,
+            "N2": 15.0,
+            "n1": 7.0,
+            "n2": 7.0,
+            "volume": 148.48684196024655
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "primitive_spelling_class_names",
+      "source": "namespace types { struct UINT32 { int value; }; struct PVOID { int value; }; }\nint f(types::UINT32 a, types::PVOID b) { return a.value + b.value; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 79,
+          "end_byte": 147
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 77.82176039128737,
+          "cyclomatic": 5.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 20.0,
+            "N2": 14.0,
+            "n1": 9.0,
+            "n2": 7.0,
+            "volume": 136.0
+          }
+        },
+        {
+          "name": "types",
+          "mi": 88.43230390875378,
+          "cyclomatic": 3.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 5.0,
+            "n1": 3.0,
+            "n2": 4.0,
+            "volume": 39.302968908806456
+          }
+        },
+        {
+          "name": "UINT32",
+          "mi": 92.40962204246611,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 3.0,
+            "N2": 2.0,
+            "n1": 3.0,
+            "n2": 2.0,
+            "volume": 11.60964047443681
+          }
+        },
+        {
+          "name": "PVOID",
+          "mi": 92.40962204246611,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 3.0,
+            "N2": 2.0,
+            "n1": 3.0,
+            "n2": 2.0,
+            "volume": 11.60964047443681
+          }
+        },
+        {
+          "name": "f",
+          "mi": 86.61165774686981,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 11.0,
+            "N2": 9.0,
+            "n1": 9.0,
+            "n2": 6.0,
+            "volume": 78.13781191217038
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "primitive_spelling_template_names",
+      "source": "namespace types { template <class T> struct UINT32 { T value; }; }\nint f(types::UINT32<int> a) { return a.value; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 67,
+          "end_byte": 114
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 78.84365862388613,
+          "cyclomatic": 4.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 16.0,
+            "N2": 10.0,
+            "n1": 9.0,
+            "n2": 6.0,
+            "volume": 101.57915548582149
+          }
+        },
+        {
+          "name": "types",
+          "mi": 89.09833957916625,
+          "cyclomatic": 2.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 6.0,
+            "N2": 5.0,
+            "n1": 4.0,
+            "n2": 4.0,
+            "volume": 33.0
+          }
+        },
+        {
+          "name": "UINT32",
+          "mi": 92.40962204246611,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 2.0,
+            "N2": 3.0,
+            "n1": 2.0,
+            "n2": 3.0,
+            "volume": 11.60964047443681
+          }
+        },
+        {
+          "name": "f",
+          "mi": 87.65157330207818,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 10.0,
+            "N2": 5.0,
+            "n1": 9.0,
+            "n2": 4.0,
+            "volume": 55.506595772116384
+          }
+        }
+      ]
+    },
+    {
+      "language": "cpp",
+      "name": "primitive_spelling_parameter_names",
+      "source": "template <class UINT32> struct Value { UINT32 value; };\nint f(Value<int> a) { return a.value; }\n",
+      "status": "ok",
+      "file_cognitive": 0,
+      "cognitive_units": [
+        {
+          "name": "f",
+          "score": 0,
+          "start_byte": 56,
+          "end_byte": 95
+        }
+      ],
+      "mi_units": [
+        {
+          "name": "<file>",
+          "mi": 79.51608020139327,
+          "cyclomatic": 3.0,
+          "source_lines": 2.0,
+          "halstead": {
+            "N1": 15.0,
+            "N2": 8.0,
+            "n1": 8.0,
+            "n2": 5.0,
+            "volume": 85.11011351724513
+          }
+        },
+        {
+          "name": "Value",
+          "mi": 92.40962204246611,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 3.0,
+            "N2": 2.0,
+            "n1": 3.0,
+            "n2": 2.0,
+            "volume": 11.60964047443681
+          }
+        },
+        {
+          "name": "f",
+          "mi": 87.95778492016159,
+          "cyclomatic": 1.0,
+          "source_lines": 1.0,
+          "halstead": {
+            "N1": 9.0,
+            "N2": 5.0,
+            "n1": 8.0,
+            "n2": 4.0,
+            "volume": 50.18947501009619
+          }
+        }
+      ]
+    }
+  ]
+}
