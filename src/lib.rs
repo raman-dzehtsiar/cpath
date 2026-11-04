@@ -3,6 +3,7 @@
 
 pub mod cli;
 pub mod complexity;
+pub mod gate;
 pub mod language;
 pub mod maintainability;
 pub mod metrics;

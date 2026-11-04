@@ -14,6 +14,7 @@ fn run(args: &[&str]) -> Output {
 fn help_contains_only_usage_options_and_exit_status() {
     let expected =
         "Usage: cpath <repository> [--metrics CC,MI|all] [--include GLOB] [--exclude GLOB] [--threads N]
+       cpath gate [<from> [<to>]] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
 
 Options:
   --metrics LIST  Metrics to calculate: CC, MI, or all (default: all)
@@ -24,7 +25,8 @@ Options:
   -h, --help      Show this help
   -v, --version   Show the version
 
-Possible exit codes: 0 complete, 1 fatal error, 2 invalid arguments, 3 incomplete scan.
+Possible scan exit codes: 0 complete, 1 fatal error, 2 invalid arguments, 3 incomplete scan.
+Gate: 0 no confirmed violations, 1 violations, 2 usage/setup error. See cpath gate --help.
 ";
     for args in [vec![], vec!["--help"], vec!["-h"]] {
         let output = run(&args);
@@ -33,6 +35,11 @@ Possible exit codes: 0 complete, 1 fatal error, 2 invalid arguments, 3 incomplet
         let stdout = String::from_utf8(output.stdout).expect("help should be UTF-8");
         assert_eq!(stdout, expected);
     }
+    let output = run(&["gate", "--help"]);
+    assert!(output.status.success());
+    assert!(!String::from_utf8(output.stdout)
+        .unwrap()
+        .contains("--debug"));
 }
 
 #[test]

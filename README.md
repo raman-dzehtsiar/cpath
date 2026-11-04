@@ -1,4 +1,4 @@
-# Fast, offline code metrics for multiple languages
+# Fast, offline code metrics and quality gates for multiple languages
 [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=raman-dzehtsiar-cpath&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=raman-dzehtsiar-cpath)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=raman-dzehtsiar-cpath&metric=coverage)](https://sonarcloud.io/summary/new_code?id=raman-dzehtsiar-cpath)
 
@@ -27,7 +27,52 @@ language SDK or build procedure.
 - CC - cognitive complexity
 - MI - maintainability index
 
-## Usage example
+## CI gate
+
+Check changes without checking out another revision:
+
+```console
+cpath gate [<from> [<to>]] --pretty
+```
+
+With no commits, compare `HEAD` with uncommitted changes. With one commit, use it
+as the baseline for uncommitted changes. With two commits, compare those snapshots
+and ignore uncommitted changes. Working-tree comparisons include staged, unstaged,
+and non-ignored untracked files, using their current contents on disk.
+
+Example output (abbreviated):
+
+```json
+{
+    "status": "failed",
+    "violations": [
+        {
+            "file": "src/parser.cpp",
+            "line": 142,
+            "scope": "parseExpression",
+            "classification": "existing",
+            "metric": "CC",
+            "expected": { "operator": "<=", "value": 28 },
+            "actual": 31,
+            "previous": 28
+        }
+    ],
+    "exit_code": 1
+}
+```
+
+The gate checks individual functions and methods. Existing scopes may change
+within the CC/MI limits; scopes already outside the limits must not worsen.
+Possible return codes:
+
+- 0 - no confirmed metric violations, possibly with incomplete analysis
+- 1 - one or more metric violations were found
+- 2 - command-line arguments were invalid or repository setup failed
+
+See [gate behavior, output, and CI usage](docs/gate.md).
+
+## Full repository scan
+
 Calculate all metrics for the current repository and print formatted JSON:
 
 ```console
@@ -47,12 +92,6 @@ Example output:
             "MI": 82.4
         }
     ],
-    "skipped_files": [
-        {
-            "path": "generated/client.ts",
-            "reason": "generated source"
-        }
-    ],
     "exit_code": 0
 }
 ```
@@ -62,7 +101,6 @@ Possible return codes:
 - 1 - a fatal error prevented the scan
 - 2 - command-line arguments were invalid
 - 3 - the scan completed with one or more unscored files 
-
 
 ## Limitations
 Initially, cpath was created as an assisting tool for a research project studying how code metrics affect

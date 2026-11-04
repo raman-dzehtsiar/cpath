@@ -8,6 +8,7 @@ use crate::pipeline::{MetricSet, ScanOptions};
 
 pub const HELP: &str =
     "Usage: cpath <repository> [--metrics CC,MI|all] [--include GLOB] [--exclude GLOB] [--threads N]
+       cpath gate [<from> [<to>]] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
 
 Options:
   --metrics LIST  Metrics to calculate: CC, MI, or all (default: all)
@@ -18,11 +19,13 @@ Options:
   -h, --help      Show this help
   -v, --version   Show the version
 
-Possible exit codes: 0 complete, 1 fatal error, 2 invalid arguments, 3 incomplete scan.";
+Possible scan exit codes: 0 complete, 1 fatal error, 2 invalid arguments, 3 incomplete scan.
+Gate: 0 no confirmed violations, 1 violations, 2 usage/setup error. See cpath gate --help.";
 
 pub enum Command {
     Help,
     Version,
+    Gate(Vec<OsString>),
     Scan {
         root: PathBuf,
         options: ScanOptions,
@@ -32,6 +35,9 @@ pub enum Command {
 
 pub fn parse(args: impl IntoIterator<Item = OsString>) -> Result<Command, String> {
     let args: Vec<_> = args.into_iter().collect();
+    if args.first().is_some_and(|argument| argument == "gate") {
+        return Ok(Command::Gate(args.into_iter().skip(1).collect()));
+    }
     if args.is_empty() || (args.len() == 1 && (args[0] == "--help" || args[0] == "-h")) {
         return Ok(Command::Help);
     }

@@ -15,6 +15,7 @@ fn main() -> ExitCode {
         }
     };
     match command {
+        Command::Gate(arguments) => return ExitCode::from(cpath::gate::run(&arguments)),
         Command::Help => println!("{}", cli::HELP),
         Command::Version => println!("{}", env!("CARGO_PKG_VERSION")),
         Command::Scan {
