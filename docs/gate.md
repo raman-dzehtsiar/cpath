@@ -3,19 +3,21 @@
 Run inside a Git working tree, including from a subdirectory:
 
 ```console
-cpath gate [<from> [<to>]] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
+cpath gate [<commit> | <from> <to>] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
 ```
 
 | Command | Comparison |
 | --- | --- |
 | `cpath gate` | `HEAD` against uncommitted changes |
-| `cpath gate <from>` | The specified commit against uncommitted changes |
+| `cpath gate <commit>` | The commit's first parent against that commit; uncommitted changes are ignored |
 | `cpath gate <from> <to>` | Two specified commits; uncommitted changes are ignored |
 
 Working-tree mode includes staged and unstaged changes plus non-ignored untracked
 files. It reads current file contents, including edits made after staging. Deleted
 files introduce no violations. It does not modify HEAD, the index, or source files.
-Use two explicit commits in CI when you want committed changes only.
+Use one commit in CI to check the changes introduced by that commit, or two commits
+to check an explicit range. For a merge commit, the one-commit form uses its first
+parent. A commit without an available parent returns a setup error (exit code 2).
 
 Committed source is read directly from Git. For working-tree comparisons, JSON
 reports `"to": "WORKTREE"`; otherwise `to` contains the resolved target commit ID.

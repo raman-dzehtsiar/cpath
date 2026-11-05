@@ -32,13 +32,14 @@ language SDK or build procedure.
 Check changes without checking out another revision:
 
 ```console
-cpath gate [<from> [<to>]] --pretty
+cpath gate [<commit> | <from> <to>] --pretty
 ```
 
-With no commits, compare `HEAD` with uncommitted changes. With one commit, use it
-as the baseline for uncommitted changes. With two commits, compare those snapshots
-and ignore uncommitted changes. Working-tree comparisons include staged, unstaged,
-and non-ignored untracked files, using their current contents on disk.
+With no commits, compare `HEAD` with uncommitted changes. With one commit, compare
+its first parent with that commit. With two commits, compare those snapshots.
+Both committed comparisons ignore uncommitted changes. Working-tree comparisons
+include staged, unstaged, and non-ignored untracked files, using their current
+contents on disk.
 
 Example output (abbreviated):
 

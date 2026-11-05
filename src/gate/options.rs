@@ -8,10 +8,10 @@ pub(super) const DEFAULT_CC_LIMIT: f64 = 15.0;
 pub(super) const DEFAULT_MI_LIMIT: f64 = 20.0;
 
 pub const HELP: &str =
-    "Usage: cpath gate [<from> [<to>]] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
+    "Usage: cpath gate [<commit> | <from> <to>] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
 
 With no commits, compare HEAD with the working tree (staged, unstaged, and untracked files).
-With one commit, compare that commit with the working tree.
+With one commit, compare its first parent with that commit and ignore uncommitted changes.
 With two commits, compare those snapshots and ignore uncommitted changes.
 Gate callable scopes. Existing scopes may change within limits; existing debt must not worsen.
 Renamed and cross-file/enclosing-scope moves are new. MI is rounded to the nearest integer.
@@ -80,12 +80,19 @@ pub fn parse(args: &[OsString]) -> Result<Options, String> {
         }
         revisions.push(argument.to_owned());
     }
-    if revisions.len() > 2 {
-        return Err("gate accepts at most two commit arguments: [<from> [<to>]]".into());
-    }
+    let (from, to) = match revisions.as_slice() {
+        [] => ("HEAD".into(), None),
+        [commit] => (format!("{commit}^1"), Some(commit.clone())),
+        [from, to] => (from.clone(), Some(to.clone())),
+        _ => {
+            return Err(
+                "gate accepts at most two commit arguments: [<commit> | <from> <to>]".into(),
+            )
+        }
+    };
     Ok(Options {
-        from: revisions.first().cloned().unwrap_or_else(|| "HEAD".into()),
-        to: revisions.get(1).cloned(),
+        from,
+        to,
         cc_limit,
         mi_limit: mi_limit.unwrap_or(DEFAULT_MI_LIMIT),
         pretty,

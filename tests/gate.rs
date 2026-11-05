@@ -136,8 +136,9 @@ fn file_and_class_growth_do_not_add_aggregate_gate_failures() {
         .map(|index| format!("int f{index}(int x) {{ return x; }}\n"))
         .collect::<String>();
     repository.write("source.cpp", &format!("class C {{\n{methods}}};\n"));
+    repository.commit();
     for baseline in [&empty, &from] {
-        let (_, document) = repository.gate(&[baseline]);
+        let (_, document) = repository.gate(&[baseline, "HEAD"]);
         assert_eq!(document["status"], "passed", "{document}");
         assert!(document.get("complete").is_none());
         assert_eq!(document["counts"]["checked_scope_metrics"], 160);
@@ -153,11 +154,11 @@ fn new_code_uses_decimal_limits_and_language_defaults() {
         "class C { int F(int x) { if (x > 0) return x; return 0; } }",
     );
     repository.commit();
-    let (_, passed) = repository.gate(&[&from]);
+    let (_, passed) = repository.gate(&[&from, "HEAD"]);
     assert_eq!(passed["status"], "passed", "{passed}");
     assert_eq!(passed["limits"]["CC"]["c_cpp"], 25.0);
     assert_eq!(passed["limits"]["CC"]["other"], 15.0);
-    let (_, failed) = repository.gate(&[&from, "--cc-limit=0.5", "--mi-limit", "100.5"]);
+    let (_, failed) = repository.gate(&[&from, "HEAD", "--cc-limit=0.5", "--mi-limit", "100.5"]);
     assert_eq!(failed["status"], "failed");
     assert_eq!(failures(&failed, "CC")[0]["expected"]["value"], 0.5);
     assert_eq!(failures(&failed, "MI")[0]["expected"]["value"], 100.5);
@@ -166,7 +167,7 @@ fn new_code_uses_decimal_limits_and_language_defaults() {
         .unwrap()
         .iter()
         .all(|value| value["previous"].is_null()));
-    let (_, boundary) = repository.gate(&[&from, "--cc-limit", "1.0", "--mi-limit=0"]);
+    let (_, boundary) = repository.gate(&[&from, "HEAD", "--cc-limit", "1.0", "--mi-limit=0"]);
     assert_eq!(boundary["status"], "passed", "{boundary}");
 }
 
@@ -195,7 +196,7 @@ fn renames_and_cross_file_or_container_moves_are_new() {
             .unwrap(),
         }
         repository.commit();
-        let (_, document) = repository.gate(&[&from, "--cc-limit", "0", "--mi-limit", "0"]);
+        let (_, document) = repository.gate(&[&from, "HEAD", "--cc-limit", "0", "--mi-limit", "0"]);
         let cc = failures(&document, "CC");
         assert_eq!(cc.len(), 1, "{change}: {document}");
         assert_eq!(cc[0]["classification"], "new");
@@ -210,7 +211,7 @@ fn ordering_line_shifts_comments_and_overloads_preserve_identity() {
     let from = repository.commit();
     repository.write("source.cs", "\n// extra line\nclass A {\n int F(string x) { if (x == null) return 0; return 1; }\n int F( /* note */ int x) { if (x > 0) return x; return 0; }\n}");
     repository.commit();
-    let (_, document) = repository.gate(&[&from, "--cc-limit", "0", "--mi-limit", "100"]);
+    let (_, document) = repository.gate(&[&from, "HEAD", "--cc-limit", "0", "--mi-limit", "100"]);
     assert_eq!(document["status"], "passed", "{document}");
     assert!(document.get("complete").is_none());
 }
@@ -221,7 +222,7 @@ fn partial_scans_fail_only_when_a_confirmed_violation_exists() {
     let from = repository.git(&["rev-parse", "HEAD"]);
     repository.write("broken.cs", "class {");
     repository.commit();
-    let (output, document) = repository.gate(&[&from, "--debug"]);
+    let (output, document) = repository.gate(&[&from, "HEAD", "--debug"]);
     assert!(output.status.success());
     assert_eq!(document["status"], "incomplete");
     assert_eq!(document["diagnostics"][0]["file"], "broken.cs");
@@ -230,7 +231,7 @@ fn partial_scans_fail_only_when_a_confirmed_violation_exists() {
         "class C { int F(int x) { if (x > 0) return x; return 0; } }",
     );
     repository.commit();
-    let (output, document) = repository.gate(&[&from, "--cc-limit", "0"]);
+    let (output, document) = repository.gate(&[&from, "HEAD", "--cc-limit", "0"]);
     assert_eq!(output.status.code(), Some(1));
     assert_eq!(document["status"], "failed");
     assert!(document.get("complete").is_none());
@@ -247,8 +248,15 @@ fn missing_baseline_is_not_reclassified_as_new_code() {
         "class C { int F(int x) { if (x > 0) return x; return 0; } }",
     );
     repository.commit();
-    let (output, document) =
-        repository.gate(&[&from, "--cc-limit", "0", "--mi-limit", "100", "--debug"]);
+    let (output, document) = repository.gate(&[
+        &from,
+        "HEAD",
+        "--cc-limit",
+        "0",
+        "--mi-limit",
+        "100",
+        "--debug",
+    ]);
     assert!(output.status.success());
     assert_eq!(document["status"], "incomplete");
     assert!(document["violations"].as_array().unwrap().is_empty());
@@ -269,7 +277,7 @@ fn initializer_scopes_are_excluded_from_the_gate() {
         "class C { int value = true ? (false ? 1 : 2) : 3; }\n",
     );
     repository.commit();
-    let (_, document) = repository.gate(&[&from, "--cc-limit", "0", "--mi-limit", "100"]);
+    let (_, document) = repository.gate(&[&from, "HEAD", "--cc-limit", "0", "--mi-limit", "100"]);
     assert!(document.get("complete").is_none());
     assert_eq!(document["status"], "passed");
     assert_eq!(document["counts"]["checked_scope_metrics"], 0);
@@ -285,7 +293,7 @@ fn top_level_scopes_are_excluded_from_the_gate() {
         "int x = 1;\nif (x > 0) System.Console.WriteLine(x);\n",
     );
     repository.commit();
-    let (_, document) = repository.gate(&[&from, "--cc-limit", "0", "--mi-limit", "100"]);
+    let (_, document) = repository.gate(&[&from, "HEAD", "--cc-limit", "0", "--mi-limit", "100"]);
     assert!(document.get("complete").is_none());
     assert_eq!(document["status"], "passed");
     assert_eq!(document["counts"]["checked_scope_metrics"], 0);
@@ -367,7 +375,7 @@ fn every_supported_language_uses_existing_analysis_with_complete_identity_metada
         repository.write(&format!("source.{extension}"), &format!("{source}\n"));
     }
     repository.commit();
-    let (_, document) = repository.gate(&[&from, "--cc-limit", "0", "--mi-limit", "0"]);
+    let (_, document) = repository.gate(&[&from, "HEAD", "--cc-limit", "0", "--mi-limit", "0"]);
     assert!(document.get("complete").is_none());
     assert_eq!(document["counts"]["analyzed_files"], examples.len());
     for (extension, _) in examples {
@@ -383,7 +391,7 @@ fn every_supported_language_uses_existing_analysis_with_complete_identity_metada
         repository.write(&format!("source.{extension}"), &format!("\n{source}\n"));
     }
     repository.commit();
-    let (_, shifted) = repository.gate(&[&existing, "--cc-limit", "0", "--mi-limit", "0"]);
+    let (_, shifted) = repository.gate(&[&existing, "HEAD", "--cc-limit", "0", "--mi-limit", "0"]);
     assert!(failures(&shifted, "CC").is_empty(), "{shifted}");
     assert!(shifted.get("complete").is_none());
 }
@@ -394,8 +402,15 @@ fn ambiguous_anonymous_scopes_are_reported_without_guessing() {
     let from = repository.git(&["rev-parse", "HEAD"]);
     repository.write("source.js", "function f(xs) {\n xs.map(x => { if (x) return 1; return 0; });\n xs.map(x => { if (x) return 2; return 0; });\n}\n");
     repository.commit();
-    let (_, document) =
-        repository.gate(&[&from, "--cc-limit", "100", "--mi-limit", "0", "--debug"]);
+    let (_, document) = repository.gate(&[
+        &from,
+        "HEAD",
+        "--cc-limit",
+        "100",
+        "--mi-limit",
+        "0",
+        "--debug",
+    ]);
     assert_eq!(document["status"], "incomplete", "{document}");
     assert!(document["diagnostics"]
         .as_array()
@@ -430,7 +445,7 @@ fn file_scoped_namespaces_and_packages_are_part_of_declaration_identity() {
         let from = repository.commit();
         repository.write(&path, after);
         repository.commit();
-        let (_, document) = repository.gate(&[&from, "--cc-limit", "0", "--mi-limit", "0"]);
+        let (_, document) = repository.gate(&[&from, "HEAD", "--cc-limit", "0", "--mi-limit", "0"]);
         assert_eq!(
             failures(&document, "CC").len(),
             1,
@@ -446,7 +461,7 @@ fn non_utf8_source_is_nonblocking_and_missing_git_is_setup_error() {
     let from = repository.git(&["rev-parse", "HEAD"]);
     fs::write(repository.path().join("source.c"), [0xff, 0x00]).unwrap();
     repository.commit();
-    let (_, document) = repository.gate(&[&from]);
+    let (_, document) = repository.gate(&[&from, "HEAD"]);
     assert_eq!(document["exit_code"], 0);
     assert_eq!(document["status"], "incomplete");
     let output = Command::new(env!("CARGO_BIN_EXE_cpath"))
@@ -509,9 +524,11 @@ fn merges_compare_explicit_endpoints_without_replacing_the_base() {
     assert_eq!(explicit["from"], feature);
     assert!(!failures(&explicit, "CC").is_empty());
     repository.git(&["merge", "--no-ff", "-m", "merge", "target"]);
-    let (_, merged) = repository.gate(&[&feature, "--cc-limit", "0"]);
+    let (_, merged) = repository.gate(&[&feature, "HEAD", "--cc-limit", "0"]);
     assert_eq!(merged["status"], "failed", "{merged}");
     assert_eq!(failures(&merged, "CC")[0]["classification"], "existing");
+    let (_, single) = repository.gate(&["HEAD", "--cc-limit", "0"]);
+    assert_eq!(single, merged);
     let (_, improved) = repository.gate(&[&target, &feature]);
     assert_eq!(improved["status"], "passed", "{improved}");
 }
@@ -553,9 +570,9 @@ fn compact_and_pretty_output_are_semantically_identical_and_repeatable() {
         "class C { int F(int x) { if (x > 0) return 1; return 0; } }",
     );
     repository.commit();
-    let (first, document) = repository.gate(&[&from, "--cc-limit", "0"]);
-    let (second, _) = repository.gate(&[&from, "--cc-limit", "0"]);
-    let (_, pretty) = repository.gate(&[&from, "--cc-limit", "0", "--pretty"]);
+    let (first, document) = repository.gate(&[&from, "HEAD", "--cc-limit", "0"]);
+    let (second, _) = repository.gate(&[&from, "HEAD", "--cc-limit", "0"]);
+    let (_, pretty) = repository.gate(&[&from, "HEAD", "--cc-limit", "0", "--pretty"]);
     assert_eq!(first.stdout, second.stdout);
     assert_eq!(document, pretty);
     let (_, empty) = repository.gate(&["HEAD", "HEAD"]);
@@ -662,7 +679,7 @@ fn working_tree_uses_latest_content_instead_of_a_staged_snapshot() {
         index
     );
     repository.write("source.cs", complicated);
-    let (_, document) = repository.gate(&["HEAD", "--cc-limit", "0"]);
+    let (_, document) = repository.gate(&["--cc-limit", "0"]);
     assert_eq!(document["status"], "failed", "{document}");
     let (_, committed) = repository.gate(&["HEAD", "HEAD"]);
     assert_eq!(committed["status"], "passed");
@@ -670,7 +687,7 @@ fn working_tree_uses_latest_content_instead_of_a_staged_snapshot() {
 }
 
 #[test]
-fn one_argument_uses_the_explicit_baseline_and_not_head() {
+fn one_argument_compares_the_selected_commit_with_its_parent_and_ignores_local_changes() {
     let repository = Repository::new();
     repository.write("source.cs", "class C { int F(int x) { return x; } }\n");
     let from = repository.commit();
@@ -678,14 +695,42 @@ fn one_argument_uses_the_explicit_baseline_and_not_head() {
         "source.cs",
         "class C { int F(int x) { if (x > 0) return 1; return 0; } }\n",
     );
-    let head = repository.commit();
+    let commit = repository.commit();
     let (_, current) = repository.gate(&[]);
     assert_eq!(current["status"], "passed");
-    assert_eq!(current["from"], head);
-    let (_, earlier) = repository.gate(&[&from, "--cc-limit", "0"]);
-    assert_eq!(earlier["from"], from);
-    assert_eq!(earlier["to"], "WORKTREE");
-    assert_eq!(earlier["status"], "failed", "{earlier}");
+    assert_eq!(current["from"], commit);
+    assert_eq!(current["to"], "WORKTREE");
+    repository.write("source.cs", "class C { int F(int x) { return x; } }\n");
+    repository.commit();
+    repository.write("source.cs", "staged invalid source");
+    repository.git(&["add", "source.cs"]);
+    repository.write("source.cs", "unstaged invalid source");
+    repository.write("untracked.cs", "class {");
+    let index = fs::read(repository.path().join(".git/index")).unwrap();
+    let (_, selected) = repository.gate(&[&commit, "--cc-limit", "0"]);
+    let (_, explicit) = repository.gate(&[&from, &commit, "--cc-limit", "0"]);
+    assert_eq!(selected, explicit);
+    assert_eq!(selected["from"], from);
+    assert_eq!(selected["to"], commit);
+    assert_eq!(selected["status"], "failed", "{selected}");
+    assert_eq!(
+        fs::read(repository.path().join(".git/index")).unwrap(),
+        index
+    );
+    assert_eq!(
+        fs::read_to_string(repository.path().join("source.cs")).unwrap(),
+        "unstaged invalid source"
+    );
+}
+
+#[test]
+fn one_argument_without_an_available_parent_returns_a_setup_error() {
+    let repository = Repository::new();
+    let root = repository.git(&["rev-parse", "HEAD"]);
+    let (_, document) = repository.gate(&[&root]);
+    assert_eq!(document["exit_code"], 2);
+    assert_eq!(document["status"], "error");
+    assert_eq!(document["diagnostics"][0]["kind"], "error");
 }
 
 #[test]
@@ -785,7 +830,7 @@ fn exclusions_do_not_make_coverage_incomplete_and_tracked_vendor_code_is_checked
         "// generated source\nclass C { int F(int x) { if (x > 0) return 1; return 0; } }",
     );
     repository.commit();
-    let (_, document) = repository.gate(&[&from, "--cc-limit", "0"]);
+    let (_, document) = repository.gate(&[&from, "HEAD", "--cc-limit", "0"]);
     assert!(document.get("complete").is_none());
     assert_eq!(document["counts"]["exclusions"], 2);
     assert_eq!(failures(&document, "CC")[0]["file"], "vendor/generated.cs");

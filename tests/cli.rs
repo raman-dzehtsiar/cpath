@@ -14,7 +14,7 @@ fn run(args: &[&str]) -> Output {
 fn help_contains_only_usage_options_and_exit_status() {
     let expected =
         "Usage: cpath <repository> [--metrics CC,MI|all] [--include GLOB] [--exclude GLOB] [--threads N]
-       cpath gate [<from> [<to>]] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
+       cpath gate [<commit> | <from> <to>] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
 
 Options:
   --metrics LIST  Metrics to calculate: CC, MI, or all (default: all)
