@@ -7,11 +7,11 @@ use std::path::PathBuf;
 use crate::pipeline::{MetricSet, ScanOptions};
 
 pub const HELP: &str =
-    "Usage: cpath <repository> [--metrics CC,MI|all] [--include GLOB] [--exclude GLOB] [--threads N]
+    "Usage: cpath <repository> [--metrics CC,MI,LOC|all] [--include GLOB] [--exclude GLOB] [--threads N]
        cpath gate [<commit> | <from> <to>] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
 
 Options:
-  --metrics LIST  Metrics to calculate: CC, MI, or all (default: all)
+  --metrics LIST  Metrics to calculate: CC, MI, LOC, or all (default: all)
   --pretty        Indent JSON output by four spaces
   --include GLOB  Root-relative include; overrides defaults/ignores (repeatable)
   --exclude GLOB  Root-relative exclusion; wins over includes (repeatable)
@@ -111,7 +111,7 @@ pub fn parse(args: impl IntoIterator<Item = OsString>) -> Result<Command, String
 
 fn parse_metrics(value: Option<OsString>) -> Result<MetricSet, String> {
     let value = value
-        .ok_or("--metrics requires CC, MI, or all")?
+        .ok_or("--metrics requires CC, MI, LOC, or all")?
         .into_string()
         .map_err(|_| "metric list must be valid Unicode")?;
     if value.eq_ignore_ascii_case("all") {
@@ -122,10 +122,11 @@ fn parse_metrics(value: Option<OsString>) -> Result<MetricSet, String> {
         match metric {
             "CC" => metrics.cognitive_complexity = true,
             "MI" => metrics.maintainability = true,
-            _ => return Err("--metrics accepts CC, MI, or all".into()),
+            "LOC" => metrics.lines_of_code = true,
+            _ => return Err("--metrics accepts CC, MI, LOC, or all".into()),
         }
     }
-    if !metrics.cognitive_complexity && !metrics.maintainability {
+    if metrics == MetricSet::none() {
         return Err("--metrics requires at least one metric".into());
     }
     Ok(metrics)

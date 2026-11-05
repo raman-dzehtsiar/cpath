@@ -67,6 +67,36 @@ fn report_propagates_output_failures_including_the_final_newline() {
 }
 
 #[test]
+fn metric_output_rounds_mi_to_unsigned_integers_without_changing_calculated_values() {
+    let directory = tempfile::tempdir().unwrap();
+    std::fs::write(
+        directory.path().join("source.cs"),
+        "class C { int F() { return 1; } }",
+    )
+    .unwrap();
+    let mut report = scan(directory.path(), &ScanOptions::default()).unwrap();
+    for (value, expected) in [
+        (0.0, Some(0)),
+        (12.02, Some(12)),
+        (6.78, Some(7)),
+        (19.5, Some(20)),
+        (100.0, Some(100)),
+        (f64::NAN, None),
+        (f64::INFINITY, None),
+        (-1.0, None),
+    ] {
+        report.maintainability[0].as_mut().unwrap().minimum = Some(value);
+        let mut output = Vec::new();
+        write_json(&mut output, "test", &report, 0, false).unwrap();
+        let document: serde_json::Value = serde_json::from_slice(&output).unwrap();
+        assert_eq!(document["scanned_files"][0]["MI"].as_u64(), expected);
+        assert!(document["scanned_files"][0]["CC"].is_u64());
+        let retained = report.maintainability[0].as_ref().unwrap().minimum.unwrap();
+        assert_eq!(retained.to_bits(), value.to_bits());
+    }
+}
+
+#[test]
 fn fatal_error_json_escapes_diagnostics() {
     let error = "cannot read \"café\":\npermission denied\t\\";
     let mut output = Vec::new();

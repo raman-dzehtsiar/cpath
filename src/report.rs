@@ -78,8 +78,12 @@ fn scanned_file(report: &ScanReport, index: usize, path: &Path) -> Value {
             report.maintainability[index]
                 .as_ref()
                 .and_then(|summary| summary.minimum)
-                .map_or(Value::Null, |value| json!(value)),
+                .filter(|value| value.is_finite() && *value >= 0.0)
+                .map_or(Value::Null, |value| json!(value.round() as u64)),
         );
+    }
+    if report.metrics.lines_of_code {
+        row.insert("LOC".into(), json!(report.files[index].lines_of_code));
     }
     Value::Object(row)
 }

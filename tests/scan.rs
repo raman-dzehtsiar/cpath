@@ -218,15 +218,17 @@ fn metric_selection_omits_unrequested_fields_and_preserves_measured_values() {
     let all = document(&fixture.run(&[]), 0);
     let files = all["scanned_files"].as_array().unwrap();
     assert_eq!(files[0]["CC"], 1);
-    assert!(files[0]["MI"].is_number());
+    assert!(files[0]["MI"].is_u64());
+    assert_eq!(files[0]["LOC"], 1);
     assert_eq!(files[1]["CC"], 0);
     assert_eq!(files[1]["MI"], Value::Null);
-    assert_eq!(files[1].as_object().unwrap().len(), 3);
+    assert_eq!(files[1]["LOC"], 1);
+    assert_eq!(files[1].as_object().unwrap().len(), 4);
 
-    for metrics in ["all", "ALL", "CC,MI", "MI,CC"] {
+    for metrics in ["all", "ALL", "CC,MI,LOC", "LOC,MI,CC"] {
         assert_eq!(document(&fixture.run(&["--metrics", metrics]), 0), all);
     }
-    for metric in ["CC", "MI"] {
+    for metric in ["CC", "MI", "LOC"] {
         let selected = document(&fixture.run(&[&format!("--metrics={metric}")]), 0);
         for (actual, expected) in selected["scanned_files"]
             .as_array()
@@ -237,8 +239,12 @@ fn metric_selection_omits_unrequested_fields_and_preserves_measured_values() {
             assert_eq!(actual.as_object().unwrap().len(), 2);
             assert_eq!(actual["path"], expected["path"]);
             assert_eq!(actual[metric], expected[metric]);
-            let omitted = if metric == "CC" { "MI" } else { "CC" };
-            assert!(actual.get(omitted).is_none());
+            for omitted in ["CC", "MI", "LOC"]
+                .into_iter()
+                .filter(|name| *name != metric)
+            {
+                assert!(actual.get(omitted).is_none());
+            }
         }
     }
 }
@@ -259,7 +265,7 @@ fn cli_reports_maximum_cc_and_minimum_mi_across_all_methods() {
     let result = document(&fixture.run(&[]), 0);
     assert_eq!(
         result["scanned_files"],
-        json!([{"path": "Methods.cs", "CC": 1, "MI": 85.0}])
+        json!([{"path": "Methods.cs", "CC": 1, "MI": 85, "LOC": 5}])
     );
 }
 
@@ -298,6 +304,33 @@ fn mi_only_does_not_require_cognitive_coverage() {
 }
 
 #[test]
+fn loc_counts_decoded_code_lines_and_does_not_require_cognitive_coverage() {
+    let fixture = Fixture::new();
+    fixture.write("empty.cs", "");
+    fixture.write("comments.cs", "// comment\r\n\r\n/* multi\r\n line */\r\n");
+    let source = "// comment\r\n\r\nclass C {\r\n string s = \"// café\"; // tail\r\n}\r\n";
+    let mut bytes = vec![0xff, 0xfe];
+    bytes.extend(source.encode_utf16().flat_map(u16::to_le_bytes));
+    fixture.write("encoded.cs", bytes);
+    fixture.write("partial.cpp", "int value = true ? 1 : 2;\n");
+    let result = document(&fixture.run(&["--metrics=LOC"]), 0);
+    assert_eq!(
+        result["scanned_files"],
+        json!([
+            {"path": "comments.cs", "LOC": 0},
+            {"path": "empty.cs", "LOC": 0},
+            {"path": "encoded.cs", "LOC": 3},
+            {"path": "partial.cpp", "LOC": 1}
+        ])
+    );
+    let selected = document(&fixture.run(&["--metrics=MI,LOC"]), 0);
+    for file in selected["scanned_files"].as_array().unwrap() {
+        assert!(file.get("CC").is_none());
+        assert!(file["LOC"].is_u64());
+    }
+}
+
+#[test]
 fn disabled_metric_analyzers_are_never_called() {
     use cpath::complexity::{CognitiveComplexity, ComplexityAnalyzer};
     use cpath::maintainability::{
@@ -331,10 +364,17 @@ fn disabled_metric_analyzers_are_never_called() {
         MetricSet {
             cognitive_complexity: true,
             maintainability: false,
+            lines_of_code: false,
         },
         MetricSet {
             cognitive_complexity: false,
             maintainability: true,
+            lines_of_code: false,
+        },
+        MetricSet {
+            cognitive_complexity: false,
+            maintainability: false,
+            lines_of_code: true,
         },
         MetricSet::none(),
     ] {

@@ -69,6 +69,8 @@ pub struct FileSummary {
     pub path: PathBuf,
     pub bytes: u64,
     pub lines: u32,
+    /// Nonblank physical lines containing code; None when LOC was not requested.
+    pub lines_of_code: Option<u32>,
 }
 
 #[derive(Debug, Clone, Default)]

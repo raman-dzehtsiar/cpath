@@ -5,6 +5,7 @@ pub mod cli;
 pub mod complexity;
 pub mod gate;
 pub mod language;
+mod loc;
 pub mod maintainability;
 pub mod metrics;
 pub mod model;

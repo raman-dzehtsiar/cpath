@@ -13,11 +13,11 @@ fn run(args: &[&str]) -> Output {
 #[test]
 fn help_contains_only_usage_options_and_exit_status() {
     let expected =
-        "Usage: cpath <repository> [--metrics CC,MI|all] [--include GLOB] [--exclude GLOB] [--threads N]
+        "Usage: cpath <repository> [--metrics CC,MI,LOC|all] [--include GLOB] [--exclude GLOB] [--threads N]
        cpath gate [<commit> | <from> <to>] [--cc-limit VALUE] [--mi-limit VALUE] [--pretty]
 
 Options:
-  --metrics LIST  Metrics to calculate: CC, MI, or all (default: all)
+  --metrics LIST  Metrics to calculate: CC, MI, LOC, or all (default: all)
   --pretty        Indent JSON output by four spaces
   --include GLOB  Root-relative include; overrides defaults/ignores (repeatable)
   --exclude GLOB  Root-relative exclusion; wins over includes (repeatable)
@@ -79,7 +79,7 @@ fn invalid_options_return_argument_errors_as_json() {
         vec!["repo", "--metrics"],
         vec!["repo", "--metrics="],
         vec!["repo", "--metrics", "cc"],
-        vec!["repo", "--metrics", "LOC"],
+        vec!["repo", "--metrics", "unknown"],
         vec!["repo", "--metrics", "CC,"],
         vec!["repo", "--metrics", ",MI"],
         vec!["repo", "--metrics", "CC, MI"],
@@ -105,14 +105,18 @@ fn parser_accepts_metric_forms_and_options_on_either_side_of_the_root() {
     use cpath::cli::{parse, Command};
     use std::ffi::OsString;
 
-    for (value, cognitive_complexity, maintainability) in [
-        ("CC", true, false),
-        ("MI", false, true),
-        ("CC,MI", true, true),
-        ("MI,CC", true, true),
-        ("CC,CC", true, false),
-        ("all", true, true),
-        ("ALL", true, true),
+    for (value, cognitive_complexity, maintainability, lines_of_code) in [
+        ("CC", true, false, false),
+        ("MI", false, true, false),
+        ("LOC", false, false, true),
+        ("CC,MI", true, true, false),
+        ("MI,CC", true, true, false),
+        ("CC,CC", true, false, false),
+        ("CC,LOC", true, false, true),
+        ("LOC,MI", false, true, true),
+        ("CC,MI,LOC", true, true, true),
+        ("all", true, true, true),
+        ("ALL", true, true, true),
     ] {
         for equals in [false, true] {
             let metric_arguments = if equals {
@@ -148,6 +152,7 @@ fn parser_accepts_metric_forms_and_options_on_either_side_of_the_root() {
             assert_eq!(root, std::path::Path::new("repository with spaces"));
             assert_eq!(options.metrics.cognitive_complexity, cognitive_complexity);
             assert_eq!(options.metrics.maintainability, maintainability);
+            assert_eq!(options.metrics.lines_of_code, lines_of_code);
             assert_eq!(options.workers, 64);
             assert_eq!(options.includes, ["src/**", "tests/**"]);
             assert_eq!(options.excludes, ["**/generated/**", "**/vendor/**"]);

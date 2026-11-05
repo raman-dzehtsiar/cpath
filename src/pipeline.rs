@@ -35,6 +35,7 @@ pub struct ScanOptions {
 pub struct MetricSet {
     pub cognitive_complexity: bool,
     pub maintainability: bool,
+    pub lines_of_code: bool,
 }
 
 impl MetricSet {
@@ -42,6 +43,7 @@ impl MetricSet {
         Self {
             cognitive_complexity: true,
             maintainability: true,
+            lines_of_code: true,
         }
     }
 
@@ -49,6 +51,7 @@ impl MetricSet {
         Self {
             cognitive_complexity: false,
             maintainability: false,
+            lines_of_code: false,
         }
     }
 }
@@ -468,6 +471,16 @@ fn analyze_file(
             path: facts.path,
             bytes: bytes.len() as u64,
             lines: facts.lines,
+            lines_of_code: if options.metrics.lines_of_code {
+                let language = crate::selection::language_for_path(&relative)
+                    .ok_or((FailureKind::Parse, "unsupported LOC source language".into()))?;
+                Some(
+                    crate::loc::count(&source, language)
+                        .map_err(|error| (FailureKind::Parse, error))?,
+                )
+            } else {
+                None
+            },
         };
         let summary = ComplexitySummary {
             max_method: metric.max_method,
