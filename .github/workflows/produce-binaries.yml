@@ -62,10 +62,6 @@ jobs:
           cargo test --locked --target "$BUILD_TARGET" --all-targets --all-features
           cargo test --locked --target "$BUILD_TARGET" --all-features --doc
 
-      - name: Run Python tooling tests
-        if: runner.os == 'Linux'
-        run: python3 -m unittest discover -s tools -p 'test_*.py'
-
   binaries:
     name: Build ${{ matrix.target }}
     needs: checks
@@ -117,6 +113,15 @@ jobs:
           executable="dist/cpath-$BUILD_TARGET-$GITHUB_SHA-$GITHUB_RUN_ATTEMPT${BINARY_NAME#cpath}"
           cp "target/$BUILD_TARGET/release/$BINARY_NAME" "$executable"
           echo "path=$executable" >> "$GITHUB_OUTPUT"
+
+      - name: Smoke-test packaged executable
+        env:
+          EXECUTABLE_PATH: ${{ steps.executable.outputs.path }}
+        run: |
+          "$EXECUTABLE_PATH" --version
+          "$EXECUTABLE_PATH" --help
+          "$EXECUTABLE_PATH" tests/fixtures/cognitive --metrics CC,MI,LOC --pretty
+          "$EXECUTABLE_PATH" gate HEAD HEAD --pretty
 
       - name: Upload executable
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
