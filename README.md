@@ -105,16 +105,12 @@ Possible return codes:
 - 2 - command-line arguments were invalid
 - 3 - the scan completed with one or more unscored files 
 
-Scans report CC, MI, and LOC by default. Use `--metrics=LOC` or a comma-separated
-list such as `--metrics=CC,MI` to select metrics. CC and LOC are unsigned integers;
-MI is rounded to the nearest unsigned integer, with half values rounded up.
-An unavailable MI score remains `null`. Rounding does not change the underlying
-metric calculations. Quality gates evaluate only CC and MI.
-
-LOC counts physical lines containing code. Blank and comment-only lines are
-excluded; lines containing both code and comments count once. Comment markers
-inside strings are code. Nonblank lines inside multiline strings count, including
-Python docstrings. A final line without a newline also counts.
+## Installation
+Download cpath for your platform from the
+[releases page](https://github.com/raman-dzehtsiar/cpath/releases).
+Choose the standalone executable, or the `.tar.gz` archive to also get its
+signature bundle, checksum, and license information. We recommend [verifying downloaded binaries with Cosign](docs/release-artifacts.md).
+Verification is optional.
 
 ## Limitations
 Initially, cpath was created as an assisting tool for a research project studying how code metrics affect
@@ -140,5 +136,4 @@ mentioned above, please send an email to [contact@cpath.app](mailto:contact@cpat
 
 ## License
 cpath’s original code is licensed under the MIT license. See [LICENSE.txt](LICENSE.txt).
-Third-party components retain their respective copyrights and licenses.
-
+Third-party components retain their respective copyrights and licenses. 
