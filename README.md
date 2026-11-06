@@ -106,11 +106,34 @@ Possible return codes:
 - 3 - the scan completed with one or more unscored files 
 
 ## Installation
+
 Download cpath for your platform from the
 [releases page](https://github.com/raman-dzehtsiar/cpath/releases).
-Choose the standalone executable, or the `.tar.gz` archive to also get its
-signature bundle, checksum, and license information. We recommend [verifying downloaded binaries with Cosign](docs/release-artifacts.md).
-Verification is optional.
+Each `.tar.gz` archive contains the executable, signature bundle, checksum, and
+license information. [Signature verification with Cosign](docs/release-artifacts.md)
+is optional but recommended.
+
+### Build from source
+
+Install Git, the stable Rust toolchain (including Cargo), and a C/C++ compiler
+toolchain: GCC or Clang on Linux, Xcode Command Line Tools on macOS, or Visual
+Studio Build Tools with the **Desktop development with C++** workload on Windows.
+
+Clone the repository and build the release executable:
+
+```sh
+git clone https://github.com/raman-dzehtsiar/cpath.git
+cd cpath
+cargo build --locked --release
+```
+
+The executable is saved to `target/release/cpath` on Linux and macOS, or
+`target\release\cpath.exe` on Windows. Copy it to a directory on your `PATH`.
+Alternatively, build and install in one step from the cloned repository:
+
+```sh
+cargo install --locked --path .
+```
 
 ## Limitations
 Initially, cpath was created as an assisting tool for a research project studying how code metrics affect
@@ -136,4 +159,4 @@ mentioned above, please send an email to [contact@cpath.app](mailto:contact@cpat
 
 ## License
 cpath’s original code is licensed under the MIT license. See [LICENSE.txt](LICENSE.txt).
-Third-party components retain their respective copyrights and licenses. 
+Third-party components retain their respective copyrights and licenses.

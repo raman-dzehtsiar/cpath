@@ -19,7 +19,7 @@ Bash (Linux, macOS, or WSL):
 ```bash
 cosign verify-blob \
   --bundle "cpath.sigstore.json" \
-  --certificate-identity "Raman.Dzehtsiar@hettica.com" \
+  --certificate-identity "raman.dzehtsiar@hettica.com" \
   --certificate-oidc-issuer "https://accounts.google.com" \
   "cpath"
 ```
@@ -29,7 +29,7 @@ PowerShell (Windows):
 ```powershell
 cosign verify-blob `
   --bundle "cpath.sigstore.json" `
-  --certificate-identity "Raman.Dzehtsiar@hettica.com" `
+  --certificate-identity "raman.dzehtsiar@hettica.com" `
   --certificate-oidc-issuer "https://accounts.google.com" `
   "cpath.exe"
 ```
